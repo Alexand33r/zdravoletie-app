@@ -52,7 +52,7 @@ def get_training_medians(features: tuple) -> dict:
     # Apply derived features before computing medians
     df = _add_derived_features(df)
     result = {}
-    for feat in _features:
+    for feat in features:
         if feat in df.columns:
             val = df[feat].median()
             if pd.notna(val):
