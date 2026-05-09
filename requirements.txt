@@ -1,0 +1,36 @@
+# Zdravoletie thesis project
+# Python 3.14.x
+# Install: pip install -r requirements.txt
+
+# Core data and ML
+numpy==2.4.2
+pandas==3.0.0
+scikit-learn==1.8.0
+scipy==1.17.1
+joblib==1.5.3
+
+# Visualisation
+matplotlib==3.10.8
+seaborn==0.13.2
+
+# Progress bars
+tqdm==4.67.3
+
+# SHAP explanations (TreeExplainer used throughout)
+shap==0.51.0
+
+# Jupyter execution
+notebook>=7.0.0
+nbconvert>=7.0.0
+ipykernel==7.2.0
+ipywidgets>=8.0.0
+
+# Streamlit dashboard (multi-page app with file upload and PDF export)
+streamlit==1.57.0
+
+# Data scraping (Data_Scraping.ipynb only)
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+
+# Excel file I/O
+openpyxl>=3.1.0

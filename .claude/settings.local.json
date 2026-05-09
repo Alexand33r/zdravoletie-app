@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c ' *)",
+      "Bash(python)",
+      "Bash(pip show *)",
+      "Bash(findstr /R \"^Name: ^Version:\")",
+      "Bash(pip list *)",
+      "PowerShell(python --version)",
+      "Bash(python *)",
+      "Bash(dir results\\\\experiment_1*)",
+      "Bash(pip install *)"
+    ]
+  }
+}

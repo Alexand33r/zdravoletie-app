@@ -1,0 +1,13 @@
+group,n_features,metric,mean,std,ci_lower,ci_upper
+G1_AnthroMetabolic,63,MAE,2.3874,0.8914,2.0546,2.7203
+G1_AnthroMetabolic,63,RMSE,3.0081,1.0495,2.6162,3.4
+G1_AnthroMetabolic,63,R2,-0.3346,0.8633,-0.6569,-0.0122
+G2_+Bioimpedance,73,MAE,2.4186,0.9242,2.0735,2.7636
+G2_+Bioimpedance,73,RMSE,3.0536,1.0754,2.6521,3.4551
+G2_+Bioimpedance,73,R2,-0.3749,0.9131,-0.7158,-0.0339
+G3_+PosturalRisk,83,MAE,2.4206,0.908,2.0816,2.7597
+G3_+PosturalRisk,83,RMSE,3.063,1.0532,2.6697,3.4563
+G3_+PosturalRisk,83,R2,-0.3742,0.8963,-0.7088,-0.0395
+G4_+JointAngles,88,MAE,2.4266,0.8954,2.0923,2.761
+G4_+JointAngles,88,RMSE,3.0501,1.0471,2.6591,3.4411
+G4_+JointAngles,88,R2,-0.3634,0.8948,-0.6975,-0.0293
