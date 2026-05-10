@@ -52,4 +52,7 @@
 - [x] thesis/results.md       (~1759 words — all tables with exact numbers, R2 caveat, significance tables)
 - [x] thesis/discussion.md    (~2904 words — 5 discussion points, all 4 limitations addressed)
 - [x] thesis/conclusion.md    (~1138 words — findings summary, 3 sub-question answers, limitations cross-ref, 6 future work items)
+- [x] thesis/abstract.md    (~303 words — research question, three experiments, Ridge exception, G1=G4, sample size caveat)
+- [x] thesis/ethics.md      (~800 words — GDPR classification, consent assumptions, data handling, production requirements)
+- [x] pages/0_About.py      (static About page: tool purpose, age gap vs clinical age, known limitations)
 - [ ] Competency portfolio
