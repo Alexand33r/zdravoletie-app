@@ -171,6 +171,36 @@ def population_hist_figure(
     return fig
 
 
+def population_scatter_figure(
+    df_pop: pd.DataFrame,
+    client_age: float | None,
+    client_gap: float,
+    client_label: str,
+) -> plt.Figure:
+    ages = df_pop["age"].dropna().values
+    gaps = df_pop["age_gap"].dropna().values
+    # Only use rows with both columns present
+    mask = df_pop["age"].notna() & df_pop["age_gap"].notna()
+    ages = df_pop.loc[mask, "age"].values
+    gaps = df_pop.loc[mask, "age_gap"].values
+
+    fig, ax = plt.subplots(figsize=(7, 4))
+    ax.scatter(ages, gaps, color="#aec6e8", alpha=0.7, s=40, edgecolors="white", linewidths=0.5, label="Population (n=158)")
+    if client_age is not None:
+        ax.scatter(
+            [client_age], [client_gap],
+            color="#d62728", s=90, zorder=5,
+            label=f"{client_label}: age {client_age:.0f}, gap {client_gap:+.2f} y",
+        )
+    ax.axhline(0, color="black", linewidth=0.8, linestyle="--", alpha=0.5)
+    ax.set_xlabel("Chronological age (years)", fontsize=10)
+    ax.set_ylabel("Age gap = bodyAge − age (years)", fontsize=10)
+    ax.set_title("Age vs Age Gap — Population Scatter", fontsize=11, fontweight="bold")
+    ax.legend(fontsize=9)
+    plt.tight_layout()
+    return fig
+
+
 # ── PDF generation ────────────────────────────────────────────────────────────
 
 def generate_pdf_report(

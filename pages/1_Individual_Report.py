@@ -97,6 +97,8 @@ st.session_state["active_label"]    = (
     f"{selected_name} ({client_records.iloc[scan_idx]['date_created'][:10]})"
 )
 st.session_state["active_source"]   = "database"
+if "age" in client_scan.columns:
+    st.session_state["active_age"] = float(client_scan["age"].iloc[0])
 
 # ── Metrics ───────────────────────────────────────────────────────────────────
 col1, col2, col3 = st.columns(3)

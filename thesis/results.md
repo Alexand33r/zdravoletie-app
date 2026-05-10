@@ -43,13 +43,34 @@ Table 4.2 presents the Wilcoxon signed-rank test results for all ten model pairs
 
 None of the ten pairwise comparisons reaches the Bonferroni-corrected threshold of 0.005. The closest comparison is SVR versus HistGradientBoosting, with a raw p-value of 0.0043 and an adjusted p-value of 0.0434. All ten results must therefore be characterised as inconclusive: the available data cannot establish whether any two models differ in their ability to approximate the Anovator bodyAge score at the required level of statistical confidence. The practical ranking places HistGradientBoosting first and SVR last by mean MAE, with the three remaining models clustered within 0.04 years of each other, but this ranking does not carry statistical certification.
 
+### 4.2.3 Per-Prediction Error Distribution and Clinical Reliability
+
+The fold-level mean MAE reported in Table 4.1 weights each of the 30 folds equally. A complementary view — weighting each individual prediction equally — is provided by collecting the absolute residual for every test-set record across all 30 folds, yielding 655 individual error observations for HistGradientBoosting.
+
+**Table 4.3 — Per-prediction absolute error distribution (HistGradientBoosting, 655 test predictions across 30 folds)**
+
+| Tolerance | Predictions within tolerance | Percentage |
+|---|---|---|
+| ≤ 0.5 years | 77 / 655 | 11.8% |
+| ≤ 1.0 years | 144 / 655 | 22.0% |
+| ≤ 2.0 years | 247 / 655 | 37.7% |
+| ≤ 3.0 years | 326 / 655 | 49.8% |
+
+The median absolute error across 655 individual predictions is 3.00 years; the 90th percentile is 6.84 years. These figures are substantially higher than the 2.43-year mean fold-level MAE reported in Table 4.1. The discrepancy arises from the GroupShuffleSplit structure interacting with the 103 records labelled "Unknown" in the name field, which are treated as a single group. When the Unknown group falls into a test fold — occurring approximately six times across 30 splits — all 103 of its records are evaluated by a model trained exclusively on named individuals, producing a sharp distribution shift that drives high errors in those folds. This subset dominates the per-prediction count (roughly 618 of 655 test-set records originate from Unknown-in-test folds) and inflates the individual-prediction error statistics relative to the fold-level MAE, which weights each fold equally regardless of its test-set size.
+
+Both measures are reported because they answer different questions. The fold-level mean MAE (2.43 years) answers: on average, how well does the model generalise across cross-validation folds of equal weight? The per-prediction error distribution answers: if a record is drawn at random from the full dataset and treated as a test case, how accurate is the prediction likely to be? Given the Unknown group composition of this dataset, the latter question is not cleanly answerable without separating the two subpopulations. What can be stated with confidence is that fewer than one in four predictions falls within one year of the true age gap under the leave-group-out protocol, which sets a realistic expectation for deployment accuracy and reinforces the characterisation of this model as a research instrument rather than a clinical-grade prediction tool.
+
 ## 4.3 Experiment 2: Synthetic Data Ablation
 
-### 4.3.1 Performance by Regime and Model
+### 4.3.1 Synthetic Data Fidelity
 
-Table 4.3 presents mean MAE with 95% confidence intervals for all five models under each of the three training regimes. All test evaluations use the same real held-out folds with true age_gap labels.
+Before reporting the ablation results, the quality of the GMM-generated synthetic population is assessed by comparing its pairwise correlation structure to that of the 158 real training records. The correlation matrix is computed over all 79 shared numeric features in both datasets. The mean absolute pairwise correlation difference between the real and synthetic matrices is 0.0244, and the Frobenius norm of the difference matrix is 2.46 over a 79×79 matrix (equivalent to a normalised value of 0.031 per feature). These figures indicate that the GMM synthesis preserves inter-feature relationships closely: the average pairwise correlation coefficient shifts by fewer than 0.025 units between the real and synthetic populations. This level of fidelity is adequate to justify treating the synthetic records as structurally plausible training augmentations, though it does not guarantee that rare or extreme phenotypes present in the real data are faithfully represented in the synthetic population.
 
-**Table 4.3 — Experiment 2: Mean MAE (95% CI) by model and training regime**
+### 4.3.2 Performance by Regime and Model
+
+Table 4.4 presents mean MAE with 95% confidence intervals for all five models under each of the three training regimes. All test evaluations use the same real held-out folds with true age_gap labels.
+
+**Table 4.4 — Experiment 2: Mean MAE (95% CI) by model and training regime**
 
 | Model | RealOnly | RealPlusSynth | SynthOnly |
 |---|---|---|---|
@@ -63,11 +84,11 @@ Under the RealPlusSynth regime, four of the five models show a reduction in mean
 
 The RMSE results follow the same ordinal pattern. Under RealPlusSynth, HistGradientBoosting achieves a mean RMSE of 2.70 years (95% CI [2.46, 2.94]) compared to 3.05 years under RealOnly. Under SynthOnly, Ridge's mean RMSE rises to 3.92 years (95% CI [2.85, 5.00]), while the ensemble models remain in the range of 2.74 to 2.88 years.
 
-### 4.3.2 Statistical Significance
+### 4.3.3 Statistical Significance
 
-Table 4.4 presents the statistically significant pairwise comparisons from Experiment 2, limited to MAE. Bonferroni correction is applied over three regime pairs per model, yielding a corrected threshold of 0.0167.
+Table 4.5 presents the statistically significant pairwise comparisons from Experiment 2, limited to MAE. Bonferroni correction is applied over three regime pairs per model, yielding a corrected threshold of 0.0167.
 
-**Table 4.4 — Experiment 2: Significant Wilcoxon results for MAE (Bonferroni alpha = 0.0167)**
+**Table 4.5 — Experiment 2: Significant Wilcoxon results for MAE (Bonferroni alpha = 0.0167)**
 
 | Model | Regime A | Regime B | p (raw) | p (adjusted) |
 |---|---|---|---|---|
@@ -83,9 +104,9 @@ Five comparisons reach significance. For HistGradientBoosting, RandomForest, Gra
 
 ### 4.4.1 Performance by Feature Group
 
-Table 4.5 presents mean MAE, RMSE, and R² with 95% confidence intervals for HistGradientBoosting under each of the four cumulative feature group conditions.
+Table 4.6 presents mean MAE, RMSE, and R² with 95% confidence intervals for HistGradientBoosting under each of the four cumulative feature group conditions.
 
-**Table 4.5 — Experiment 3: Mean performance metrics (95% CI) by feature group (HistGradientBoosting)**
+**Table 4.6 — Experiment 3: Mean performance metrics (95% CI) by feature group (HistGradientBoosting)**
 
 | Group | Features | MAE mean | MAE 95% CI | RMSE mean | RMSE 95% CI | R² mean | R² 95% CI |
 |---|---|---|---|---|---|---|---|
@@ -98,9 +119,9 @@ The anthropometric and metabolic group (G1) achieves the lowest mean MAE at 2.39
 
 ### 4.4.2 Statistical Significance
 
-Table 4.6 presents the Wilcoxon signed-rank test results for all six group pairs on MAE, with Bonferroni-corrected p-values and the corrected significance threshold of 0.0083.
+Table 4.7 presents the Wilcoxon signed-rank test results for all six group pairs on MAE, with Bonferroni-corrected p-values and the corrected significance threshold of 0.0083.
 
-**Table 4.6 — Experiment 3: Wilcoxon signed-rank test results for MAE (Bonferroni alpha = 0.0083)**
+**Table 4.7 — Experiment 3: Wilcoxon signed-rank test results for MAE (Bonferroni alpha = 0.0083)**
 
 | Group A | Group B | p (raw) | p (adjusted) | Significant |
 |---|---|---|---|---|

@@ -7,7 +7,7 @@ Requires an active scan from Individual Report or Upload New Scan.
 import numpy as np
 import streamlit as st
 
-from app_utils import load_population, population_hist_figure
+from app_utils import load_population, population_hist_figure, population_scatter_figure
 
 st.set_page_config(page_title="Population View — Zdravoletie", layout="wide")
 st.title("Population View")
@@ -25,6 +25,7 @@ if "active_gap" not in st.session_state:
 
 client_gap   = st.session_state["active_gap"]
 client_label = st.session_state["active_label"]
+client_age   = st.session_state.get("active_age", None)
 
 # ── Load population ───────────────────────────────────────────────────────────
 df_pop = load_population()
@@ -53,6 +54,22 @@ st.caption(
     "The histogram shows the real age_gap distribution of the 158 Anovator scan records "
     "used for model training. The dashed red line marks the current client's predicted age gap. "
     "The population percentile indicates what fraction of the 158 records have a lower age gap."
+)
+
+st.markdown("---")
+
+# ── Scatter plot: age vs age_gap ──────────────────────────────────────────────
+st.subheader("Chronological Age vs Age Gap")
+
+fig_scatter = population_scatter_figure(df_pop, client_age, client_gap, client_label)
+st.pyplot(fig_scatter)
+
+st.caption(
+    "Each point represents one of the 158 Anovator scan records. "
+    "The horizontal dashed line at zero marks no difference between bodyAge and chronological age. "
+    "Points above the line have a bodyAge higher than their chronological age; points below are the reverse. "
+    + ("The red point marks the current client." if client_age is not None
+       else "Client age is not available for uploaded scans; the population points are shown without a client marker.")
 )
 
 st.markdown("---")

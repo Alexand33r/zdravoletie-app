@@ -145,6 +145,10 @@ st.session_state["active_shap"]     = shap_vals
 st.session_state["active_features"] = features
 st.session_state["active_label"]    = client_name
 st.session_state["active_source"]   = "upload"
+if "age" in scan_row.columns and pd.notna(scan_row["age"].iloc[0]):
+    st.session_state["active_age"] = float(scan_row["age"].iloc[0])
+elif "active_age" in st.session_state:
+    del st.session_state["active_age"]
 
 # ── Display results ───────────────────────────────────────────────────────────
 direction = "above" if gap >= 0 else "below"

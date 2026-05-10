@@ -77,13 +77,21 @@ When tempted, stop. Note in `future_work.md` and move on.
 
 ## Phase plan with dates
 
-- **Phase 1 — Stabilization: May 8-15.** Fix all 11 known bugs. Set up `config.py`, `requirements.txt`, repo-root `make_all.py` to run full pipeline. Add this CLAUDE.md.
-- **Phase 2 — Core experiments: May 15 - June 5.** Run Experiments 1, 2, 3 with full statistical rigor. Save all results to `results/` as CSVs and figures.
-- **Phase 3 — Product polish: June 5-15.** Streamlit app: file upload, population view, PDF export, deployed to Streamlit Community Cloud.
-- **Phase 4 — Writing: June 15-22.** Graduation report and competency portfolio. No new code, no new experiments.
+- **Phase 1 — Stabilization. COMPLETE.** Fixed 11 bugs. Built `config.py`, `requirements.txt`, `make_all.py`. Wrote CLAUDE.md.
+- **Phase 2 — Core experiments. COMPLETE.** Ran Experiments 1, 2, 3 with full statistical rigor. All results saved to `results/`. Thesis chapters methodology, results, discussion written.
+- **Phase 3 — Product polish. COMPLETE.** Multi-page Streamlit app (file upload, population view, PDF export, About page). Deployed to Streamlit Community Cloud.
+- **Extended improvement phase: May 10 - June 5.** Deepening thesis quality and dashboard depth. See "Current improvement priorities" below.
+- **Phase 4 — Writing finalisation: June 5-22.** Graduation report and competency portfolio. No new experiments.
 - **Buffer: June 22 - July 4.** Presentation prep only.
 
-If a phase finishes early, do not start the next one's work scope-wise — instead, deepen the current phase's quality.
+## Current improvement priorities
+
+Work through these in order. Do not skip ahead. Do not add tasks beyond these four.
+
+1. **SHAP interpretation text in thesis/discussion.md** — add a subsection explaining what the top SHAP features mean physiologically for this population (fat distribution, muscle mass, postural risk scores, bioimpedance).
+2. **Clinical reliability curve in thesis/results.md** — compute and report what percentage of predictions fall within 0.5 and 1.0 year of the true age gap across all 30 folds; add as a new subsection.
+3. **Synthetic data fidelity metric in thesis/results.md** — report the correlation matrix drift (Frobenius norm of the difference between real and synthetic correlation matrices = 0.0217) as a validation of the GMM synthesis quality.
+4. **Scatter plot in pages/3_Population_View.py** — add age vs age_gap scatter plot for all 158 records with the current client marked, alongside the existing histogram.
 
 ## Repo conventions
 

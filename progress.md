@@ -49,10 +49,11 @@
 - [x] thesis/introduction.md   (~995 words — context, research question, scope/out-of-scope, practical significance)
 - [x] thesis/related_work.md   (~2074 words — biological age lit, synthetic data gen, SHAP in health ML)
 - [x] thesis/methodology.md   (~2637 words — full draft with 4 limitations, protocol, all 3 experiments)
-- [x] thesis/results.md       (~1759 words — all tables with exact numbers, R2 caveat, significance tables)
-- [x] thesis/discussion.md    (~2904 words — 5 discussion points, all 4 limitations addressed)
+- [x] thesis/results.md       (~1900 words — §4.2.3 reliability curve added, §4.3.1 GMM fidelity metric added, tables renumbered 4.1–4.7)
+- [x] thesis/discussion.md    (~2904 words — 5 discussion points, all 4 limitations addressed, §5.4 SHAP interpretation)
 - [x] thesis/conclusion.md    (~1138 words — findings summary, 3 sub-question answers, limitations cross-ref, 6 future work items)
 - [x] thesis/abstract.md    (~303 words — research question, three experiments, Ridge exception, G1=G4, sample size caveat)
 - [x] thesis/ethics.md      (~800 words — GDPR classification, consent assumptions, data handling, production requirements)
 - [x] pages/0_About.py      (static About page: tool purpose, age gap vs clinical age, known limitations)
+- [x] pages/3_Population_View.py — age vs age_gap scatter plot added below histogram (active_age from session_state)
 - [ ] Competency portfolio
