@@ -6,6 +6,7 @@ deploys to Streamlit Community Cloud without modification.
 
 from io import BytesIO
 from datetime import date
+from typing import Optional
 
 import json
 import joblib
@@ -173,7 +174,7 @@ def population_hist_figure(
 
 def population_scatter_figure(
     df_pop: pd.DataFrame,
-    client_age: float | None,
+    client_age: Optional[float],
     client_gap: float,
     client_label: str,
 ) -> plt.Figure:
