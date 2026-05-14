@@ -42,7 +42,7 @@
       - pages/2_Upload_New_Scan.py: CSV upload, column validation, prediction, risk/protective factors
       - pages/3_Population_View.py: histogram with client marked, percentile stats
       - pages/4_Export_PDF.py: matplotlib PDF download (46 KB, one-page report)
-- [ ] Deploy to Streamlit Community Cloud (see deployment checklist below)
+- [x] Deploy to Streamlit Community Cloud — live at https://zdravoletie-app-r59gvphlkih7549cgipbgt.streamlit.app/
 
 ## Phase 4 — Writing (June 15-22)
 

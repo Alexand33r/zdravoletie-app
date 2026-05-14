@@ -1,5 +1,5 @@
 """
-Page 2 — Upload New Scan  (Priority 1 feature)
+Page 2 — Upload New Scan
 Upload a CSV with the same column structure as the Anovator training data.
 Validates the file, runs prediction, stores results in session_state.
 """
@@ -11,6 +11,9 @@ import pandas as pd
 import streamlit as st
 
 from app_utils import (
+    get_text,
+    render_sidebar_header,
+    render_sidebar_footer,
     load_assets,
     load_population,
     get_explainer,
@@ -23,12 +26,14 @@ from app_utils import (
 )
 
 st.set_page_config(page_title="Upload New Scan — Zdravoletie", layout="wide")
-st.title("Upload New Scan")
-st.markdown(
-    "Upload a CSV export from an Anovator scan session. "
-    "The file must contain the raw biometric columns — derived features and age gap "
-    "are computed automatically."
-)
+
+# ── Sidebar ───────────────────────────────────────────────────────────────────
+lang = render_sidebar_header()
+render_sidebar_footer(lang)
+
+# ── Page header ───────────────────────────────────────────────────────────────
+st.title(get_text("page_upload_title", lang))
+st.markdown(get_text("page_upload_desc", lang))
 
 # ── Load assets ───────────────────────────────────────────────────────────────
 model, scaler, features, stored_medians = load_assets()
@@ -36,68 +41,68 @@ explainer = get_explainer(model)
 medians   = stored_medians if stored_medians else get_training_medians(tuple(features))
 
 # ── Template download ─────────────────────────────────────────────────────────
-st.subheader("Step 1 — Download the column template")
+st.subheader(get_text("step1_header", lang))
 template_csv = make_template_csv(features)
 st.download_button(
-    label="Download CSV template",
+    label=get_text("btn_download_template", lang),
     data=template_csv,
     file_name="anovator_scan_template.csv",
     mime="text/csv",
-    help="Open in Excel or a text editor, fill in your scan values, then upload below.",
+    help=get_text("upload_help", lang),
 )
-st.caption(
-    "The template contains all expected column headers. "
-    "Fill in one row per scan. Columns left blank are imputed with training-set medians."
-)
+st.caption(get_text("template_caption", lang))
 
 st.markdown("---")
 
 # ── File upload ───────────────────────────────────────────────────────────────
-st.subheader("Step 2 — Upload your completed CSV")
+st.subheader(get_text("step2_header", lang))
 
 uploaded_file = st.file_uploader(
-    "Choose a CSV file",
+    get_text("upload_label", lang),
     type=["csv"],
-    help="Must be a UTF-8 CSV with Anovator biometric columns.",
+    help=get_text("upload_help", lang),
 )
 
 if uploaded_file is None:
-    st.info("No file uploaded yet.")
+    st.info(get_text("no_file_info", lang))
     st.stop()
 
 # ── Parse ─────────────────────────────────────────────────────────────────────
 try:
     df_upload = pd.read_csv(uploaded_file)
 except Exception as e:
-    st.error(f"Could not parse the file as CSV: {e}")
+    st.error(get_text("err_parse_csv", lang) + str(e))
     st.stop()
 
 if df_upload.empty:
-    st.error("The uploaded file contains no data rows.")
+    st.error(get_text("err_empty_file", lang))
     st.stop()
 
-st.success(f"File loaded: {len(df_upload)} row(s), {len(df_upload.columns)} columns.")
+st.success(
+    get_text("file_loaded", lang).format(rows=len(df_upload), cols=len(df_upload.columns))
+)
 
 # ── Validate ──────────────────────────────────────────────────────────────────
 ok, missing_required, imputed_feats = validate_upload(df_upload, features)
 
 if not ok:
     st.error(
-        f"The file is missing {len(missing_required)} required column(s) that cannot be imputed:\n\n"
-        + "\n".join(f"- `{c}`" for c in missing_required)
-        + "\n\nDownload the template above, add these columns, and re-upload."
+        f"**{get_text('err_missing_cols_title', lang)}**\n\n"
+        + get_text("err_missing_cols_body", lang).format(n=len(missing_required))
     )
+    st.markdown(f"**{get_text('err_missing_cols_listed', lang)}**")
+    for col in missing_required:
+        st.code(col)
     st.stop()
 
 if imputed_feats:
-    with st.expander(f"{len(imputed_feats)} column(s) not found — will be imputed with training medians"):
+    with st.expander(get_text("imputed_expander", lang).format(n=len(imputed_feats))):
         st.write(imputed_feats)
 
 # ── Row selection (if multiple rows uploaded) ──────────────────────────────────
 if len(df_upload) > 1:
-    st.subheader("Step 3 — Select which scan to analyse")
+    st.subheader(get_text("step3_header", lang))
 
-    # Try to show a useful label column
     label_col = next(
         (c for c in ("name", "date_created", "id") if c in df_upload.columns),
         None,
@@ -110,7 +115,7 @@ if len(df_upload) > 1:
     else:
         row_labels = [f"Row {i + 1}" for i in range(len(df_upload))]
 
-    chosen_label = st.selectbox("Scan row", row_labels)
+    chosen_label = st.selectbox(get_text("lbl_scan_row", lang), row_labels)
     chosen_idx   = row_labels.index(chosen_label)
 else:
     chosen_idx   = 0
@@ -127,16 +132,16 @@ else:
     client_name = f"Uploaded client ({chosen_label})"
 
 st.markdown("---")
-st.subheader("Step 4 — Results")
+st.subheader(get_text("step4_header", lang))
 
 # ── Predict ───────────────────────────────────────────────────────────────────
-with st.spinner("Running prediction..."):
+with st.spinner(get_text("spinner_prediction", lang)):
     try:
         gap, shap_vals, X_scaled = predict_and_explain(
             scan_row, model, scaler, features, medians, explainer
         )
     except Exception as e:
-        st.error(f"Prediction failed: {e}")
+        st.error(get_text("err_prediction_failed", lang) + str(e))
         st.stop()
 
 # ── Store in session_state ────────────────────────────────────────────────────
@@ -151,26 +156,27 @@ elif "active_age" in st.session_state:
     del st.session_state["active_age"]
 
 # ── Display results ───────────────────────────────────────────────────────────
-direction = "above" if gap >= 0 else "below"
+direction_key = "direction_above" if gap >= 0 else "direction_below"
+direction_str = get_text(direction_key, lang)
+interp = get_text("interpretation_fmt", lang).format(val=abs(gap), direction=direction_str)
 
 col1, col2 = st.columns(2)
-col1.metric("Predicted age gap", f"{gap:+.2f} years")
-col2.metric(
-    "Interpretation",
-    f"{abs(gap):.2f} y {direction} chronological age",
-)
+col1.metric(get_text("metric_predicted_gap", lang), f"{gap:+.2f} y")
+col2.metric(get_text("metric_interpretation", lang), interp)
 
 st.markdown("---")
 
 # ── SHAP bar chart ────────────────────────────────────────────────────────────
-st.subheader("Feature Contributions")
-fig = shap_bar_figure(shap_vals, features, title=f"Feature Contributions — {client_name}")
+st.subheader(get_text("section_feature_contributions_upload", lang))
+
+with st.spinner(get_text("spinner_computing", lang)):
+    fig = shap_bar_figure(
+        shap_vals, features,
+        title=f"{get_text('section_feature_contributions_upload', lang)} — {client_name}",
+    )
 st.pyplot(fig)
 
-st.caption(
-    "Red features push the predicted age gap upward (biological ageing accelerators). "
-    "Blue features push it downward (protective factors). Values are in years."
-)
+st.caption(get_text("shap_caption_upload", lang))
 
 # ── Top risk and protective factors ──────────────────────────────────────────
 pos_idx = np.argsort(shap_vals)[::-1]
@@ -182,23 +188,20 @@ top_protective = [(features[i], shap_vals[i]) for i in neg_idx if shap_vals[i] <
 col_r, col_p = st.columns(2)
 
 with col_r:
-    st.subheader("Top ageing accelerators")
+    st.subheader(get_text("section_top_risk", lang))
     if top_risk:
         for feat, val in top_risk:
             st.write(f"**{feat}**: +{val:.3f} y")
     else:
-        st.write("No features increasing the age gap.")
+        st.write(get_text("no_risk_features", lang))
 
 with col_p:
-    st.subheader("Top protective factors")
+    st.subheader(get_text("section_top_protective", lang))
     if top_protective:
         for feat, val in top_protective:
             st.write(f"**{feat}**: {val:.3f} y")
     else:
-        st.write("No features reducing the age gap.")
+        st.write(get_text("no_protective_features", lang))
 
 st.markdown("---")
-st.info(
-    "Results stored. Navigate to **Population View** to see where this client sits "
-    "in the full distribution, or **Export PDF** to download a report."
-)
+st.info(get_text("nav_tip_upload", lang))

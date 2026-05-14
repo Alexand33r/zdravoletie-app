@@ -17,6 +17,8 @@ import matplotlib.gridspec as gridspec
 import shap
 import streamlit as st
 
+from translations import TRANSLATIONS
+
 
 # ── Asset loading (cached for the session lifetime) ───────────────────────────
 
@@ -297,3 +299,73 @@ def make_template_csv(features: list) -> str:
     raw_cols = [c for c in df.columns if c not in derived and c != "age_gap"]
     template = pd.DataFrame(columns=raw_cols)
     return template.to_csv(index=False)
+
+
+# ── UI helpers (language, sidebar) ────────────────────────────────────────────
+
+_LOGO_SVG_SIDEBAR = """
+<div style="text-align:center; padding: 8px 0 4px 0;">
+  <svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="22" cy="22" r="21" fill="#2E7D32"/>
+    <text x="22" y="22" dominant-baseline="central" text-anchor="middle"
+      font-family="sans-serif" font-size="24" font-weight="bold" fill="white">Z</text>
+  </svg>
+  <div style="font-weight:700; font-size:13px; color:#2E7D32; margin-top:3px; letter-spacing:0.5px;">
+    Zdravoletie AI
+  </div>
+</div>
+"""
+
+_LOGO_SVG_LANDING = """
+<div style="text-align:center; margin-bottom:12px;">
+  <svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="36" cy="36" r="34" fill="#2E7D32"/>
+    <text x="36" y="36" dominant-baseline="central" text-anchor="middle"
+      font-family="sans-serif" font-size="40" font-weight="bold" fill="white">Z</text>
+  </svg>
+</div>
+"""
+
+
+def get_text(key: str, lang: str) -> str:
+    """Look up a translated string from TRANSLATIONS.
+    Falls back to English if the key or language is missing.
+    """
+    entry = TRANSLATIONS.get(key)
+    if entry is None:
+        return key
+    return entry.get(lang) or entry.get("en") or key
+
+
+def render_sidebar_header() -> str:
+    """Render the consistent sidebar header (logo, app name, language toggle).
+    Must be called before any page-specific sidebar widgets.
+    Returns the active language code: 'en' or 'bg'.
+    """
+    if "language" not in st.session_state:
+        st.session_state["language"] = "en"
+
+    st.sidebar.markdown(_LOGO_SVG_SIDEBAR, unsafe_allow_html=True)
+    st.sidebar.markdown("---")
+
+    lang = st.session_state["language"]
+    idx = 0 if lang == "en" else 1
+    choice = st.sidebar.selectbox(
+        "English / Български",
+        ["English", "Български"],
+        index=idx,
+        key="lang_select",
+    )
+    st.session_state["language"] = "en" if choice == "English" else "bg"
+    return st.session_state["language"]
+
+
+def render_sidebar_footer(lang: str) -> None:
+    """Render the disclaimer at the bottom of the sidebar."""
+    st.sidebar.markdown("---")
+    st.sidebar.caption(get_text("disclaimer", lang))
+
+
+def landing_logo_html() -> str:
+    """Return the large landing-page Z logo as an HTML string."""
+    return _LOGO_SVG_LANDING
