@@ -56,4 +56,7 @@
 - [x] thesis/ethics.md      (~800 words — GDPR classification, consent assumptions, data handling, production requirements)
 - [x] pages/0_About.py      (static About page: tool purpose, age gap vs clinical age, known limitations)
 - [x] pages/3_Population_View.py — age vs age_gap scatter plot added below histogram (active_age from session_state)
-- [ ] Competency portfolio
+- [x] main.tex hardcoded Section~3.9 references fixed to \ref{sec:limitations} (lines 904, 971); hyperref moved after natbib
+- [x] thesis/PoA_full.tex created — standalone LaTeX PoA with MoSCoW table, TOKIO tables, risk matrix longtable, Gantt longtable
+- [x] thesis/presentation_outline.md created — 10-slide, 15-min defence outline with examiner Q&A per slide
+- [ ] Competency portfolio — personal fills (student number, reflection paragraphs) — human only

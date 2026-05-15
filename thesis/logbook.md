@@ -16,11 +16,9 @@
 
 **Decisions made:** Decided that the primary target variable should be the age gap (bodyAge minus chronological age) rather than bodyAge directly. The motivation was to remove the trivially predictable chronological age component from the learning problem and focus modelling effort on the physiological deviation the Anovator formula computes.
 
-**Communication:** Kickoff meeting with Kostadin Galchin at Zdravoletie. Discussed the clinic's use of the Anovator system in advising clients, and the practical value of understanding which biometric measurements drive the bodyAge score. Galchin confirmed full autonomy on the technical direction of the project.
+**Communication:** Kickoff meeting with Kostadin Galchin at Zdravoletie. Discussed the clinic's use of the Anovator system in advising clients and the practical value of understanding which biometric measurements drive the bodyAge score. There were no formal onboarding procedures — Galchin confirmed full autonomy on the technical direction from the outset, which meant the research scope and methodology would be self-determined. The first week was spent getting familiar with the data formats, understanding the business context, and aligning on the end goals rather than receiving structured guidance.
 
-**Challenges:** The Anovator web interface does not expose a public API. Understanding how to extract records programmatically — or whether manual export was the only option — required more time than expected at the outset.
-
-**[ALEXANDER TO FILL]:** Any specific orientation activities during the first week, initial impressions of the clinic environment, and whether there were any onboarding formalities from Fontys's side. - No impressions just getting familiar with the formats of the data, the issue in the buisness context and aligning the end goals with my company supervisour.
+**Challenges:** The Anovator web interface does not expose a public API. Understanding how to extract records programmatically — or whether manual export was the only option — required more time than expected and became the first independent problem to solve without technical support from the company side.
 
 ---
 
@@ -51,7 +49,7 @@ This step created an Excel file - Anovator_Links.xlsx,
 
 **Decisions made:** Decided to retain records with fat segment discrepancies rather than exclude them. The discrepancy appeared in a minority of records and was consistent with potential rounding behaviour in the Anovator platform rather than extraction errors. Excluding records based on this criterion would have reduced an already small dataset without a methodologically justified basis.
 
-**Communication:** [ALEXANDER TO FILL: any communication this week with supervisors.]
+**Communication:** [ALEXANDER TO FILL: any communication this week with supervisors.] - Just the communication of switching the target varuable for the model, the company supervsour agreed on this. 
 
 **Challenges:** Determining whether the fat segment discrepancy was a data extraction error or a property of the Anovator system's own computation required careful comparison of multiple records and cross-checking field definitions in the Anovator documentation.
 
@@ -69,11 +67,11 @@ logic behind them
 
 **Decisions made:** Chose median imputation using the training fold median over mean or constant-value imputation. The feature distributions were skewed and median imputation is more robust to outliers. Decided to retain the five near-constant features and the two sentinel-encoded features for consistency with the production model artifact being built in Health_Pipeline.ipynb, and to document both as limitations.
 
-**Communication:** [ALEXANDER TO FILL: any communication this week with supervisors.]
+**Communication:** [ALEXANDER TO FILL: any communication this week with supervisors.] - Again just presenting the features whihc would be removed for the final model chosen. 
 
 **Challenges:** Determining the final feature set required iterative analysis — not all Anovator output fields could be used as model inputs, and some fields carried no information across most records.
 
-**[ALEXANDER TO FILL]:** Whether any domain guidance from Galchin or external sources influenced which features to include.
+**[ALEXANDER TO FILL]:** Whether any domain guidance from Galchin or external sources influenced which features to include. - Not really, from my analysis i shoewd to kostadin which features would be removed as they had no impact or little impact for the final model and he agreed with them.
 
 ---
 
@@ -83,11 +81,11 @@ logic behind them
 
 **Decisions made:** Selected the five model families to span linear (Ridge), kernel (SVR), and ensemble (RandomForest, GradientBoosting, HistGradientBoosting) approaches. Decided against including neural networks on the grounds that 158 records is below the data scale at which meaningful neural training is feasible. No hyperparameter search was conducted at this stage; the focus was on establishing baselines.
 
-**Communication:** [ALEXANDER TO FILL: any communication this week with supervisors.]
+**Communication:** [ALEXANDER TO FILL: any communication this week with supervisors.] - No communication fot this week.
 
 **Challenges:** The R² of 0.98 was surprising given the dataset size. At this stage it was interpreted as a strong initial result. The evaluation protocol at this point was not fully specified — the circular benchmarking issue that would later be identified had not yet been noticed.
 
-**[ALEXANDER TO FILL]:** Whether the R²=0.98 result was shared with anyone at this stage, and whether it prompted any immediate scepticism.
+**[ALEXANDER TO FILL]:** Whether the R²=0.98 result was shared with anyone at this stage, and whether it prompted any immediate scepticism. - This result wasnot communicated with anyone, at this stage it was just a milestone which had to be later verifed/evlauted using the appropiate metrices. 
 
 ---
 
@@ -97,11 +95,11 @@ logic behind them
 
 **Decisions made:** Selected five GMM components based on the approximate number of distinguishable body composition profiles in the dataset. Decided to use the production model (trained on all 158 records) as the pseudo-label source for the synthetic data, establishing a teacher-student distillation design.
 
-**Communication:** [ALEXANDER TO FILL: any communication this week with supervisors.]
+**Communication:** [ALEXANDER TO FILL: any communication this week with supervisors.] - A short presneration of results and tehcnieques, with the feedback of having to be more clear and inshifhtful when presenting to buisness owenrs/stake holdeers with no so technical background and understanding.
 
 **Challenges:** Writing the methodology section of the interim report was difficult because the project framing at this stage centred on "predicting biological age" — a framing that would later be identified as incorrect at the midterm review. The R²=0.98 result dominated the preliminary results section.
 
-**[ALEXANDER TO FILL]:** Any specific feedback from Galchin on the synthetic data approach or the preliminary results.
+**[ALEXANDER TO FILL]:** Any specific feedback from Galchin on the synthetic data approach or the preliminary results. - No feedback from Galchin on the approaches or technique used, just his overall encourgement to conutnie doing my work and trying to rpesent understnable and clear results for buisness oweners. 
 
 ---
 

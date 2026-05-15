@@ -80,18 +80,39 @@ When tempted, stop. Note in `future_work.md` and move on.
 - **Phase 1 — Stabilization. COMPLETE.** Fixed 11 bugs. Built `config.py`, `requirements.txt`, `make_all.py`. Wrote CLAUDE.md.
 - **Phase 2 — Core experiments. COMPLETE.** Ran Experiments 1, 2, 3 with full statistical rigor. All results saved to `results/`. Thesis chapters methodology, results, discussion written.
 - **Phase 3 — Product polish. COMPLETE.** Multi-page Streamlit app (file upload, population view, PDF export, About page). Deployed to Streamlit Community Cloud.
-- **Extended improvement phase: May 10 - June 5.** Deepening thesis quality and dashboard depth. See "Current improvement priorities" below.
-- **Phase 4 — Writing finalisation: June 5-22.** Graduation report and competency portfolio. No new experiments.
-- **Buffer: June 22 - July 4.** Presentation prep only.
+- **Extended improvement phase. COMPLETE.** SHAP interpretation text, clinical reliability curve, GMM fidelity metric, scatter plot — all done.
+- **Phase 4 — Writing finalisation: June 5–22. IN PROGRESS.** Graduation report complete. Remaining: competency portfolio (personal fills), PoA_full.tex, presentation_outline.md.
+- **Buffer: June 22 – July 4.** Presentation prep only.
 
-## Current improvement priorities
+## Current status
 
-Work through these in order. Do not skip ahead. Do not add tasks beyond these four.
+All experimental work and thesis writing are complete. What exists in `thesis/`:
 
-1. **SHAP interpretation text in thesis/discussion.md** — add a subsection explaining what the top SHAP features mean physiologically for this population (fat distribution, muscle mass, postural risk scores, bioimpedance).
-2. **Clinical reliability curve in thesis/results.md** — compute and report what percentage of predictions fall within 0.5 and 1.0 year of the true age gap across all 30 folds; add as a new subsection.
-3. **Synthetic data fidelity metric in thesis/results.md** — report the correlation matrix drift (Frobenius norm of the difference between real and synthetic correlation matrices = 0.0217) as a validation of the GMM synthesis quality.
-4. **Scatter plot in pages/3_Population_View.py** — add age vs age_gap scatter plot for all 158 records with the current client marked, alongside the existing histogram.
+| File | Status |
+|---|---|
+| `main.tex` | Complete — 1053 lines, all six chapters + ethics appendix, compiles cleanly |
+| `references.bib` | Complete — 10 entries, all cited in main.tex |
+| `introduction.md`, `related_work.md`, `methodology.md`, `results.md`, `discussion.md`, `conclusion.md` | Complete — source markdown for all six chapters |
+| `abstract.md` | Complete |
+| `ethics.md` | Complete |
+| `portfolio_references.md` | Complete — 4 sources for competency portfolio |
+| `PoA_full.md` | Complete — full Plan of Approach in markdown |
+| `logbook.md` | Complete |
+| `competency_portfolio.md` | Partial — structure and evidence complete; personal fills (student number, reflection text) pending — human only |
+| `gantt.md` | Complete |
+| `plan_of_approach.md` | Complete (short version) |
+| `PoA_full.tex` | Missing — needs to be created from PoA_full.md |
+| `presentation_outline.md` | Missing — needs to be created |
+
+## Remaining tasks
+
+These are the only remaining items. Do not add others.
+
+- (a) Fix the two hardcoded `Section~3.9` literal strings in `main.tex` (lines 904 and 971) to use `\ref{}`.
+- (b) Move hyperref package load to after natbib in `main.tex`.
+- (c) Create `thesis/PoA_full.tex` — standalone LaTeX from `thesis/PoA_full.md`.
+- (d) Create `thesis/presentation_outline.md` — 15-minute oral defence outline, 10 slides.
+- (e) Competency portfolio personal fills — student number, personal reflection paragraphs — **human only, not Claude's task**.
 
 ## Repo conventions
 
