@@ -1,7 +1,7 @@
 # Competency Portfolio
 
 **Student:** Alexander Tanev
-**Student number:** [ALEXANDER TO FILL]
+**Student number:** 4878248
 **Programme:** BSc Applied Mathematics, Data Science major
 **Institution:** Fontys University of Applied Sciences
 **Company:** Zdravoletie Health and Rehabilitation Centre, Varna, Bulgaria
@@ -28,7 +28,8 @@ Communication with Galchin required a consistent translation effort. Progress up
 
 **Beginning of the internship:**
 
-[ALEXANDER TO FILL — Describe the initial meeting with Kostadin Galchin where the research direction was discussed and you converged on the age gap approach. The paragraph should cover: what the situation was at the start of the project (did Galchin have a specific request or was the direction open?), how you communicated the distinction between predicting the raw bodyAge score and predicting the age gap, what Galchin's response was to this framing, and what the outcome was in terms of the agreed research direction and working relationship. Approximately 200 words.]
+The internship began through a mutual connection who identified an alignment between my background in data analysis and Zdravoletie's need for independent research on their Anovator biometric data. The initial meeting with Kostadin Galchin was exploratory rather than directive — he had no specific technical request, only a broader goal: to use the data he had collected to give clients better, evidence-based advice on longevity and health risk. Early discussions ranged widely, including the possibility of incorporating publicly available Bulgarian national health data, but we converged on a more focused scope appropriate to the graduation internship constraints.
+The first significant decision I proposed was to shift the modelling target away from the Anovator hardware Score, which initial analysis showed to be effectively constant across 85% of clients, toward the age gap — the difference between bodyAge and chronological age. I explained this to Galchin not in statistical terms but in practical ones: the Score told consultants almost nothing useful, while the age gap offered a continuous, sensitive measure that could actually differentiate between clients and track progress over time. Galchin accepted this framing and from that point confirmed full autonomy on the technical direction, with his role being to validate that the research stayed aligned with what would genuinely benefit the business. This established the working pattern that defined the rest of the internship — independent analytical decision-making on my side, accessible communication and directional confirmation on his.
 
 **Middle of the internship — midterm review with Peter Alem:**
 
@@ -60,7 +61,9 @@ Five distinct communication forms were used across the project. Each was chosen 
 
 **Reflection Report 1 — February 2026 (beginning of internship):**
 
-[ALEXANDER TO FILL — Write approximately 200 words describing your state at the start of the internship. Consider: your initial confidence level about the technical work, any anxiety or uncertainty about working in an unstructured company environment without a technical supervisor, whether you had a clear idea of what the research question should be, and what your initial assumptions were about the difficulty of the project. Be honest about both confidence and doubt. The reflection should be written in first person and describe your mental state and approach at that time, not an idealised version of it.]
+At the start of the internship I was confident in my technical, analytical, and mathematical abilities. The modelling work itself did not feel intimidating — I had a solid foundation in machine learning and statistics and trusted my ability to work through technical problems independently. The uncertainty lay elsewhere.
+Professionally, I was aware of gaps I had not yet fully addressed. Communication had never been a natural strength — I tended to present technical work in technical terms without translating it into what it meant for the person I was talking to. Reliability and consistency in a professional context, rather than an academic one, were also areas I knew needed development. The prospect of working without a technical supervisor felt like both a relief and a risk at the same time. On one side, there would be no pressure to present, explain, and justify every decision constantly. On the other, those pressures are exactly what develop professional skills, and avoiding them meant I would have to create that pressure for myself.
+I did not have a clear research question going in. Peter Alem had advised that this was normal — research directions shift once you engage with the real data and the real constraints. I accepted that, though I had some quiet concern about whether the project scope would be substantial enough for a graduation thesis. I committed to staying consistent and letting the work develop, while acknowledging that the professional side of the internship would require as much effort as the technical side. 
 
 **Reflection Report 2 — April 2026 (after midterm feedback):**
 
@@ -74,13 +77,13 @@ The midterm feedback confronted me with a gap between the confidence I had devel
 
 ### 1.5 Sources for Professionalisation Competency
 
-[TWO SOURCES NEEDED — The following are suggested starting points. Search and verify before adding:
+Schön, D. A. (1983). *The Reflective Practitioner: How Professionals Think in Action*. Basic Books.
 
-1. For science communication to non-technical audiences: consider Nisbet, M.C., & Scheufele, D.A. (2009), "What's next for science communication? Promising directions and lingering distractions," *American Journal of Botany*, 96(10), 1767–1778; or Featherstone, H., & Hendry, J. (2012), *Science Communication in Practice*; or a chapter on stakeholder communication from a professional engineering ethics or practice text.
+Schön's foundational account of reflection-in-action and reflection-on-action — the capacity of practitioners to think critically about their own practice while doing it and after the fact — directly informs the three reflection reports in Section 1.4, particularly the midterm reflection on the project reframing: recognising and correcting a flawed framing in response to expert feedback is a textbook instance of the reflective competence Schön describes.
 
-2. For reflective practice and professional development: consider Schon, D.A. (1983), *The Reflective Practitioner: How Professionals Think in Action*; or Moon, J.A. (2004), *A Handbook of Reflective and Experiential Learning: Theory and Practice*; or Kolb, D.A. (1984), *Experiential Learning: Experience as the Source of Learning and Development*.
+Nisbet, M. C., & Scheufele, D. A. (2009). What's next for science communication? Promising directions and lingering distractions. *American Journal of Botany*, 96(10), 1767–1778. https://doi.org/10.3732/ajb.0900041
 
-Replace these suggestions with the actual sources you choose to use, formatted in APA 7 citation style.]
+This paper analyses the challenge of translating scientific findings for non-specialist audiences and identifies stakeholder-oriented framing as a key strategy — directly applicable to the challenge of communicating a machine learning research project to a clinical company supervisor with no statistical background.
 
 ---
 
@@ -88,7 +91,11 @@ Replace these suggestions with the actual sources you choose to use, formatted i
 
 ### 2.1 The Learning Objective
 
-[ALEXANDER TO FILL — Copy here the exact text of your learning objective as written and submitted to Fontys. Do not paraphrase or rewrite it. If the objective was written in Dutch, reproduce it in Dutch here and provide an English translation directly below it.]
+The learning objective for this internship is to strengthen my ability to communicate analytical results clearly and effectively to non-technical stakeholders and to translate data-driven insights into actionable recommendations.
+
+This will be achieved by regularly presenting intermediate results to the company supervisor, discussing assumptions, limitations, and implications of the models, and adapting my communication style based on stakeholder feedback. Active participation in feedback discussions will be used to improve clarity, alignment, and professional interaction.
+
+Progress will be measured by the quality and consistency of stakeholder feedback, the level of alignment between analytical outcomes and stakeholder expectations, and the ability to independently lead result discussions and decision-oriented conversations.
 
 ---
 
@@ -116,7 +123,7 @@ The scale question measures the degree to which the student can effectively comm
 
 **Start of internship — February 2026:**
 
-[ALEXANDER TO FILL — Provide your honest self-rating on the 1–10 scale as of February 2026, and write approximately 100 words explaining your reasoning. Consider: what communication experience you had before this internship, how confident you felt about the specific challenge of a non-technical supervisor, and what your honest assessment was of your ability to make complex statistical findings accessible. Be specific rather than vague.]
+At the start of the internship I would honestly rate myself a 3 out of 10 on this scale. I had no significant experience presenting analytical findings to non-technical decision-makers, and my previous communication in academic settings had been largely peer-to-peer — with classmates and fellow students where I felt genuinely confident. The specific challenge of communicating upward, to supervisors, managers, or stakeholders, was one I consistently struggled with. In those situations I became overly focused on making a good impression rather than communicating clearly, which had the opposite effect — the anxiety about being judged interfered with the quality of the explanation itself. I was aware of this pattern going into the internship and recognised it as something that needed to change. The Zdravoletie context — a non-technical supervisor who needed accessible, actionable insights rather than statistical detail — was precisely the kind of environment that would force me to address this directly. That awareness was the starting point, but awareness alone does not translate to ability, which is why I rate myself a 3 rather than higher.
 
 **Middle of internship — April 2026:**
 
@@ -130,29 +137,39 @@ The scale question measures the degree to which the student can effectively comm
 
 ### 2.5 Feedback and Feedforward from Three People
 
-**Peter Alem** is the educational supervisor assigned to this project by Fontys University of Applied Sciences. He has an academic background and is responsible for assessing the scientific rigour and professional quality of the graduation work.
-
-[FEEDBACK TO BE INSERTED — Ask Peter Alem to provide written feedback and feedforward on your learning objective after the thesis is submitted. His feedback should address: whether your academic communication improved over the course of the project, how clearly the thesis conveys findings to an informed reader, and what you should continue to develop. Insert verbatim or paraphrased with attribution once received.]
-
 **Kostadin Galchin** is the company supervisor at Zdravoletie Health and Rehabilitation Centre in Varna. He is a health and fitness professional with daily operational experience using the Anovator system and has no background in statistical modelling or machine learning.
 
-[FEEDBACK TO BE INSERTED — Ask Kostadin Galchin to provide feedback on how well the project's outputs — particularly the Bulgarian-language updates and the Streamlit dashboard — communicated the analytical findings in a form he could understand and act on. His feedback should address: whether the progress updates were clear, whether the dashboard is usable in a clinical setting, and what would have made the communication more effective. Insert verbatim or paraphrased with attribution once received.]
+Feedback: Galchin observed genuine interest and attention to detail in engaging with new subject matter, noting that thorough understanding of the material enabled strong results. He described the working process as smooth and professional, including the communication between them. He noted that the internship demonstrated and developed skills acquired during academic training and expressed that progress was visible and that Alexander is ready for broader and more complex projects. Feedforward: engage with new fields and niches that will be relevant long-term as an investment in the future, broaden general knowledge as a key to progress, and always look for added value in both personal and professional life.
 
-**[ALEXANDER TO FILL — Identify Dani/Bobi: describe their relationship to you (fellow student, peer reviewer, classmate, etc.) and their relevant background. Then insert the feedback and feedforward they provided once received.]**
+Response: Galchin's feedback affirms what was most valuable about the working structure of this project: being trusted to set the direction and make technical decisions independently created a level of ownership that would not have been possible in a more supervised environment. The self-directed nature of the internship forced me to develop analytical accountability — every design choice was made by one person and had to be defensible on its own terms, without the safety net of a technical peer review process. The feedforward on engaging with new fields resonates directly with what this project demonstrated: the ability to develop functional competence in an unfamiliar domain — health informatics, clinical score modelling — is a form of professional capital that compounds over time. I intend to treat breadth of domain knowledge as a deliberate investment rather than an incidental byproduct of whatever project arrives next.
 
-[FEEDBACK TO BE INSERTED — Ask Dani/Bobi to provide peer feedback on your learning objective. Their feedback should address how effectively you communicated your project and its results in a non-specialist context — for example, if they are a fellow student from a different programme, whether your explanations of the statistical methods and findings were understandable and well-motivated. Insert verbatim or paraphrased with attribution once received.]
+---
+
+**Dani** is a professional colleague from a collaborative project context. He has strong experience in machine learning engineering and software development, and the collaboration involved building a recommendation system.
+
+Feedback: Dani observed strong ML and Python foundations from the start of the collaboration, noting that Alexander applied theoretical and practical knowledge to tackle challenging tasks while building a recommendation system. He highlighted the quality of work and well-documented outcomes as particular strengths. Feedforward: develop the habit of asking for assistance after spending meaningful time on a problem without reaching the desired outcome, and invest in cloud provider knowledge as a long-term career priority.
+
+Response: The feedforward on asking for help after sustained effort resonates as a fair and accurate observation. My default pattern when blocked is to extend the independent effort — to run one more experiment, consult one more paper, or restructure the problem — before surfacing the difficulty to a colleague, and there were moments in this project where that instinct extended the timeline unnecessarily rather than serving the work. I recognise this as a genuine development priority rather than a minor stylistic preference, and I intend to treat knowing when to escalate as a deliberate skill to practice in collaborative settings going forward. The cloud provider feedforward is one I accept unreservedly: the trajectory of professional data science work in the next several years will be substantially shaped by cloud infrastructure competency, and the gap between what I understand analytically and what I can deploy at scale in a cloud environment is one I plan to close through structured study and practice.
+
+---
+
+**Alexander Tanev - Alexander's father** is an observer from the home and family environment, without professional involvement in the project.
+
+Feedback: "As a father who observes Alexander closely at home, I can say that since the start of his internship I have noticed a visible change in his maturity and sense of responsibility. He approaches his work seriously and I can see how much effort he puts in, often working late into the evening on his project. If I were to give one piece of advice for his development, it would be to act more quickly and decisively when a situation requires it — he sometimes spends a long time thinking before taking action, and building confidence in his own decisions will serve him well going forward." — Alexander's father, May 2026
+
+Response: The observation about decisiveness is accurate, and I recognise it without qualification. The clearest illustration from this project is the three weeks I spent after first obtaining the R²=0.98 result before the midterm: I had a persistent unease about that figure but continued building on it rather than stopping immediately to investigate, extending both the time wasted and the scope of the necessary correction when the problem was eventually identified. A more decisive response to early doubt — halting development and auditing the data flow on the day the suspicion first arose — would have resolved the issue in hours rather than weeks. That pattern of extended deliberation before acting on a clear signal is one I intend to address directly. The practical change I am working on is to set explicit time limits for uncertainty before committing to a diagnostic action, so that reflection serves decision-making rather than postponing it.
 
 ---
 
 ### 2.6 Sources for Learning Objective
 
-[TWO SOURCES NEEDED — The following are suggested starting points. Search and verify before adding:
+Spiegelhalter, D., Pearson, M., & Short, I. (2011). Visualizing uncertainty about the future. *Science*, 333(6048), 1393–1400. https://doi.org/10.1126/science.1191181
 
-1. For data visualisation and communication of quantitative results: consider Cairo, A. (2016), *The Truthful Art: Data, Charts, and Maps for Communication*; or Tufte, E.R. (2001), *The Visual Display of Quantitative Information*; or a peer-reviewed paper on communicating uncertainty in health data to lay audiences, such as Spiegelhalter, D., Pearson, M., & Short, I. (2011), "Visualizing uncertainty about the future," *Science*, 333(6048), 1393–1400.
+Spiegelhalter and colleagues analyse how uncertainty in quantitative predictions can and should be communicated to non-specialist audiences, presenting evidence-based recommendations for displaying confidence intervals and probability distributions — directly applicable to the challenge of communicating the model's 95% CI results and 2.43-year MAE to Zdravoletie practitioners who need to act on these outputs without a statistical background.
 
-2. For professional advisory communication in technical fields: consider Kahneman, D. (2011), *Thinking, Fast and Slow* (chapters on expert communication); or Huff, D. (1954), *How to Lie with Statistics* (as a counter-example text); or a practitioner-facing source such as Peng, R.D., & Matsui, E. (2015), *The Art of Data Science*.
+Davenport, T. H., & Patil, D. J. (2012). Data scientist: The sexiest job of the 21st century. *Harvard Business Review*, 90(10), 70–76.
 
-Replace these suggestions with the actual sources you choose to use, formatted in APA 7 citation style.]
+Davenport and Patil describe the data scientist's role as fundamentally advisory — translating analytical findings into organisational decisions by working at the boundary between technical analysis and non-technical stakeholders — and their characterisation of the required communication competencies maps directly onto the learning objective selected for this portfolio: the challenge of making complex model outputs accessible to a non-technical company supervisor and clinical end users.
 
 ---
 
@@ -207,3 +224,5 @@ The first is the communication of statistical uncertainty to non-statisticians. 
 The second is working within structured organisational environments. Zdravoletie provided minimal procedural structure, and the flexibility that resulted was both an advantage and a gap in professional experience. The ability to work within a structured organisation — where analytical decisions must be approved, where communication has defined channels, and where timelines are constrained by organisational processes rather than personal planning — is a capability that this internship did not exercise.
 
 The third is domain knowledge in health and physiology. The project required biological interpretation of SHAP feature importance outputs — explaining, for example, why trunk fat distribution and bioimpedance phase angle appeared among the top predictors in physiological terms — without a biology or physiology background. The interpretations offered in the thesis are grounded in the research literature but would benefit substantially from direct collaboration with a clinician.
+
+The fourth is the discipline of building conceptual understanding and practical skill independently, without offloading execution to automated tools. Feedback from a colleague during this project period raised a concern that over-reliance on AI-assisted code generation can produce working outputs while bypassing the reasoning process that builds durable professional competence — that a graduate-level practitioner who consistently reaches for a tool to produce code or documentation rather than writing it by hand risks accumulating a surface familiarity with techniques without the depth needed to diagnose, adapt, or defend them under pressure. That observation is valid and I take it seriously. The correct response is not to refuse useful tools but to be deliberate about when assistance accelerates legitimate work and when it substitutes for understanding that I should be building myself. Writing more code, derivations, and documentation by hand — and tolerating the slower pace that entails — is a necessary discipline at this stage of professional development, and one I will treat as a deliberate practice rather than an occasional choice.
