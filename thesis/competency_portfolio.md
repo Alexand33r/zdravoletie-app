@@ -28,8 +28,7 @@ Communication with Galchin required a consistent translation effort. Progress up
 
 **Beginning of the internship:**
 
-The internship began through a mutual connection who identified an alignment between my background in data analysis and Zdravoletie's need for independent research on their Anovator biometric data. The initial meeting with Kostadin Galchin was exploratory rather than directive — he had no specific technical request, only a broader goal: to use the data he had collected to give clients better, evidence-based advice on longevity and health risk. Early discussions ranged widely, including the possibility of incorporating publicly available Bulgarian national health data, but we converged on a more focused scope appropriate to the graduation internship constraints.
-The first significant decision I proposed was to shift the modelling target away from the Anovator hardware Score, which initial analysis showed to be effectively constant across 85% of clients, toward the age gap — the difference between bodyAge and chronological age. I explained this to Galchin not in statistical terms but in practical ones: the Score told consultants almost nothing useful, while the age gap offered a continuous, sensitive measure that could actually differentiate between clients and track progress over time. Galchin accepted this framing and from that point confirmed full autonomy on the technical direction, with his role being to validate that the research stayed aligned with what would genuinely benefit the business. This established the working pattern that defined the rest of the internship — independent analytical decision-making on my side, accessible communication and directional confirmation on his.
+The internship began through a mutual connection who identified an alignment between my background in data analysis and Zdravoletie's need for independent research on their Anovator biometric data. The initial meeting with Kostadin Galchin was exploratory rather than directive — he had no specific technical request, only a broader goal: to use the data he had collected to give clients better, evidence-based advice on longevity and health risk. Early discussions ranged widely, including the possibility of incorporating publicly available Bulgarian national health data, but we converged on a more focused scope appropriate to the graduation internship constraints. The first significant decision I proposed was to shift the modelling target away from the Anovator hardware Score, which initial analysis showed to be effectively constant across 85% of clients, toward the age gap — the difference between bodyAge and chronological age. I explained this to Galchin not in statistical terms but in practical ones: the Score told consultants almost nothing useful, while the age gap offered a continuous, sensitive measure that could actually differentiate between clients and track progress over time. Galchin accepted this framing and from that point confirmed full autonomy on the technical direction, with his role being to validate that the research stayed aligned with what would genuinely benefit the business. This established the working pattern that defined the rest of the internship — independent analytical decision-making on my side, accessible communication and directional confirmation on his.
 
 **Middle of the internship — midterm review with Peter Alem:**
 
@@ -201,17 +200,28 @@ Communication with Galchin improved significantly over the project period. The i
 
 ### 3.3 Evidence of Development
 
-[ALEXANDER TO FILL — This section should list the concrete artefacts that demonstrate your development across the competency and the learning objective. Link to or name the specific files where possible. Suggested evidence to include:
+The following artefacts constitute the evidence base for the competency and learning objective claims made in this portfolio. All files are included in the graduation submission package.
 
-- The Bulgarian-language progress update documents sent to Galchin (provide filenames or dates)
-- The interim report (Week 8), as evidence of the state of communication before the midterm
-- The midterm feedback form or notes from Peter Alem (if a written record exists)
-- The thesis methodology chapter, as evidence of accurate technical communication after the reframing
-- The thesis discussion chapter, particularly Section 5.4 (SHAP interpretation), as evidence of translating model outputs into physiological terms accessible to a health professional audience
-- The Streamlit About page (pages/0_About.py), as evidence of non-technical communication design
-- This logbook (thesis/logbook.md), as evidence of the systematic documentation practice used to compensate for the absence of peer review
+**Midterm presentation slides (April 2026)**
+The slide deck prepared for the April 22 midterm presentation with Peter Alem demonstrates the state of technical communication at the midpoint of the internship. The slides show how findings were structured for an academic audience at that stage — including the biological age framing and the R²=0.98 result that were later challenged. As a before-and-after reference point alongside the reframed thesis, the presentation illustrates the development in both framing accuracy and communicative clarity across the internship period.
 
-Write two or three sentences for each artefact explaining what it demonstrates and how it constitutes evidence of development rather than merely evidence of completion.]
+**Interim report (March–April 2026) — I_Internship.pdf**
+The interim report represents the state of technical communication at the midpoint of the internship. It is evidence of both capability and limitation: the document demonstrates the ability to structure a research narrative for an academic audience, but also reflects the biological age framing error and the uncritical presentation of the R²=0.98 result. As a before-and-after reference point it is more useful than a document that shows only success.
+
+**Midterm feedback form — Interim_Evaluation_Form_Company_Graduation_Project_A_Tanev_Final.docx**
+The written feedback from Peter Alem following the April 22 midterm presentation. This document records the two critical challenges raised — the incorrect framing and the implausible performance result — and constitutes external evidence of the communication and methodological gaps that the second half of the internship was designed to address.
+
+**Thesis methodology chapter — thesis/methodology.md**
+The methodology chapter demonstrates the ability to communicate a complex experimental protocol — GroupShuffleSplit design rationale, Wilcoxon signed-rank testing with Bonferroni correction, three-regime synthetic data ablation — with precision and without ambiguity. Compared to the interim report, it reflects a substantially higher standard of academic communication and a more honest treatment of limitations.
+
+**Thesis discussion chapter Section 5.4 — SHAP interpretation — thesis/discussion.md**
+This section translates SHAP model output into physiological terms accessible to a health professional audience — explaining what high waist circumference SHAP values mean for this population and connecting feature importance to existing understanding of metabolic health risk. It demonstrates the ability to bridge between technical model output and domain-relevant interpretation, which is the applied form of the learning objective.
+
+**Streamlit application About page — pages/0_About.py**
+The About page of the deployed Streamlit dashboard was written explicitly for a non-technical audience. It explains what the tool does, what the model predicts (an approximation of Anovator's bodyAge score, not clinical biological age), and what the known limitations are — in plain language without statistical jargon. The deliberate framing of limitations rather than capabilities reflects the communication standard developed over the course of the internship.
+
+**Internship logbook — thesis/logbook.md**
+The logbook documents decisions, challenges, and reflections across all twenty weeks of the internship. It serves as evidence of the systematic documentation practice adopted to compensate for the absence of peer review in a self-directed research environment. The quality of reflection in later entries, compared to the more descriptive early entries, is itself evidence of development in analytical self-awareness over the internship period.
 
 ---
 
