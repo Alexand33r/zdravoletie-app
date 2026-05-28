@@ -8,13 +8,14 @@
 % ── Encoding and fonts ─────────────────────────────────────────────────────────
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{microtype}
+\usepackage[expansion=false]{microtype}
 
 % ── Page geometry ──────────────────────────────────────────────────────────────
 \usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
 
 % ── Headers and footers ────────────────────────────────────────────────────────
 \usepackage{fancyhdr}
+\setlength{\headheight}{14pt}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\nouppercase{\leftmark}}

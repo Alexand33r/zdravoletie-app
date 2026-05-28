@@ -11,7 +11,16 @@
       "Bash(dir results\\\\experiment_1*)",
       "Bash(pip install *)",
       "PowerShell(cd \"C:/Users/AleksandarTanev/Downloads/Fontys/Code/thesis\"; & \"C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/miktex/bin/x64/pdflatex.exe\" -interaction=nonstopmode main.tex 2>&1 | Select-Object -Last 30; Write-Host \"EXIT CODE: $LASTEXITCODE\")",
-      "PowerShell(cd \"C:/Users/AleksandarTanev/Downloads/Fontys/Code/thesis\"; & \"C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/miktex/bin/x64/bibtex.exe\" main 2>&1 | Select-Object -Last 30; Write-Host \"EXIT CODE: $LASTEXITCODE\")"
+      "PowerShell(cd \"C:/Users/AleksandarTanev/Downloads/Fontys/Code/thesis\"; & \"C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/miktex/bin/x64/bibtex.exe\" main 2>&1 | Select-Object -Last 30; Write-Host \"EXIT CODE: $LASTEXITCODE\")",
+      "Bash(pdflatex -interaction=nonstopmode main.tex)",
+      "Bash(echo \"EXIT1=$?\")",
+      "PowerShell(pdflatex *)",
+      "PowerShell(Select-String -Path \"C:\\\\Users\\\\AleksandarTanev\\\\Downloads\\\\Fontys\\\\Code\\\\thesis\\\\main.log\" -Pattern \"undefined|multiply defined|Warning\" | Select-Object -Last 30 | ForEach-Object { $_.Line })",
+      "Bash(\"C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/miktex/bin/x64/pdflatex.exe\" -interaction=nonstopmode main.tex)",
+      "Bash(\"C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/miktex/bin/x64/bibtex.exe\" main *)",
+      "Bash(echo \"bibtex exit: $?\")",
+      "Bash(\"C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/miktex/bin/x64/pdflatex.exe\" -interaction=nonstopmode PoA_full.tex)",
+      "Bash(grep -v \"^$\")"
     ]
   }
 }

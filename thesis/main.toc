@@ -1,61 +1,66 @@
-\contentsline {chapter}{Abstract}{1}{chapter*.1}%
-\contentsline {chapter}{\numberline {1}Introduction}{6}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Research Context}{6}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Research Question}{6}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Study Design and Scope}{7}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Practical Significance}{8}{section.1.4}%
-\contentsline {chapter}{\numberline {2}Related Work}{9}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Biological Age Prediction}{9}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Synthetic Data Generation in Small Medical Datasets}{10}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Feature Importance and Interpretability in Health Machine Learning}{10}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Methodology}{12}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Thesis Framing and Research Objective}{12}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Dataset}{12}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Source and Collection}{12}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Target Variable}{12}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Feature Set}{13}{subsection.3.2.3}%
-\contentsline {section}{\numberline {3.3}Feature Engineering}{13}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Cross-Validation Protocol}{13}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Group-Based Splitting}{13}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Imputation and Scaling}{14}{subsection.3.4.2}%
-\contentsline {section}{\numberline {3.5}Experiment 1: Model Comparison}{14}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Experiment 2: Synthetic Data Ablation}{14}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Experiment 3: Feature Group Ablation}{15}{section.3.7}%
-\contentsline {section}{\numberline {3.8}Statistical Testing}{15}{section.3.8}%
-\contentsline {section}{\numberline {3.9}Known Limitations of the Dataset and Feature Set}{15}{section.3.9}%
-\contentsline {subsection}{\numberline {3.9.1}Sentinel Values Encoded as Numeric Features}{15}{subsection.3.9.1}%
-\contentsline {subsection}{\numberline {3.9.2}Near-Constant Features After Median Imputation}{15}{subsection.3.9.2}%
-\contentsline {subsection}{\numberline {3.9.3}Redundant Derived Feature Within the Postural Risk Group}{16}{subsection.3.9.3}%
-\contentsline {subsection}{\numberline {3.9.4}Statistical Power of the Wilcoxon Test Under Bonferroni Correction}{16}{subsection.3.9.4}%
-\contentsline {chapter}{\numberline {4}Results}{17}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Preliminary Note on $R^2$}{17}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Experiment 1: Model Comparison}{17}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Performance Across Metrics}{17}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Statistical Significance}{18}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Per-Prediction Error Distribution and Clinical Reliability}{18}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}Experiment 2: Synthetic Data Ablation}{19}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Synthetic Data Fidelity}{19}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Performance by Regime and Model}{19}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Statistical Significance}{20}{subsection.4.3.3}%
-\contentsline {section}{\numberline {4.4}Experiment 3: Feature Group Ablation}{21}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Performance by Feature Group}{21}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Statistical Significance}{22}{subsection.4.4.2}%
-\contentsline {chapter}{\numberline {5}Discussion}{23}{chapter.5}%
-\contentsline {section}{\numberline {5.1}The Null Result in Experiment 1 Is a Finding, Not a Failure}{23}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Synthetic Augmentation Helps Ensemble Methods and Damages Ridge}{23}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Feature Group Saturation and What It Implies About Anovator's Formula}{24}{section.5.3}%
-\contentsline {section}{\numberline {5.4}SHAP Feature Importance: Physiological Interpretation}{24}{section.5.4}%
-\contentsline {section}{\numberline {5.5}The Underpowered Wilcoxon Caveat and Its Scope}{25}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Known Limitations and Their Bearing on Interpretation}{25}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Synthesis}{25}{section.5.7}%
-\contentsline {chapter}{\numberline {6}Conclusion}{26}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Summary of Findings}{26}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Answers to the Research Sub-Questions}{26}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Limitations}{27}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Future Work}{27}{section.6.4}%
-\contentsline {chapter}{Appendices}{28}{section*.5}%
-\contentsline {chapter}{\numberline {A}Ethical Considerations}{29}{chapter.1.A}%
-\contentsline {section}{\numberline {A.1}Data Classification Under GDPR}{29}{section.1.A.1}%
-\contentsline {section}{\numberline {A.2}Consent Assumptions}{29}{section.1.A.2}%
-\contentsline {section}{\numberline {A.3}Data Handling in This Study}{29}{section.1.A.3}%
-\contentsline {section}{\numberline {A.4}Requirements for Production Deployment}{30}{section.1.A.4}%
+\contentsline {chapter}{\numberline {1}Summary}{5}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Reason for and Relevance of the Research}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Research Context}{6}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Research Framing}{6}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Study Design and Scope}{7}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Practical Significance}{7}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Research Questions and Product Description}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Research Questions}{9}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Product Description}{9}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Theoretical Framework}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Biological Age Prediction}{11}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Synthetic Data Generation in Small Medical Datasets}{12}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Feature Importance and Interpretability in Health Machine Learning}{12}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Research Method}{14}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Thesis Framing and Research Objective}{14}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Dataset}{14}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Source and Collection}{14}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Target Variable}{14}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Feature Set}{15}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}Feature Engineering}{15}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Cross-Validation Protocol}{15}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Group-Based Splitting}{15}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Imputation and Scaling}{16}{subsection.5.4.2}%
+\contentsline {section}{\numberline {5.5}Experiment 1: Model Comparison}{16}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Experiment 2: Synthetic Data Ablation}{17}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Experiment 3: Feature Group Ablation}{17}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Statistical Testing}{18}{section.5.8}%
+\contentsline {section}{\numberline {5.9}Known Limitations of the Dataset and Feature Set}{18}{section.5.9}%
+\contentsline {subsection}{\numberline {5.9.1}Sentinel Values Encoded as Numeric Features}{18}{subsection.5.9.1}%
+\contentsline {subsection}{\numberline {5.9.2}Near-Constant Features After Median Imputation}{18}{subsection.5.9.2}%
+\contentsline {subsection}{\numberline {5.9.3}Redundant Derived Feature Within the Postural Risk Group}{19}{subsection.5.9.3}%
+\contentsline {subsection}{\numberline {5.9.4}Statistical Power of the Wilcoxon Test Under Bonferroni Correction}{19}{subsection.5.9.4}%
+\contentsline {section}{\numberline {5.10}Answering the Research Questions}{19}{section.5.10}%
+\contentsline {chapter}{\numberline {6}Results and Conclusions}{21}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Preliminary Note on $R^2$}{21}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Experiment 1: Model Comparison}{21}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Performance Across Metrics}{21}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Statistical Significance}{22}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Per-Prediction Error Distribution and Clinical Reliability}{22}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}Conclusion: Sub-question~1}{23}{subsection.6.2.4}%
+\contentsline {section}{\numberline {6.3}Experiment 2: Synthetic Data Ablation}{23}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Synthetic Data Fidelity}{23}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Performance by Regime and Model}{24}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Statistical Significance}{24}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Conclusion: Sub-question~2}{25}{subsection.6.3.4}%
+\contentsline {section}{\numberline {6.4}Experiment 3: Feature Group Ablation}{26}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Performance by Feature Group}{26}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Statistical Significance}{26}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Conclusion: Sub-question~3}{27}{subsection.6.4.3}%
+\contentsline {section}{\numberline {6.5}Answers to the Research Sub-Questions}{27}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Limitations}{28}{section.6.6}%
+\contentsline {chapter}{\numberline {7}Discussion and Recommendations}{29}{chapter.7}%
+\contentsline {section}{\numberline {7.1}The Null Result in Experiment 1 Is a Finding, Not a Failure}{29}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Synthetic Augmentation Helps Ensemble Methods and Damages Ridge}{30}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Feature Group Saturation and What It Implies About Anovator's Formula}{30}{section.7.3}%
+\contentsline {section}{\numberline {7.4}SHAP Feature Importance: Physiological Interpretation}{31}{section.7.4}%
+\contentsline {section}{\numberline {7.5}The Underpowered Wilcoxon Caveat and Its Scope}{32}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Known Limitations and Their Bearing on Interpretation}{32}{section.7.6}%
+\contentsline {section}{\numberline {7.7}Synthesis}{33}{section.7.7}%
+\contentsline {section}{\numberline {7.8}Recommendations for Zdravoletie}{33}{section.7.8}%
+\contentsline {chapter}{Appendices}{36}{section*.5}%
+\contentsline {chapter}{\numberline {A}Ethical Considerations}{37}{chapter.1.A}%
+\contentsline {section}{\numberline {A.1}Data Classification Under GDPR}{37}{section.1.A.1}%
+\contentsline {section}{\numberline {A.2}Consent Assumptions}{37}{section.1.A.2}%
+\contentsline {section}{\numberline {A.3}Data Handling in This Study}{37}{section.1.A.3}%
+\contentsline {section}{\numberline {A.4}Requirements for Production Deployment}{38}{section.1.A.4}%

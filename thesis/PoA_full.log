@@ -1,29 +1,28 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  28 MAY 2026 22:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  28 MAY 2026 22:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./main.tex
-(main.tex
+**./PoA_full.tex
+(PoA_full.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-04-28>
 
-(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/base\report.c
-ls
-Document Class: report 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/base\article.
+cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
 
 (C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.c
 lo
 File: size11.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count276
-\c@chapter=\count277
-\c@section=\count278
-\c@subsection=\count279
-\c@subsubsection=\count280
-\c@paragraph=\count281
-\c@subparagraph=\count282
-\c@figure=\count283
-\c@table=\count284
+\c@section=\count277
+\c@subsection=\count278
+\c@subsubsection=\count279
+\c@paragraph=\count280
+\c@subparagraph=\count281
+\c@figure=\count282
+\c@table=\count283
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen150
@@ -50,11 +49,11 @@ Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 (C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoo
 lbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count285
+\etb@tempcnta=\count284
 )
 \MT@toks=\toks20
 \MT@tempbox=\box53
-\MT@count=\count286
+\MT@count=\count285
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1084.
 LaTeX Info: Redefining \leftprotrusion on input line 1085.
 \MT@prot@toks=\toks21
@@ -63,7 +62,7 @@ LaTeX Info: Redefining \textls on input line 1449.
 \MT@outer@kern=\dimen151
 LaTeX Info: Redefining \microtypecontext on input line 2053.
 LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
-\MT@listname@count=\count287
+\MT@listname@count=\count286
 
 (C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mic
 rotype-pdftex.def
@@ -93,9 +92,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 .sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ))
-\Gm@cnth=\count288
-\Gm@cntv=\count289
-\c@Gm@tempcnt=\count290
+\Gm@cnth=\count287
+\Gm@cntv=\count288
+\c@Gm@tempcnt=\count289
 \Gm@bindingoffset=\dimen152
 \Gm@wd@mp=\dimen153
 \Gm@odd@mp=\dimen154
@@ -141,12 +140,12 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen167
 \cmidrulekern=\dimen168
 \defaultaddspace=\dimen169
-\@cmidla=\count291
-\@cmidlb=\count292
+\@cmidla=\count290
+\@cmidlb=\count291
 \@aboverulesep=\dimen170
 \@belowrulesep=\dimen171
-\@thisruleclass=\count293
-\@lastruleclass=\count294
+\@thisruleclass=\count292
+\@lastruleclass=\count293
 \@thisrulewidth=\dimen172
 )
 (C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtab
@@ -156,17 +155,17 @@ Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
 \LTright=\skip67
 \LTpre=\skip68
 \LTpost=\skip69
-\LTchunksize=\count295
+\LTchunksize=\count294
 \LTcapwidth=\dimen173
 \LT@head=\box54
 \LT@firsthead=\box55
 \LT@foot=\box56
 \LT@lastfoot=\box57
 \LT@gbox=\box58
-\LT@cols=\count296
-\LT@rows=\count297
-\c@LT@tables=\count298
-\c@LT@chunks=\count299
+\LT@cols=\count295
+\LT@rows=\count296
+\c@LT@tables=\count297
+\c@LT@chunks=\count298
 \LT@p@ftn=\toks24
 )
 (C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.s
@@ -231,14 +230,14 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 n.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count300
+\inf@bad=\count299
 LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count301
-\leftroot@=\count302
+\uproot@=\count300
+\leftroot@=\count301
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count303
-\DOTSCASE@=\count304
+\classnum@=\count302
+\DOTSCASE@=\count303
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
@@ -251,20 +250,20 @@ LaTeX Info: Redefining \Bigg on input line 724.
 \big@size=\dimen180
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count305
+\macc@depth=\count304
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count306
+\c@MaxMatrixCols=\count305
 \dotsspace@=\muskip17
-\c@parentequation=\count307
-\dspbrk@lvl=\count308
+\c@parentequation=\count306
+\dspbrk@lvl=\count307
 \tag@help=\toks27
-\row@=\count309
-\column@=\count310
-\maxfields@=\count311
+\row@=\count308
+\column@=\count309
+\maxfields@=\count310
 \andhelp@=\toks28
 \eqnshift@=\dimen181
 \alignsep@=\dimen182
@@ -278,14 +277,6 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \mathdisplay@stack=\toks30
 LaTeX Info: Redefining \[ on input line 2950.
 LaTeX Info: Redefining \] on input line 2951.
-)
-(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib
-.sty
-Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip75
-\bibsep=\skip76
-LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count312
 )
 (C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hype
 rref.sty
@@ -340,7 +331,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 ptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count313
+\c@section@level=\count311
 )
 (C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\s
 tringenc.sty
@@ -348,8 +339,8 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
 \@linkdim=\dimen187
-\Hy@linkcounter=\count314
-\Hy@pagecounter=\count315
+\Hy@linkcounter=\count312
+\Hy@pagecounter=\count313
 
 (C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1e
 nc.def
@@ -361,7 +352,7 @@ Now handling font encoding PD1 ...
 calc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count316
+\Hy@SavedSpaceFactor=\count314
 
 (C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puen
 c.def
@@ -376,7 +367,7 @@ Package hyperref Info: Plain pages OFF on input line 4214.
 Package hyperref Info: Backreferencing OFF on input line 4219.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4466.
-\c@Hy@tempcnt=\count317
+\c@Hy@tempcnt=\count315
 
 (C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip18
@@ -394,7 +385,7 @@ bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count318
+\Fld@menulength=\count316
 \Field@Width=\dimen189
 \Fld@charsize=\dimen190
 Package hyperref Info: Hyper figures OFF on input line 6091.
@@ -404,17 +395,17 @@ Package hyperref Info: backreferencing OFF on input line 6106.
 Package hyperref Info: Link coloring OFF on input line 6111.
 Package hyperref Info: Link coloring with OCG OFF on input line 6116.
 Package hyperref Info: PDF/A mode OFF on input line 6121.
-\Hy@abspage=\count319
-\c@Item=\count320
-\c@Hfootnote=\count321
+\Hy@abspage=\count317
+\c@Item=\count318
+\c@Hfootnote=\count319
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdf
 tex.def
 File: hpdftex.def 2026-04-24 v7.01q Hyperref driver for pdfTeX
-\Fld@listcount=\count322
-\c@bookmark@seq@number=\count323
+\Fld@listcount=\count320
+\c@bookmark@seq@number=\count321
 
 (C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilechec
 k\rerunfilecheck.sty
@@ -427,119 +418,55 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 84.
 )
-\Hy@SectionHShift=\skip77
+\Hy@SectionHShift=\skip75
 )
 (C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/setspace\sets
 pace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
 )
-(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/appendix\appe
-ndix.sty
-Package: appendix 2020/02/08 v1.2c extra appendix facilities
-\c@@pps=\count324
-\c@@ppsavesec=\count325
-\c@@ppsaveapp=\count326
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp
+.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
 )
 (C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/parskip\parsk
 ip.sty
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
 )
-(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/listings\list
-ings.sty
-\lst@mode=\count327
-\lst@gtempboxa=\box63
-\lst@token=\toks31
-\lst@length=\count328
-\lst@currlwidth=\dimen191
-\lst@column=\count329
-\lst@pos=\count330
-\lst@lostspace=\dimen192
-\lst@width=\dimen193
-\lst@newlines=\count331
-\lst@lineno=\count332
-\lst@maxwidth=\dimen194
-
-(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstp
-atch.sty
-File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
-)
-(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstm
-isc.sty
-File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
-\c@lstnumber=\count333
-\lst@skipnumbers=\count334
-\lst@framebox=\box64
-)
-(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/listings\list
-ings.cfg
-File: listings.cfg 2025/11/14 1.11b listings configuration
-))
-Package: listings 2025/11/14 1.11b (Carsten Heinz)
-
-==> First Aid for listings.sty no longer applied!
-    Expected:
-        2024/09/23 1.10c (Carsten Heinz)
-    but found:
-        2025/11/14 1.11b (Carsten Heinz)
-    so I'm assuming it got fixed.
-
-(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor
-.sty
-Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
-
-(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\
-color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package xcolor Info: Driver file: pdftex.def on input line 274.
-
-(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/graphics\math
-color.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
-Package xcolor Info: Model `RGB' extended on input line 1365.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
-)
 (C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3b
 ackend-pdftex.def
 File: l3backend-pdftex.def 2026-02-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count335
-) (main.aux)
-\openout1 = `main.aux'.
+\l__color_backend_stack_int=\count322
+) (PoA_full.aux)
+\openout1 = `PoA_full.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Info: Redefining \microtypecontext on input line 79.
-Package microtype Info: Applying patch `item' on input line 79.
-Package microtype Info: Applying patch `toc' on input line 79.
-Package microtype Info: Applying patch `eqnum' on input line 79.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Info: Redefining \microtypecontext on input line 60.
+Package microtype Info: Applying patch `item' on input line 60.
+Package microtype Info: Applying patch `toc' on input line 60.
+Package microtype Info: Applying patch `eqnum' on input line 60.
 
 
-Package microtype Warning: Unable to apply patch `footnote' on input line 79.
+Package microtype Warning: Unable to apply patch `footnote' on input line 60.
 
-Package microtype Info: Applying patch `verbatim' on input line 79.
-LaTeX Info: Redefining \microtypesetup on input line 79.
+Package microtype Info: Applying patch `verbatim' on input line 60.
+LaTeX Info: Redefining \microtypesetup on input line 60.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -591,17 +518,17 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\s
 upp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count336
-\scratchdimen=\dimen195
-\scratchbox=\box65
-\nofMPsegments=\count337
-\nofMParguments=\count338
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count339
-\MPscratchDim=\dimen196
-\MPnumerator=\count340
-\makeMPintoPDFobject=\count341
-\everyMPtoPDFconversion=\toks33
+\scratchcounter=\count323
+\scratchdimen=\dimen191
+\scratchbox=\box63
+\nofMPsegments=\count324
+\nofMParguments=\count325
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count326
+\MPscratchDim=\dimen192
+\MPnumerator=\count327
+\makeMPintoPDFobject=\count328
+\everyMPtoPDFconversion=\toks32
 )
 (C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\
 epstopdf-base.sty
@@ -613,120 +540,182 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 opdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 79.
- (main.out) (main.out)
+Package hyperref Info: Link coloring OFF on input line 60.
+ (PoA_full.out) (PoA_full.out)
 \@outlinefile=\write3
-\openout3 = `main.out'.
+\openout3 = `PoA_full.out'.
 
-\c@lstlisting=\count342
-Package hyperref Info: Option `pageanchor' set `false' on input line 82.
  [1
 
-{C:/Users/AleksandarTanev/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Package hyperref Info: Option `pageanchor' set `true' on input line 106.
- (main.toc [1
-
-])
+{C:/Users/AleksandarTanev/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (P
+oA_full.toc)
 \tf@toc=\write4
-\openout4 = `main.toc'.
+\openout4 = `PoA_full.toc'.
 
- [2] (main.lof)
-\tf@lof=\write5
-\openout5 = `main.lof'.
 
- [3
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.89 \newpage
+              [1] [2] [3] [4]
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 160--160
+[]|\T1/cmr/m/n/10 R01| 
+ []
 
-]
-(main.lot)
-\tf@lot=\write6
-\openout6 = `main.lot'.
 
- [4
+Underfull \hbox (badness 1748) in paragraph at lines 160--161
+[]|\T1/cmr/m/n/10 Educational su-per-
+ []
 
-]
-Chapter 1.
-[5
 
-]
-Chapter 2.
-[6
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 161--161
+[]|\T1/cmr/m/n/10 R02| 
+ []
 
-] [7] [8]
-Chapter 3.
+
+Underfull \hbox (badness 2310) in paragraph at lines 161--161
+\T1/cmr/m/n/10 mean with 95% CI de-rived from 30 cross-
+ []
+
+
+Underfull \hbox (badness 1748) in paragraph at lines 161--162
+[]|\T1/cmr/m/n/10 Educational su-per-
+ []
+
+
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 162--162
+[]|\T1/cmr/m/n/10 R03| 
+ []
+
+
+Underfull \hbox (badness 1748) in paragraph at lines 162--163
+[]|\T1/cmr/m/n/10 Educational su-per-
+ []
+
+
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 163--163
+[]|\T1/cmr/m/n/10 R04| 
+ []
+
+
+Underfull \hbox (badness 1748) in paragraph at lines 163--164
+[]|\T1/cmr/m/n/10 Educational su-per-
+ []
+
+
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 164--164
+[]|\T1/cmr/m/n/10 R05| 
+ []
+
+
+Underfull \hbox (badness 1748) in paragraph at lines 164--165
+[]|\T1/cmr/m/n/10 Educational su-per-
+ []
+
+
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 165--165
+[]|\T1/cmr/m/n/10 R06| 
+ []
+
+
+Underfull \hbox (badness 1748) in paragraph at lines 165--166
+[]|\T1/cmr/m/n/10 Educational su-per-
+ []
+
+
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 166--166
+[]|\T1/cmr/m/n/10 R07| 
+ []
+
+
+Underfull \hbox (badness 7291) in paragraph at lines 166--167
+[]|\T1/cmr/m/n/10 Company su-per-vi-
+ []
+
+
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 167--167
+[]|\T1/cmr/m/n/10 R08| 
+ []
+
+
+Underfull \hbox (badness 7291) in paragraph at lines 167--168
+[]|\T1/cmr/m/n/10 Company su-per-vi-
+ []
+
+
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 168--168
+[]|\T1/cmr/m/n/10 R09| 
+ []
+
+
+Underfull \hbox (badness 1748) in paragraph at lines 168--169
+[]|\T1/cmr/m/n/10 Educational su-per-
+ []
+
+
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 169--169
+[]|\T1/cmr/m/n/10 R10| 
+ []
+
+
+Underfull \hbox (badness 7291) in paragraph at lines 169--170
+[]|\T1/cmr/m/n/10 Company su-per-vi-
+ []
+
+
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 170--170
+[]|\T1/cmr/m/n/10 R11| 
+ []
+
+
+Underfull \hbox (badness 7291) in paragraph at lines 170--171
+[]|\T1/cmr/m/n/10 Company su-per-vi-
+ []
+
+
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 171--171
+[]|\T1/cmr/m/n/10 R12| 
+ []
+
+
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 172--172
+[]|\T1/cmr/m/n/10 R13| 
+ []
+
+
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 173--173
+[]|\T1/cmr/m/n/10 R14| 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[5]
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-[9
-
-] [10]
-Chapter 4.
-[11
-
-] [12]
-(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstl
-ang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-)
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 377.
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 378.
- [13]
-Chapter 5.
-[14
-
-]
-Overfull \hbox (91.13853pt too wide) in paragraph at lines 441--445
-\T1/cmtt/m/n/10.95 headRisk\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 humpbackRisk\
-T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 kneeRisk\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/
-10.95 pelvisRisk\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 postureRisk\T1/cmr/m/n/1
-0.95 , \T1/cmtt/m/n/10.95 shoulderRisk\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 sp
-ineRisk\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 side_hunchback_risk\T1/cmr/m/n/10
-.95 )
+ [6]
+Overfull \hbox (51.16489pt too wide) in paragraph at lines 224--225
+\T1/cmr/m/n/10.95 with pseudo-labels; doc-u-mented data qual-ity is-sues; fea-t
+ure en-gi-neer-ing pipeline in \T1/cmtt/m/n/10.95 Health_Pipeline.ipynb\T1/cmr/
+m/n/10.95 . 
  []
 
-
-Overfull \hbox (89.81227pt too wide) in paragraph at lines 446--449
-[]\T1/cmr/bx/n/10.95 Group 4, Joint an-gles (5 fea-tures): \T1/cmtt/m/n/10.95 f
-ront_shoulder_angle\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 front_left_leg_angle\
-T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 front_right_leg_angle\T1/cmr/m/n/10.95 ,
+[7]
+Overfull \hbox (24.24664pt too wide) in paragraph at lines 226--227
+[]\T1/cmr/bx/n/10.95 Deliverable: \T1/cmtt/m/n/10.95 data/ \T1/cmr/m/n/10.95 di
+-rec-tory con-tents; \T1/cmtt/m/n/10.95 Health_Pipeline.ipynb \T1/cmr/m/n/10.95
+ pro-duc-tion model; \T1/cmtt/m/n/10.95 Data_Gen.ipynb
  []
 
-[15] [16] [17]
-Overfull \hbox (0.45064pt too wide) in paragraph at lines 604--615
-\T1/cmr/m/n/10.95 Five fea-tures have miss-ing-ness rates ex-ceed-ing 88% of re
-cords: \T1/cmtt/m/n/10.95 leftVision \T1/cmr/m/n/10.95 (94.3%), \T1/cmtt/m/n/10
-.95 rightVision
- []
-
-
-Overfull \hbox (7.87704pt too wide) in paragraph at lines 604--615
-\T1/cmr/m/n/10.95 (92.4%), \T1/cmtt/m/n/10.95 bloodMaxPressure \T1/cmr/m/n/10.9
-5 (91.8%), \T1/cmtt/m/n/10.95 bloodMinPressure \T1/cmr/m/n/10.95 (91.8%), and \
-T1/cmtt/m/n/10.95 restingHeartRate \T1/cmr/m/n/10.95 (88.6%).
- []
-
-[18] [19] [20]
-Chapter 6.
-<../results/experiment_1_boxplot.png, id=557, 1281.588pt x 442.7742pt>
-File: ../results/experiment_1_boxplot.png Graphic file (type png)
-<use ../results/experiment_1_boxplot.png>
-Package pdftex.def Info: ../results/experiment_1_boxplot.png  used on input lin
-e 732.
-(pdftex.def)             Requested size: 418.82375pt x 144.69713pt.
+[8] [9]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[21
 
-]
-<../results/experiment_1_sig_matrix.png, id=569, 639.3486pt x 491.9178pt>
-File: ../results/experiment_1_sig_matrix.png Graphic file (type png)
-<use ../results/experiment_1_sig_matrix.png>
-Package pdftex.def Info: ../results/experiment_1_sig_matrix.png  used on input 
-line 775.
-(pdftex.def)             Requested size: 418.82375pt x 322.2423pt.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -734,20 +723,8 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[22 <../results/experiment_1_boxplot.png>] [23 <../results/experiment_1_sig_mat
-rix.png>]
-<../results/experiment_2_boxplot.png, id=583, 1441.0638pt x 516.4896pt>
-File: ../results/experiment_2_boxplot.png Graphic file (type png)
-<use ../results/experiment_2_boxplot.png>
-Package pdftex.def Info: ../results/experiment_2_boxplot.png  used on input lin
-e 859.
-(pdftex.def)             Requested size: 418.82375pt x 150.10915pt.
-<../results/experiment_2_delta_plot.png, id=584, 710.655pt x 348.3414pt>
-File: ../results/experiment_2_delta_plot.png Graphic file (type png)
-<use ../results/experiment_2_delta_plot.png>
-Package pdftex.def Info: ../results/experiment_2_delta_plot.png  used on input 
-line 868.
-(pdftex.def)             Requested size: 418.82375pt x 205.30171pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -755,100 +732,208 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[24 <../results/experiment_2_boxplot.png>]
-Overfull \hbox (2.66391pt too wide) in paragraph at lines 911--917
-\T1/cmr/m/n/10.95 mod-els un-der the Re-alPlusSynth regime, with ad-justed $\OM
-L/cmm/m/it/10.95 p$\T1/cmr/m/n/10.95 -values rang-ing from 0.000004 to 0.002855
 
+Overfull \hbox (128.68756pt too wide) in alignment at lines 442--452
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[25 <../results/experiment_2_delta_plot.png>]
-<../results/experiment_3_boxplot.png, id=598, 1288.815pt x 441.3288pt>
-File: ../results/experiment_3_boxplot.png Graphic file (type png)
-<use ../results/experiment_3_boxplot.png>
-Package pdftex.def Info: ../results/experiment_3_boxplot.png  used on input lin
-e 948.
-(pdftex.def)             Requested size: 418.82375pt x 143.41669pt.
-<../results/experiment_3_learning_curve.png, id=599, 565.6332pt x 347.8596pt>
-File: ../results/experiment_3_learning_curve.png Graphic file (type png)
-<use ../results/experiment_3_learning_curve.png>
-Package pdftex.def Info: ../results/experiment_3_learning_curve.png  used on in
-put line 956.
-(pdftex.def)             Requested size: 418.82375pt x 257.5713pt.
 
+Overfull \hbox (128.68756pt too wide) in alignment at lines 452--460
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (128.68756pt too wide) in alignment at lines 460--463
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (128.68756pt too wide) in alignment at lines 463--465
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 468--469
+[]|\T1/cmr/m/n/10.95 Data prepa-ra-tion and
+ []
+
+
+Underfull \hbox (badness 3815) in paragraph at lines 470--471
+[]|\T1/cmr/m/n/10.95 Experiment 1: model
+ []
+
+
+Underfull \hbox (badness 4634) in paragraph at lines 476--477
+[]|\T1/cmr/m/n/10.95 Streamlit app de-vel-op-
+ []
+
+
+Overfull \hbox (128.68756pt too wide) in alignment at lines 465--484
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[10]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[26 <../results/experiment_3_boxplot.png>] [27 <../results/experiment_3_learnin
-g_curve.png>] [28]
-Chapter 7.
-[29
 
-]
-Overfull \hbox (2.79527pt too wide) in paragraph at lines 1102--1111
-\T1/cmr/m/n/10.95 The most coun-ter-in-tu-itive find-ing in the study is that t
-he 63-feature an-thro-po-met-ric and metabolic
+Overfull \hbox (1.88782pt too wide) in paragraph at lines 522--522
+[]|\T1/cmr/bx/n/10.95 #| 
  []
 
-[30] [31] [32]
-Overfull \hbox (14.06635pt too wide) in paragraph at lines 1238--1243
-[]\T1/cmr/bx/n/10.95 Evaluate al-ter-na-tive syn-thetic gen-er-a-tion meth-ods 
-once the dataset ex-ceeds 500 records.
+
+Overfull \hbox (1.88782pt too wide) in paragraph at lines 526--526
+[]|\T1/cmr/bx/n/10.95 #| 
  []
 
-[33] (main.bbl [34]) [35
 
-] [36
+Overfull \hbox (4.91943pt too wide) in paragraph at lines 534--534
+[]|\T1/cmr/m/n/10.95 R1| 
+ []
 
 
-]
-Appendix A.
-[37
+Underfull \hbox (badness 3209) in paragraph at lines 535--535
+[]|\T1/cmr/m/n/10.95 Systematic pre-fix au-dit com-
+ []
 
-] [38] (main.aux)
+
+Overfull \hbox (4.91943pt too wide) in paragraph at lines 536--536
+[]|\T1/cmr/m/n/10.95 R2| 
+ []
+
+
+Underfull \hbox (badness 1048) in paragraph at lines 536--536
+\T1/cmr/m/n/10.95 u-als): lim-its sta-tis-ti-cal power;
+ []
+
+
+Underfull \hbox (badness 2368) in paragraph at lines 536--536
+\T1/cmr/m/n/10.95 be in-con-clu-sive at Bonferroni-
+ []
+
+
+Overfull \hbox (4.91943pt too wide) in paragraph at lines 538--538
+[]|\T1/cmr/m/n/10.95 R3| 
+ []
+
+
+Overfull \hbox (4.91943pt too wide) in paragraph at lines 540--540
+[]|\T1/cmr/m/n/10.95 R4| 
+ []
+
+
+Overfull \hbox (4.91943pt too wide) in paragraph at lines 542--542
+[]|\T1/cmr/m/n/10.95 R5| 
+ []
+
+
+Overfull \hbox (4.91943pt too wide) in paragraph at lines 544--544
+[]|\T1/cmr/m/n/10.95 R6| 
+ []
+
+
+Underfull \hbox (badness 3428) in paragraph at lines 544--544
+\T1/cmr/m/n/10.95 sor: Galchin can-not pro-vide
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 545--545
+[]|\T1/cmr/m/n/10.95 Educational su-per-vi-sor Pe-ter
+ []
+
+
+Overfull \hbox (4.91943pt too wide) in paragraph at lines 546--546
+[]|\T1/cmr/m/n/10.95 R7| 
+ []
+
+
+Underfull \hbox (badness 1769) in paragraph at lines 546--546
+[]|\T1/cmr/m/n/10.95 Deadline risk: June 22 hard
+ []
+
+
+Overfull \hbox (4.91943pt too wide) in paragraph at lines 548--548
+[]|\T1/cmr/m/n/10.95 R8| 
+ []
+
+
+Underfull \hbox (badness 6284) in paragraph at lines 548--548
+[]|\T1/cmr/m/n/10.95 Scope creep: ad-di-tional ex-
+ []
+
+
+Underfull \hbox (badness 1584) in paragraph at lines 548--548
+\T1/cmr/m/n/10.95 per-i-ments or ex-tended fea-ture
+ []
+
+
+Underfull \hbox (badness 1715) in paragraph at lines 548--548
+\T1/cmr/m/n/10.95 en-gi-neer-ing added be-yond the
+ []
+
+
+Underfull \hbox (badness 5924) in paragraph at lines 548--548
+\T1/cmr/m/n/10.95 three ex-per-i-ments de-fined in
+ []
+
+
+Underfull \hbox (badness 5533) in paragraph at lines 549--550
+[]|\T1/cmtt/m/n/10.95 CLAUDE.md \T1/cmr/m/n/10.95 ex-plic-itly lists all
+ []
+
+
+Underfull \hbox (badness 6396) in paragraph at lines 549--550
+\T1/cmr/m/n/10.95 out-of-scope items. Out-of-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 549--550
+\T1/cmtt/m/n/10.95 future_work.md \T1/cmr/m/n/10.95 rather than
+ []
+
+
+ignored: Infinite glue shrinkage found in box being split [11] [12] [13] [14] [15] [16] 
+[17] (PoA_full.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-04-28>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 687145C95CA66021A1359DAB068D3B15;14521.
+Package rerunfilecheck Info: File `PoA_full.out' has not changed.
+(rerunfilecheck)             Checksum: 8319510852D2CE0EE72504E861F69B73;5408.
  ) 
 Here is how much of TeX's memory you used:
- 15561 strings out of 467683
- 244330 string characters out of 5409881
- 978208 words of memory out of 5000000
- 44274 multiletter control sequences out of 15000+600000
- 646727 words of font info for 78 fonts, out of 8000000 for 9000
+ 12600 strings out of 467683
+ 202685 string characters out of 5409881
+ 736569 words of memory out of 5000000
+ 41463 multiletter control sequences out of 15000+600000
+ 641641 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,79p,1003b,1434s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,79p,1476b,597s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
-pi600\ecti1095.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfo
-ur/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\AleksandarTanev\Ap
-pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\Al
-eksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.
+pi600\tcbx1095.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfo
+ur/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\AleksandarTanev\Ap
+pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Al
+eksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.
 pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
-dpi600\ectt1000.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljf
-our/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\AleksandarTanev\AppData\Local\MiK
-TeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\AleksandarTanev\A
-ppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\A
+dpi600\ecti1000.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljf
+our/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\AleksandarTanev\AppData\Local\MiK
+TeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\AleksandarTanev\A
+ppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\A
 leksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095
 .pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecbx2488.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/lj
+/dpi600\ecbx1440.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/lj
 four/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\AleksandarTanev\AppData\Local\Mi
 KTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\AleksandarTanev\
 AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/A
 leksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmm
 i10.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmmi12.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/AleksandarTanev/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Aleksan
-darTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-<C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb>
-Output written on main.pdf (39 pages, 928917 bytes).
+lic/amsfonts/cm/cmr10.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/AleksandarTanev/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on PoA_full.pdf (18 pages, 258555 bytes).
 PDF statistics:
- 1352 PDF objects out of 1440 (max. 8388607)
- 168 named destinations out of 1000 (max. 500000)
- 14383 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 775 PDF objects out of 1000 (max. 8388607)
+ 61 named destinations out of 1000 (max. 500000)
+ 11513 words of extra memory for PDF output out of 12000 (max. 10000000)
 

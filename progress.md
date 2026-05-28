@@ -57,6 +57,12 @@
 - [x] pages/0_About.py      (static About page: tool purpose, age gap vs clinical age, known limitations)
 - [x] pages/3_Population_View.py — age vs age_gap scatter plot added below histogram (active_age from session_state)
 - [x] main.tex hardcoded Section~3.9 references fixed to \ref{sec:limitations} (lines 904, 971); hyperref moved after natbib
-- [x] thesis/PoA_full.tex created — standalone LaTeX PoA with MoSCoW table, TOKIO tables, risk matrix longtable, Gantt longtable
+- [x] thesis/PoA_full.tex created — standalone LaTeX PoA with MoSCoW table, TOKIO tables, risk matrix longtable, Gantt longtable; microtype fix applied; compiles cleanly (18 pages)
 - [x] thesis/presentation_outline.md created — 10-slide, 15-min defence outline with examiner Q&A per slide
+- [x] thesis/main.tex restructured to Fontys 7-chapter format (Steps 1–3, 2026-05-28)
+- [x] thesis/main.tex: listings package added; 5 Python code snippets inserted in Ch 5 (GroupShuffleSplit, imputation, GMM, Wilcoxon) and Ch 4 (SHAP); compiles cleanly (39 pages, 2026-05-28)
+      - Ch 1 Summary, Ch 2 Reason for and Relevance, Ch 3 Research Questions + Product Description
+      - Ch 4 Theoretical Framework, Ch 5 Research Method (Section 3.10 added), Ch 6 Results and Conclusions
+      - Ch 7 Discussion and Recommendations (Ridge/G1=G4/Wilcoxon expanded; Recommendations section)
+      - Full 4-step compile clean: pdflatex/bibtex/pdflatex/pdflatex all exit 0 — 38 pages
 - [ ] Competency portfolio — personal fills (student number, reflection paragraphs) — human only

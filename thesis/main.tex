@@ -1,4 +1,4 @@
-% main.tex — Graduation Thesis
+% main.tex: Graduation Thesis
 % Zdravoletie / Fontys University of Applied Sciences, 2026
 % Author: Alexander Tanev
 % Compiler: pdflatex (run twice for references and cross-references)
@@ -60,6 +60,21 @@
 % ── Utility ────────────────────────────────────────────────────────────────────
 \usepackage{parskip}            % paragraph spacing instead of indent
 
+% ── Code listings ──────────────────────────────────────────────────────────────
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{gray},
+  stringstyle=\color{teal},
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  numbers=none,
+  captionpos=b,
+}
+
 % ─────────────────────────────────────────────────────────────────────────────
 \begin{document}
 
@@ -90,42 +105,6 @@
 \end{titlepage}
 \hypersetup{pageanchor=true}
 
-% ── Abstract ──────────────────────────────────────────────────────────────────
-\newpage
-\thispagestyle{plain}
-\chapter*{Abstract}
-\addcontentsline{toc}{chapter}{Abstract}
-
-Commercial body scanning platforms such as Anovator produce proprietary composite health scores
-whose computational basis is undisclosed. This study treats the Anovator bodyAge score as a
-reverse-engineering target rather than a validated clinical measure, asking whether machine
-learning regression models can learn to reproduce it from the raw biometric inputs the platform
-records. The target variable is the age gap, defined as bodyAge minus chronological age. Data
-comprise 158 scan records from 53 unique clients collected at Zdravoletie, a health and
-rehabilitation centre in Bulgaria.
-
-Three experiments were conducted using 30 repeated GroupShuffleSplit cross-validation iterations
-grouped by client identity. Experiment~1 compared five regressors --- RandomForest, Ridge, SVR,
-GradientBoosting, and HistGradientBoosting --- on the full 88-feature set. HistGradientBoosting
-achieved the lowest mean MAE of 2.43 years (95\% CI [2.09, 2.76]), but none of the ten pairwise
-Wilcoxon signed-rank tests reached the Bonferroni-corrected significance threshold of 0.005; all
-model comparisons are inconclusive at this sample size. Experiment~2 tested three training
-regimes --- real data only, real plus 1000 GMM-generated synthetic records, and synthetic only ---
-finding that synthetic augmentation significantly reduced MAE for four of five models (adjusted
-$p < 0.003$) but degraded Ridge under the synthetic-only condition from 2.48 to 3.23 years, a
-consequence of pseudo-label variance compression that does not affect tree-based methods.
-Experiment~3 evaluated four cumulative feature groups using HistGradientBoosting, finding that
-the 63-feature anthropometric and metabolic base group alone achieved the lowest mean MAE of 2.39
-years, with no statistically significant improvement from adding bioimpedance, postural risk, or
-joint angle features --- suggesting these modalities carry negligible independent weight in the
-Anovator formula at this data scale.
-
-The primary limitation is dataset size: 53 individuals is insufficient for high-power pairwise
-significance testing after Bonferroni correction, and most comparisons must be characterised as
-inconclusive rather than resolved.
-
-\newpage
-
 % ── Table of contents ─────────────────────────────────────────────────────────
 \tableofcontents
 \newpage
@@ -139,16 +118,50 @@ inconclusive rather than resolved.
 \newpage
 
 % =============================================================================
-\chapter{Introduction}
+\chapter{Summary}
+% =============================================================================
+
+Commercial body scanning platforms such as Anovator produce proprietary composite health scores
+whose computational basis is undisclosed. This study treats the Anovator bodyAge score as a
+reverse-engineering target rather than a validated clinical measure, asking whether machine
+learning regression models can learn to reproduce it from the raw biometric inputs the platform
+records. The target variable is the age gap, defined as bodyAge minus chronological age. Data
+comprise 158 scan records from 53 unique clients collected at Zdravoletie, a health and
+rehabilitation centre in Bulgaria.
+
+Three experiments were conducted using 30 repeated GroupShuffleSplit cross-validation iterations
+grouped by client identity. Experiment~1 compared five regressors (RandomForest, Ridge, SVR,
+GradientBoosting, and HistGradientBoosting) on the full 88-feature set. HistGradientBoosting
+achieved the lowest mean MAE of 2.43 years (95\% CI [2.09, 2.76]), but none of the ten pairwise
+Wilcoxon signed-rank tests reached the Bonferroni-corrected significance threshold of 0.005; all
+model comparisons are inconclusive at this sample size. Experiment~2 tested three training
+regimes (real data only, real plus 1000 GMM-generated synthetic records, and synthetic only),
+finding that synthetic augmentation significantly reduced MAE for four of five models (adjusted
+$p < 0.003$) but degraded Ridge under the synthetic-only condition from 2.48 to 3.23 years, a
+consequence of pseudo-label variance compression that does not affect tree-based methods.
+Experiment~3 evaluated four cumulative feature groups using HistGradientBoosting, finding that
+the 63-feature anthropometric and metabolic base group alone achieved the lowest mean MAE of 2.39
+years, with no statistically significant improvement from adding bioimpedance, postural risk, or
+joint angle features, suggesting these modalities carry negligible independent weight in the
+Anovator formula at this data scale.
+
+The primary limitation is dataset size: 53 individuals is insufficient for high-power pairwise
+significance testing after Bonferroni correction, and most comparisons must be characterised as
+inconclusive rather than resolved.
+
+\newpage
+
+% =============================================================================
+\chapter{Reason for and Relevance of the Research}
 % =============================================================================
 
 \section{Research Context}
 
 The past decade has seen a proliferation of commercial health assessment platforms that transform
 raw biometric measurements into composite health scores intended for use in wellness,
-rehabilitation, and preventive health contexts. These platforms --- combining bioelectrical
+rehabilitation, and preventive health contexts. These platforms, combining bioelectrical
 impedance analysis, postural imaging, anthropometric measurement, and proprietary scoring
-algorithms --- are deployed in gyms, clinics, and corporate health programmes, where their outputs
+algorithms, are deployed in gyms, clinics, and corporate health programmes, where their outputs
 are presented to clients and practitioners as meaningful summaries of physiological condition. The
 Anovator body scanning system, used in this study, is representative of this category: it produces
 a score called bodyAge, expressed as an estimated biological age in years, derived from a
@@ -160,33 +173,25 @@ Anovator scan returns a bodyAge five years above their chronological age has bee
 consequential about their health, but neither the client nor the attending practitioner can inspect
 the mechanism that produced this number. Which measurements contributed most to the result? Is the
 score driven primarily by body fat distribution, postural risk, or impedance characteristics? How
-would a change in a specific biometric --- achieved through a targeted intervention --- translate
+would a change in a specific biometric (achieved through a targeted intervention) translate
 into a change in the score? Without access to the proprietary formula, none of these questions can
 be answered by examining the score alone. This is not unique to Anovator: the same interpretability
 gap exists across the broader class of commercial health scoring devices, and it limits the
 evidential value of their outputs for clinical reasoning.
 
-\section{Research Question}
+\section{Research Framing}
 
-This project addresses that gap through a reverse-engineering approach. Rather than predicting
-biological age in the clinical sense --- where ground truth is established against mortality or
-morbidity endpoints, as in the biological age literature reviewed in Chapter~\ref{chap:related} ---
-the study treats the Anovator bodyAge score itself as the target variable and asks whether machine
-learning regression models can learn to reproduce it from the raw biometric inputs that the Anovator
-system records. The age gap, defined as bodyAge minus chronological age, is used as the prediction
-target throughout in order to remove the trivial component of chronological age from the target
-distribution and focus modelling effort on the physiological deviation component that the Anovator
-formula computes.
-
-Three research sub-questions guide the empirical work. First: among five regression algorithms
-spanning linear, kernel, and ensemble methods, which best approximates the Anovator age gap from
-the full feature set, and can any observed differences between models be established as statistically
-significant given the available data? Second: does augmenting the training set with synthetic records
-generated by a Gaussian Mixture Model and pseudo-labelled by the production model improve
-approximation quality on real held-out data, and if so, for which model classes? Third: across four
-cumulative groups of biometric features --- anthropometric and metabolic measurements, bioimpedance,
-postural risk scores, and joint angles --- which groups carry independent predictive information
-relative to the Anovator score, and which are redundant with what the base group already provides?
+This project addresses the interpretability gap through a reverse-engineering approach. Rather than
+predicting biological age in the clinical sense (where ground truth is established against mortality
+or morbidity endpoints, as in the biological age literature reviewed in
+Chapter~\ref{chap:related}), the study treats the Anovator bodyAge score itself as the target
+variable and asks whether machine learning regression models can learn to reproduce it from the raw
+biometric inputs that the Anovator system records. The age gap, defined as bodyAge minus
+chronological age, is used as the prediction target throughout in order to remove the trivial
+component of chronological age from the target distribution and focus modelling effort on the
+physiological deviation component that the Anovator formula computes. The three research
+sub-questions that structure the empirical programme are stated in
+Chapter~\ref{chap:questions}.
 
 \section{Study Design and Scope}
 
@@ -203,7 +208,7 @@ described above. What lies outside the scope is equally important to state clear
 does not attempt to validate the Anovator bodyAge score as a clinical measure of biological ageing;
 the absence of an independently validated ground truth makes such validation impossible within this
 dataset, and the research question does not require it. The study does not investigate alternative
-synthetic data generation methods beyond the Gaussian Mixture Model --- CTGAN, vine copula, and
+synthetic data generation methods beyond the Gaussian Mixture Model: CTGAN, vine copula, and
 variational autoencoder approaches are noted in the related work but excluded from empirical
 comparison on the grounds that the 158-record training corpus falls below the regime in which these
 methods train reliably without extensive hyperparameter search. The study does not explore
@@ -216,24 +221,68 @@ not omissions; they are boundaries that keep the empirical claims within what th
 Understanding the informational structure of a proprietary health score has concrete value even in
 the absence of access to the formula itself. If reverse-engineering experiments reveal that the
 anthropometric and metabolic feature group alone accounts for essentially all predictable variation
-in the Anovator bodyAge score --- as Experiment~3 suggests --- then practitioners can infer that the
+in the Anovator bodyAge score, as Experiment~3 suggests, then practitioners can infer that the
 specialised measurement modalities contribute negligible marginal information to the score and focus
-their interpretive attention accordingly. More broadly, the methodology developed here --- reverse-engineering
+their interpretive attention accordingly. More broadly, the methodology developed here (reverse-engineering
 a proprietary score through grouped cross-validation, statistical significance testing under multiple
-comparisons, and feature group ablation --- is transferable to any context in which a commercial health
+comparisons, and feature group ablation) is transferable to any context in which a commercial health
 device produces a black-box output that practitioners wish to understand without access to the
 underlying formula.
 
 
 % =============================================================================
-\chapter{Related Work}
+\chapter{Research Questions and Product Description}
+\label{chap:questions}
+% =============================================================================
+
+\section{Research Questions}
+
+The central research question is: can machine learning regression models learn to reproduce the
+Anovator bodyAge score from the raw biometric inputs that the Anovator scanning platform records?
+The target is the age gap, defined as bodyAge minus chronological age, across 158 scan records from
+53 unique clients collected at Zdravoletie.
+
+Three sub-questions structure the empirical programme.
+
+\textbf{Sub-question~1.} Among five regression algorithms spanning linear, kernel, and ensemble
+methods (RandomForest, Ridge, SVR, GradientBoosting, HistGradientBoosting), which best
+approximates the Anovator age gap from the full 88-feature biometric set, and can any observed
+performance differences be established as statistically significant at the available sample size?
+
+\textbf{Sub-question~2.} Does augmenting the 158-record training set with synthetic records
+generated by a Gaussian Mixture Model and pseudo-labelled by the production model improve
+approximation quality on real held-out data, and if so, for which regression model classes?
+
+\textbf{Sub-question~3.} Across four cumulative groups of biometric features (anthropometric and
+metabolic, bioimpedance, postural risk, and joint angles), which groups carry independent
+predictive information relative to the Anovator score, and which are redundant with what the base
+group already provides?
+
+\section{Product Description}
+
+The research deliverable beyond the three experiments is a multi-page Streamlit web application
+built for operational use at Zdravoletie. The application accepts an Anovator client export file
+via a drag-and-drop upload interface and provides three analytical views. The Population View
+presents aggregate statistics and visualisations across all uploaded scan records, allowing
+practitioners to inspect the distribution of bodyAge scores and age gaps in the client cohort. The
+Individual Analysis view generates a SHAP waterfall plot that decomposes the model's predicted age
+gap into per-feature contributions, giving the attending practitioner a ranked explanation of which
+biometric measurements drove the score for a specific client. Scan reports can be exported to a
+formatted PDF for inclusion in client records. The interface is bilingual, with all labels and
+explanatory text available in both Bulgarian and English to accommodate clinic staff and clients.
+The application is publicly accessible at
+\url{https://zdravoletie-app-r59gvphlkih7549cgipbgt.streamlit.app/}.
+
+
+% =============================================================================
+\chapter{Theoretical Framework}
 \label{chap:related}
 % =============================================================================
 
 \section{Biological Age Prediction}
 
-The quantification of biological age --- an individual's physiological age as distinct from their
-chronological age --- has been an active area of research in gerontology and clinical epidemiology
+The quantification of biological age (an individual's physiological age as distinct from their
+chronological age) has been an active area of research in gerontology and clinical epidemiology
 for several decades. Early attempts used simple composite indices of physical performance or blood
 chemistry, but the foundational theoretical treatment of the problem was provided by
 \citet{Klemera2006}, who formalised biological age estimation as a regression problem in which the
@@ -250,7 +299,7 @@ observation that DNA methylation at specific CpG sites in the genome changes in 
 age-predictable manner across tissue types. \citet{Horvath2013} demonstrated that a penalised
 regression model trained on methylation data from 51 tissue types could predict chronological age
 with a median absolute error of approximately 3.6 years and that systematic deviations from the
-predicted age --- termed age acceleration --- were associated with disease status and mortality risk.
+predicted age (termed age acceleration) were associated with disease status and mortality risk.
 Building on this foundation, \citet{Levine2018} introduced PhenoAge, a composite biological age
 measure derived from nine clinical blood biomarkers combined with chronological age through a
 Gompertz proportional hazards model trained on mortality data from the National Health and Nutrition
@@ -265,7 +314,7 @@ The present project differs from this literature in both the ground truth availa
 measurement modalities used. The ground truth is not a clinical endpoint but the proprietary bodyAge
 score computed by the Anovator scanning platform. The research question is accordingly not whether
 a model can predict how quickly an individual will age in a clinical sense, but whether a model can
-learn to reproduce the Anovator formula's output from its inputs --- a reverse-engineering problem.
+learn to reproduce the Anovator formula's output from its inputs: a reverse-engineering problem.
 
 \section{Synthetic Data Generation in Small Medical Datasets}
 
@@ -281,7 +330,7 @@ does not model the global joint distribution of features.
 Gaussian Mixture Models fit a weighted sum of multivariate Gaussian distributions to the observed
 data and generate synthetic samples by drawing from the fitted mixture. GMMs are computationally
 efficient, produce closed-form likelihood estimates, and require relatively few observations to fit
-stably --- properties that make them well suited to small tabular datasets in the low-hundreds-of-records
+stably, properties that make them well suited to small tabular datasets in the low-hundreds-of-records
 regime.
 
 \citet{Xu2019} introduced CTGAN, a Conditional Generative Adversarial Network specifically designed
@@ -325,9 +374,17 @@ values explain the model's behaviour, not the underlying physiological process: 
 the information structure of the Anovator score as recovered by the model, subject to the
 approximation error and feature encoding limitations described in Chapter~\ref{chap:method}.
 
+\begin{lstlisting}[language=Python, caption={SHAP TreeExplainer for per-prediction feature attribution.}, label={lst:shap}]
+import shap
+
+explainer   = shap.TreeExplainer(model)
+shap_values = explainer.shap_values(X)
+shap.summary_plot(shap_values, X, plot_type='bar')
+\end{lstlisting}
+
 
 % =============================================================================
-\chapter{Methodology}
+\chapter{Research Method}
 \label{chap:method}
 % =============================================================================
 
@@ -370,23 +427,23 @@ records, age\_gap has a mean of 0.45 years and a standard deviation of 3.30 year
 The final model feature set comprises 88 variables derived from the raw Anovator outputs, decomposed
 into four groups used in Experiment~3.
 
-\textbf{Group 1 --- Anthropometric and metabolic (63 features):} Body composition measurements
+\textbf{Group 1, Anthropometric and metabolic (63 features):} Body composition measurements
 (weight, height, BMI, body fat percentage, muscle mass, bone mass, protein content, water content,
 subcutaneous fat, intra-abdominal fat, and segmental decompositions), Anovator-computed health goal
 recommendations, balance and agility scores, vital signs where available, and demographic features.
 
-\textbf{Group 2 --- Bioimpedance (10 features):} Raw impedance measurements at 20\,kHz and 100\,kHz
+\textbf{Group 2, Bioimpedance (10 features):} Raw impedance measurements at 20\,kHz and 100\,kHz
 for each of the four limbs and the trunk
 (\texttt{r20LeftArm}, \texttt{r20RightArm}, \texttt{r20LeftLeg}, \texttt{r20RightLeg},
 \texttt{r20Trunk}, \texttt{r100LeftArm}, \texttt{r100RightArm}, \texttt{r100LeftLeg},
 \texttt{r100RightLeg}, \texttt{r100Trunk}).
 
-\textbf{Group 3 --- Postural risk (10 features):} Camera-based postural risk scores
+\textbf{Group 3, Postural risk (10 features):} Camera-based postural risk scores
 (\texttt{frontHeadRisk}, \texttt{headRisk}, \texttt{humpbackRisk}, \texttt{kneeRisk},
 \texttt{pelvisRisk}, \texttt{postureRisk}, \texttt{shoulderRisk}, \texttt{spineRisk},
 \texttt{side\_hunchback\_risk}) and a derived aggregate (\texttt{aggregated\_postural\_index}).
 
-\textbf{Group 4 --- Joint angles (5 features):} \texttt{front\_shoulder\_angle},
+\textbf{Group 4, Joint angles (5 features):} \texttt{front\_shoulder\_angle},
 \texttt{front\_left\_leg\_angle}, \texttt{front\_right\_leg\_angle},
 \texttt{side\_left\_leg\_angle}, \texttt{side\_right\_leg\_angle}.
 
@@ -408,21 +465,40 @@ consistently across all contexts. The \texttt{aggregated\_postural\_index} is th
 All three experiments use \texttt{GroupShuffleSplit} from scikit-learn with the grouping variable
 set to the client name field. This prevents data leakage at the person level: all of a given
 client's records are assigned together to either the training fold or the test fold. Without this
-constraint, a model could exploit within-person consistency --- learning the stable biometric profile
-of an individual --- rather than generalising across individuals, which would inflate performance
+constraint, a model could exploit within-person consistency (learning the stable biometric profile
+of an individual) rather than generalising across individuals, which would inflate performance
 estimates.
 
 Each split assigns 80\% of the 53 unique individuals to training and 20\% to test, yielding
 approximately 11 to 13 test records per split. The split is non-exhaustive and repeated 30 times.
 All splits use a fixed random seed of 42.
 
+\begin{lstlisting}[language=Python, caption={GroupShuffleSplit configuration used across all three experiments.}, label={lst:gss}]
+from sklearn.model_selection import GroupShuffleSplit
+
+cv = GroupShuffleSplit(
+    n_splits=30, test_size=0.2, random_state=42
+)
+for train_idx, test_idx in cv.split(X, y, groups=names):
+    X_train, X_test = X[train_idx], X[test_idx]
+\end{lstlisting}
+
 \subsection{Imputation and Scaling}
 
 Missing values are imputed using the median of the training fold in each split, computed fresh from
 the training fold after the split is drawn. A secondary \texttt{fillna(0)} handles the rare case
 where a feature is entirely missing from the training fold. The test fold is imputed using the same
-training-fold medians --- ensuring that no information from the test set informs the imputation.
+training-fold medians, ensuring that no information from the test set informs the imputation.
 \texttt{StandardScaler} is fit on the training fold after imputation and applied to both folds.
+
+\begin{lstlisting}[language=Python, caption={Per-fold median imputation preventing data leakage.}, label={lst:impute}]
+train_medians = X_train.median()
+X_train = X_train.fillna(train_medians).fillna(0)
+X_test  = X_test.fillna(train_medians).fillna(0)
+scaler  = StandardScaler().fit(X_train)
+X_train = scaler.transform(X_train)
+X_test  = scaler.transform(X_test)
+\end{lstlisting}
 
 \section{Experiment 1: Model Comparison}
 
@@ -460,6 +536,16 @@ constituting a teacher-student knowledge distillation setup. The pseudo-labels h
 0.75 years and a standard deviation of 1.91 years, compared to the real label distribution of mean
 0.45 years and standard deviation 3.30 years.
 
+\begin{lstlisting}[language=Python, caption={GMM initialisation and synthetic population generation.}, label={lst:gmm}]
+from sklearn.mixture import GaussianMixture
+
+gmm = GaussianMixture(
+    n_components=5, covariance_type='full', random_state=42
+)
+gmm.fit(X_real)
+X_synthetic, _ = gmm.sample(n_samples=1000)
+\end{lstlisting}
+
 \section{Experiment 3: Feature Group Ablation}
 
 Experiment~3 evaluates the marginal contribution of each biometric feature group using
@@ -487,16 +573,31 @@ inconclusive rather than as evidence of equivalence. With 30 paired observations
 threshold well below the nominal 0.05 level, the tests have limited statistical power to detect
 moderate effect sizes.
 
+\begin{lstlisting}[language=Python, caption={Paired Wilcoxon signed-rank test with Bonferroni correction.}, label={lst:wilcoxon}]
+from scipy.stats import wilcoxon
+
+n_comparisons = 10  # C(5,2) model pairs, Experiment 1
+stat, p_raw = wilcoxon(mae_folds_a, mae_folds_b)
+p_adjusted  = min(p_raw * n_comparisons, 1.0)
+\end{lstlisting}
+
 \section{Known Limitations of the Dataset and Feature Set}
 \label{sec:limitations}
 
 \subsection{Sentinel Values Encoded as Numeric Features}
 
 Two features use the integer $-1$ as a machine sentinel meaning that the metric was not computed
-for a given scan: \texttt{sportSafeRisk} is $-1$ in 37\% of records and \texttt{sportLevel} is
-$-1$ in 70\% of records. Both features are included in the model feature set and are passed to all
-models as continuous numeric inputs. Proper encoding --- replacing $-1$ with \texttt{NaN} followed
-by indicator-variable encoding and imputation --- is listed in future work.
+for a given scan: \texttt{sportSafeRisk} is $-1$ in 37\% of records (approximately 58 of 158),
+and \texttt{sportLevel} is $-1$ in 70\% of records (approximately 111 of 158). Both features are
+included in the model feature set and are passed to all models as continuous numeric inputs. The
+value $-1$ carries no ordinal meaning in this context; it is a missing-data indicator that happens
+to fall below the minimum meaningful score of zero. These features were retained without
+re-encoding because altering them would create a mismatch with the saved production model artifact
+that the Streamlit dashboard depends on. Proper encoding --- replacing $-1$ with \texttt{NaN}
+followed by median imputation, or introducing a binary missingness indicator --- is listed in
+future work. The presence of sentinel values may introduce a systematic artefact into the learned
+feature space for tree-based models and a sign-reversal artefact for linear models that treat
+$-1$ as a numerically meaningful input.
 
 \subsection{Near-Constant Features After Median Imputation}
 
@@ -504,13 +605,26 @@ Five features have missingness rates exceeding 88\% of records: \texttt{leftVisi
 \texttt{rightVision} (92.4\%), \texttt{bloodMaxPressure} (91.8\%), \texttt{bloodMinPressure}
 (91.8\%), and \texttt{restingHeartRate} (88.6\%). After training-set median imputation, these
 features take a single constant value for the majority of records in any given training fold,
-contributing negligible variance and therefore negligible predictive signal.
+contributing negligible variance and therefore negligible predictive signal. SHAP analysis on the
+full production model confirms near-zero contribution from each of these features. They are
+retained for consistency with the production model artifact. Their presence inflates the nominal
+feature count without proportional contribution to predictive performance, and this should be
+borne in mind when interpreting the feature group ablation results in Experiment~3: the
+anthropometric and metabolic group nominally contains 63 features, but five of these carry
+essentially no independent information after imputation.
 
 \subsection{Redundant Derived Feature Within the Postural Risk Group}
 
-The feature \texttt{aggregated\_postural\_index} is the arithmetic mean of six postural risk scores
-that are themselves present as individual variables in the same feature group. The aggregate carries
-no independent information relative to its components when all six are simultaneously available.
+The feature \texttt{aggregated\_postural\_index} is the arithmetic mean of six postural risk
+scores --- \texttt{frontHeadRisk}, \texttt{humpbackRisk}, \texttt{kneeRisk},
+\texttt{pelvisRisk}, \texttt{postureRisk}, and \texttt{spineRisk} --- that are themselves present
+as individual variables in the same feature group. The aggregate therefore carries no independent
+information relative to its components when all six are simultaneously available, as is the case
+in all experiments. The feature was included in the original model training and is retained here
+for consistency. The redundancy does not affect the qualitative conclusions of the feature group
+ablation because the postural risk group as a whole is assessed against the other groups, but it
+does mean that the postural risk group nominally contains ten features while functionally
+contributing independent information from at most nine.
 
 \subsection{Statistical Power of the Wilcoxon Test Under Bonferroni Correction}
 \label{sec:power}
@@ -520,9 +634,58 @@ limited power to detect moderate effect sizes in the range of Cohen's $d = 0.3$ 
 cause is the dataset size: 53 unique individuals is insufficient for high-power pairwise testing
 after Bonferroni correction.
 
+\section{Answering the Research Questions}
+
+This section maps each research sub-question to the experiment that addresses it and explains why
+the experimental design is the appropriate method for answering that question.
+
+The first sub-question --- which algorithm best approximates the Anovator age gap and whether any
+performance difference is statistically certifiable --- requires an empirical comparison in which
+all candidate algorithms are evaluated under identical conditions on the same data. Experiment~1
+provides this comparison by running all five algorithms on the same 30 cross-validation splits
+with the same training and test data at each fold. The pairwise Wilcoxon signed-rank test on
+per-fold MAE scores is the appropriate statistical instrument because the 30 fold scores are
+paired (drawn from the same folds) and cannot be assumed Gaussian. The Bonferroni correction
+controls the family-wise error rate across the $C(5,2) = 10$ model pairs. The design answers the
+sub-question in two parts: a ranking of models by mean MAE, which identifies the best-performing
+algorithm by heuristic ordering, and a significance determination, which establishes whether that
+ranking is statistically certifiable given the available data. Crucially, the design also allows a
+null finding --- that no pairwise difference is statistically significant --- to be reported as a
+substantive result rather than a failure, because the statistical power available at 30
+observations under Bonferroni correction is explicitly characterised in
+Section~\ref{sec:power}.
+
+The second sub-question --- whether GMM synthetic augmentation improves approximation quality and
+for which model classes --- requires an experiment that can attribute observed performance
+differences to training data composition rather than to other sources of variation.
+Experiment~2 achieves this attribution through the three-regime design: RealOnly, RealPlusSynth,
+and SynthOnly. By holding the model architecture, evaluation protocol, and test set constant
+across regimes while varying only the training data composition, any performance difference between
+regimes can be attributed specifically to the addition or substitution of synthetic records. The
+comparison of RealPlusSynth against RealOnly isolates the marginal benefit of synthetic
+augmentation given access to real data; the comparison of RealPlusSynth against SynthOnly tests
+whether the real records provide value beyond what the synthetic corpus alone covers. Evaluating
+all five models under the same regime structure further allows the sub-question's model-class
+specificity to be answered: whether the synthetic augmentation effect is uniform across algorithm
+families or depends on model architecture.
+
+The third sub-question --- which biometric feature groups carry independent predictive information
+relative to the Anovator score --- requires an experiment that can isolate the marginal
+contribution of each group while holding the preceding groups constant. Experiment~3 achieves this
+through cumulative additive evaluation: Group~1 is assessed alone, Group~2 as Group~1 plus
+bioimpedance features, Group~3 as Group~2 plus postural risk features, and Group~4 as Group~3
+plus joint angle features. This sequential structure ensures that any observed performance change
+at each step can be attributed specifically to the features added at that step, not to changes in
+the base feature set. Using a single model --- HistGradientBoosting, selected by its ranking in
+Experiment~1 --- controls for model-level variance, ensuring that observed differences across
+feature groups are not confounded with differences in how distinct algorithm families utilise the
+same feature set. The Wilcoxon tests on the $C(4,2) = 6$ group pairs, with Bonferroni correction,
+provide the formal statistical determination of whether any group transition produces a certifiable
+change in prediction quality at the available sample size.
+
 
 % =============================================================================
-\chapter{Results}
+\chapter{Results and Conclusions}
 % =============================================================================
 
 \section{Preliminary Note on \texorpdfstring{$R^2$}{R-squared}}
@@ -566,7 +729,7 @@ for all five models, derived from 30 GroupShuffleSplit folds.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.85\textwidth]{../results/experiment_1_boxplot.png}
+  \includegraphics[width=0.92\textwidth]{../results/experiment_1_boxplot.png}
   \caption{Box plot of MAE distributions across 30 cross-validation folds for all five models
   (Experiment~1). Models are ordered by ascending median MAE. The horizontal line within each box
   represents the median; the box spans the interquartile range; whiskers extend to 1.5 times the
@@ -609,7 +772,7 @@ MAE, with Bonferroni-corrected $p$-values and the corrected significance thresho
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.7\textwidth]{../results/experiment_1_sig_matrix.png}
+  \includegraphics[width=0.92\textwidth]{../results/experiment_1_sig_matrix.png}
   \caption{Pairwise significance matrix for Experiment~1 model comparisons. All ten comparisons
   are inconclusive at the Bonferroni-corrected threshold of $\alpha = 0.005$.}
   \label{fig:exp1_sigmatrix}
@@ -649,6 +812,14 @@ interacting with the 103 records labelled ``Unknown'' in the name field. When th
 falls into a test fold, all 103 of its records are evaluated by a model trained exclusively on named
 individuals, producing a sharp distribution shift that drives high errors in those folds.
 
+\subsection{Conclusion: Sub-question~1}
+
+HistGradientBoosting is the numerically preferred model with a mean MAE of 2.43 years, but no
+algorithm can be certified as statistically superior to any other: all ten Bonferroni-corrected
+Wilcoxon tests are inconclusive at the corrected threshold of $\alpha = 0.005$. The 53-individual
+dataset does not provide sufficient statistical power to resolve the performance differences
+observed, and Sub-question~1 cannot be answered with a definitive model recommendation.
+
 \section{Experiment 2: Synthetic Data Ablation}
 
 \subsection{Synthetic Data Fidelity}
@@ -685,7 +856,7 @@ under each of the three training regimes.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.85\textwidth]{../results/experiment_2_boxplot.png}
+  \includegraphics[width=0.92\textwidth]{../results/experiment_2_boxplot.png}
   \caption{Box plot of MAE distributions by training regime and model (Experiment~2). The Ridge
   SynthOnly distribution has a substantially wider spread and higher median than all other
   conditions.}
@@ -694,7 +865,7 @@ under each of the three training regimes.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.75\textwidth]{../results/experiment_2_delta_plot.png}
+  \includegraphics[width=0.92\textwidth]{../results/experiment_2_delta_plot.png}
   \caption{Mean MAE delta relative to the RealOnly baseline for each model under RealPlusSynth
   and SynthOnly training regimes (Experiment~2). Negative values indicate improvement over
   the RealOnly baseline.}
@@ -735,6 +906,15 @@ SVR, the RealOnly versus RealPlusSynth comparison is statistically significant, 
 $p$-values ranging from 0.000004 to 0.002855. No regime pair comparison reaches significance for
 Ridge. The RealPlusSynth versus SynthOnly comparison is not significant for any model.
 
+\subsection{Conclusion: Sub-question~2}
+
+GMM synthetic augmentation significantly improves approximation quality for four of the five models
+under the RealPlusSynth regime, with adjusted $p$-values ranging from 0.000004 to 0.002855 and
+mean MAE reductions of 0.09 to 0.36 years. Ridge is the exception: training on pseudo-labelled
+synthetic data alone degrades its MAE by 30\%, because the compressed pseudo-label variance
+(standard deviation 1.91 versus 3.30 years in real labels) biases the linear fit toward a narrower
+output range than the true target distribution.
+
 \section{Experiment 3: Feature Group Ablation}
 
 \subsection{Performance by Feature Group}
@@ -765,7 +945,7 @@ HistGradientBoosting under each of the four cumulative feature group conditions.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.75\textwidth]{../results/experiment_3_boxplot.png}
+  \includegraphics[width=0.92\textwidth]{../results/experiment_3_boxplot.png}
   \caption{Box plot of MAE distributions by cumulative feature group (Experiment~3,
   HistGradientBoosting).}
   \label{fig:exp3_boxplot}
@@ -773,7 +953,7 @@ HistGradientBoosting under each of the four cumulative feature group conditions.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.7\textwidth]{../results/experiment_3_learning_curve.png}
+  \includegraphics[width=0.92\textwidth]{../results/experiment_3_learning_curve.png}
   \caption{Mean MAE by cumulative feature group (Experiment~3). Error bars represent 95\%
   confidence intervals across 30 cross-validation folds. The monotonic increase from G1 to G4 is
   not statistically significant.}
@@ -810,9 +990,44 @@ on MAE, with Bonferroni-corrected $p$-values and the corrected significance thre
 None of the six pairwise comparisons reaches the Bonferroni-corrected threshold of 0.0083. All six
 comparisons are therefore inconclusive.
 
+\subsection{Conclusion: Sub-question~3}
+
+No biometric feature group beyond the 63-feature anthropometric and metabolic base achieves a
+statistically significant improvement at the Bonferroni-corrected threshold of $\alpha = 0.0083$.
+All six pairwise feature group comparisons are inconclusive, and the base group alone achieves the
+lowest mean MAE at 2.39 years, suggesting that bioimpedance, postural risk, and joint angle
+measurements carry negligible independent weight in the Anovator formula at this data scale.
+
+\section{Answers to the Research Sub-Questions}
+
+The first sub-question asked which regression algorithm best approximates the Anovator age gap and
+whether any performance difference is statistically certifiable. The answer is two-part:
+HistGradientBoosting is the numerically preferred model by heuristic ranking, and no algorithm can
+be certified as statistically superior to the others at the available sample size.
+
+The second sub-question asked whether GMM synthetic augmentation improves approximation quality and
+for which model classes. For ensemble methods and SVR the answer is yes, with statistically
+significant improvements under the RealPlusSynth regime. For Ridge the answer is no: synthetic
+augmentation through teacher-student pseudo-labelling is contraindicated when pseudo-label variance
+is substantially compressed relative to the real target distribution.
+
+The third sub-question asked which biometric feature groups carry independent predictive information.
+No statistical evidence exists for independent predictive contribution from bioimpedance, postural
+risk, or joint angle features beyond the anthropometric and metabolic base, but equivalence cannot
+be asserted either; all comparisons are inconclusive at the available sample size.
+
+\section{Limitations}
+
+Four dataset and methodological limitations are documented in full in Section~\ref{sec:limitations}. In brief: two
+features use the integer $-1$ as a sentinel for missing data and are treated as continuous numeric
+inputs; five features with missingness above 88\% become near-constants after imputation; the
+derived feature \texttt{aggregated\_postural\_index} is arithmetically redundant within the postural
+risk group; and the Wilcoxon signed-rank test at Bonferroni-corrected thresholds has limited power
+with 30 paired observations. The 53-individual, single-centre dataset is the binding constraint
+throughout.
 
 % =============================================================================
-\chapter{Discussion}
+\chapter{Discussion and Recommendations}
 % =============================================================================
 
 \section{The Null Result in Experiment 1 Is a Finding, Not a Failure}
@@ -821,22 +1036,30 @@ The absence of statistical significance across all ten pairwise model comparison
 is the most important single result in this thesis and must be stated precisely. The Wilcoxon
 signed-rank test on 30 paired fold observations, corrected for ten simultaneous comparisons at
 $\alpha = 0.005$, found no evidence that any two of the five models differ in their ability to
-approximate the Anovator bodyAge score. The adjusted $p$-value for the closest comparison ---
-SVR versus HistGradientBoosting --- was 0.043, an order of magnitude above the corrected threshold.
+approximate the Anovator bodyAge score. The adjusted $p$-value for the closest comparison (SVR versus HistGradientBoosting) was 0.043, an order of magnitude above the corrected threshold.
 
 This result does not mean the models are equivalent. Claiming equivalence from a non-significant
 Wilcoxon test would commit the fundamental error of accepting the null hypothesis. What the result
 means is that the study, as constituted, cannot resolve the performance difference between these
 models with the required statistical confidence. The confidence intervals reported in
-Table~\ref{tab:exp1_results} span approximately 0.65 to 0.78 years --- a range that is large
+Table~\ref{tab:exp1_results} span approximately 0.65 to 0.78 years, a range that is large
 relative to the mean differences between models, which are all below 0.20 years.
 
 The finding has scientific content precisely because it is unexpected. The fact that Ridge
 regression achieves mean MAE within 0.05 years of HistGradientBoosting suggests either that the
 predictive information in these 88 features is largely captured by linear combinations of those
 features, implying that Anovator's proprietary formula may itself be approximately linear in the
-inputs; or that the test folds are too small to discriminate non-linear signal from noise at this
-dataset scale.
+inputs; or that the test folds are too small --- averaging 12 records drawn from 11 individuals
+--- to discriminate non-linear signal from noise in a dataset of this size. Both interpretations
+are scientifically meaningful and are discussed further in the context of the feature group
+results below.
+
+The practical implication is equally clear. For any operational deployment of a model intended to
+approximate the Anovator score within this data context, the choice among these five algorithms
+does not matter in a statistically defensible sense. The selection of HistGradientBoosting as the
+model for Experiment~3 is justified by its numerical rank at the top of the MAE ordering, but
+this selection carries an explicit caveat that it represents a heuristic choice rather than a
+certified one.
 
 \section{Synthetic Augmentation Helps Ensemble Methods and Damages Ridge}
 
@@ -847,29 +1070,68 @@ reliable as the coverage of the input space increases. The 1000 synthetic record
 biometric input space that the 53 individuals in the real dataset leave sparsely covered.
 
 Ridge regression is the exception. Under the SynthOnly regime, Ridge's mean MAE rises to 3.23 years
-from a RealOnly baseline of 2.48 years --- a 30\% degradation. This behaviour is a direct consequence
-of the pseudo-label distribution: the production model's predictions on the synthetic records have a
-standard deviation of 1.91 years compared to 3.30 years in the real label distribution. Linear
-models fit their coefficients to minimise squared error across the training distribution; when the
-training distribution artificially compresses the label variance, the fitted linear model learns a
-relationship calibrated to a narrower output range than the true target.
+from a RealOnly baseline of 2.48 years --- a 30\% degradation --- and the associated confidence
+interval widens to [2.14, 4.31]. This behaviour is a direct consequence of the pseudo-label
+distribution: the production model's predictions on the synthetic records have a standard deviation
+of 1.91 years compared to 3.30 years in the real label distribution. Linear models fit their
+coefficients to minimise squared error across the training distribution; when the training
+distribution artificially compresses the label variance, the fitted linear model learns a
+relationship calibrated to a narrower output range than the true target. When this model is then
+evaluated on real test folds where age\_gap ranges more widely, the mismatch between training label
+variance and test label variance produces systematically biased predictions. Tree-based and kernel
+methods are less susceptible to this effect because they make fewer assumptions about the global
+shape of the target distribution and are more responsive to local input-output structure.
 
-The RealPlusSynth versus SynthOnly comparison is not significant for any model, meaning that the
-real training records cannot be shown to add distinguishable value over the synthetic corpus alone
-under the available statistical power.
+This finding has a practical implication: synthetic augmentation through teacher-student
+pseudo-labelling is not model-agnostic. Before applying it in an operational context, the
+distributional alignment between real and pseudo-label variance should be verified, and linear
+models should either be excluded from synthetic training or trained on a label distribution that
+has been re-scaled to match the real target variance.
+
+The RealPlusSynth versus SynthOnly comparison is not significant for any model. This is a nuanced
+finding. It does not mean the real records are redundant. Under RealOnly, all five models achieve
+lower MAE than the pseudo-labels' intrinsic noise floor suggests should be achievable from teacher
+predictions alone, which implies that the true labels in the 158 records carry information the
+teacher has not fully extracted. Rather, the failure to detect a significant difference between
+RealPlusSynth and SynthOnly reflects the limited power available to detect what is likely a small
+marginal contribution of approximately 100 to 130 real records against a 1000-record synthetic
+corpus.
 
 \section{Feature Group Saturation and What It Implies About Anovator's Formula}
 
 The most counterintuitive finding in the study is that the 63-feature anthropometric and metabolic
 group alone achieves lower mean MAE (2.39 years) than any larger feature set, including the full
-88-feature model (2.43 years). The most important interpretation concerns the structure of the
-Anovator formula itself. If the formula places low or negligible weight on bioimpedance raw values,
-postural camera risk scores, and joint angles in favour of anthropometric and metabolic measurements,
-then a model attempting to reverse-engineer the formula would find no additional predictive
-information in those feature groups beyond what the base group already captures.
+88-feature model (2.43 years). Several interpretations are consistent with this result. The first, and most important for the
+thesis framing, concerns the structure of the Anovator formula itself. Anovator's bodyAge
+computation is proprietary and unpublished. If the formula places low or negligible weight on
+bioimpedance raw values, postural camera risk scores, and joint angles in favour of anthropometric
+and metabolic measurements, then a model attempting to reverse-engineer the formula would find no
+additional predictive information in those feature groups beyond what the base group already
+captures.
 
-The operational implication is consistent: at this data scale, there is no statistical justification
-for preferring the full 88-feature model over the 63-feature anthropometric and metabolic subset.
+The second interpretation concerns the training set size. With approximately 145 real records per
+training fold, adding 10, 20, or 25 features to a 63-feature model introduces a modest increase
+in the curse of dimensionality that a tree-based algorithm must navigate.
+HistGradientBoosting's gradient boosting procedure provides some protection against overfitting,
+but the added feature dimensions still increase the number of candidate splits evaluated at each
+node and may dilute signal with noise in biometric measurements that show limited variance across
+the 53 individuals in the dataset.
+
+The third interpretation concerns data quality in the added feature groups. The bioimpedance
+values (\texttt{r20} and \texttt{r100} measurements) depend on electrode placement and individual
+hydration status at the time of scanning, introducing measurement noise. The postural risk scores
+are categorical or ordinal outputs of a computer vision algorithm applied to static posture images
+and may be less reliable across sessions for the same individual. The joint angles are similarly
+image-derived estimates. If these measurements carry meaningful signal for the Anovator score,
+that signal may be buried under measurement noise at the scale of 158 records.
+
+Whichever interpretation is correct, the operational implication is consistent: at this data
+scale, there is no statistical justification for preferring the full 88-feature model over the
+63-feature anthropometric and metabolic subset. A repeat of this experiment on a dataset of
+several hundred individuals would carry sufficient power to detect whether the additional feature
+groups contribute marginal predictive value. Until then, the finding must be reported as
+inconclusive on the direction of the true marginal effect, and as consistent with the hypothesis
+that Anovator's scoring places primary weight on anthropometric and metabolic variables.
 
 \section{SHAP Feature Importance: Physiological Interpretation}
 
@@ -880,28 +1142,51 @@ consistent with its likely role as a primary input to the Anovator bodyAge formu
 is the biometric signal most directly linked to the cardiometabolic outcomes that commercial
 biological age scores typically aim to capture.
 
-The second and third most influential features --- \texttt{aerobicGoal} and \texttt{agility} ---
+The second and third most influential features, \texttt{aerobicGoal} and \texttt{agility},
 warrant a caveat. \texttt{AerobicGoal} is an Anovator-computed training recommendation, not a raw
 biometric measurement, meaning the surrogate model has partially learned to use Anovator's own
 intermediate outputs as predictors of the final score, which is expected in a reverse-engineering
 setting but limits physiological interpretability. Intra-abdominal fat (\texttt{inFat}) and BMI
 follow as the fourth and sixth most important features respectively. The first bioimpedance feature
 (\texttt{r20LeftLeg}) appears at rank five, and the first joint angle feature appears at rank
-eleven --- well below the anthropometric and metabolic cluster. This gradient directly supports the
+eleven, well below the anthropometric and metabolic cluster. This gradient directly supports the
 interpretation that Anovator's formula draws its predictive structure primarily from body
 composition, fitness, and metabolic measurements.
 
 \section{The Underpowered Wilcoxon Caveat and Its Scope}
 
-The statistical power limitation described in Section~\ref{sec:power} applies differently across
-the three experiments. In Experiment~1, it is binding: all ten adjusted $p$-values are well above
-the corrected threshold. In Experiment~2, it is not binding for the five significant comparisons,
-which reach adjusted $p$-values as low as 0.000004; the limitation is relevant only for the
-non-significant regime comparisons. In Experiment~3, it is clearly binding: the lowest raw
-$p$-value observed is 0.21, a value that would not reach even the uncorrected 0.05 threshold.
+The statistical power limitation identified in Section~\ref{sec:power} applies differently across
+the three experiments and must be characterised with precision rather than applied as a blanket
+disclaimer.
+
+In Experiment~1, the power limitation is binding. All ten adjusted $p$-values are well above the
+corrected threshold of 0.005, and the closest raw $p$-value (0.0043 for SVR versus
+HistGradientBoosting) is already near the corrected threshold before adjustment. Increasing the
+number of cross-validation splits from 30 to 50 would narrow the 95\% confidence intervals by
+approximately 18\%, which could allow the SVR-versus-HistGradientBoosting comparison to reach
+significance if the true effect size is close to what the point estimates suggest. That said, the
+0.19-year mean MAE difference between these two models, compared to a fold-level standard
+deviation of approximately 0.87 years, implies a modest effect size, and even a 50-split protocol
+may not be sufficient.
+
+In Experiment~2, the power limitation is not binding for the five significant comparisons, which
+reach adjusted $p$-values as low as 0.000004. The effects detected there are large enough to be
+identified even under the relatively conservative test setup. The limitation is relevant for the
+non-significant regime comparisons, particularly the universally non-significant RealPlusSynth
+versus SynthOnly comparisons, where small effects may simply be below the resolution of the
+current test.
+
+In Experiment~3, the power limitation is clearly binding. The lowest raw $p$-value observed is
+0.21, for the G1-versus-G4 comparison --- a value that would not reach even the uncorrected 0.05
+threshold. This suggests either that the true effect of adding bioimpedance, postural risk, and
+joint angle features to the base group is genuinely negligible on the Anovator approximation task,
+or that the effect exists but is smaller than the 30-fold signed-rank test can detect at this
+sample size. The two hypotheses cannot be distinguished without either a larger dataset or a power
+analysis conducted prior to data collection.
 
 None of these observations are apologetic qualifications of a study that failed to find what it was
-looking for. Underpowered tests that return non-significant results are honest results.
+looking for. Underpowered tests that return non-significant results are honest results. The
+obligation is to report them accurately and to not overstate what the available evidence supports.
 
 \section{Known Limitations and Their Bearing on Interpretation}
 
@@ -926,75 +1211,51 @@ indicating that the 53-individual training corpus is the primary constraint on a
 quality. Ridge's failure under the SynthOnly regime provides a clear case study in the conditions
 under which synthetic augmentation is contraindicated.
 
+\section{Recommendations for Zdravoletie}
+
+The following recommendations are drawn from the methodological limitations and open questions
+identified in this study. Each is framed as a concrete next step that Zdravoletie can take to
+extend and operationalise the work.
+
+\textbf{Expand the dataset across multiple clinics.} The 53-individual, single-centre corpus is
+the binding constraint on statistical power throughout all three experiments. Coordinating data
+collection with other Anovator-equipped centres would reduce single-clinic bias, raise the power
+of pairwise significance tests above the current inconclusive regime, and eventually support
+time-based evaluation splits that are not feasible with the current longitudinal density.
+
+\textbf{Re-encode sentinel values before any further modelling.} The features
+\texttt{sportSafeRisk} and \texttt{sportLevel} use $-1$ to signal missingness and are currently
+passed to all models as continuous numeric inputs. Replacing $-1$ with \texttt{NaN} and adding a
+binary missingness indicator for each feature is the most contained and highest-impact
+preprocessing fix available; it requires no new data collection.
+
+\textbf{Complete GDPR requirements before production deployment.} The current Streamlit
+application is a research prototype. Before placing it in clinical use, Zdravoletie should
+commission a Data Protection Impact Assessment under Article~35 GDPR, collect explicit client
+consent covering analytical use of scan data, execute a Data Processing Agreement with the hosting
+provider, and implement staff-only authentication with audit logging.
+
+\textbf{Evaluate alternative synthetic generation methods once the dataset exceeds 500~records.}
+CTGAN, TVAE, and Gaussian copula approaches are excluded from the current study because they
+require substantially larger training corpora to train reliably. Once the real dataset reaches
+approximately 500 records, a direct comparison of these methods against the GMM baseline used here
+would be well-powered and informative.
+
+\textbf{Test imputation strategy sensitivity.} The current study uses training-fold median
+imputation for all features with missing values. Evaluating KNN or MICE imputation as alternatives
+would confirm whether the key results across all three experiments are robust to this modelling
+choice, particularly for the five features with missingness above 88\%.
+
+\textbf{Commission a formal power analysis before dataset expansion.} Before investing in
+multi-centre data collection, a power analysis would quantify the sample size required to achieve
+adequate power at the Bonferroni-corrected thresholds used here for effect sizes of practical
+relevance, giving the expansion effort a concrete and justifiable recruitment target.
+
 
 % =============================================================================
-\chapter{Conclusion}
+% Bibliography
 % =============================================================================
-
-\section{Summary of Findings}
-
-Experiment~1 evaluated five regression algorithms on their ability to predict the Anovator age gap
-from the full 88-feature biometric set. HistGradientBoosting achieved the lowest mean MAE at
-2.43 years (95\% CI [2.09, 2.76]), with SVR the weakest at 2.62 years. The remaining three models
-clustered within 0.04 years of each other. None of the ten pairwise Wilcoxon signed-rank tests
-reached the Bonferroni-corrected significance threshold of 0.005; all ten comparisons must be
-reported as inconclusive.
-
-Experiment~2 tested three training regimes. Under the RealPlusSynth regime, four of the five
-models showed statistically significant improvement over RealOnly training, with adjusted $p$-values
-ranging from 0.000004 to 0.002855 and mean MAE reductions of 0.09 to 0.36 years. Ridge was the
-exception: its mean MAE under the SynthOnly regime rose to 3.23 years from a baseline of 2.48
-years, a 30\% degradation explained by the mismatch between compressed pseudo-label variance
-(standard deviation 1.91 years) and the true label variance (standard deviation 3.30 years).
-
-Experiment~3 applied a cumulative feature group ablation to HistGradientBoosting. Counterintuitively,
-the 63-feature anthropometric and metabolic base group alone achieved the lowest mean MAE at
-2.39 years, with each successive addition of features associated with a marginal increase in error.
-None of the six pairwise comparisons reached the Bonferroni-corrected threshold of 0.0083.
-
-\section{Answers to the Research Sub-Questions}
-
-The first sub-question asked which regression algorithm best approximates the Anovator age gap and
-whether any performance difference is statistically certifiable. The answer is two-part:
-HistGradientBoosting is the numerically preferred model by heuristic ranking, and no algorithm can
-be certified as statistically superior to the others at the available sample size.
-
-The second sub-question asked whether GMM synthetic augmentation improves approximation quality and
-for which model classes. For ensemble methods and SVR the answer is yes, with statistically
-significant improvements under the RealPlusSynth regime. For Ridge the answer is no: synthetic
-augmentation through teacher-student pseudo-labelling is contraindicated when pseudo-label variance
-is substantially compressed relative to the real target distribution.
-
-The third sub-question asked which biometric feature groups carry independent predictive information.
-No statistical evidence exists for independent predictive contribution from bioimpedance, postural
-risk, or joint angle features beyond the anthropometric and metabolic base, but equivalence cannot
-be asserted either --- all comparisons are inconclusive at the available sample size.
-
-\section{Limitations}
-
-Four dataset and methodological limitations are documented in full in Section~\ref{sec:limitations}. In brief: two
-features use the integer $-1$ as a sentinel for missing data and are treated as continuous numeric
-inputs; five features with missingness above 88\% become near-constants after imputation; the
-derived feature \texttt{aggregated\_postural\_index} is arithmetically redundant within the postural
-risk group; and the Wilcoxon signed-rank test at Bonferroni-corrected thresholds has limited power
-with 30 paired observations. The 53-individual, single-centre dataset is the binding constraint
-throughout.
-
-\section{Future Work}
-
-Dataset expansion is the highest-priority item. Collecting Anovator scan records from additional
-health centres would reduce single-gym bias, increase statistical power in all three experiment
-types, and enable time-based evaluation splits that the current corpus cannot support. Sentinel value
-re-encoding for \texttt{sportSafeRisk} and \texttt{sportLevel} is the most contained and
-highest-impact preprocessing fix available. Alternative synthetic generation methods including CTGAN,
-TVAE, and Gaussian copula approaches should be evaluated once the real dataset exceeds approximately
-500 records. Imputation strategy sensitivity analysis using KNN or MICE imputation would test
-whether results are robust to the modelling choice applied to features with high missingness rates.
-Longitudinal evaluation using time-based splits would test whether the models generalise across time
-as well as across individuals. Formal power analysis prior to any dataset expansion effort would
-quantify the sample size required to detect effect sizes of practical relevance at the
-Bonferroni-corrected thresholds used here.
-
+\bibliography{references}
 
 % =============================================================================
 % Appendices
@@ -1008,9 +1269,9 @@ Bonferroni-corrected thresholds used here.
 The dataset used in this study consists of Anovator body scan records collected from clients of
 Zdravoletie. Under the General Data Protection Regulation (EU) 2016/679, this data falls into two
 protected categories. First, the name field constitutes personal data under Article 4(1), as it
-directly identifies natural persons. Second, the biometric and health measurement fields ---
-including body composition percentages, impedance values, postural risk scores, blood pressure,
-heart rate, vision acuity, and the derived bodyAge score --- constitute special category data under
+directly identifies natural persons. Second, the biometric and health measurement fields
+(including body composition percentages, impedance values, postural risk scores, blood pressure,
+heart rate, vision acuity, and the derived bodyAge score) constitute special category data under
 Article 9(1), specifically data concerning health.
 
 Of the 158 records in the dataset, 103 carry the name value ``Unknown''. The remaining 50 records
@@ -1048,10 +1309,5 @@ to authorised clinic staff; audit logging of record access; and a documented dat
 for compliance with Article 17 erasure requests.
 
 \end{appendices}
-
-% =============================================================================
-% Bibliography
-% =============================================================================
-\bibliography{references}
 
 \end{document}
