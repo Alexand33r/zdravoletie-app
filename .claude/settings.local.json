@@ -32,7 +32,8 @@
       "Bash(echo \"P2:$?\")",
       "Bash(echo \"P3:$?\")",
       "Bash(echo \"POA1:$?\")",
-      "Bash(echo \"POA2:$?\")"
+      "Bash(echo \"POA2:$?\")",
+      "Bash(\"C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/miktex/bin/x64/pdflatex.exe\" -interaction=nonstopmode competency_portfolio.tex)"
     ]
   }
 }
