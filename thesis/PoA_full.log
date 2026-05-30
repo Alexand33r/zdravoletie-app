@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  28 MAY 2026 22:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  30 MAY 2026 08:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -904,11 +904,11 @@ Package rerunfilecheck Info: File `PoA_full.out' has not changed.
 Here is how much of TeX's memory you used:
  12600 strings out of 467683
  202685 string characters out of 5409881
- 736569 words of memory out of 5000000
+ 737488 words of memory out of 5000000
  41463 multiletter control sequences out of 15000+600000
  641641 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,79p,1476b,597s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,79p,1470b,597s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
 pi600\tcbx1095.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfo
 ur/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKT
@@ -931,9 +931,9 @@ i10.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/amsfonts/cm/cmr10.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKT
 eX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/AleksandarTanev/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on PoA_full.pdf (18 pages, 258555 bytes).
+Output written on PoA_full.pdf (18 pages, 257627 bytes).
 PDF statistics:
- 775 PDF objects out of 1000 (max. 8388607)
+ 773 PDF objects out of 1000 (max. 8388607)
  61 named destinations out of 1000 (max. 500000)
  11513 words of extra memory for PDF output out of 12000 (max. 10000000)
 

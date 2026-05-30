@@ -181,7 +181,7 @@ evidential value of their outputs for clinical reasoning.
 
 \section{Research Framing}
 
-This project addresses the interpretability gap through a reverse-engineering approach. Rather than
+Addressing the interpretability gap requires a reverse-engineering approach. Rather than
 predicting biological age in the clinical sense (where ground truth is established against mortality
 or morbidity endpoints, as in the biological age literature reviewed in
 Chapter~\ref{chap:related}), the study treats the Anovator bodyAge score itself as the target
@@ -208,7 +208,7 @@ described above. What lies outside the scope is equally important to state clear
 does not attempt to validate the Anovator bodyAge score as a clinical measure of biological ageing;
 the absence of an independently validated ground truth makes such validation impossible within this
 dataset, and the research question does not require it. The study does not investigate alternative
-synthetic data generation methods beyond the Gaussian Mixture Model: CTGAN, vine copula, and
+synthetic data generation methods beyond the Gaussian Mixture Model. CTGAN, vine copula, and
 variational autoencoder approaches are noted in the related work but excluded from empirical
 comparison on the grounds that the 158-record training corpus falls below the regime in which these
 methods train reliably without extensive hyperparameter search. The study does not explore
@@ -355,7 +355,7 @@ The SHapley Additive exPlanations framework, introduced by \citet{Lundberg2017},
 theoretically grounded approach to feature attribution. SHAP values are derived from cooperative
 game theory: the contribution of each feature to a particular prediction is computed as the average
 marginal contribution of that feature across all possible orderings in which features are added to
-the model. This foundation gives SHAP values three properties that competing attribution methods do
+the model. The game-theoretic foundation gives SHAP values three properties that competing attribution methods do
 not simultaneously satisfy: local accuracy, consistency, and missingness.
 
 \citet{Lundberg2020} developed TreeSHAP, an algorithm that exploits the structure of tree-based
@@ -369,8 +369,7 @@ domain experts.
 In the present project, SHAP analysis serves two purposes. Globally, summary plots of mean absolute
 SHAP values provide an empirical ranking of feature importance that complements Experiment~3. Locally,
 force plots decompose individual predictions into feature contributions, providing the interpretable
-patient-level output displayed in the Zdravoletie Streamlit dashboard. It should be noted that SHAP
-values explain the model's behaviour, not the underlying physiological process: they characterise
+patient-level output displayed in the Zdravoletie Streamlit dashboard. SHAP values explain the model's behaviour, not the underlying physiological process: they characterise
 the information structure of the Anovator score as recovered by the model, subject to the
 approximation error and feature encoding limitations described in Chapter~\ref{chap:method}.
 
@@ -390,7 +389,7 @@ shap.summary_plot(shap_values, X, plot_type='bar')
 
 \section{Thesis Framing and Research Objective}
 
-This project does not aim to predict biological age in the general sense. Its specific objective is
+The study does not aim to predict biological age in any general sense. Its specific objective is
 to reverse-engineer and analyse Anovator's proprietary bodyAge score from raw biometric inputs, and
 to evaluate three dimensions of that modelling problem: which regression algorithm best approximates
 the score, whether Gaussian Mixture Model synthetic data augmentation improves approximation quality,
@@ -593,8 +592,8 @@ included in the model feature set and are passed to all models as continuous num
 value $-1$ carries no ordinal meaning in this context; it is a missing-data indicator that happens
 to fall below the minimum meaningful score of zero. These features were retained without
 re-encoding because altering them would create a mismatch with the saved production model artifact
-that the Streamlit dashboard depends on. Proper encoding --- replacing $-1$ with \texttt{NaN}
-followed by median imputation, or introducing a binary missingness indicator --- is listed in
+that the Streamlit dashboard depends on. Proper encoding (replacing $-1$ with \texttt{NaN}
+followed by median imputation, or introducing a binary missingness indicator) is listed in
 future work. The presence of sentinel values may introduce a systematic artefact into the learned
 feature space for tree-based models and a sign-reversal artefact for linear models that treat
 $-1$ as a numerically meaningful input.
@@ -616,8 +615,8 @@ essentially no independent information after imputation.
 \subsection{Redundant Derived Feature Within the Postural Risk Group}
 
 The feature \texttt{aggregated\_postural\_index} is the arithmetic mean of six postural risk
-scores --- \texttt{frontHeadRisk}, \texttt{humpbackRisk}, \texttt{kneeRisk},
-\texttt{pelvisRisk}, \texttt{postureRisk}, and \texttt{spineRisk} --- that are themselves present
+scores (\texttt{frontHeadRisk}, \texttt{humpbackRisk}, \texttt{kneeRisk},
+\texttt{pelvisRisk}, \texttt{postureRisk}, and \texttt{spineRisk}) that are themselves present
 as individual variables in the same feature group. The aggregate therefore carries no independent
 information relative to its components when all six are simultaneously available, as is the case
 in all experiments. The feature was included in the original model training and is retained here
@@ -639,8 +638,8 @@ after Bonferroni correction.
 This section maps each research sub-question to the experiment that addresses it and explains why
 the experimental design is the appropriate method for answering that question.
 
-The first sub-question --- which algorithm best approximates the Anovator age gap and whether any
-performance difference is statistically certifiable --- requires an empirical comparison in which
+The first sub-question (which algorithm best approximates the Anovator age gap and whether any
+performance difference is statistically certifiable) requires an empirical comparison in which
 all candidate algorithms are evaluated under identical conditions on the same data. Experiment~1
 provides this comparison by running all five algorithms on the same 30 cross-validation splits
 with the same training and test data at each fold. The pairwise Wilcoxon signed-rank test on
@@ -649,14 +648,14 @@ paired (drawn from the same folds) and cannot be assumed Gaussian. The Bonferron
 controls the family-wise error rate across the $C(5,2) = 10$ model pairs. The design answers the
 sub-question in two parts: a ranking of models by mean MAE, which identifies the best-performing
 algorithm by heuristic ordering, and a significance determination, which establishes whether that
-ranking is statistically certifiable given the available data. Crucially, the design also allows a
-null finding --- that no pairwise difference is statistically significant --- to be reported as a
+ranking is statistically certifiable given the available data. The design also allows a
+null finding (that no pairwise difference is statistically significant) to be reported as a
 substantive result rather than a failure, because the statistical power available at 30
 observations under Bonferroni correction is explicitly characterised in
 Section~\ref{sec:power}.
 
-The second sub-question --- whether GMM synthetic augmentation improves approximation quality and
-for which model classes --- requires an experiment that can attribute observed performance
+The second sub-question (whether GMM synthetic augmentation improves approximation quality and
+for which model classes) requires an experiment that can attribute observed performance
 differences to training data composition rather than to other sources of variation.
 Experiment~2 achieves this attribution through the three-regime design: RealOnly, RealPlusSynth,
 and SynthOnly. By holding the model architecture, evaluation protocol, and test set constant
@@ -669,15 +668,15 @@ all five models under the same regime structure further allows the sub-question'
 specificity to be answered: whether the synthetic augmentation effect is uniform across algorithm
 families or depends on model architecture.
 
-The third sub-question --- which biometric feature groups carry independent predictive information
-relative to the Anovator score --- requires an experiment that can isolate the marginal
+The third sub-question (which biometric feature groups carry independent predictive information
+relative to the Anovator score) requires an experiment that can isolate the marginal
 contribution of each group while holding the preceding groups constant. Experiment~3 achieves this
 through cumulative additive evaluation: Group~1 is assessed alone, Group~2 as Group~1 plus
 bioimpedance features, Group~3 as Group~2 plus postural risk features, and Group~4 as Group~3
-plus joint angle features. This sequential structure ensures that any observed performance change
+plus joint angle features. The sequential structure ensures that any observed performance change
 at each step can be attributed specifically to the features added at that step, not to changes in
-the base feature set. Using a single model --- HistGradientBoosting, selected by its ranking in
-Experiment~1 --- controls for model-level variance, ensuring that observed differences across
+the base feature set. Using a single model (HistGradientBoosting, selected by its ranking in
+Experiment~1) controls for model-level variance, ensuring that observed differences across
 feature groups are not confounded with differences in how distinct algorithm families utilise the
 same feature set. The Wilcoxon tests on the $C(4,2) = 6$ group pairs, with Bonferroni correction,
 provide the formal statistical determination of whether any group transition produces a certifiable
@@ -818,7 +817,9 @@ HistGradientBoosting is the numerically preferred model with a mean MAE of 2.43 
 algorithm can be certified as statistically superior to any other: all ten Bonferroni-corrected
 Wilcoxon tests are inconclusive at the corrected threshold of $\alpha = 0.005$. The 53-individual
 dataset does not provide sufficient statistical power to resolve the performance differences
-observed, and Sub-question~1 cannot be answered with a definitive model recommendation.
+observed, and Sub-question~1 can be answered in two parts: HistGradientBoosting is the numerically preferred
+model by heuristic ranking, but no algorithm can be certified as statistically superior to the
+others at the available sample size.
 
 \section{Experiment 2: Synthetic Data Ablation}
 
@@ -1038,7 +1039,7 @@ signed-rank test on 30 paired fold observations, corrected for ten simultaneous 
 $\alpha = 0.005$, found no evidence that any two of the five models differ in their ability to
 approximate the Anovator bodyAge score. The adjusted $p$-value for the closest comparison (SVR versus HistGradientBoosting) was 0.043, an order of magnitude above the corrected threshold.
 
-This result does not mean the models are equivalent. Claiming equivalence from a non-significant
+Non-significance does not mean the models are equivalent. Claiming equivalence from a non-significant
 Wilcoxon test would commit the fundamental error of accepting the null hypothesis. What the result
 means is that the study, as constituted, cannot resolve the performance difference between these
 models with the required statistical confidence. The confidence intervals reported in
@@ -1049,8 +1050,8 @@ The finding has scientific content precisely because it is unexpected. The fact 
 regression achieves mean MAE within 0.05 years of HistGradientBoosting suggests either that the
 predictive information in these 88 features is largely captured by linear combinations of those
 features, implying that Anovator's proprietary formula may itself be approximately linear in the
-inputs; or that the test folds are too small --- averaging 12 records drawn from 11 individuals
---- to discriminate non-linear signal from noise in a dataset of this size. Both interpretations
+inputs; or that the test folds are too small (averaging 12 records drawn from 11 individuals)
+to discriminate non-linear signal from noise in a dataset of this size. Both interpretations
 are scientifically meaningful and are discussed further in the context of the feature group
 results below.
 
@@ -1070,9 +1071,8 @@ reliable as the coverage of the input space increases. The 1000 synthetic record
 biometric input space that the 53 individuals in the real dataset leave sparsely covered.
 
 Ridge regression is the exception. Under the SynthOnly regime, Ridge's mean MAE rises to 3.23 years
-from a RealOnly baseline of 2.48 years --- a 30\% degradation --- and the associated confidence
-interval widens to [2.14, 4.31]. This behaviour is a direct consequence of the pseudo-label
-distribution: the production model's predictions on the synthetic records have a standard deviation
+from a RealOnly baseline of 2.48 years (a 30\% degradation), and the associated confidence
+interval widens to [2.14, 4.31]. The degradation follows directly from the pseudo-label distribution: the production model's predictions on the synthetic records have a standard deviation
 of 1.91 years compared to 3.30 years in the real label distribution. Linear models fit their
 coefficients to minimise squared error across the training distribution; when the training
 distribution artificially compresses the label variance, the fitted linear model learns a
@@ -1082,14 +1082,12 @@ variance and test label variance produces systematically biased predictions. Tre
 methods are less susceptible to this effect because they make fewer assumptions about the global
 shape of the target distribution and are more responsive to local input-output structure.
 
-This finding has a practical implication: synthetic augmentation through teacher-student
-pseudo-labelling is not model-agnostic. Before applying it in an operational context, the
+Synthetic augmentation through teacher-student pseudo-labelling is not model-agnostic. Before applying it in an operational context, the
 distributional alignment between real and pseudo-label variance should be verified, and linear
 models should either be excluded from synthetic training or trained on a label distribution that
 has been re-scaled to match the real target variance.
 
-The RealPlusSynth versus SynthOnly comparison is not significant for any model. This is a nuanced
-finding. It does not mean the real records are redundant. Under RealOnly, all five models achieve
+The RealPlusSynth versus SynthOnly comparison is not significant for any model. The non-significance does not mean the real records are redundant. Under RealOnly, all five models achieve
 lower MAE than the pseudo-labels' intrinsic noise floor suggests should be achievable from teacher
 predictions alone, which implies that the true labels in the 158 records carry information the
 teacher has not fully extracted. Rather, the failure to detect a significant difference between
@@ -1155,38 +1153,18 @@ composition, fitness, and metabolic measurements.
 
 \section{The Underpowered Wilcoxon Caveat and Its Scope}
 
-The statistical power limitation identified in Section~\ref{sec:power} applies differently across
-the three experiments and must be characterised with precision rather than applied as a blanket
-disclaimer.
+The statistical power limitation documented in Section~\ref{sec:power} applies differently across
+the three experiments. In Experiment~1 it is binding: all ten adjusted $p$-values exceed the
+corrected threshold of 0.005, and the 0.19-year mean MAE difference between the closest pair (SVR
+versus HistGradientBoosting) implies a modest effect size that may remain undetectable even with 50
+folds. In Experiment~2 it is not binding for the five significant comparisons, which reach adjusted
+$p$-values as low as 0.000004; it is relevant only for the non-significant
+RealPlusSynth-versus-SynthOnly comparisons. In Experiment~3 it is clearly binding: the lowest raw
+$p$-value is 0.21, a value that would not reach even the uncorrected 0.05 threshold.
 
-In Experiment~1, the power limitation is binding. All ten adjusted $p$-values are well above the
-corrected threshold of 0.005, and the closest raw $p$-value (0.0043 for SVR versus
-HistGradientBoosting) is already near the corrected threshold before adjustment. Increasing the
-number of cross-validation splits from 30 to 50 would narrow the 95\% confidence intervals by
-approximately 18\%, which could allow the SVR-versus-HistGradientBoosting comparison to reach
-significance if the true effect size is close to what the point estimates suggest. That said, the
-0.19-year mean MAE difference between these two models, compared to a fold-level standard
-deviation of approximately 0.87 years, implies a modest effect size, and even a 50-split protocol
-may not be sufficient.
-
-In Experiment~2, the power limitation is not binding for the five significant comparisons, which
-reach adjusted $p$-values as low as 0.000004. The effects detected there are large enough to be
-identified even under the relatively conservative test setup. The limitation is relevant for the
-non-significant regime comparisons, particularly the universally non-significant RealPlusSynth
-versus SynthOnly comparisons, where small effects may simply be below the resolution of the
-current test.
-
-In Experiment~3, the power limitation is clearly binding. The lowest raw $p$-value observed is
-0.21, for the G1-versus-G4 comparison --- a value that would not reach even the uncorrected 0.05
-threshold. This suggests either that the true effect of adding bioimpedance, postural risk, and
-joint angle features to the base group is genuinely negligible on the Anovator approximation task,
-or that the effect exists but is smaller than the 30-fold signed-rank test can detect at this
-sample size. The two hypotheses cannot be distinguished without either a larger dataset or a power
-analysis conducted prior to data collection.
-
-None of these observations are apologetic qualifications of a study that failed to find what it was
-looking for. Underpowered tests that return non-significant results are honest results. The
-obligation is to report them accurately and to not overstate what the available evidence supports.
+Non-significant results from an underpowered test are not failures. They reflect the honest limits
+of what 53 individuals and 30 cross-validation folds can resolve at Bonferroni-corrected thresholds,
+and must be reported as such.
 
 \section{Known Limitations and Their Bearing on Interpretation}
 
@@ -1218,22 +1196,30 @@ identified in this study. Each is framed as a concrete next step that Zdravoleti
 extend and operationalise the work.
 
 \textbf{Expand the dataset across multiple clinics.} The 53-individual, single-centre corpus is
-the binding constraint on statistical power throughout all three experiments. Coordinating data
-collection with other Anovator-equipped centres would reduce single-clinic bias, raise the power
-of pairwise significance tests above the current inconclusive regime, and eventually support
-time-based evaluation splits that are not feasible with the current longitudinal density.
-
-\textbf{Re-encode sentinel values before any further modelling.} The features
-\texttt{sportSafeRisk} and \texttt{sportLevel} use $-1$ to signal missingness and are currently
-passed to all models as continuous numeric inputs. Replacing $-1$ with \texttt{NaN} and adding a
-binary missingness indicator for each feature is the most contained and highest-impact
-preprocessing fix available; it requires no new data collection.
+the binding constraint on statistical power throughout all three experiments. All ten model
+comparisons in Experiment~1 and all six feature group comparisons in Experiment~3 are inconclusive
+at the Bonferroni-corrected thresholds, not because the performance differences are zero, but
+because the available sample provides insufficient resolution to certify them. Coordinating data
+collection with other Anovator-equipped centres would reduce single-clinic bias by introducing
+demographic and lifestyle diversity that the Zdravoletie cohort alone cannot provide. A dataset of
+several hundred individuals would raise the power of pairwise significance tests above the current
+inconclusive regime, support time-based evaluation splits not feasible with the current longitudinal
+density, and permit reliable comparison of alternative synthetic data generation architectures whose
+training regimes require substantially larger corpora. The recruitment target for any expansion
+effort should be derived from a prospective power analysis calibrated to the Bonferroni-corrected
+thresholds and effect sizes documented in this study.
 
 \textbf{Complete GDPR requirements before production deployment.} The current Streamlit
 application is a research prototype. Before placing it in clinical use, Zdravoletie should
 commission a Data Protection Impact Assessment under Article~35 GDPR, collect explicit client
 consent covering analytical use of scan data, execute a Data Processing Agreement with the hosting
 provider, and implement staff-only authentication with audit logging.
+
+\textbf{Re-encode sentinel values before any further modelling.} The features
+\texttt{sportSafeRisk} and \texttt{sportLevel} use $-1$ to signal missingness and are currently
+passed to all models as continuous numeric inputs. Replacing $-1$ with \texttt{NaN} and adding a
+binary missingness indicator for each feature is the most contained and highest-impact
+preprocessing fix available; it requires no new data collection.
 
 \textbf{Evaluate alternative synthetic generation methods once the dataset exceeds 500~records.}
 CTGAN, TVAE, and Gaussian copula approaches are excluded from the current study because they
@@ -1301,12 +1287,13 @@ the repository contain only fitted model parameters and no training records.
 
 \section{Requirements for Production Deployment}
 
-A production deployment of the Streamlit dashboard or any successor system would require the
-following before going live: a Data Protection Impact Assessment (DPIA) under Article 35 GDPR;
-explicit informed consent forms covering research and analytical use of scan data; a Data Processing
-Agreement under Article 28 GDPR with any cloud hosting provider; authentication restricting access
-to authorised clinic staff; audit logging of record access; and a documented data retention policy
-for compliance with Article 17 erasure requests.
+A production deployment of the Streamlit dashboard or any successor system would require several
+steps before going live. A Data Protection Impact Assessment (DPIA) under Article 35 GDPR must
+be completed. Explicit informed consent forms covering research and analytical use of scan data
+must be in place, alongside a Data Processing Agreement under Article 28 GDPR with any cloud
+hosting provider. Access must be restricted to authorised clinic staff through authentication,
+with audit logging of record access. A documented data retention policy is also required for
+compliance with Article 17 erasure requests.
 
 \end{appendices}
 

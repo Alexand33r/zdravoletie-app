@@ -1,4 +1,4 @@
-% PoA_full.tex — Plan of Approach (standalone)
+% PoA_full.tex -- Plan of Approach (standalone)
 % Zdravoletie / Fontys University of Applied Sciences, 2026
 % Author: Alexander Tanev
 % Compiler: pdflatex
@@ -39,7 +39,7 @@
 % ── Hyperlinks ─────────────────────────────────────────────────────────────────
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
-  pdftitle  = {Plan of Approach --- Zdravoletie Graduation Project},
+  pdftitle  = {Plan of Approach: Zdravoletie Graduation Project},
   pdfauthor = {Alexander Tanev},
 }
 
@@ -98,7 +98,7 @@ This Plan of Approach describes the design, execution, and management of the gra
 
 \subsection{Company Background}
 
-Zdravoletie is a health and rehabilitation centre based in Varna, Bulgaria, offering physiotherapy, dietary advising, and personalised wellness consultations. The centre operates an Anovator body scanning system, a proprietary platform that records biometric measurements across four modalities: anthropometric and metabolic measurements (including body mass, BMI, segmental fat and muscle mass, visceral fat index, and metabolic age), bioelectrical impedance analysis (phase angle and impedance values at 20\,kHz and 100\,kHz), postural camera imaging (generating a six-dimensional postural risk score), and joint angle measurement. From these inputs the Anovator system computes a composite score called bodyAge --- an estimated biological age expressed in years --- using a proprietary and undisclosed computational formula. Practitioners at Zdravoletie use the bodyAge score and its component measurements to advise clients on dietary, exercise, and physiotherapy interventions. The centre is supervised on the company side by Kostadin Galchin, who confirmed full technical autonomy for the student at project inception.
+Zdravoletie is a health and rehabilitation centre based in Varna, Bulgaria, offering physiotherapy, dietary advising, and personalised wellness consultations. The centre operates an Anovator body scanning system, a proprietary platform that records biometric measurements across four modalities: anthropometric and metabolic measurements (including body mass, BMI, segmental fat and muscle mass, visceral fat index, and metabolic age), bioelectrical impedance analysis (phase angle and impedance values at 20\,kHz and 100\,kHz), postural camera imaging (generating a six-dimensional postural risk score), and joint angle measurement. From these inputs the Anovator system computes a composite score called bodyAge (an estimated biological age expressed in years), using a proprietary and undisclosed computational formula. Practitioners at Zdravoletie use the bodyAge score and its component measurements to advise clients on dietary, exercise, and physiotherapy interventions. The centre is supervised on the company side by Kostadin Galchin, who confirmed full technical autonomy for the student at project inception.
 
 \subsection{Document Overview}
 
@@ -112,15 +112,15 @@ Section~2 defines the project, beginning with the technical and clinical backgro
 
 The Anovator bodyAge score is computed from a set of biometric inputs using a formula that Anovator does not disclose to its clients or to the practitioners who administer it. A client informed that their bodyAge is five years above their chronological age has received a clinically weighted statement, but neither that client nor the attending practitioner at Zdravoletie can determine which of the recorded biometric measurements contributed most to the result, how large each measurement's influence was, or which targeted interventions would produce a measurable change in the next scan. The formula is, from the practitioner's perspective, a black box: inputs enter, a score emerges, and the internal mapping is invisible.
 
-This opacity has direct consequences in the advising context. Zdravoletie practitioners decide among dietary, exercise, and physiotherapy interventions partly on the basis of where the bodyAge score is and how it has changed between sessions. Without visibility into the relative weight the formula assigns to body composition, bioimpedance, postural risk, and joint mobility, these decisions rely on intuition about what the formula rewards rather than on direct evidence. The same opacity limits the ability to detect systematic issues --- for example, whether the formula assigns weight to metrics that are structurally difficult to change, or whether it produces asymmetric outputs across demographic subgroups.
+The opacity has direct consequences in the advising context. Zdravoletie practitioners decide among dietary, exercise, and physiotherapy interventions partly on the basis of where the bodyAge score is and how it has changed between sessions. Without visibility into the relative weight the formula assigns to body composition, bioimpedance, postural risk, and joint mobility, these decisions rely on intuition about what the formula rewards rather than on direct evidence. The same opacity limits the ability to detect systematic issues, for example whether the formula assigns weight to metrics that are structurally difficult to change, or whether it produces asymmetric outputs across demographic subgroups.
 
-A further structural feature of the available data intensifies the modelling challenge. Analysis of the 158 scan records assembled for this project reveals a ceiling-effect pattern in the bodyAge distribution: the signed difference between bodyAge and chronological age --- referred to throughout this document and the thesis as the age gap --- has a mean of 0.45 years and a standard deviation of 3.30 years, with the distribution concentrated near zero. This compression limits the variance available for predictive modelling. A naive model that predicts zero for every record would achieve a mean absolute error equal to the mean absolute deviation of the age gap distribution, which forms a practical floor on achievable prediction error. Any trained regressor must consistently and substantially beat this baseline to justify its complexity. The ceiling effect is not an incidental data quality problem; it is a structural property of how the Anovator formula maps biometric inputs to scores, and it bears on the interpretation of all performance figures reported in the study.
+A further structural feature of the available data intensifies the modelling challenge. Analysis of the 158 scan records assembled for this project reveals a ceiling-effect pattern in the bodyAge distribution: the signed difference between bodyAge and chronological age (referred to throughout this document and the thesis as the age gap) has a mean of 0.45 years and a standard deviation of 3.30 years, with the distribution concentrated near zero. The distribution's concentration near zero limits the variance available for predictive modelling. A naive model that predicts zero for every record would achieve a mean absolute error equal to the mean absolute deviation of the age gap distribution, which forms a practical floor on achievable prediction error. Any trained regressor must consistently and substantially beat this baseline to justify its complexity. The ceiling effect is not an incidental data quality problem; it is a structural property of how the Anovator formula maps biometric inputs to scores, and it bears on the interpretation of all performance figures reported in the study.
 
 \subsection{Problem Description}
 
 The central problem this project addresses is an interpretability gap in a health technology product that is in active clinical use. Zdravoletie's practitioners and clients receive a numeric score without any explanation of how it was computed or which inputs drove it. This gap is not merely a scientific inconvenience: it affects the quality of health advising decisions and prevents meaningful evaluation of whether the scoring formula is calibrated, consistent, or equitable.
 
-A secondary methodological problem emerged during the project's execution. The initial framing of the project treated the bodyAge score as a proxy for clinical biological age --- a quantity studied extensively in gerontology, where the ground truth is established against mortality follow-up, morbidity incidence, or validated biomarker panels. This framing was identified as incorrect at the midterm review: the study has access to none of those external health endpoints, and bodyAge is the Anovator formula's own proprietary output, not a clinically validated measure of physiological ageing. Treating it as a clinical ground truth would expose any performance claim to immediate methodological challenge. The correct framing, adopted after the midterm, is score reverse-engineering: the models in this study learn to approximate an opaque computational formula from its inputs, using the formula's own output as the training target. This reframing makes the research question answerable with the data available, eliminates the need for external clinical validation, and produces findings that are honest about what the data can and cannot establish.
+A secondary methodological problem emerged during the project's execution. The initial framing of the project treated the bodyAge score as a proxy for clinical biological age, a quantity studied extensively in gerontology, where the ground truth is established against mortality follow-up, morbidity incidence, or validated biomarker panels. The framing was identified as incorrect at the midterm review: the study has access to none of those external health endpoints, and bodyAge is the Anovator formula's own proprietary output, not a clinically validated measure of physiological ageing. Treating it as a clinical ground truth would expose any performance claim to immediate methodological challenge. The correct framing, adopted after the midterm, is score reverse-engineering: the models in this study learn to approximate an opaque computational formula from its inputs, using the formula's own output as the training target. The corrected framing makes the research question answerable with the data available, eliminates the need for external clinical validation, and produces findings honest about what the data can and cannot establish.
 
 The research question that guides the project is: to what extent can machine learning regression models reverse-engineer the Anovator bodyAge score from the raw biometric inputs the system records, and what do the results reveal about the relative informational contribution of different biometric feature groups?
 
@@ -128,7 +128,7 @@ The research question that guides the project is: to what extent can machine lea
 
 The assignment is defined in SMART terms to provide an unambiguous standard against which completion can be assessed.
 
-The project will deliver a scientifically rigorous empirical study of the reverse-engineering problem described above. Specifically, the student will train and evaluate five regression algorithms --- Ridge regression, Support Vector Regression with a radial basis function kernel, Random Forest, Gradient Boosting, and Histogram Gradient Boosting --- on a dataset of 158 scan records from 53 individuals drawn from the Zdravoletie Anovator platform. All models will be evaluated using 30 repeated cross-validation folds with GroupShuffleSplit grouped by individual identity, preventing within-person data leakage across splits. Performance will be reported as mean MAE, RMSE, and $R^2$ with 95\% confidence intervals derived from the 30-fold distribution. Pairwise comparisons will be assessed using the Wilcoxon signed-rank test with Bonferroni correction for multiple comparisons. The study will assess three experimental questions: which algorithm best approximates the Anovator formula, whether GMM-based synthetic data augmentation improves approximation quality on real held-out data, and which biometric feature groups carry independent predictive information. The findings will be written up in a thesis-format graduation report and supported by a deployed Streamlit dashboard that makes the surrogate model and its SHAP-based explanations available to Zdravoletie practitioners. All deliverables will be submitted by June 22, 2026.
+The project will deliver a scientifically rigorous empirical study of the reverse-engineering problem described above. Specifically, the student will train and evaluate five regression algorithms (Ridge regression, Support Vector Regression with a radial basis function kernel, Random Forest, Gradient Boosting, and Histogram Gradient Boosting) on a dataset of 158 scan records from 53 individuals drawn from the Zdravoletie Anovator platform. All models will be evaluated using 30 repeated cross-validation folds with GroupShuffleSplit grouped by individual identity, preventing within-person data leakage across splits. Performance will be reported as mean MAE, RMSE, and $R^2$ with 95\% confidence intervals derived from the 30-fold distribution. Pairwise comparisons will be assessed using the Wilcoxon signed-rank test with Bonferroni correction for multiple comparisons. The study will assess three experimental questions: which algorithm best approximates the Anovator formula, whether GMM-based synthetic data augmentation improves approximation quality on real held-out data, and which biometric feature groups carry independent predictive information. The findings will be written up in a thesis-format graduation report and supported by a deployed Streamlit dashboard that makes the surrogate model and its SHAP-based explanations available to Zdravoletie practitioners. All deliverables will be submitted by June 22, 2026.
 
 The assignment is specific because it defines the algorithms, evaluation protocol, dataset, and experimental questions with no ambiguity. It is measurable through the performance metrics, statistical testing, and deliverable completion criteria. It is achievable given the 158-record dataset, the defined experimental scope, and the available tools. It is relevant because it directly addresses the interpretability gap Zdravoletie identified as a practical need. It is time-bound by the June 22 hard freeze and the July 4--5 oral defence.
 
@@ -157,7 +157,7 @@ The following requirements have been identified through analysis of the project 
     \toprule
     \textbf{ID} & \textbf{Requirement} & \textbf{Category} & \textbf{Stakeholder} \\
     \midrule
-    R01 & The study must address three research questions --- algorithm comparison, synthetic augmentation, and feature group ablation --- each with a dedicated experiment and full statistical testing. & Must have & Educational supervisor \\
+    R01 & The study must address three research questions (algorithm comparison, synthetic augmentation, and feature group ablation), each with a dedicated experiment and full statistical testing. & Must have & Educational supervisor \\
     R02 & All experimental results must be reported as mean with 95\% CI derived from 30 cross-validation folds; single-split point estimates are not acceptable. & Must have & Educational supervisor \\
     R03 & Cross-validation splits must be grouped by individual identity so that no client's records appear in both training and test folds. & Must have & Educational supervisor \\
     R04 & Pairwise model comparisons must be assessed with the Wilcoxon signed-rank test and Bonferroni correction; conclusions must accurately distinguish inconclusive from significant results. & Must have & Educational supervisor \\
@@ -168,9 +168,9 @@ The following requirements have been identified through analysis of the project 
     R09 & The competency portfolio must address all required Fontys graduation competencies with concrete evidence from the project. & Should have & Educational supervisor \\
     R10 & The application must provide a population comparison view showing the current client's position in the full 158-record distribution. & Could have & Company supervisor \\
     R11 & The application must support export of a single-page PDF report per client for use in advising sessions. & Could have & Company supervisor \\
-    R12 & CTGAN, TVAE, copula-based, or any other alternative synthetic data generation method will not be evaluated. & Won't have & --- \\
-    R13 & Clinical validation of the bodyAge score against external health endpoints will not be performed. & Won't have & --- \\
-    R14 & Neural network architectures will not be included in the algorithm comparison. & Won't have & --- \\
+    R12 & CTGAN, TVAE, copula-based, or any other alternative synthetic data generation method will not be evaluated. & Won't have & N/A \\
+    R13 & Clinical validation of the bodyAge score against external health endpoints will not be performed. & Won't have & N/A \\
+    R14 & Neural network architectures will not be included in the algorithm comparison. & Won't have & N/A \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -183,7 +183,7 @@ The study does not perform clinical validation of the Anovator bodyAge score. It
 
 The study does not evaluate alternative synthetic data generation architectures. Generative adversarial networks, variational autoencoders, copula-based synthesis, and related approaches are excluded because the 158-record corpus falls below the data scale at which those architectures train reliably. The decision to use a five-component Gaussian Mixture Model was made on precisely those grounds, and introducing GAN or copula comparisons would expand the scope without adding defensible empirical insight given the available data.
 
-The study does not use time-based cross-validation splits. The dataset is cross-sectional --- most clients have two or three sessions spanning irregular intervals --- and temporal ordering of train and test partitions would introduce arbitrary gaps in the 53-individual sample rather than improving realism of the evaluation.
+The study does not use time-based cross-validation splits. The dataset is cross-sectional; most clients have two or three sessions spanning irregular intervals, and temporal ordering of train and test partitions would introduce arbitrary gaps in the 53-individual sample rather than improving realism of the evaluation.
 
 The study does not perform imputation comparisons. The median imputation strategy applied uniformly to all training folds was selected for its robustness to skewed distributions and for consistency with the production model artifact that the dashboard depends on. Evaluating KNN, MICE, or constant-value alternatives would expand the scope without addressing the core research question.
 
@@ -199,9 +199,9 @@ The project phases are structured following an adapted V-model. In the standard 
 
 \subsection{Phase 1: Problem Analysis and Framing}
 
-\textbf{Period:} February 9 -- April 19, 2026 (Weeks 1--10).
+\textbf{Period:} February 9 -- April 26, 2026 (Weeks 1--11).
 
-\textbf{What is done:} This phase establishes what the project is actually asking and whether the available data can answer it. It covers the initial orientation to the Anovator system, the identification of the bodyAge target variable, the design of the data extraction procedure, the conduct of the midterm review, and the critical project reframing that followed. The most significant event in this phase was the midterm feedback from the educational supervisor, which identified two fundamental issues: the biological age framing was scientifically incorrect given the available data, and an $R^2$ of 0.98 obtained at that stage was implausible and indicated a methodological error. Both issues were resolved by the end of the phase: the framing was corrected to score reverse-engineering, and the source of the $R^2$ artefact was traced to circular benchmarking --- a structural design error in which synthetic records pseudo-labelled by a model trained on all 158 real records were then used to evaluate that same model.
+\textbf{What is done:} This phase establishes what the project is actually asking and whether the available data can answer it. It covers the initial orientation to the Anovator system, the identification of the bodyAge target variable, the design of the data extraction procedure, the conduct of the midterm review, and the critical project reframing that followed. The most significant event in this phase was the midterm feedback from the educational supervisor, which identified two fundamental issues: the biological age framing was scientifically incorrect given the available data, and an $R^2$ of 0.98 obtained at that stage was implausible and indicated a methodological error. Both issues were resolved by the end of the phase: the framing was corrected to score reverse-engineering, and the source of the $R^2$ artefact was traced to circular benchmarking (a structural design error in which synthetic records pseudo-labelled by a model trained on all 158 real records were then used to evaluate that same model).
 
 \textbf{How:} The student attended the project kickoff at Zdravoletie, explored the Anovator web interface systematically, and began mapping available variables against the project objective. Preliminary modelling was conducted in \texttt{Health\_Pipeline.ipynb} and \texttt{Benchmarkinig.ipynb} using non-rigorous single-split evaluation. Following the midterm review, a systematic audit of all eight notebooks was conducted, documenting eleven distinct methodological and implementation issues before any fixes were applied, to prevent partial corrections from masking undiscovered problems.
 
@@ -259,13 +259,13 @@ The project phases are structured following an adapted V-model. In the standard 
 
 \textbf{What is done:} This phase produces all written deliverables: the graduation report thesis chapters, the abstract and ethics chapter, the Plan of Approach, the logbook, and the competency portfolio.
 
-\textbf{How:} Thesis chapters were written progressively in parallel with the experimental work, with introduction and related work produced during data preparation, methodology during the experiments, and results, discussion, conclusion, abstract, and ethics during and after the product development phase. The academic framing --- score reverse-engineering rather than biological age prediction --- is applied consistently across all chapters. The competency portfolio draws on documented evidence from all five phases, with structured reflection on each Fontys Applied Mathematics graduation competency. The logbook records activities, decisions, and communications for each project week.
+\textbf{How:} Thesis chapters were written progressively in parallel with the experimental work, with introduction and related work produced during data preparation, methodology during the experiments, and results, discussion, conclusion, abstract, and ethics during and after the product development phase. The academic framing of score reverse-engineering rather than biological age prediction is applied consistently across all chapters. The competency portfolio draws on documented evidence from all five phases, with structured reflection on each Fontys Applied Mathematics graduation competency. The logbook records activities, decisions, and communications for each project week.
 
 \textbf{Input:} Experimental results from Phase~3; dashboard from Phase~4; all project artefacts; Fontys portfolio guidelines.
 
 \textbf{Output:} \texttt{thesis/} directory (nine chapter files); competency portfolio; this Plan of Approach; logbook.
 
-\textbf{Deliverable:} Complete graduation report; competency portfolio; Plan of Approach; logbook --- all submission-ready by June 22, 2026.
+\textbf{Deliverable:} Complete graduation report; competency portfolio; Plan of Approach; logbook, all submission-ready by June 22, 2026.
 
 \subsection{Phase 6: Delivery and Defence}
 
@@ -291,14 +291,14 @@ Project control is specified for each phase across five dimensions following the
 
 \begin{table}[h]
   \centering
-  \caption{TOKIO project control --- Phase 1.}
+  \caption{TOKIO project control: Phase 1.}
   \label{tab:tokio1}
   \small
   \begin{tabular}{p{2.2cm} p{11cm}}
     \toprule
     \textbf{Dimension} & \textbf{Measure} \\
     \midrule
-    Time         & 80 hours across Weeks 1--10. Milestones: kickoff (W1), initial data audit complete (W3), midterm presentation (W9), all eleven bugs documented (W11). \\
+    Time         & 80 hours across Weeks 1--11. Milestones: kickoff (W1), initial data audit complete (W3), midterm presentation (W11), all eleven bugs documented (W11). \\
     Organisation & Student is solely responsible for all analysis and documentation. Educational supervisor Peter Alem provides the primary checkpoint at the midterm review (W9). Company supervisor Kostadin Galchin confirms data access and clinical context at kickoff. \\
     Information  & Progress communicated to Peter Alem at the midterm presentation. Decisions logged in the weekly logbook. \texttt{CLAUDE.md} written at phase end to lock project constraints. \\
     Quality      & All identified issues documented in writing before any fix is applied to prevent partial corrections. Reframing decision explicitly approved through the midterm feedback process. \\
@@ -311,7 +311,7 @@ Project control is specified for each phase across five dimensions following the
 
 \begin{table}[h]
   \centering
-  \caption{TOKIO project control --- Phase 2.}
+  \caption{TOKIO project control: Phase 2.}
   \label{tab:tokio2}
   \small
   \begin{tabular}{p{2.2cm} p{11cm}}
@@ -331,7 +331,7 @@ Project control is specified for each phase across five dimensions following the
 
 \begin{table}[h]
   \centering
-  \caption{TOKIO project control --- Phase 3.}
+  \caption{TOKIO project control: Phase 3.}
   \label{tab:tokio3}
   \small
   \begin{tabular}{p{2.2cm} p{11cm}}
@@ -351,7 +351,7 @@ Project control is specified for each phase across five dimensions following the
 
 \begin{table}[h]
   \centering
-  \caption{TOKIO project control --- Phase 4.}
+  \caption{TOKIO project control: Phase 4.}
   \label{tab:tokio4}
   \small
   \begin{tabular}{p{2.2cm} p{11cm}}
@@ -371,7 +371,7 @@ Project control is specified for each phase across five dimensions following the
 
 \begin{table}[h]
   \centering
-  \caption{TOKIO project control --- Phase 5.}
+  \caption{TOKIO project control: Phase 5.}
   \label{tab:tokio5}
   \small
   \begin{tabular}{p{2.2cm} p{11cm}}
@@ -391,7 +391,7 @@ Project control is specified for each phase across five dimensions following the
 
 \begin{table}[h]
   \centering
-  \caption{TOKIO project control --- Phase 6.}
+  \caption{TOKIO project control: Phase 6.}
   \label{tab:tokio6}
   \small
   \begin{tabular}{p{2.2cm} p{11cm}}
@@ -421,7 +421,7 @@ Project control is specified for each phase across five dimensions following the
     \toprule
     \textbf{Phase} & \textbf{Period} & \textbf{Hours} & \textbf{Notional cost} \\
     \midrule
-    Phase 1: Problem Analysis and Framing  & W1--W10  & 80  & \texteuro{}2{,}000 \\
+    Phase 1: Problem Analysis and Framing  & W1--W11  & 80  & \texteuro{}2{,}000 \\
     Phase 2: Data Collection and Engineering & W1--W12  & 160 & \texteuro{}4{,}000 \\
     Phase 3: Modelling and Experimentation & W13--W14 & 80  & \texteuro{}2{,}000 \\
     Phase 4: Product Development           & W13--W18 & 100 & \texteuro{}2{,}500 \\
@@ -496,14 +496,14 @@ The project spans twenty weeks from February 9 to June 27, 2026. Table~\ref{tab:
     Project kickoff and data extraction begun & Feb 9, 2026 & Complete \\
     Initial data audit complete               & Mar 1, 2026 & Complete \\
     Production model and GMM synthetic dataset complete & Mar 22, 2026 & Complete \\
-    Midterm presentation delivered            & Apr 6, 2026 & Complete \\
+    Midterm presentation delivered            & Apr 22, 2026 & Complete \\
     Project reframing and all eleven bugs fixed & May 3, 2026 & Complete \\
     All three experiments complete, results saved & May 17, 2026 & Complete \\
     Streamlit application deployed            & May 17, 2026 & Complete \\
     All thesis chapters complete              & May 17, 2026 & Complete \\
     Competency portfolio first draft          & Jun 14, 2026 & Planned \\
     All deliverables submission-ready         & Jun 21, 2026 & Planned \\
-    Hard freeze --- final submission          & Jun 22, 2026 & Planned \\
+    Hard freeze: final submission             & Jun 22, 2026 & Planned \\
     Oral defence                              & Jul 4--5, 2026 & Planned \\
     \bottomrule
   \end{tabular}
@@ -544,7 +544,7 @@ The following table presents eight risks identified across the project lifecycle
   R6 & Non-technical company supervisor: Galchin cannot provide methodological guidance on the modelling or statistical analysis. & 2 & 5 & 2 & 20 &
     Educational supervisor Peter Alem is the primary source of methodological guidance. Company supervisor role restricted to domain context and data access confirmation. \\[4pt]
   R7 & Deadline risk: June 22 hard freeze missed, resulting in incomplete or late submission. & 5 & 2 & 2 & 20 &
-    All experimental work and thesis chapters completed by May 17 --- five weeks before the freeze. Remaining deliverable (competency portfolio) planned for Weeks 18--19. \\[4pt]
+    All experimental work and thesis chapters completed by May 17, five weeks before the freeze. Remaining deliverable (competency portfolio) planned for Weeks 18--19. \\[4pt]
   R8 & Scope creep: additional experiments or extended feature engineering added beyond the three experiments defined in \texttt{CLAUDE.md}. & 3 & 3 & 2 & 18 &
     \texttt{CLAUDE.md} explicitly lists all out-of-scope items. Out-of-scope suggestions redirected to \texttt{future\_work.md} rather than acted upon. \\
 \end{longtable}
@@ -553,8 +553,13 @@ The following table presents eight risks identified across the project lifecycle
 \section{Closing}
 % =============================================================================
 
-This project addresses a clearly bounded and practically motivated problem: the interpretability gap in a proprietary health scoring system actively used by a rehabilitation clinic. The reverse-engineering framing adopted after the midterm review is scientifically honest, technically tractable with the available 158-record dataset, and directly relevant to the advising practice at Zdravoletie. The three experiments deliver structured empirical findings with full statistical accountability. The Streamlit dashboard translates those findings into a form that Zdravoletie practitioners can use without data science expertise. The framing and scope are non-negotiable and documented in \texttt{CLAUDE.md}; all deviations from the defined scope are redirected to future work rather than incorporated mid-project.
+The project addresses a clearly bounded and practically motivated problem: the interpretability gap in a proprietary health scoring system actively used by a rehabilitation clinic. The reverse-engineering framing adopted after the midterm review is scientifically honest, technically tractable with the available 158-record dataset, and directly relevant to the advising practice at Zdravoletie. The three experiments deliver structured empirical findings with full statistical accountability. The Streamlit dashboard translates those findings into a form that Zdravoletie practitioners can use without data science expertise. The framing and scope are non-negotiable and documented in \texttt{CLAUDE.md}; all deviations from the defined scope are redirected to future work rather than incorporated mid-project.
 
-The student brings relevant preparation for this assignment. The Applied Mathematics programme with a Data Science major provides direct coverage of the methodological tools used in the study --- regression analysis, cross-validation design, hypothesis testing, and probabilistic modelling --- as well as the mathematical foundations required to interpret and critique their application. The mid-project structural restructuring, initiated in response to a serious framing error identified at the midterm, demonstrated willingness to revise a central design decision under academic pressure rather than defend a flawed prior commitment. The systematic eleven-bug audit, completed before any code was modified, reflected an engineering discipline appropriate to single-researcher work where no independent verification is available. The project proceeds to final submission and oral defence from a position in which all experimental work and all thesis chapters are complete, and the sole remaining deliverable is the competency portfolio.
+The project proceeds to final submission and oral defence with all experimental work complete, all
+thesis chapters written, and the Streamlit dashboard deployed. The Plan of Approach, logbook, and
+competency portfolio constitute the remaining submission components. The scope and framing
+established at the outset are documented in the project constraints file and have been maintained
+consistently across all phases; all items outside that scope are redirected to the future work
+section of the thesis rather than incorporated mid-project.
 
 \end{document}

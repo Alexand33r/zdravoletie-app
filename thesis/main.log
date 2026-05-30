@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  28 MAY 2026 22:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  30 MAY 2026 08:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -669,15 +669,15 @@ ang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 377.
+nput line 376.
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 378.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 377.
  [13]
 Chapter 5.
 [14
 
 ]
-Overfull \hbox (91.13853pt too wide) in paragraph at lines 441--445
+Overfull \hbox (91.13853pt too wide) in paragraph at lines 440--444
 \T1/cmtt/m/n/10.95 headRisk\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 humpbackRisk\
 T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 kneeRisk\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/
 10.95 pelvisRisk\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 postureRisk\T1/cmr/m/n/1
@@ -687,21 +687,21 @@ ineRisk\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 side_hunchback_risk\T1/cmr/m/n/10
  []
 
 
-Overfull \hbox (89.81227pt too wide) in paragraph at lines 446--449
+Overfull \hbox (89.81227pt too wide) in paragraph at lines 445--448
 []\T1/cmr/bx/n/10.95 Group 4, Joint an-gles (5 fea-tures): \T1/cmtt/m/n/10.95 f
 ront_shoulder_angle\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 front_left_leg_angle\
 T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 front_right_leg_angle\T1/cmr/m/n/10.95 ,
  []
 
 [15] [16] [17]
-Overfull \hbox (0.45064pt too wide) in paragraph at lines 604--615
+Overfull \hbox (0.45064pt too wide) in paragraph at lines 603--614
 \T1/cmr/m/n/10.95 Five fea-tures have miss-ing-ness rates ex-ceed-ing 88% of re
 cords: \T1/cmtt/m/n/10.95 leftVision \T1/cmr/m/n/10.95 (94.3%), \T1/cmtt/m/n/10
 .95 rightVision
  []
 
 
-Overfull \hbox (7.87704pt too wide) in paragraph at lines 604--615
+Overfull \hbox (7.87704pt too wide) in paragraph at lines 603--614
 \T1/cmr/m/n/10.95 (92.4%), \T1/cmtt/m/n/10.95 bloodMaxPressure \T1/cmr/m/n/10.9
 5 (91.8%), \T1/cmtt/m/n/10.95 bloodMinPressure \T1/cmr/m/n/10.95 (91.8%), and \
 T1/cmtt/m/n/10.95 restingHeartRate \T1/cmr/m/n/10.95 (88.6%).
@@ -713,7 +713,7 @@ Chapter 6.
 File: ../results/experiment_1_boxplot.png Graphic file (type png)
 <use ../results/experiment_1_boxplot.png>
 Package pdftex.def Info: ../results/experiment_1_boxplot.png  used on input lin
-e 732.
+e 731.
 (pdftex.def)             Requested size: 418.82375pt x 144.69713pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -725,7 +725,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: ../results/experiment_1_sig_matrix.png Graphic file (type png)
 <use ../results/experiment_1_sig_matrix.png>
 Package pdftex.def Info: ../results/experiment_1_sig_matrix.png  used on input 
-line 775.
+line 774.
 (pdftex.def)             Requested size: 418.82375pt x 322.2423pt.
 
 
@@ -740,23 +740,20 @@ rix.png>]
 File: ../results/experiment_2_boxplot.png Graphic file (type png)
 <use ../results/experiment_2_boxplot.png>
 Package pdftex.def Info: ../results/experiment_2_boxplot.png  used on input lin
-e 859.
+e 860.
 (pdftex.def)             Requested size: 418.82375pt x 150.10915pt.
 <../results/experiment_2_delta_plot.png, id=584, 710.655pt x 348.3414pt>
 File: ../results/experiment_2_delta_plot.png Graphic file (type png)
 <use ../results/experiment_2_delta_plot.png>
 Package pdftex.def Info: ../results/experiment_2_delta_plot.png  used on input 
-line 868.
+line 869.
 (pdftex.def)             Requested size: 418.82375pt x 205.30171pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 [24 <../results/experiment_2_boxplot.png>]
-Overfull \hbox (2.66391pt too wide) in paragraph at lines 911--917
+Overfull \hbox (2.66391pt too wide) in paragraph at lines 912--918
 \T1/cmr/m/n/10.95 mod-els un-der the Re-alPlusSynth regime, with ad-justed $\OM
 L/cmm/m/it/10.95 p$\T1/cmr/m/n/10.95 -values rang-ing from 0.000004 to 0.002855
 
@@ -767,14 +764,17 @@ L/cmm/m/it/10.95 p$\T1/cmr/m/n/10.95 -values rang-ing from 0.000004 to 0.002855
 File: ../results/experiment_3_boxplot.png Graphic file (type png)
 <use ../results/experiment_3_boxplot.png>
 Package pdftex.def Info: ../results/experiment_3_boxplot.png  used on input lin
-e 948.
+e 949.
 (pdftex.def)             Requested size: 418.82375pt x 143.41669pt.
 <../results/experiment_3_learning_curve.png, id=599, 565.6332pt x 347.8596pt>
 File: ../results/experiment_3_learning_curve.png Graphic file (type png)
 <use ../results/experiment_3_learning_curve.png>
 Package pdftex.def Info: ../results/experiment_3_learning_curve.png  used on in
-put line 956.
+put line 957.
 (pdftex.def)             Requested size: 418.82375pt x 257.5713pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -785,18 +785,18 @@ Chapter 7.
 [29
 
 ]
-Overfull \hbox (2.79527pt too wide) in paragraph at lines 1102--1111
+Overfull \hbox (2.79527pt too wide) in paragraph at lines 1100--1109
 \T1/cmr/m/n/10.95 The most coun-ter-in-tu-itive find-ing in the study is that t
 he 63-feature an-thro-po-met-ric and metabolic
  []
 
 [30] [31] [32]
-Overfull \hbox (14.06635pt too wide) in paragraph at lines 1238--1243
+Overfull \hbox (14.06635pt too wide) in paragraph at lines 1224--1229
 []\T1/cmr/bx/n/10.95 Evaluate al-ter-na-tive syn-thetic gen-er-a-tion meth-ods 
 once the dataset ex-ceeds 500 records.
  []
 
-[33] (main.bbl [34]) [35
+(main.bbl [33] [34]) [35
 
 ] [36
 
@@ -816,7 +816,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  15561 strings out of 467683
  244330 string characters out of 5409881
- 978208 words of memory out of 5000000
+ 978116 words of memory out of 5000000
  44274 multiletter control sequences out of 15000+600000
  646727 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -846,9 +846,9 @@ Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Aleksan
 darTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb>
 <C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmsy10.pfb>
-Output written on main.pdf (39 pages, 928917 bytes).
+Output written on main.pdf (39 pages, 928133 bytes).
 PDF statistics:
- 1352 PDF objects out of 1440 (max. 8388607)
+ 1351 PDF objects out of 1440 (max. 8388607)
  168 named destinations out of 1000 (max. 500000)
  14383 words of extra memory for PDF output out of 14400 (max. 10000000)
 

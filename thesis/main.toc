@@ -41,12 +41,12 @@
 \contentsline {section}{\numberline {6.3}Experiment 2: Synthetic Data Ablation}{23}{section.6.3}%
 \contentsline {subsection}{\numberline {6.3.1}Synthetic Data Fidelity}{23}{subsection.6.3.1}%
 \contentsline {subsection}{\numberline {6.3.2}Performance by Regime and Model}{24}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Statistical Significance}{24}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.3}Statistical Significance}{25}{subsection.6.3.3}%
 \contentsline {subsection}{\numberline {6.3.4}Conclusion: Sub-question~2}{25}{subsection.6.3.4}%
 \contentsline {section}{\numberline {6.4}Experiment 3: Feature Group Ablation}{26}{section.6.4}%
 \contentsline {subsection}{\numberline {6.4.1}Performance by Feature Group}{26}{subsection.6.4.1}%
 \contentsline {subsection}{\numberline {6.4.2}Statistical Significance}{26}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}Conclusion: Sub-question~3}{27}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.3}Conclusion: Sub-question~3}{26}{subsection.6.4.3}%
 \contentsline {section}{\numberline {6.5}Answers to the Research Sub-Questions}{27}{section.6.5}%
 \contentsline {section}{\numberline {6.6}Limitations}{28}{section.6.6}%
 \contentsline {chapter}{\numberline {7}Discussion and Recommendations}{29}{chapter.7}%
@@ -56,7 +56,7 @@
 \contentsline {section}{\numberline {7.4}SHAP Feature Importance: Physiological Interpretation}{31}{section.7.4}%
 \contentsline {section}{\numberline {7.5}The Underpowered Wilcoxon Caveat and Its Scope}{32}{section.7.5}%
 \contentsline {section}{\numberline {7.6}Known Limitations and Their Bearing on Interpretation}{32}{section.7.6}%
-\contentsline {section}{\numberline {7.7}Synthesis}{33}{section.7.7}%
+\contentsline {section}{\numberline {7.7}Synthesis}{32}{section.7.7}%
 \contentsline {section}{\numberline {7.8}Recommendations for Zdravoletie}{33}{section.7.8}%
 \contentsline {chapter}{Appendices}{36}{section*.5}%
 \contentsline {chapter}{\numberline {A}Ethical Considerations}{37}{chapter.1.A}%

@@ -20,7 +20,19 @@
       "Bash(\"C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/miktex/bin/x64/bibtex.exe\" main *)",
       "Bash(echo \"bibtex exit: $?\")",
       "Bash(\"C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/miktex/bin/x64/pdflatex.exe\" -interaction=nonstopmode PoA_full.tex)",
-      "Bash(grep -v \"^$\")"
+      "Bash(grep -v \"^$\")",
+      "Bash(pdflatex.exe -interaction=nonstopmode main.tex)",
+      "Bash(echo \"EXIT1:$?\")",
+      "Bash(bibtex.exe main *)",
+      "Bash(echo \"EXIT2:$?\")",
+      "Bash(echo \"EXIT3:$?\")",
+      "Bash(echo \"EXIT4:$?\")",
+      "Bash(echo \"P1:$?\")",
+      "Bash(echo \"BT:$?\")",
+      "Bash(echo \"P2:$?\")",
+      "Bash(echo \"P3:$?\")",
+      "Bash(echo \"POA1:$?\")",
+      "Bash(echo \"POA2:$?\")"
     ]
   }
 }
