@@ -127,6 +127,28 @@ def predict_and_explain(
 
 # ── Visualisation helpers ─────────────────────────────────────────────────────
 
+_FEATURE_LABELS = {
+    "wc":            "Waist circumference",
+    "r20LeftLeg":    "Left leg resistance (R20)",
+    "aerobicGoal":   "Aerobic fitness goal",
+    "bmi":           "BMI",
+    "age":           "Chronological age",
+    "weight":        "Body weight",
+    "height":        "Height",
+    "bodyFat":       "Body fat %",
+    "muscleMass":    "Muscle mass",
+    "visceralFat":   "Visceral fat level",
+    "r20RightLeg":   "Right leg resistance (R20)",
+    "r20RightArm":   "Right arm resistance (R20)",
+    "r20LeftArm":    "Left arm resistance (R20)",
+    "r20Trunk":      "Trunk resistance (R20)",
+    "phaseAngle":    "Bioimpedance phase angle",
+    "trunkFat":      "Trunk fat %",
+    "metabolicAge":  "Metabolic age",
+    "boneMass":      "Bone mass",
+}
+
+
 def shap_bar_figure(
     shap_vals: np.ndarray,
     feature_names: list,
@@ -135,7 +157,7 @@ def shap_bar_figure(
 ) -> plt.Figure:
     order  = np.argsort(np.abs(shap_vals))[-max_features:]
     vals   = shap_vals[order]
-    names  = [feature_names[i] for i in order]
+    names  = [_FEATURE_LABELS.get(feature_names[i], feature_names[i]) for i in order]
     colors = ["#d62728" if v > 0 else "#1f77b4" for v in vals]
 
     fig, ax = plt.subplots(figsize=(9, max(4, max_features * 0.45)))
@@ -369,3 +391,33 @@ def render_sidebar_footer(lang: str) -> None:
 def landing_logo_html() -> str:
     """Return the large landing-page Z logo as an HTML string."""
     return _LOGO_SVG_LANDING
+
+
+def gap_metric_html(label: str, value_str: str, value: float, invert: bool = False) -> str:
+    """Return an HTML card for an age-gap metric.
+
+    invert=True reverses color logic (positive value = green), used for
+    'Potential gain' where a larger positive number means improvement.
+    """
+    if value > 0:
+        color   = "#2E7D32" if invert else "#E65100"
+        arrow   = "↑"
+        sublabel = "Improvement" if invert else "Older than age"
+    elif value < 0:
+        color   = "#E65100" if invert else "#2E7D32"
+        arrow   = "↓"
+        sublabel = "Worsened" if invert else "Younger than age"
+    else:
+        color   = "#757575"
+        arrow   = "—"
+        sublabel = "No change"
+
+    return (
+        f'<div style="border-left:4px solid {color}; padding:10px 16px; '
+        f'border-radius:4px; background:#f9f9f9; margin:4px 0;">'
+        f'<div style="font-size:12px; color:#666; margin-bottom:4px;">{label}</div>'
+        f'<div style="font-size:24px; font-weight:700; color:{color};">'
+        f'{arrow} {value_str}</div>'
+        f'<div style="font-size:11px; color:{color}; margin-top:2px;">{sublabel}</div>'
+        f'</div>'
+    )

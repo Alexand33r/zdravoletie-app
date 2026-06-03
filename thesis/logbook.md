@@ -172,23 +172,23 @@
 **Challenges:** Writing six thesis chapters in a single week while simultaneously rebuilding and deploying the Streamlit application required careful prioritisation. Maintaining narrative consistency across chapters written in rapid succession required deliberate cross-referencing — claims in the results chapter needed to align precisely with the protocol described in the methodology, and the discussion needed to interpret only what the results actually showed without overstating the significance of inconclusive findings.
 ---
 
-## Week 15 — May 18–24 *(Planned)*
+## Week 15 — May 18–24 
 
-**Technical work:** Begin competency portfolio. Draft the section on Research Competency: framing and evidence of the reverse-engineering research question, the experimental design choices, and the evaluation of results. Review all thesis chapters for consistency in terminology and cross-references.
+**Technical work:** Continued filling the competency portfolio sections. Reviewed thesis chapters for consistency in terminology and cross-references. Carried out small remaining technical tasks on the Streamlit application.
 
-**Communication:** Planned check-in with Peter Alem to confirm the thesis chapter structure and whether any revisions to framing or content are required before the final writing phase.
+**Communication:** Meeting with Kostadin Galchin to discuss the final stage of the internship. He confirmed satisfaction with progress and outlined the remaining steps before handover. No meeting with Peter Alem this week. The main priorities for the remaining weeks are completing the final thesis, competency portfolio, and logbook.
 
-**[ALEXANDER TO FILL]:** Actual activities and any deviations from plan.
+**Reflection:** The project is effectively in its closing phase. The shift from technical development to writing and documentation requires a different kind of attention, and I am treating it with the same systematic approach used during the experimental work. The Galchin meeting confirmed that the product is in a state he is satisfied with, which removes the main source of uncertainty about the practical deliverable.
 
 ---
 
-## Week 16 — May 25–31 *(Planned)*
+## Week 16 — May 25–31 
 
-**Technical work:** Continue competency portfolio. Draft the section on Professional Development Competency: self-direction in a non-technical company environment, decision-making under uncertainty, and project restructuring in response to academic feedback.
+**Technical work:** Continued competency portfolio drafting. Worked on the professionalisation competency sections: self-direction in a non-technical company environment, decision-making under uncertainty, and the project restructuring that followed midterm feedback.
 
-**Communication:** Planned progress update to Galchin. Share the current state of the thesis and portfolio.
+**Communication:** Update provided to Galchin on the current state of the thesis and portfolio. Final supervision meeting with Peter Alem for this internship period. He reviewed current progress and directed me to prioritise delivering first drafts of both the final thesis and the competency portfolio so he can provide feedback before the final submission deadline.
 
-**[ALEXANDER TO FILL]:** Actual activities and any deviations from plan.
+**Reflection:** The direction from Peter is clear: the remaining time is for writing and consolidation, not further technical development. Having a concrete external deadline for first drafts adds useful pressure. The main risk at this stage is over-refining sections in isolation rather than completing a full draft that Peter can actually review end to end.
 
 ---
 

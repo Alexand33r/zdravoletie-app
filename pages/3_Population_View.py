@@ -15,6 +15,7 @@ from app_utils import (
     load_population,
     population_hist_figure,
     population_scatter_figure,
+    gap_metric_html,
 )
 
 st.set_page_config(page_title="Population View — Zdravoletie", layout="wide")
@@ -45,13 +46,32 @@ percentile = float(np.mean(pop_gaps < client_gap) * 100)
 
 # ── Summary metrics ───────────────────────────────────────────────────────────
 col1, col2, col3, col4 = st.columns(4)
-col1.metric(get_text("metric_client", lang), client_label)
-col2.metric(get_text("metric_predicted_gap", lang), f"{client_gap:+.2f} y")
+if " (" in client_label:
+    client_name, client_date = client_label.rsplit(" (", 1)
+    client_date = client_date.rstrip(")")
+else:
+    client_name, client_date = client_label, ""
+col1.markdown(
+    f'<div style="border-left:4px solid #757575; padding:10px 16px; '
+    f'border-radius:4px; background:#f9f9f9; margin:4px 0;">'
+    f'<div style="font-size:12px; color:#666; margin-bottom:4px;">'
+    f'{get_text("metric_client", lang)}</div>'
+    f'<div style="font-size:16px; font-weight:700; color:#212121; word-break:break-word;">'
+    f'{client_name}</div>'
+    + (f'<div style="font-size:12px; color:#666; margin-top:2px;">{client_date}</div>'
+       if client_date else "")
+    + "</div>",
+    unsafe_allow_html=True,
+)
+col2.markdown(
+    gap_metric_html(get_text("metric_predicted_gap", lang), f"{client_gap:+.2f} y", client_gap),
+    unsafe_allow_html=True,
+)
 col3.metric(get_text("metric_pop_pct", lang), f"{percentile:.0f}th")
-col4.metric(
-    get_text("metric_pop_median", lang),
-    f"{np.median(pop_gaps):+.2f} y",
-    help=get_text("metric_pop_median_help", lang),
+pop_median = float(np.median(pop_gaps))
+col4.markdown(
+    gap_metric_html(get_text("metric_pop_median", lang), f"{pop_median:+.2f} y", pop_median),
+    unsafe_allow_html=True,
 )
 
 st.markdown("---")

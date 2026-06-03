@@ -149,6 +149,13 @@ The primary limitation is dataset size: 53 individuals is insufficient for high-
 significance testing after Bonferroni correction, and most comparisons must be characterised as
 inconclusive rather than resolved.
 
+The thesis is structured as follows. Chapter~2 establishes the research context and practical
+motivation. Chapter~3 states the research questions and describes the Streamlit deliverable.
+Chapter~4 reviews the relevant literature on biological age prediction, synthetic data generation,
+and model interpretability. Chapter~5 documents the full experimental methodology. Chapter~6
+reports results and sub-question conclusions. Chapter~7 discusses the findings, their implications,
+and recommendations for Zdravoletie.
+
 \newpage
 
 % =============================================================================
@@ -373,14 +380,6 @@ patient-level output displayed in the Zdravoletie Streamlit dashboard. SHAP valu
 the information structure of the Anovator score as recovered by the model, subject to the
 approximation error and feature encoding limitations described in Chapter~\ref{chap:method}.
 
-\begin{lstlisting}[language=Python, caption={SHAP TreeExplainer for per-prediction feature attribution.}, label={lst:shap}]
-import shap
-
-explainer   = shap.TreeExplainer(model)
-shap_values = explainer.shap_values(X)
-shap.summary_plot(shap_values, X, plot_type='bar')
-\end{lstlisting}
-
 
 % =============================================================================
 \chapter{Research Method}
@@ -580,6 +579,17 @@ stat, p_raw = wilcoxon(mae_folds_a, mae_folds_b)
 p_adjusted  = min(p_raw * n_comparisons, 1.0)
 \end{lstlisting}
 
+SHAP TreeExplainer is applied to the best-performing model from Experiment~1 as a supplementary
+interpretability step, attributing each prediction to individual features.
+
+\begin{lstlisting}[language=Python, caption={SHAP TreeExplainer for per-prediction feature attribution.}, label={lst:shap}]
+import shap
+
+explainer   = shap.TreeExplainer(model)
+shap_values = explainer.shap_values(X)
+shap.summary_plot(shap_values, X, plot_type='bar')
+\end{lstlisting}
+
 \section{Known Limitations of the Dataset and Feature Set}
 \label{sec:limitations}
 
@@ -632,6 +642,17 @@ At 30 paired observations and a corrected $\alpha$ of 0.005, the Wilcoxon signed
 limited power to detect moderate effect sizes in the range of Cohen's $d = 0.3$ to 0.5. The root
 cause is the dataset size: 53 unique individuals is insufficient for high-power pairwise testing
 after Bonferroni correction.
+
+\subsection{Unknown Client Records}
+\label{sec:unknown}
+
+Of the 158 records in the dataset, 103 carry the name value \texttt{Unknown}, representing 65\% of
+the dataset. These records cannot be grouped by individual identity with certainty under the
+GroupShuffleSplit protocol. When the Unknown group falls into a test fold, all 103 of its records
+are evaluated by a model trained exclusively on named individuals, producing a distribution shift
+that drives elevated errors in those folds. This effect is discussed in Section~\ref{sec:pred_err}
+in the context of the per-prediction error distribution, and is listed here as a named dataset
+limitation.
 
 \section{Answering the Research Questions}
 
@@ -724,6 +745,12 @@ for all five models, derived from 30 GroupShuffleSplit folds.
     SVR                  & 2.62 & [2.30,\ 2.94] & 3.42 & [3.11,\ 3.73] & $-0.66$ & [$-0.91$,\ $-0.41$] \\
     \bottomrule
   \end{tabular}}
+
+  \smallskip
+
+  {\footnotesize Note: R\textsuperscript{2} values are reported for completeness only. Test folds
+  contain 11--13 records; at this scale R\textsuperscript{2} estimates are highly variable and
+  negative values are expected. MAE and RMSE are the primary metrics throughout.}
 \end{table}
 
 \begin{figure}[h]
@@ -783,6 +810,7 @@ models differ in their ability to approximate the Anovator bodyAge score at the 
 statistical confidence.
 
 \subsection{Per-Prediction Error Distribution and Clinical Reliability}
+\label{sec:pred_err}
 
 Table~\ref{tab:exp1_reliability} presents the per-prediction absolute error distribution for
 HistGradientBoosting across all 655 test predictions in the 30 folds.
@@ -807,9 +835,10 @@ HistGradientBoosting across all 655 test predictions in the 30 folds.
 The median absolute error across 655 individual predictions is 3.00 years; the 90th percentile is
 6.84 years. These figures are substantially higher than the 2.43-year mean fold-level MAE reported
 in Table~\ref{tab:exp1_results}. The discrepancy arises from the GroupShuffleSplit structure
-interacting with the 103 records labelled ``Unknown'' in the name field. When the Unknown group
-falls into a test fold, all 103 of its records are evaluated by a model trained exclusively on named
-individuals, producing a sharp distribution shift that drives high errors in those folds.
+interacting with the 103 records labelled ``Unknown'' in the name field (see
+Section~\ref{sec:unknown}). When the Unknown group falls into a test fold, all 103 of its records
+are evaluated by a model trained exclusively on named individuals, producing a sharp distribution
+shift that drives high errors in those folds.
 
 \subsection{Conclusion: Sub-question~1}
 

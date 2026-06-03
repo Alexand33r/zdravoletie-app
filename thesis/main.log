@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  30 MAY 2026 08:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  30 MAY 2026 19:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -647,37 +647,28 @@ Package hyperref Info: Option `pageanchor' set `true' on input line 106.
 Chapter 1.
 [5
 
-]
+] [6]
 Chapter 2.
-[6
+[7
 
-] [7] [8]
+] [8] [9]
 Chapter 3.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-[9
+[10
 
-] [10]
+] [11]
 Chapter 4.
-[11
+[12
 
-] [12]
-(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstl
-ang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-)
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 376.
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 377.
- [13]
+] [13] [14]
 Chapter 5.
-[14
+[15
 
 ]
-Overfull \hbox (91.13853pt too wide) in paragraph at lines 440--444
+Overfull \hbox (91.13853pt too wide) in paragraph at lines 439--443
 \T1/cmtt/m/n/10.95 headRisk\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 humpbackRisk\
 T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 kneeRisk\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/
 10.95 pelvisRisk\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 postureRisk\T1/cmr/m/n/1
@@ -687,45 +678,54 @@ ineRisk\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 side_hunchback_risk\T1/cmr/m/n/10
  []
 
 
-Overfull \hbox (89.81227pt too wide) in paragraph at lines 445--448
+Overfull \hbox (89.81227pt too wide) in paragraph at lines 444--447
 []\T1/cmr/bx/n/10.95 Group 4, Joint an-gles (5 fea-tures): \T1/cmtt/m/n/10.95 f
 ront_shoulder_angle\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 front_left_leg_angle\
 T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 front_right_leg_angle\T1/cmr/m/n/10.95 ,
  []
 
-[15] [16] [17]
-Overfull \hbox (0.45064pt too wide) in paragraph at lines 603--614
+[16]
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstl
+ang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 474.
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 475.
+ [17] [18]
+Overfull \hbox (0.45064pt too wide) in paragraph at lines 613--624
 \T1/cmr/m/n/10.95 Five fea-tures have miss-ing-ness rates ex-ceed-ing 88% of re
 cords: \T1/cmtt/m/n/10.95 leftVision \T1/cmr/m/n/10.95 (94.3%), \T1/cmtt/m/n/10
 .95 rightVision
  []
 
 
-Overfull \hbox (7.87704pt too wide) in paragraph at lines 603--614
+Overfull \hbox (7.87704pt too wide) in paragraph at lines 613--624
 \T1/cmr/m/n/10.95 (92.4%), \T1/cmtt/m/n/10.95 bloodMaxPressure \T1/cmr/m/n/10.9
 5 (91.8%), \T1/cmtt/m/n/10.95 bloodMinPressure \T1/cmr/m/n/10.95 (91.8%), and \
 T1/cmtt/m/n/10.95 restingHeartRate \T1/cmr/m/n/10.95 (88.6%).
  []
 
-[18] [19] [20]
+[19] [20] [21]
 Chapter 6.
-<../results/experiment_1_boxplot.png, id=557, 1281.588pt x 442.7742pt>
+<../results/experiment_1_boxplot.png, id=567, 1281.588pt x 442.7742pt>
 File: ../results/experiment_1_boxplot.png Graphic file (type png)
 <use ../results/experiment_1_boxplot.png>
 Package pdftex.def Info: ../results/experiment_1_boxplot.png  used on input lin
-e 731.
+e 758.
 (pdftex.def)             Requested size: 418.82375pt x 144.69713pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[21
+[22
 
 ]
-<../results/experiment_1_sig_matrix.png, id=569, 639.3486pt x 491.9178pt>
+<../results/experiment_1_sig_matrix.png, id=581, 639.3486pt x 491.9178pt>
 File: ../results/experiment_1_sig_matrix.png Graphic file (type png)
 <use ../results/experiment_1_sig_matrix.png>
 Package pdftex.def Info: ../results/experiment_1_sig_matrix.png  used on input 
-line 774.
+line 801.
 (pdftex.def)             Requested size: 418.82375pt x 322.2423pt.
 
 
@@ -734,43 +734,43 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[22 <../results/experiment_1_boxplot.png>] [23 <../results/experiment_1_sig_mat
+[23 <../results/experiment_1_boxplot.png>] [24 <../results/experiment_1_sig_mat
 rix.png>]
-<../results/experiment_2_boxplot.png, id=583, 1441.0638pt x 516.4896pt>
+<../results/experiment_2_boxplot.png, id=597, 1441.0638pt x 516.4896pt>
 File: ../results/experiment_2_boxplot.png Graphic file (type png)
 <use ../results/experiment_2_boxplot.png>
 Package pdftex.def Info: ../results/experiment_2_boxplot.png  used on input lin
-e 860.
+e 889.
 (pdftex.def)             Requested size: 418.82375pt x 150.10915pt.
-<../results/experiment_2_delta_plot.png, id=584, 710.655pt x 348.3414pt>
+<../results/experiment_2_delta_plot.png, id=598, 710.655pt x 348.3414pt>
 File: ../results/experiment_2_delta_plot.png Graphic file (type png)
 <use ../results/experiment_2_delta_plot.png>
 Package pdftex.def Info: ../results/experiment_2_delta_plot.png  used on input 
-line 869.
+line 898.
 (pdftex.def)             Requested size: 418.82375pt x 205.30171pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[24 <../results/experiment_2_boxplot.png>]
-Overfull \hbox (2.66391pt too wide) in paragraph at lines 912--918
+[25 <../results/experiment_2_boxplot.png>]
+Overfull \hbox (2.66391pt too wide) in paragraph at lines 941--947
 \T1/cmr/m/n/10.95 mod-els un-der the Re-alPlusSynth regime, with ad-justed $\OM
 L/cmm/m/it/10.95 p$\T1/cmr/m/n/10.95 -values rang-ing from 0.000004 to 0.002855
 
  []
 
-[25 <../results/experiment_2_delta_plot.png>]
-<../results/experiment_3_boxplot.png, id=598, 1288.815pt x 441.3288pt>
+[26 <../results/experiment_2_delta_plot.png>]
+<../results/experiment_3_boxplot.png, id=611, 1288.815pt x 441.3288pt>
 File: ../results/experiment_3_boxplot.png Graphic file (type png)
 <use ../results/experiment_3_boxplot.png>
 Package pdftex.def Info: ../results/experiment_3_boxplot.png  used on input lin
-e 949.
+e 978.
 (pdftex.def)             Requested size: 418.82375pt x 143.41669pt.
-<../results/experiment_3_learning_curve.png, id=599, 565.6332pt x 347.8596pt>
+<../results/experiment_3_learning_curve.png, id=612, 565.6332pt x 347.8596pt>
 File: ../results/experiment_3_learning_curve.png Graphic file (type png)
 <use ../results/experiment_3_learning_curve.png>
 Package pdftex.def Info: ../results/experiment_3_learning_curve.png  used on in
-put line 957.
+put line 986.
 (pdftex.def)             Requested size: 418.82375pt x 257.5713pt.
 
 
@@ -779,76 +779,78 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[26 <../results/experiment_3_boxplot.png>] [27 <../results/experiment_3_learnin
-g_curve.png>] [28]
+[27 <../results/experiment_3_boxplot.png>] [28 <../results/experiment_3_learnin
+g_curve.png>] [29]
 Chapter 7.
-[29
+[30
 
 ]
-Overfull \hbox (2.79527pt too wide) in paragraph at lines 1100--1109
+Overfull \hbox (2.79527pt too wide) in paragraph at lines 1129--1138
 \T1/cmr/m/n/10.95 The most coun-ter-in-tu-itive find-ing in the study is that t
 he 63-feature an-thro-po-met-ric and metabolic
  []
 
-[30] [31] [32]
-Overfull \hbox (14.06635pt too wide) in paragraph at lines 1224--1229
+[31] [32] [33]
+Overfull \hbox (14.06635pt too wide) in paragraph at lines 1253--1258
 []\T1/cmr/bx/n/10.95 Evaluate al-ter-na-tive syn-thetic gen-er-a-tion meth-ods 
 once the dataset ex-ceeds 500 records.
  []
 
-(main.bbl [33] [34]) [35
+(main.bbl [34] [35]) [36
 
-] [36
+] [37
 
 
 ]
 Appendix A.
-[37
+[38
 
-] [38] (main.aux)
+] [39] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-04-28>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 687145C95CA66021A1359DAB068D3B15;14521.
+(rerunfilecheck)             Checksum: 8668A3796C884477D4A562CF1E05E884;14699.
  ) 
 Here is how much of TeX's memory you used:
- 15561 strings out of 467683
- 244330 string characters out of 5409881
- 978116 words of memory out of 5000000
- 44274 multiletter control sequences out of 15000+600000
- 646727 words of font info for 78 fonts, out of 8000000 for 9000
+ 15581 strings out of 467683
+ 244604 string characters out of 5409881
+ 975963 words of memory out of 5000000
+ 44287 multiletter control sequences out of 15000+600000
+ 648629 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,12n,79p,1003b,1434s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
 pi600\ecti1095.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfo
-ur/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\AleksandarTanev\Ap
-pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\Al
-eksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.
+ur/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\AleksandarTanev\Ap
+pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Al
+eksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.
 pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
-dpi600\ectt1000.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljf
-our/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\AleksandarTanev\AppData\Local\MiK
-TeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\AleksandarTanev\A
-ppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\A
-leksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095
+dpi600\tcrm1095.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljf
+our/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\AleksandarTanev\AppData\Local\MiK
+TeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\AleksandarTanev\A
+ppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\A
+leksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440
 .pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecbx2488.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/lj
-four/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\AleksandarTanev\AppData\Local\Mi
-KTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\AleksandarTanev\
-AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/A
-leksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmm
-i10.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmmi12.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/AleksandarTanev/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Aleksan
-darTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-<C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb>
-Output written on main.pdf (39 pages, 928133 bytes).
+/dpi600\ecbx2074.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/lj
+four/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\AleksandarTanev\AppData\Local\Mi
+KTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\AleksandarTanev\
+AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\
+AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm120
+0.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
+c/dpi600\ecbx1728.pk><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/AleksandarTanev/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Aleksandar
+Tanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C
+:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmr7.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmr8.pfb><C:/Users/AleksandarTanev/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on main.pdf (40 pages, 942934 bytes).
 PDF statistics:
- 1351 PDF objects out of 1440 (max. 8388607)
- 168 named destinations out of 1000 (max. 500000)
- 14383 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 1407 PDF objects out of 1440 (max. 8388607)
+ 170 named destinations out of 1000 (max. 500000)
+ 15415 words of extra memory for PDF output out of 17280 (max. 10000000)
 

@@ -18,6 +18,7 @@ from app_utils import (
     predict_and_explain,
     preprocess_input,
     shap_bar_figure,
+    gap_metric_html,
 )
 
 st.set_page_config(page_title="Individual Report — Zdravoletie", layout="wide")
@@ -116,13 +117,23 @@ if "age" in client_scan.columns:
 
 # ── Metrics ───────────────────────────────────────────────────────────────────
 col1, col2, col3 = st.columns(3)
-col1.metric(get_text("metric_baseline_gap", lang),  f"{base_gap:+.2f} y")
-col2.metric(
-    get_text("metric_simulated_gap", lang), f"{sim_gap:+.2f} y",
-    delta=f"{sim_gap - base_gap:.2f}",
-    delta_color="inverse",
+col1.markdown(
+    gap_metric_html(get_text("metric_baseline_gap", lang), f"{base_gap:+.2f} y", base_gap),
+    unsafe_allow_html=True,
 )
-col3.metric(get_text("metric_potential_gain", lang), f"{base_gap - sim_gap:.2f} y")
+col2.markdown(
+    gap_metric_html(get_text("metric_simulated_gap", lang), f"{sim_gap:+.2f} y", sim_gap),
+    unsafe_allow_html=True,
+)
+col3.markdown(
+    gap_metric_html(
+        get_text("metric_potential_gain", lang),
+        f"{base_gap - sim_gap:.2f} y",
+        base_gap - sim_gap,
+        invert=True,
+    ),
+    unsafe_allow_html=True,
+)
 
 st.markdown("---")
 
