@@ -127,25 +127,63 @@ def predict_and_explain(
 
 # ── Visualisation helpers ─────────────────────────────────────────────────────
 
-_FEATURE_LABELS = {
-    "wc":            "Waist circumference",
-    "r20LeftLeg":    "Left leg resistance (R20)",
-    "aerobicGoal":   "Aerobic fitness goal",
-    "bmi":           "BMI",
-    "age":           "Chronological age",
-    "weight":        "Body weight",
-    "height":        "Height",
-    "bodyFat":       "Body fat %",
-    "muscleMass":    "Muscle mass",
-    "visceralFat":   "Visceral fat level",
-    "r20RightLeg":   "Right leg resistance (R20)",
-    "r20RightArm":   "Right arm resistance (R20)",
-    "r20LeftArm":    "Left arm resistance (R20)",
-    "r20Trunk":      "Trunk resistance (R20)",
-    "phaseAngle":    "Bioimpedance phase angle",
-    "trunkFat":      "Trunk fat %",
-    "metabolicAge":  "Metabolic age",
-    "boneMass":      "Bone mass",
+FEATURE_LABELS = {
+    # Body composition
+    "fat":                      "Total fat mass (kg)",
+    "muscle":                   "Total muscle mass (kg)",
+    "upperBody":                "Upper body muscle (kg)",
+    "lowerBody":                "Lower body muscle (kg)",
+    "fatTrunk":                 "Trunk fat mass (kg)",
+    "fatLeftArm":               "Left arm fat (kg)",
+    "fatRightArm":              "Right arm fat (kg)",
+    "fatLeftLeg":               "Left leg fat (kg)",
+    "fatRightLeg":              "Right leg fat (kg)",
+    "bmi":                      "BMI",
+    "weight":                   "Body weight (kg)",
+    "height":                   "Height (cm)",
+    "wc":                       "Waist circumference (cm)",
+    "bodyFat":                  "Body fat %",
+    "trunkFat":                 "Trunk fat %",
+    "muscleMass":               "Muscle mass",
+    "visceralFat":              "Visceral fat level",
+    "boneMass":                 "Bone mass (kg)",
+    "metabolicAge":             "Metabolic age",
+    # Bioimpedance — R20
+    "r20LeftLeg":               "Left leg resistance R20 (Ω)",
+    "r20RightLeg":              "Right leg resistance R20 (Ω)",
+    "r20LeftArm":               "Left arm resistance R20 (Ω)",
+    "r20RightArm":              "Right arm resistance R20 (Ω)",
+    "r20Trunk":                 "Trunk resistance R20 (Ω)",
+    # Bioimpedance — R100
+    "r100LeftLeg":              "Left leg resistance R100 (Ω)",
+    "r100RightLeg":             "Right leg resistance R100 (Ω)",
+    "r100LeftArm":              "Left arm resistance R100 (Ω)",
+    "r100RightArm":             "Right arm resistance R100 (Ω)",
+    "r100Trunk":                "Trunk resistance R100 (Ω)",
+    "phaseAngle":               "Bioimpedance phase angle (°)",
+    # Postural risk scores
+    "humpbackRisk":             "Humpback risk score",
+    "spineRisk":                "Spine alignment risk",
+    "pelvisRisk":               "Pelvis alignment risk",
+    "postureRisk":              "Overall posture risk",
+    "kneeRisk":                 "Knee alignment risk",
+    "frontHeadRisk":            "Forward head posture risk",
+    # Derived / engineered features
+    "sex_encoded":              "Sex (F=0, M=1)",
+    "muscle_fat_ratio":         "Muscle-to-fat ratio",
+    "upper_lower_muscle_ratio": "Upper/lower muscle ratio",
+    "trunk_limb_fat_ratio":     "Trunk-to-limb fat ratio",
+    "aggregated_postural_index":"Composite postural risk",
+    # Other numeric inputs
+    "age":                      "Chronological age (years)",
+    "aerobicGoal":              "Aerobic fitness goal",
+    "sportSafeRisk":            "Sport safety risk",
+    "sportLevel":               "Sport activity level",
+    "leftVision":               "Left eye vision",
+    "rightVision":              "Right eye vision",
+    "bloodMaxPressure":         "Systolic blood pressure",
+    "bloodMinPressure":         "Diastolic blood pressure",
+    "restingHeartRate":         "Resting heart rate (bpm)",
 }
 
 
@@ -157,7 +195,7 @@ def shap_bar_figure(
 ) -> plt.Figure:
     order  = np.argsort(np.abs(shap_vals))[-max_features:]
     vals   = shap_vals[order]
-    names  = [_FEATURE_LABELS.get(feature_names[i], feature_names[i]) for i in order]
+    names  = [FEATURE_LABELS.get(feature_names[i], feature_names[i]) for i in order]
     colors = ["#d62728" if v > 0 else "#1f77b4" for v in vals]
 
     fig, ax = plt.subplots(figsize=(9, max(4, max_features * 0.45)))

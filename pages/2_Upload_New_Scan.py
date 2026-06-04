@@ -22,6 +22,8 @@ from app_utils import (
     validate_upload,
     make_template_csv,
     shap_bar_figure,
+    gap_metric_html,
+    FEATURE_LABELS,
     UPLOAD_REQUIRED_COLS,
 )
 
@@ -161,7 +163,10 @@ direction_str = get_text(direction_key, lang)
 interp = get_text("interpretation_fmt", lang).format(val=abs(gap), direction=direction_str)
 
 col1, col2 = st.columns(2)
-col1.metric(get_text("metric_predicted_gap", lang), f"{gap:+.2f} y")
+col1.markdown(
+    gap_metric_html(get_text("metric_predicted_gap", lang), f"{gap:+.2f} y", gap),
+    unsafe_allow_html=True,
+)
 col2.metric(get_text("metric_interpretation", lang), interp)
 
 st.markdown("---")
@@ -191,7 +196,8 @@ with col_r:
     st.subheader(get_text("section_top_risk", lang))
     if top_risk:
         for feat, val in top_risk:
-            st.write(f"**{feat}**: +{val:.3f} y")
+            label = FEATURE_LABELS.get(feat, feat)
+            st.write(f"**{label}**: +{val:.3f} y")
     else:
         st.write(get_text("no_risk_features", lang))
 
@@ -199,7 +205,8 @@ with col_p:
     st.subheader(get_text("section_top_protective", lang))
     if top_protective:
         for feat, val in top_protective:
-            st.write(f"**{feat}**: {val:.3f} y")
+            label = FEATURE_LABELS.get(feat, feat)
+            st.write(f"**{label}**: {val:.3f} y")
     else:
         st.write(get_text("no_protective_features", lang))
 

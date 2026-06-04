@@ -20,11 +20,17 @@ st.markdown("---")
 
 st.markdown(get_text("about_intro", lang))
 
-st.markdown(f"**{get_text('about_what_predicts_title', lang)}**")
-st.markdown(get_text("about_what_predicts_body", lang))
+st.markdown("---")
 
-st.markdown(f"**{get_text('about_limitations_title', lang)}**")
-st.markdown(get_text("about_limitations_body", lang))
+st.info(
+    f"**{get_text('about_what_predicts_title', lang)}**\n\n"
+    + get_text("about_what_predicts_body", lang)
+)
+
+st.warning(
+    f"**{get_text('about_limitations_title', lang)}**\n\n"
+    + get_text("about_limitations_body", lang)
+)
 
 st.markdown("---")
 st.caption(get_text("about_caption", lang))

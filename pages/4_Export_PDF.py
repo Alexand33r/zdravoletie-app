@@ -13,6 +13,7 @@ from app_utils import (
     render_sidebar_footer,
     generate_pdf_report,
     load_population,
+    gap_metric_html,
 )
 
 st.set_page_config(page_title="Export PDF — Zdravoletie", layout="wide")
@@ -46,9 +47,29 @@ source_label = (
 )
 
 col1, col2, col3 = st.columns(3)
-col1.metric(get_text("metric_client", lang),    client_label)
-col2.metric(get_text("metric_age_gap", lang),   f"{client_gap:+.2f} y")
-col3.metric(get_text("metric_source", lang),    source_label)
+
+if " (" in client_label:
+    _name, _date = client_label.rsplit(" (", 1)
+    _date = _date.rstrip(")")
+else:
+    _name, _date = client_label, ""
+col1.markdown(
+    f'<div style="border-left:4px solid #757575; padding:10px 16px; '
+    f'border-radius:4px; background:#f9f9f9; margin:4px 0;">'
+    f'<div style="font-size:12px; color:#666; margin-bottom:4px;">'
+    f'{get_text("metric_client", lang)}</div>'
+    f'<div style="font-size:16px; font-weight:700; color:#212121; word-break:break-word;">'
+    f'{_name}</div>'
+    + (f'<div style="font-size:12px; color:#666; margin-top:2px;">{_date}</div>'
+       if _date else "")
+    + "</div>",
+    unsafe_allow_html=True,
+)
+col2.markdown(
+    gap_metric_html(get_text("metric_age_gap", lang), f"{client_gap:+.2f} y", client_gap),
+    unsafe_allow_html=True,
+)
+col3.metric(get_text("metric_source", lang), source_label)
 
 st.markdown(f"{get_text('report_will_include', lang)}")
 st.markdown(f"- {get_text('report_item_summary', lang)}")
