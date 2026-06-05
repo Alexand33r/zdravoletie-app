@@ -41,15 +41,19 @@ st.markdown("---")
 _CARD_STYLE = (
     "background:#F5F5F5; border-radius:12px; padding:20px 22px 16px 22px; "
     "border:1px solid #E0E0E0; border-top:4px solid #2E7D32; "
-    "min-height:150px;"
+    "min-height:150px; min-width:160px;"
+)
+_CARD_TITLE_STYLE = (
+    "font-size:17px; font-weight:700; color:#2E7D32; margin-bottom:8px; "
+    "white-space:nowrap; overflow:hidden; text-overflow:ellipsis;"
 )
 
-col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3, col4 = st.columns([1, 1, 1, 1])
 
 with col1:
     st.markdown(
         f"<div style='{_CARD_STYLE}'>"
-        f"<div style='font-size:17px; font-weight:700; color:#2E7D32; margin-bottom:8px;'>"
+        f"<div style='{_CARD_TITLE_STYLE}'>"
         f"1 — {get_text('nav_individual_title', lang)}</div>"
         f"<div style='font-size:13px; color:#424242; line-height:1.55;'>"
         f"{get_text('nav_individual_desc', lang)}</div>"
@@ -62,7 +66,7 @@ with col1:
 with col2:
     st.markdown(
         f"<div style='{_CARD_STYLE}'>"
-        f"<div style='font-size:17px; font-weight:700; color:#2E7D32; margin-bottom:8px;'>"
+        f"<div style='{_CARD_TITLE_STYLE}'>"
         f"2 — {get_text('nav_upload_title', lang)}</div>"
         f"<div style='font-size:13px; color:#424242; line-height:1.55;'>"
         f"{get_text('nav_upload_desc', lang)}</div>"
@@ -75,7 +79,7 @@ with col2:
 with col3:
     st.markdown(
         f"<div style='{_CARD_STYLE}'>"
-        f"<div style='font-size:17px; font-weight:700; color:#2E7D32; margin-bottom:8px;'>"
+        f"<div style='{_CARD_TITLE_STYLE}'>"
         f"3 — {get_text('nav_population_title', lang)}</div>"
         f"<div style='font-size:13px; color:#424242; line-height:1.55;'>"
         f"{get_text('nav_population_desc', lang)}</div>"
@@ -88,7 +92,7 @@ with col3:
 with col4:
     st.markdown(
         f"<div style='{_CARD_STYLE}'>"
-        f"<div style='font-size:17px; font-weight:700; color:#2E7D32; margin-bottom:8px;'>"
+        f"<div style='{_CARD_TITLE_STYLE}'>"
         f"4 — {get_text('nav_export_title', lang)}</div>"
         f"<div style='font-size:13px; color:#424242; line-height:1.55;'>"
         f"{get_text('nav_export_desc', lang)}</div>"

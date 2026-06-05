@@ -184,6 +184,12 @@ FEATURE_LABELS = {
     "bloodMaxPressure":         "Systolic blood pressure",
     "bloodMinPressure":         "Diastolic blood pressure",
     "restingHeartRate":         "Resting heart rate (bpm)",
+    "weightControl":            "Weight control score",
+    "fatControl":               "Fat control score",
+    "agility":                  "Agility score",
+    "inFat":                    "Internal fat level",
+    "bodyShape":                "Body shape score",
+    "hips":                     "Hip circumference (cm)",
 }
 
 
