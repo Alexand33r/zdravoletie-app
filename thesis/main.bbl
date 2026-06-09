@@ -58,6 +58,12 @@ Patki, N., Wedge, R., and Veeramachaneni, K. (2016).
 \newblock In {\em Proceedings of the 2016 {IEEE} International Conference on
   Data Science and Advanced Analytics ({DSAA})}, pages 399--410. {IEEE}.
 
+\bibitem[Sullivan et~al., 2001]{sullivan2001}
+Sullivan, L.~M., Dukes, K.~A., and Losina, E. (2001).
+\newblock Tutorial in biostatistics: An introduction to hierarchical linear
+  modelling.
+\newblock {\em Statistics in Medicine}, 20(7):1005--1022.
+
 \bibitem[Xu et~al., 2019]{Xu2019}
 Xu, L., Skoularidou, M., Cuesta-Infante, A., and Veeramachaneni, K. (2019).
 \newblock Modeling tabular data using conditional {GAN}.

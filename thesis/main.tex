@@ -38,6 +38,12 @@
 
 % ── Mathematics ────────────────────────────────────────────────────────────────
 \usepackage{amsmath}
+\usepackage{amssymb}
+\DeclareMathOperator*{\argmin}{argmin}
+
+% ── Diagrams ───────────────────────────────────────────────────────────────────
+\usepackage{tikz}
+\usetikzlibrary{positioning}
 
 % ── Bibliography ───────────────────────────────────────────────────────────────
 \usepackage{natbib}
@@ -266,6 +272,34 @@ group already provides?
 
 \section{Product Description}
 
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  box/.style={rectangle, rounded corners, draw=black, fill=blue!10, minimum width=2.8cm, minimum height=0.9cm, align=center, font=\small},
+  propbox/.style={rectangle, rounded corners, draw=black, fill=red!10, minimum width=2.8cm, minimum height=0.9cm, align=center, font=\small},
+  arrow/.style={->, thick},
+  dasharrow/.style={->, thick, dashed}
+]
+\node[box] (client) {Client scan\\(Anovator)};
+\node[box, right=1.2cm of client] (features) {Raw biometric\\features ($d=88$)};
+\node[propbox, right=1.2cm of features] (anovator) {Anovator\\proprietary formula};
+\node[propbox, right=1.2cm of anovator] (bodyage) {bodyAge score\\(undisclosed)};
+\node[box, below=1.4cm of anovator] (surrogate) {Surrogate ML\\model (this study)};
+\node[box, right=1.2cm of surrogate] (agegap) {Predicted\\age gap $\hat{y}$};
+\node[box, left=1.2cm of surrogate] (shap) {SHAP\\explanations};
+
+\draw[arrow] (client) -- (features);
+\draw[arrow] (features) -- (anovator);
+\draw[arrow] (anovator) -- (bodyage);
+\draw[arrow] (features) -- node[right, font=\footnotesize]{reverse-\\engineering} (surrogate);
+\draw[arrow] (surrogate) -- (agegap);
+\draw[arrow] (surrogate) -- (shap);
+\draw[dasharrow] (bodyage) -- node[right, font=\footnotesize]{target\\variable} (agegap);
+\end{tikzpicture}
+\caption{Overview of the reverse-engineering chain. The Anovator platform transforms raw biometric features into a proprietary bodyAge score through an undisclosed formula (red boxes). This study trains a surrogate ML model on the same raw features to reproduce the age gap output and generate SHAP explanations (blue boxes). The dashed arrow indicates that the bodyAge score serves as the target variable for the surrogate model.}
+\label{fig:chain}
+\end{figure}
+
 The research deliverable beyond the three experiments is a multi-page Streamlit web application
 built for operational use at Zdravoletie. The application accepts an Anovator client export file
 via a drag-and-drop upload interface and provides three analytical views. The Population View
@@ -293,8 +327,9 @@ for several decades. Early attempts used simple composite indices of physical pe
 chemistry, but the foundational theoretical treatment of the problem was provided by
 \citet{Klemera2006}, who formalised biological age estimation as a regression problem in which the
 true biological age is treated as a latent variable estimated from a set of biomarkers. Their method
-fits a collection of simple linear regressions, one per biomarker, modelling each biomarker as a
-function of chronological age, and then combines these fits into a composite biological age estimate
+fits a collection of simple linear regressions, one per biomarker (such as blood pressure, grip
+strength, lung capacity, or serum albumin level), modelling each biomarker as a function of
+chronological age, and then combines these fits into a composite biological age estimate
 that is optimal in the sense of minimising the mean squared distance between the estimated biological
 age and the biomarker values. \citet{Klemera2006} demonstrated that their method produces lower
 estimation error than earlier composite approaches and explicitly accounts for the fact that
@@ -479,6 +514,19 @@ into four groups used in Experiment~3.
 subcutaneous fat, intra-abdominal fat, and segmental decompositions), Anovator-computed health goal
 recommendations, balance and agility scores, vital signs where available, and demographic features.
 
+A note on multicollinearity: many features within Group~1 share the same biological source or are
+mathematically derived from one another. For example, BMI is computed from weight and height, which
+are themselves present as separate features; segmental fat measurements sum to total body fat; and
+muscle mass and fat percentage are inversely constrained by total body composition. When regressors
+exhibit collinearity, regression coefficients can become unstable or misleading, and models may
+overestimate the importance of certain variables \citep{sullivan2001}. This is particularly relevant
+for Ridge regression, whose regularisation parameter partially mitigates collinearity by shrinking
+correlated coefficients toward zero, but does not eliminate the instability. Tree-based models are
+less sensitive to collinearity because they select features greedily at each split rather than
+fitting global coefficients. The collinearity structure of Group~1 should be borne in mind when
+interpreting both the Experiment~1 model comparisons and the SHAP feature importance rankings in
+Section~7.4.
+
 \textbf{Group 2, Bioimpedance (10 features):} Raw impedance measurements at 20\,kHz and 100\,kHz
 for each of the four limbs and the trunk
 (\texttt{r20LeftArm}, \texttt{r20RightArm}, \texttt{r20LeftLeg}, \texttt{r20RightLeg},
@@ -508,6 +556,34 @@ consistently across all contexts. The \texttt{aggregated\_postural\_index} is th
 \section{Cross-Validation Protocol}
 
 \subsection{Group-Based Splitting}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  box/.style={rectangle, rounded corners, draw=black, fill=blue!10, minimum width=3cm, minimum height=0.9cm, align=center, font=\small},
+  databox/.style={rectangle, rounded corners, draw=black, fill=green!10, minimum width=3cm, minimum height=0.9cm, align=center, font=\small},
+  outbox/.style={rectangle, rounded corners, draw=black, fill=orange!10, minimum width=3cm, minimum height=0.9cm, align=center, font=\small},
+  arrow/.style={->, thick}
+]
+\node[databox] (raw) {Raw features\\$\mathbf{X} \in \mathbb{R}^{n \times 88}$, $\mathbf{y} \in \mathbb{R}^n$};
+\node[box, below=0.8cm of raw] (split) {GroupShuffleSplit\\(by client identity)};
+\node[databox, below left=0.8cm and 1.5cm of split] (train) {Training fold\\($\approx$80\% of clients)};
+\node[databox, below right=0.8cm and 1.5cm of split] (test) {Test fold\\($\approx$20\% of clients)};
+\node[box, below=0.8cm of train] (impute) {Median imputation\\+ StandardScaler};
+\node[box, below=0.8cm of impute] (model) {Model fit\\(e.g. HistGradientBoosting)};
+\node[outbox, below=0.8cm of test] (eval) {Evaluation\\MAE, RMSE, $R^2$};
+
+\draw[arrow] (raw) -- (split);
+\draw[arrow] (split) -- (train);
+\draw[arrow] (split) -- (test);
+\draw[arrow] (train) -- (impute);
+\draw[arrow] (impute) -- (model);
+\draw[arrow] (model) -- node[below, font=\footnotesize]{predict} (eval);
+\draw[arrow] (test) -- (eval);
+\end{tikzpicture}
+\caption{Model pipeline schematic for a single cross-validation fold. Raw features $\mathbf{X}$ and target variable $\mathbf{y}$ (\texttt{age\_gap}) are split by client identity using GroupShuffleSplit. The training fold undergoes median imputation and scaling before model fitting; the same imputation parameters are applied to the test fold. Evaluation metrics are computed on the test fold predictions. This procedure is repeated 30 times with different random splits.}
+\label{fig:pipeline}
+\end{figure}
 
 All three experiments use \texttt{GroupShuffleSplit} from scikit-learn with the grouping variable
 set to the client name field. This prevents data leakage at the person level: all of a given
@@ -549,13 +625,54 @@ X_test  = scaler.transform(X_test)
 
 \section{Experiment 1: Model Comparison}
 
-Experiment~1 evaluates five regression algorithms: \texttt{RandomForestRegressor}, \texttt{Ridge},
-\texttt{SVR} (radial basis function kernel), \texttt{GradientBoostingRegressor}, and
-\texttt{HistGradientBoostingRegressor}. All models use scikit-learn implementations with fixed
-hyperparameters specified in a central configuration module. RandomForest uses 100 estimators with
-maximum depth 7. Ridge uses a regularisation coefficient of 1.0. SVR uses a radial basis function
-kernel with $C=1.0$ and $\varepsilon=0.1$. GradientBoosting uses 100 estimators with learning rate
-0.1 and maximum depth 3. HistGradientBoosting uses 100 maximum iterations.
+Experiment~1 evaluates five regression algorithms spanning linear, kernel, and ensemble families.
+The mathematical form of each model is described below, with $\mathbf{x} \in \mathbb{R}^d$ denoting
+the scaled feature vector for a single record and $\hat{y} \in \mathbb{R}$ denoting the predicted
+age gap.
+
+\textbf{Ridge Regression.} Ridge fits a linear model with $\ell_2$ regularisation:
+\begin{equation}
+\hat{y} = \mathbf{w}^\top \mathbf{x} + b, \quad \text{where} \quad
+\mathbf{w}^* = \argmin_{\mathbf{w}} \sum_{i=1}^{n} (y_i - \mathbf{w}^\top \mathbf{x}_i)^2
+             + \lambda \|\mathbf{w}\|_2^2
+\end{equation}
+The regularisation coefficient $\lambda = 1.0$ shrinks coefficients toward zero, partially
+mitigating the instability caused by multicollinear features in Group~1. Ridge serves as the linear
+baseline in this comparison.
+
+\textbf{Support Vector Regression (SVR).} SVR with a radial basis function (RBF) kernel fits a
+non-linear model by mapping inputs into a high-dimensional feature space via the kernel function
+$k(\mathbf{x}_i, \mathbf{x}_j) = \exp(-\gamma \|\mathbf{x}_i - \mathbf{x}_j\|^2)$, and finding
+the flattest function within an $\varepsilon$-insensitive tube around the training targets:
+\begin{equation}
+\hat{y} = \sum_{i=1}^{n} (\alpha_i - \alpha_i^*)\, k(\mathbf{x}_i, \mathbf{x}) + b
+\end{equation}
+where $\alpha_i, \alpha_i^* \geq 0$ are dual coefficients. Parameters used: $C = 1.0$,
+$\varepsilon = 0.1$, RBF kernel with default $\gamma$.
+
+\textbf{Random Forest.} Random Forest builds an ensemble of $T = 100$ decision trees, each trained
+on a bootstrap sample of the training fold with a random subset of features considered at each
+split. Predictions are averaged across trees:
+\begin{equation}
+\hat{y} = \frac{1}{T} \sum_{t=1}^{T} f_t(\mathbf{x})
+\end{equation}
+where $f_t$ is the $t$-th tree. Maximum depth is constrained to 7 to limit overfitting on the
+small training folds.
+
+\textbf{Gradient Boosting.} Gradient Boosting constructs an additive ensemble by fitting each tree
+$f_t$ to the negative gradient of the loss function with respect to the current ensemble prediction:
+\begin{equation}
+\label{eq:gb}
+F_t(\mathbf{x}) = F_{t-1}(\mathbf{x}) + \eta \cdot f_t(\mathbf{x})
+\end{equation}
+where $\eta = 0.1$ is the learning rate and $f_t$ is a shallow tree of maximum depth 3. The
+ensemble uses $T = 100$ trees.
+
+\textbf{HistGradientBoosting.} HistGradientBoosting extends gradient boosting by binning continuous
+features into a fixed number of histogram bins before tree construction, reducing computational
+complexity from $\mathcal{O}(nd)$ to $\mathcal{O}(nb)$ per split where $b \ll n$ is the number of
+bins. The prediction form is identical to Gradient Boosting (Equation~\ref{eq:gb}) with up to 100
+maximum iterations and native support for missing values.
 
 For each of the 30 splits, fresh model instances are trained on the scaled training fold and
 evaluated on the scaled test fold. MAE, RMSE, and R\textsuperscript{2} are recorded for each model in each split, yielding 30 paired observations per model. MAE is the primary evaluation metric throughout: it is interpretable in the units of the target variable (years), robust to outliers relative to squared-error metrics, and directly meaningful to a clinical audience. RMSE is reported alongside MAE because it penalises large individual errors more heavily, providing a complementary view of prediction reliability. R\textsuperscript{2} is reported for completeness only; its interpretation is unreliable at the test fold sizes used here (11--13 records per fold) and it is not used as the basis for any comparative claim.
