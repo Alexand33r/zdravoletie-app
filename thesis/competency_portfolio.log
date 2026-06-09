@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  2 JUN 2026 15:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  9 JUN 2026 14:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -406,19 +406,23 @@ Overfull \hbox (0.23613pt too wide) in paragraph at lines 649--656
 ev _ Final . docx$\T1/cmr/m/n/10.95 ). The writ-ten feed-back
  []
 
-[16] [17] [18] (competency_portfolio.aux)
+[16] [17] [18]
+Appendix A.
+[19
+
+] [20] (competency_portfolio.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-04-28>
  ***********
 Package rerunfilecheck Info: File `competency_portfolio.out' has not changed.
-(rerunfilecheck)             Checksum: BD30564C636F0187349EFD69EA3B7305;4140.
+(rerunfilecheck)             Checksum: 92ACC9DD297679BA9318FB0996EBCAFE;5120.
  ) 
 Here is how much of TeX's memory you used:
- 10743 strings out of 467683
- 175345 string characters out of 5409881
+ 10755 strings out of 467683
+ 175475 string characters out of 5409881
  632489 words of memory out of 5000000
- 39692 multiletter control sequences out of 15000+600000
+ 39697 multiletter control sequences out of 15000+600000
  639963 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,12n,79p,1019b,490s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -437,9 +441,9 @@ eksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi
 10.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmr10.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-Output written on competency_portfolio.pdf (19 pages, 223345 bytes).
+Output written on competency_portfolio.pdf (21 pages, 236041 bytes).
 PDF statistics:
- 590 PDF objects out of 1000 (max. 8388607)
- 38 named destinations out of 1000 (max. 500000)
- 8337 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 636 PDF objects out of 1000 (max. 8388607)
+ 45 named destinations out of 1000 (max. 500000)
+ 8377 words of extra memory for PDF output out of 10000 (max. 10000000)
 

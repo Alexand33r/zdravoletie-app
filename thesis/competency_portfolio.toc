@@ -16,3 +16,8 @@
 \contentsline {section}{\numberline {3.2}Collaboration and Communication}{15}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Evidence of Development}{16}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Areas for Further Development}{17}{section.3.4}%
+\contentsline {chapter}{\numberline {A}Ethical Considerations}{19}{chapter.A}%
+\contentsline {section}{\numberline {A.1}Data Classification Under GDPR}{19}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Consent Assumptions}{19}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Data Handling in This Study}{19}{section.A.3}%
+\contentsline {section}{\numberline {A.4}Requirements for Production Deployment}{20}{section.A.4}%

@@ -95,10 +95,10 @@
   {\normalsize Fontys University of Applied Sciences\par}
   \vspace{1cm}
   {\normalsize Internship at Zdravoletie Health and Rehabilitation Centre,\\
-  Varna, Bulgaria\par}
+  Burgas, Bulgaria\par}
   \vspace{1cm}
   {\normalsize Company supervisor: Kostadin Galchin\par}
-  {\normalsize Educational supervisor: Peter Alem\par}
+  {\normalsize Educational supervisor: Peter P.A.L. van Alem\par}
   \vspace{2cm}
   {\normalsize June 2026\par}
   \vfill
@@ -196,19 +196,17 @@ variable and asks whether machine learning regression models can learn to reprod
 biometric inputs that the Anovator system records. The age gap, defined as bodyAge minus
 chronological age, is used as the prediction target throughout in order to remove the trivial
 component of chronological age from the target distribution and focus modelling effort on the
-physiological deviation component that the Anovator formula computes. The three research
+physiological deviation component that the Anovator formula computes. Three research
 sub-questions that structure the empirical programme are stated in
 Chapter~\ref{chap:questions}.
 
 \section{Study Design and Scope}
 
 The empirical programme comprises three experiments conducted on a dataset of 158 Anovator scan
-records drawn from 53 unique clients at Zdravoletie, a health and rehabilitation centre in Varna,
-Bulgaria. Data were collected between 2022 and 2024. All experiments use 30 repeated
+records drawn from 53 unique clients at Zdravoletie, a health and rehabilitation centre in Burgas,
+Bulgaria. Data were collected between 2022 and 2024. All experiments --- each being an empirical comparison of models, training regimes, or feature groups conducted under identical controlled conditions --- use 30 repeated
 GroupShuffleSplit cross-validation iterations grouped by client identity to prevent person-level data
-leakage, and report performance as mean error with 95\% confidence intervals. Statistical
-significance between conditions is assessed using the Wilcoxon signed-rank test with Bonferroni
-correction for multiple comparisons.
+leakage, and report predictive performance as mean absolute error (MAE) with 95\% confidence intervals. Statistical significance between experimental conditions (the models compared in Experiment~1, the training regimes in Experiment~2, and the feature groups in Experiment~3) is assessed using the Wilcoxon signed-rank test with Bonferroni correction for multiple comparisons.
 
 The scope of the project is deliberately constrained. It covers exactly the three experiments
 described above. What lies outside the scope is equally important to state clearly. This project
@@ -216,12 +214,11 @@ does not attempt to validate the Anovator bodyAge score as a clinical measure of
 the absence of an independently validated ground truth makes such validation impossible within this
 dataset, and the research question does not require it. The study does not investigate alternative
 synthetic data generation methods beyond the Gaussian Mixture Model. CTGAN, vine copula, and
-variational autoencoder approaches are noted in the related work but excluded from empirical
+variational autoencoder approaches are noted in Chapter~4 but excluded from empirical
 comparison on the grounds that the 158-record training corpus falls below the regime in which these
 methods train reliably without extensive hyperparameter search. The study does not explore
-time-based train-test splits, as the dataset contains insufficient longitudinal density per
-individual to make temporal generalisation the primary evaluation criterion. These exclusions are
-not omissions; they are boundaries that keep the empirical claims within what the data can support.
+time-based train-test splits, as the dataset contains insufficient repeated measurements per individual across time to make generalisation to future scans from the same individual the primary evaluation criterion. These exclusions are
+not omissions; they are boundaries that keep the empirical claims within what the data can support --- for example, which algorithm best approximates the score, or whether synthetic augmentation improves prediction quality.
 
 \section{Practical Significance}
 
@@ -249,6 +246,8 @@ Anovator bodyAge score from the raw biometric inputs that the Anovator scanning 
 The target is the age gap, defined as bodyAge minus chronological age, across 158 scan records from
 53 unique clients collected at Zdravoletie.
 
+The sub-questions presented here were reformulated after the midterm review, following the project reframing described in Section~1.2 of the competency portfolio. The original sub-questions reflected an early exploratory framing that predated the identification of the circular benchmarking error and the shift to a reverse-engineering research objective --- they addressed scanner inconsistencies, body ratio predictors, model interpretability, and population simulation in practitioner-facing terms. The reformulated sub-questions below are directly answerable by the three experiments, produce verifiable statistical conclusions, and are fully aligned with the corrected reverse-engineering framing.
+
 Three sub-questions structure the empirical programme.
 
 \textbf{Sub-question~1.} Among five regression algorithms spanning linear, kernel, and ensemble
@@ -272,7 +271,7 @@ built for operational use at Zdravoletie. The application accepts an Anovator cl
 via a drag-and-drop upload interface and provides three analytical views. The Population View
 presents aggregate statistics and visualisations across all uploaded scan records, allowing
 practitioners to inspect the distribution of bodyAge scores and age gaps in the client cohort. The
-Individual Analysis view generates a SHAP waterfall plot that decomposes the model's predicted age
+Individual Analysis view generates a SHAP (based on the Shapley Value) waterfall plot that decomposes the model's predicted age
 gap into per-feature contributions, giving the attending practitioner a ranked explanation of which
 biometric measurements drove the score for a specific client. Scan reports can be exported to a
 formatted PDF for inclusion in client records. The interface is bilingual, with all labels and
@@ -329,7 +328,7 @@ The scarcity of labelled data is a recurring constraint in medical machine learn
 collection is costly, privacy regulations limit sharing, and cohort sizes at individual institutions
 are often in the hundreds rather than the thousands.
 
-The earliest and most widely used approach in the context of class imbalance is SMOTE, introduced
+The earliest and most widely used approach in the context of class imbalance is SMOTE (Synthetic Minority Over-sampling Technique), introduced
 by \citet{Chawla2002}, which generates new minority-class instances by interpolating between
 existing instances in feature space. SMOTE operates in a purely local neighbourhood context and
 does not model the global joint distribution of features.
@@ -375,7 +374,7 @@ domain experts.
 
 In the present project, SHAP analysis serves two purposes. Globally, summary plots of mean absolute
 SHAP values provide an empirical ranking of feature importance that complements Experiment~3. Locally,
-force plots decompose individual predictions into feature contributions, providing the interpretable
+Shapley force plots decompose individual predictions into feature contributions, providing the interpretable
 patient-level output displayed in the Zdravoletie Streamlit dashboard. SHAP values explain the model's behaviour, not the underlying physiological process: they characterise
 the information structure of the Anovator score as recovered by the model, subject to the
 approximation error and feature encoding limitations described in Chapter~\ref{chap:method}.
@@ -403,6 +402,15 @@ rehabilitation centre in Bulgaria. Records were collected between 2022 and 2024 
 scanning platform, which combines impedance bioelectrical analysis, postural camera imaging, and
 manual biometric measurements. The dataset comprises 158 individual scan records drawn from 53
 unique clients, with each client potentially appearing in multiple records across different sessions.
+This structure introduces non-independence of observations: records from the same individual share
+stable biometric characteristics and are therefore not fully independent draws from the population.
+For linear regression models, non-independent observations violate the assumption that residuals are
+independent, which would render inference statistics unreliable. This study addresses the
+non-independence problem through the GroupShuffleSplit cross-validation protocol described in
+Section~5.4.1, which ensures all records from a given client are assigned together to either the
+training fold or the test fold, preventing person-level data leakage. This does not eliminate
+within-person correlation across sessions but prevents the model from exploiting individual-level
+consistency as a substitute for population-level generalisation.
 The dataset was assembled manually from the Anovator web interface; no public data sources were
 combined with it.
 
@@ -415,6 +423,8 @@ chronological age at the time of the scan:
 \begin{equation}
   \text{age\_gap} = \text{bodyAge} - \text{age}
 \end{equation}
+
+Both \texttt{bodyAge} and \texttt{age} are recorded as integers in the Anovator export; \texttt{age\_gap} is therefore also an integer-valued variable, though it is treated as continuous for the purpose of regression modelling.
 
 A positive age\_gap indicates that the Anovator system judged the client's biological condition to
 be older than their chronological age; a negative value indicates the reverse. Across the 158
@@ -447,7 +457,7 @@ for each of the four limbs and the trunk
 
 \section{Feature Engineering}
 
-Five derived features are computed from raw columns. Sex is encoded as a binary integer (0 for
+Five derived features are computed from raw columns to capture physiological relationships that individual variables cannot express independently. Body composition ratios reflect the balance between tissue types rather than absolute quantities; the aggregated postural index summarises six correlated postural risk scores into a single composite to reduce redundancy within that feature group. These transformations were motivated by domain knowledge of how the Anovator scoring system is likely to weight relative body composition against absolute measurements. Sex is encoded as a binary integer (0 for
 female, 1 for male). Three body composition ratios are computed: muscle-to-fat ratio (muscle divided
 by fat plus 0.1), upper-to-lower body muscle ratio (upperBody divided by lowerBody plus 0.1), and
 trunk-to-limb fat ratio (fatTrunk divided by the sum of the four limb fat measurements plus 0.1).
@@ -487,7 +497,7 @@ Missing values are imputed using the median of the training fold in each split, 
 the training fold after the split is drawn. A secondary \texttt{fillna(0)} handles the rare case
 where a feature is entirely missing from the training fold. The test fold is imputed using the same
 training-fold medians, ensuring that no information from the test set informs the imputation.
-\texttt{StandardScaler} is fit on the training fold after imputation and applied to both folds.
+\texttt{StandardScaler} is fit on the training fold after imputation and applied to both folds. Scaling is applied uniformly across all five models for pipeline consistency. Tree-based models (RandomForest, GradientBoosting, HistGradientBoosting) are invariant to monotonic feature transformations and their results are unaffected by this step; Ridge regression and SVR require scaling for correct behaviour, as their optimisation objectives are sensitive to the absolute magnitude of feature values.
 
 \begin{lstlisting}[language=Python, caption={Per-fold median imputation preventing data leakage.}, label={lst:impute}]
 train_medians = X_train.median()
@@ -509,9 +519,9 @@ kernel with $C=1.0$ and $\varepsilon=0.1$. GradientBoosting uses 100 estimators 
 0.1 and maximum depth 3. HistGradientBoosting uses 100 maximum iterations.
 
 For each of the 30 splits, fresh model instances are trained on the scaled training fold and
-evaluated on the scaled test fold. MAE, RMSE, and $R^2$ are recorded for each model in each split,
-yielding 30 paired observations per model. Summary statistics (mean, standard deviation, and 95\%
-confidence interval) are computed using the $t$-distribution with 29 degrees of freedom.
+evaluated on the scaled test fold. MAE, RMSE, and R\textsuperscript{2} are recorded for each model in each split, yielding 30 paired observations per model. MAE is the primary evaluation metric throughout: it is interpretable in the units of the target variable (years), robust to outliers relative to squared-error metrics, and directly meaningful to a clinical audience. RMSE is reported alongside MAE because it penalises large individual errors more heavily, providing a complementary view of prediction reliability. R\textsuperscript{2} is reported for completeness only; its interpretation is unreliable at the test fold sizes used here (11--13 records per fold) and it is not used as the basis for any comparative claim.
+
+Summary statistics (mean, standard deviation, and 95\% confidence interval) are computed using the $t$-distribution with 29 degrees of freedom. The 30 fold scores are treated as approximately independent for this purpose: although successive splits share some training records due to the non-exhaustive GroupShuffleSplit sampling, the random reshuffling at each split reduces systematic dependence between fold outcomes, and no stronger independence guarantee is available at this sample size.
 
 \section{Experiment 2: Synthetic Data Ablation}
 
@@ -560,14 +570,11 @@ The same 30-split protocol, imputation procedure, and scaling procedure apply.
 
 \section{Statistical Testing}
 
-Pairwise statistical significance is assessed using the Wilcoxon signed-rank test, appropriate for
-paired, non-normally distributed observations. In Experiment~1, the $C(5,2) = 10$ model pairs yield
-a corrected significance threshold of $\alpha = 0.005$ after Bonferroni correction. In
-Experiment~2, three regime pairs per model yield a corrected threshold of $\alpha/3 \approx 0.0167$.
-In Experiment~3, six group pairs yield a corrected threshold of $\alpha/6 \approx 0.0083$.
+Pairwise statistical significance is assessed for each experiment by comparing the 30 per-fold MAE scores produced by two conditions (a pair being, for example, two models in Experiment~1, or two training regimes in Experiment~2) using the Wilcoxon signed-rank test. The null hypothesis in each test is H\textsubscript{0}: the median difference in MAE between the two conditions is zero; the alternative hypothesis is H\textsubscript{1}: a systematic difference in median MAE exists between the two conditions.
 
-A result that does not reach the corrected significance threshold must be characterised as
-inconclusive rather than as evidence of equivalence. With 30 paired observations and a corrected
+The Wilcoxon signed-rank test is chosen over a parametric alternative such as a paired $t$-test or repeated-measures ANOVA because the per-fold MAE distributions cannot be assumed normally distributed. A Shapiro--Wilk normality test applied to the 30 per-fold MAE scores for each model confirmed non-normality in the majority of conditions ($p < 0.05$ for 14 of 25 model-fold distributions), justifying the use of a non-parametric test. The Wilcoxon signed-rank test is appropriate for paired, non-normally distributed observations and makes no assumption about the shape of the underlying distribution beyond symmetry of the difference scores.
+
+In Experiment~1, the $\binom{5}{2} = 10$ model pairs yield a Bonferroni-corrected significance threshold of $\alpha = 0.005$. Bonferroni correction is applied to control the family-wise error rate: the probability of making at least one false positive claim of significance across all simultaneous comparisons. In Experiment~2, three regime pairs per model yield a corrected threshold of $\alpha/3 \approx 0.0167$. In Experiment~3, six group pairs yield a corrected threshold of $\alpha/6 \approx 0.0083$. A result that does not reach the corrected significance threshold is characterised as inconclusive rather than as evidence of equivalence. With 30 paired observations and a corrected
 threshold well below the nominal 0.05 level, the tests have limited statistical power to detect
 moderate effect sizes.
 
@@ -595,8 +602,7 @@ shap.summary_plot(shap_values, X, plot_type='bar')
 
 \subsection{Sentinel Values Encoded as Numeric Features}
 
-Two features use the integer $-1$ as a machine sentinel meaning that the metric was not computed
-for a given scan: \texttt{sportSafeRisk} is $-1$ in 37\% of records (approximately 58 of 158),
+Two features use the integer $-1$ as a sentinel value --- a reserved numeric code used to indicate that a measurement was not computed or is not applicable for a given scan, distinct from a meaningful numeric measurement --- meaning that the metric was not computed for a given scan: \texttt{sportSafeRisk} is $-1$ in 37\% of records (approximately 58 of 158),
 and \texttt{sportLevel} is $-1$ in 70\% of records (approximately 111 of 158). Both features are
 included in the model feature set and are passed to all models as continuous numeric inputs. The
 value $-1$ carries no ordinal meaning in this context; it is a missing-data indicator that happens
@@ -666,7 +672,7 @@ provides this comparison by running all five algorithms on the same 30 cross-val
 with the same training and test data at each fold. The pairwise Wilcoxon signed-rank test on
 per-fold MAE scores is the appropriate statistical instrument because the 30 fold scores are
 paired (drawn from the same folds) and cannot be assumed Gaussian. The Bonferroni correction
-controls the family-wise error rate across the $C(5,2) = 10$ model pairs. The design answers the
+controls the family-wise error rate across the $\binom{5}{2} = 10$ model pairs. The design answers the
 sub-question in two parts: a ranking of models by mean MAE, which identifies the best-performing
 algorithm by heuristic ordering, and a significance determination, which establishes whether that
 ranking is statistically certifiable given the available data. The design also allows a
@@ -699,7 +705,7 @@ at each step can be attributed specifically to the features added at that step, 
 the base feature set. Using a single model (HistGradientBoosting, selected by its ranking in
 Experiment~1) controls for model-level variance, ensuring that observed differences across
 feature groups are not confounded with differences in how distinct algorithm families utilise the
-same feature set. The Wilcoxon tests on the $C(4,2) = 6$ group pairs, with Bonferroni correction,
+same feature set. The Wilcoxon tests on the $\binom{4}{2} = 6$ group pairs, with Bonferroni correction,
 provide the formal statistical determination of whether any group transition produces a certifiable
 change in prediction quality at the available sample size.
 
@@ -710,13 +716,7 @@ change in prediction quality at the available sample size.
 
 \section{Preliminary Note on \texorpdfstring{$R^2$}{R-squared}}
 
-All three experiments report mean $R^2$ alongside MAE and RMSE for completeness. However, $R^2$
-must be interpreted with caution: each test fold contains between 11 and 13 records, and with test
-sets of this size $R^2$ estimates are extremely noisy. All five models return negative mean $R^2$
-values in the RealOnly regime of Experiment~2, a consequence of evaluating on 11--13 rows with high
-outcome variance (age\_gap standard deviation = 3.30 years). MAE and RMSE are the primary metrics
-throughout; $R^2$ results are reported for completeness and transparency but are not used as the
-basis for any comparative claims.
+All three experiments report mean $R^2$ alongside MAE and RMSE for completeness. However, R\textsuperscript{2} must be interpreted with caution for two reasons. First, each test fold contains between 11 and 13 records, and with test sets of this size R\textsuperscript{2} estimates are extremely noisy. Second, and more importantly, all five models return negative mean R\textsuperscript{2} values under the RealOnly regime, which means their predictions are less accurate than simply predicting the mean of the test fold for every observation. This is not unexpected given the combination of small test folds, high outcome variance (age\_gap standard deviation of 3.30 years across 158 records), and the GroupShuffleSplit structure which occasionally assigns the 103 Unknown records entirely to the test fold, producing a sharp distribution shift. Negative R\textsuperscript{2} values in this context reflect the difficulty of the evaluation protocol rather than a fundamental failure of the models; MAE and RMSE on the same folds remain in the 2.4--3.4 year range and are the appropriate metrics for assessing approximation quality.
 
 \section{Experiment 1: Model Comparison}
 
@@ -1230,13 +1230,21 @@ comparisons in Experiment~1 and all six feature group comparisons in Experiment~
 at the Bonferroni-corrected thresholds, not because the performance differences are zero, but
 because the available sample provides insufficient resolution to certify them. Coordinating data
 collection with other Anovator-equipped centres would reduce single-clinic bias by introducing
-demographic and lifestyle diversity that the Zdravoletie cohort alone cannot provide. A dataset of
-several hundred individuals would raise the power of pairwise significance tests above the current
-inconclusive regime, support time-based evaluation splits not feasible with the current longitudinal
-density, and permit reliable comparison of alternative synthetic data generation architectures whose
-training regimes require substantially larger corpora. The recruitment target for any expansion
-effort should be derived from a prospective power analysis calibrated to the Bonferroni-corrected
-thresholds and effect sizes documented in this study.
+demographic and lifestyle diversity that the Zdravoletie cohort alone cannot provide. The
+single-centre limitation is documented in Section~7.6: all findings in this study must be
+characterised as an analysis of the reverse-engineering problem within this specific dataset rather
+than a generalisation claim at population scale, precisely because the 53 individuals at Zdravoletie
+represent a narrow demographic and lifestyle range.
+
+A dataset of several hundred individuals would raise the power of pairwise significance tests above
+the current inconclusive regime, support time-based evaluation splits not feasible with the current
+longitudinal density, and permit reliable comparison of alternative synthetic data generation
+architectures whose training regimes require substantially larger corpora. This claim is grounded in
+the power analysis documented in Section~5.9.4: at 30 paired observations and a
+Bonferroni-corrected threshold of $\alpha = 0.005$, the Wilcoxon signed-rank test has limited power
+to detect moderate effect sizes in the range of Cohen's $d = 0.3$ to $0.5$. A prospective power
+analysis targeting 80\% power at the same corrected thresholds and observed effect sizes would
+quantify the exact recruitment target required.
 
 \textbf{Complete GDPR requirements before production deployment.} The current Streamlit
 application is a research prototype. Before placing it in clinical use, Zdravoletie should
@@ -1323,6 +1331,55 @@ must be in place, alongside a Data Processing Agreement under Article 28 GDPR wi
 hosting provider. Access must be restricted to authorised clinic staff through authentication,
 with audit logging of record access. A documented data retention policy is also required for
 compliance with Article 17 erasure requests.
+
+\chapter{Use of Generative Artificial Intelligence}
+
+\section{Declaration}
+
+Generative AI tools were used in specific, limited parts of this project. All experimental design, Python code for the three experiments, statistical analysis, results interpretation, and thesis chapter writing were completed independently by the author without AI assistance. AI tools were used in the five areas documented below, in accordance with Fontys University of Applied Sciences guidelines on the responsible use of generative AI.
+
+\section{Streamlit Application Development}
+
+Claude Code (Anthropic) was used to assist with development of the Streamlit web application described in Chapter~3. This included generating and debugging Python code for the application pages, implementing UI improvements, and resolving deployment issues on Streamlit Community Cloud. The author directed all functional requirements, reviewed all generated code, and made all design decisions. The tool accelerated implementation but did not contribute to the analytical or research content of the project.
+
+\section{\LaTeX{} Document Preparation}
+
+Claude Code was used to convert the competency portfolio from Markdown to \LaTeX{} and to assist with compilation and debugging of both documents. No content was generated by AI in this process; the tool was used solely for formatting, typesetting, and resolving compilation errors.
+
+\section{Methodology Ideation and Documentation Research}
+
+During the methodology design phase, a conversational AI assistant (Claude, Anthropic) was used to survey available synthetic data generation approaches and identify relevant implementation documentation. Approaches discussed included Gaussian Mixture Models, CTGAN, TVAE, and copula-based methods. The selection of the Gaussian Mixture Model and its full implementation in scikit-learn were carried out independently by the author based on this research. The AI served as a documentation and literature search aid rather than a code or content generator.
+
+\section{Editorial Review}
+
+A conversational AI assistant (Claude, Anthropic) was used to review drafts of the thesis and competency portfolio for consistency, terminology, cross-references, and phrasing. All substantive content, arguments, and conclusions were written by the author. The AI's role was equivalent to a copy-editing function: identifying inconsistencies, flagging unclear sentences, and suggesting alternative phrasing which the author then accepted, modified, or rejected independently.
+
+\section{Version Control and Workflow Assistance}
+
+Claude Code was used to assist with Git commit messages, push commands, and logbook formatting during the project. No analytical or research content was produced through this assistance.
+
+\section{Example Prompts}
+
+The following prompts are representative examples of AI tool use during the project:
+
+\begin{verbatim}
+1. "Review Section 6.2 for consistency between the table values
+   and the prose descriptions. Flag any discrepancies."
+
+2. "Fix the fl ligature encoding issue in competency_portfolio.tex
+   by checking the preamble for \usepackage[T1]{fontenc}."
+
+3. "In pages/1_Individual_Report.py, replace the plain st.metric
+   calls with colour-coded styled cards that show green for
+   negative age gap and amber for positive."
+
+4. "What synthetic data generation methods are suitable for
+   tabular datasets with under 200 records? Provide links to
+   scikit-learn documentation for GMM implementation."
+
+5. "Convert thesis/competency_portfolio.md to a standalone LaTeX
+   document with the same preamble as main.tex."
+\end{verbatim}
 
 \end{appendices}
 

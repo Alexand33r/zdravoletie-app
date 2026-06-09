@@ -4,11 +4,12 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Box plot of MAE distributions across 30 cross-validation folds for all five models (Experiment~1). Models are ordered by ascending median MAE. The horizontal line within each box represents the median; the box spans the interquartile range; whiskers extend to 1.5 times the IQR.}}{23}{figure.6.1}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Pairwise significance matrix for Experiment~1 model comparisons. All ten comparisons are inconclusive at the Bonferroni-corrected threshold of $\alpha = 0.005$.}}{24}{figure.6.2}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Box plot of MAE distributions by training regime and model (Experiment~2). The Ridge SynthOnly distribution has a substantially wider spread and higher median than all other conditions.}}{25}{figure.6.3}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Mean MAE delta relative to the RealOnly baseline for each model under RealPlusSynth and SynthOnly training regimes (Experiment~2). Negative values indicate improvement over the RealOnly baseline.}}{26}{figure.6.4}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Box plot of MAE distributions by cumulative feature group (Experiment~3, HistGradientBoosting).}}{27}{figure.6.5}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Mean MAE by cumulative feature group (Experiment~3). Error bars represent 95\% confidence intervals across 30 cross-validation folds. The monotonic increase from G1 to G4 is not statistically significant.}}{28}{figure.6.6}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Box plot of MAE distributions across 30 cross-validation folds for all five models (Experiment~1). Models are ordered by ascending median MAE. The horizontal line within each box represents the median; the box spans the interquartile range; whiskers extend to 1.5 times the IQR.}}{26}{figure.6.1}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Pairwise significance matrix for Experiment~1 model comparisons. All ten comparisons are inconclusive at the Bonferroni-corrected threshold of $\alpha = 0.005$.}}{27}{figure.6.2}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Box plot of MAE distributions by training regime and model (Experiment~2). The Ridge SynthOnly distribution has a substantially wider spread and higher median than all other conditions.}}{29}{figure.6.3}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Mean MAE delta relative to the RealOnly baseline for each model under RealPlusSynth and SynthOnly training regimes (Experiment~2). Negative values indicate improvement over the RealOnly baseline.}}{29}{figure.6.4}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Box plot of MAE distributions by cumulative feature group (Experiment~3, HistGradientBoosting).}}{30}{figure.6.5}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Mean MAE by cumulative feature group (Experiment~3). Error bars represent 95\% confidence intervals across 30 cross-validation folds. The monotonic increase from G1 to G4 is not statistically significant.}}{31}{figure.6.6}%
+\addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

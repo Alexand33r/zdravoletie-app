@@ -36,7 +36,9 @@
       "Bash(\"C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/miktex/bin/x64/pdflatex.exe\" -interaction=nonstopmode competency_portfolio.tex)",
       "Bash(bibtex main *)",
       "Bash(pdflatex -interaction=nonstopmode competency_portfolio.tex)",
-      "Bash(python3 *)"
+      "Bash(python3 *)",
+      "Bash(grep -c \"Overfull\\\\\\\\|Underfull\\\\\\\\|Error\\\\\\\\|undefined\" main.log)",
+      "Bash(grep -c \"Overfull\\\\\\\\|Underfull\\\\\\\\|Error\\\\\\\\|undefined\" competency_portfolio.log)"
     ]
   }
 }
