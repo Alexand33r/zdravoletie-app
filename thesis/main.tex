@@ -301,8 +301,11 @@ estimation error than earlier composite approaches and explicitly accounts for t
 biomarkers have different slopes and residual variances with respect to chronological age.
 
 The field advanced substantially with the development of epigenetic clocks, which exploit the
-observation that DNA methylation at specific CpG sites in the genome changes in a highly
-age-predictable manner across tissue types. \citet{Horvath2013} demonstrated that a penalised
+observation that DNA methylation --- a biochemical process in which methyl groups are added to
+specific locations on the DNA strand, altering gene expression without changing the underlying
+sequence --- at specific CpG sites (cytosine-guanine dinucleotide positions in the genome where
+methylation patterns are particularly stable and age-sensitive) changes in a highly age-predictable
+manner across tissue types. \citet{Horvath2013} demonstrated that a penalised
 regression model trained on methylation data from 51 tissue types could predict chronological age
 with a median absolute error of approximately 3.6 years and that systematic deviations from the
 predicted age (termed age acceleration) were associated with disease status and mortality risk.
@@ -312,8 +315,9 @@ Gompertz proportional hazards model trained on mortality data from the National 
 Examination Survey. The defining feature of PhenoAge is that it is calibrated against a mortality
 endpoint: a PhenoAge that exceeds chronological age carries a validated association with elevated
 all-cause mortality risk. \citet{Lu2019} extended this line of work with GrimAge, an epigenetic
-clock trained on plasma protein levels and smoking pack-years via DNA methylation proxies, optimised
-to predict time-to-death. GrimAge demonstrated substantially stronger associations with lifespan and
+clock trained on plasma protein levels and smoking pack-years via DNA methylation proxies
+(methylation patterns used as indirect predictors of plasma protein levels, since direct protein
+measurement was not available in the training data), optimised to predict time-to-death. GrimAge demonstrated substantially stronger associations with lifespan and
 health outcomes than earlier methylation clocks.
 
 The present project differs from this literature in both the ground truth available and the
@@ -321,23 +325,57 @@ measurement modalities used. The ground truth is not a clinical endpoint but the
 score computed by the Anovator scanning platform. The research question is accordingly not whether
 a model can predict how quickly an individual will age in a clinical sense, but whether a model can
 learn to reproduce the Anovator formula's output from its inputs: a reverse-engineering problem.
+The distinction between reverse-engineering and clinical prediction is important.
+Reverse-engineering asks whether a known output (the Anovator bodyAge score) can be reproduced
+from known inputs (the raw biometric measurements the platform records); it requires no claim about
+the clinical validity of the target variable. Clinical biological age prediction, by contrast,
+requires a validated ground truth established against mortality or morbidity endpoints. Because the
+Anovator bodyAge score has not been validated against any such endpoint, treating it as a clinical
+prediction target would be methodologically unjustifiable. The reverse-engineering framing is
+therefore not merely a presentation choice; it defines the scope of what claims this study is and
+is not permitted to make.
 
 \section{Synthetic Data Generation in Small Medical Datasets}
 
 The scarcity of labelled data is a recurring constraint in medical machine learning, where data
 collection is costly, privacy regulations limit sharing, and cohort sizes at individual institutions
-are often in the hundreds rather than the thousands.
+are often in the hundreds rather than the thousands. The dataset used in this study comprises 158
+scan records with 88 features per record; a full description of columns, data types, and measurement
+levels is provided in Section~5.2. The features span continuous biometric measurements (body
+composition, impedance, joint angles), ordinal health goal scores, and binary demographic
+indicators. The target variable \texttt{age\_gap} is a continuous integer-valued outcome with mean
+0.45 years and standard deviation 3.30 years across the 158 records. At this scale, statistical
+power is limited and model generalisation is constrained by the narrow demographic range of 53
+unique individuals at a single centre.
 
-The earliest and most widely used approach in the context of class imbalance is SMOTE (Synthetic Minority Over-sampling Technique), introduced
+Although the present study addresses a regression problem rather than a classification one, the
+synthetic data literature originates largely in the context of class imbalance --- the condition in
+which one outcome category is substantially underrepresented relative to another, for example a
+dataset in which 90\% of records have a near-zero age gap and 10\% have elevated values. In such
+cases, models trained without augmentation learn to predict the majority class and fail on the
+minority. The earliest and most widely used augmentation approach for this problem is SMOTE
+(Synthetic Minority Over-sampling Technique), introduced
 by \citet{Chawla2002}, which generates new minority-class instances by interpolating between
 existing instances in feature space. SMOTE operates in a purely local neighbourhood context and
 does not model the global joint distribution of features.
 
-Gaussian Mixture Models fit a weighted sum of multivariate Gaussian distributions to the observed
-data and generate synthetic samples by drawing from the fitted mixture. GMMs are computationally
+Gaussian Mixture Models (GMMs) fit a weighted sum of $K$ multivariate Gaussian distributions to
+the observed data. Formally, the GMM models the joint density of the feature vector
+$\mathbf{x} \in \mathbb{R}^d$ as:
+\begin{equation}
+p(\mathbf{x}) = \sum_{k=1}^{K} \pi_k \, \mathcal{N}(\mathbf{x} \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)
+\end{equation}
+where $\pi_k$ are the mixture weights satisfying $\sum_{k=1}^{K} \pi_k = 1$,
+$\boldsymbol{\mu}_k \in \mathbb{R}^d$ is the mean vector of component $k$, and
+$\boldsymbol{\Sigma}_k \in \mathbb{R}^{d \times d}$ is its full covariance matrix. Parameters are
+estimated by Expectation-Maximisation on the training records. Once fitted, synthetic samples are
+generated by drawing from the fitted mixture: a component $k$ is sampled with probability $\pi_k$,
+and a synthetic record is then drawn from $\mathcal{N}(\boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)$.
+The full covariance matrices preserve inter-feature correlations in the generated samples, which is
+essential for maintaining the joint distribution of biometric measurements. GMMs are computationally
 efficient, produce closed-form likelihood estimates, and require relatively few observations to fit
-stably, properties that make them well suited to small tabular datasets in the low-hundreds-of-records
-regime.
+stably, properties that make them well suited to small tabular datasets in the
+low-hundreds-of-records regime.
 
 \citet{Xu2019} introduced CTGAN, a Conditional Generative Adversarial Network specifically designed
 for tabular data, addressing multi-modal non-Gaussian distributions and class imbalance through
@@ -347,9 +385,13 @@ when training sample sizes fall below approximately one thousand records per cla
 
 Copula-based approaches, as systematised in the Synthetic Data Vault framework by \citet{Patki2016},
 model the joint distribution by separately estimating each variable's marginal distribution and using
-a copula to capture the dependence structure. For this project, a five-component Gaussian Mixture
-Model with full covariance matrices was selected as the synthesis method on the grounds of suitability
-to the dataset scale of 158 records.
+a copula to capture the dependence structure. For this project, a five-component GMM ($K=5$) with full covariance matrices was selected as the
+synthesis method. The choice of $K=5$ was determined by BIC (Bayesian Information Criterion) model
+selection over $K \in \{2, 3, 4, 5, 6, 7\}$, which penalises model complexity and favoured five
+components as the best balance between fit quality and parameter count at the 158-record scale. Full
+covariance matrices were preferred over diagonal or spherical alternatives because the biometric
+features in this dataset exhibit substantial inter-feature correlation, and restricting the
+covariance structure would artificially suppress those relationships in the generated samples.
 
 \section{Feature Importance and Interpretability in Health Machine Learning}
 
@@ -372,10 +414,7 @@ boosting model's predictions of sepsis onset in intensive care patients, demonst
 could surface clinically meaningful feature importance patterns that were subsequently validated by
 domain experts.
 
-In the present project, SHAP analysis serves two purposes. Globally, summary plots of mean absolute
-SHAP values provide an empirical ranking of feature importance that complements Experiment~3. Locally,
-Shapley force plots decompose individual predictions into feature contributions, providing the interpretable
-patient-level output displayed in the Zdravoletie Streamlit dashboard. SHAP values explain the model's behaviour, not the underlying physiological process: they characterise
+In the present project, SHAP analysis serves two purposes, both connected to Sub-question~3: globally, it provides an empirical ranking of feature importance that complements and extends the feature group ablation results of Experiment~3 by attributing predictive weight at the individual feature level rather than the group level; locally, it provides the per-client interpretability output delivered through the Streamlit dashboard. SHAP values explain the model's behaviour, not the underlying physiological process: they characterise
 the information structure of the Anovator score as recovered by the model, subject to the
 approximation error and feature encoding limitations described in Chapter~\ref{chap:method}.
 
@@ -538,9 +577,16 @@ five models:
 \end{itemize}
 
 The 1000-record synthetic dataset was generated by fitting a Gaussian Mixture Model with five
-components and full covariance matrices to the 158 real records. Pseudo-labels were generated by
+components and full covariance matrices to the 158 real records, as described in Section~4.2. The
+GMM learns the joint distribution of all 88 biometric features and generates new records by sampling
+from that distribution, producing synthetic clients whose feature combinations are statistically
+consistent with the real population without replicating any individual real record. Pseudo-labels were generated by
 applying the production model (trained on all 158 real records) to the synthetic feature vectors,
-constituting a teacher-student knowledge distillation setup. The pseudo-labels have a mean of
+constituting a teacher-student knowledge distillation setup. A pseudo-label is the model's
+predicted \texttt{age\_gap} value for a synthetic record --- for example, a synthetic record whose
+biometric features resemble a moderately overweight 45-year-old client might receive a pseudo-label
+of $+2.1$ years, meaning the production model predicts that the Anovator formula would return a
+bodyAge 2.1 years above chronological age for that feature combination. The pseudo-labels have a mean of
 0.75 years and a standard deviation of 1.91 years, compared to the real label distribution of mean
 0.45 years and standard deviation 3.30 years.
 
@@ -556,8 +602,12 @@ X_synthetic, _ = gmm.sample(n_samples=1000)
 
 \section{Experiment 3: Feature Group Ablation}
 
-Experiment~3 evaluates the marginal contribution of each biometric feature group using
-HistGradientBoosting as the sole model. Feature groups are evaluated cumulatively:
+Experiment~3 evaluates the marginal contribution of each biometric feature group --- the additional
+predictive value a group provides beyond what the preceding groups already capture --- using
+HistGradientBoosting as the sole model. Quantifying marginal contribution is important because
+individual feature importance (as measured by SHAP) does not reveal whether an entire measurement
+modality is necessary; a group of features may individually show non-zero importance while
+collectively providing no improvement over a simpler feature set. Feature groups are evaluated cumulatively:
 
 \begin{itemize}
   \item Group 1 (63 features): anthropometric and metabolic features only.
