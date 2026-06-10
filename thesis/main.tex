@@ -197,12 +197,10 @@ evidential value of their outputs for clinical reasoning.
 Addressing the interpretability gap requires a reverse-engineering approach. Rather than
 predicting biological age in the clinical sense (where ground truth is established against mortality
 or morbidity endpoints, as in the biological age literature reviewed in
-Chapter~\ref{chap:related}), the study treats the Anovator bodyAge score itself as the target
-variable and asks whether machine learning regression models can learn to reproduce it from the raw
-biometric inputs that the Anovator system records. The age gap, defined as bodyAge minus
-chronological age, is used as the prediction target throughout in order to remove the trivial
-component of chronological age from the target distribution and focus modelling effort on the
-physiological deviation component that the Anovator formula computes. Three research
+Chapter~\ref{chap:related}), the study treats the Anovator age gap - the signed difference between bodyAge and chronological
+age, as defined in Section~5.2.2, as the prediction target and asks whether machine learning
+regression models can learn to reproduce it from the raw biometric inputs that the Anovator system
+records. Three research
 sub-questions that structure the empirical programme are stated in
 Chapter~\ref{chap:questions}.
 
@@ -739,7 +737,7 @@ The same 30-split protocol, imputation procedure, and scaling procedure apply.
 
 Pairwise statistical significance is assessed for each experiment by comparing the 30 per-fold MAE scores produced by two conditions (a pair being, for example, two models in Experiment~1, or two training regimes in Experiment~2) using the Wilcoxon signed-rank test. The null hypothesis in each test is H\textsubscript{0}: the median difference in MAE between the two conditions is zero; the alternative hypothesis is H\textsubscript{1}: a systematic difference in median MAE exists between the two conditions.
 
-The Wilcoxon signed-rank test is chosen over a parametric alternative such as a paired $t$-test or repeated-measures ANOVA because the per-fold MAE distributions cannot be assumed normally distributed. A Shapiro--Wilk normality test applied to the 30 per-fold MAE scores for each model confirmed non-normality in the majority of conditions ($p < 0.05$ for 14 of 25 model-fold distributions), justifying the use of a non-parametric test. The Wilcoxon signed-rank test is appropriate for paired, non-normally distributed observations and makes no assumption about the shape of the underlying distribution beyond symmetry of the difference scores.
+The Wilcoxon signed-rank test is chosen over a parametric alternative such as a paired $t$-test or repeated-measures ANOVA because the per-fold MAE distributions cannot be assumed normally distributed. A Shapiro--Wilk normality test applied to the 30 per-fold MAE scores confirmed non-normality in 13 of 24 tested distributions across all three experiments ($p < 0.05$). In Experiment~1, four of the five models are non-normal: GradientBoosting ($W = 0.879$, $p = 0.003$), HistGradientBoosting ($W = 0.848$, $p = 0.001$), RandomForest ($W = 0.889$, $p = 0.005$), and Ridge ($W = 0.756$, $p < 0.001$); only SVR cannot reject normality ($W = 0.964$, $p = 0.393$). In Experiment~3, all four feature-group distributions are non-normal ($p \leq 0.002$). Since parametric paired tests require normality of the difference scores for all conditions in a comparison, and the majority of distributions violate this assumption, the Wilcoxon signed-rank test is the appropriate choice throughout. The Wilcoxon signed-rank test is appropriate for paired, non-normally distributed observations and makes no assumption about the shape of the underlying distribution beyond symmetry of the difference scores.
 
 In Experiment~1, the $\binom{5}{2} = 10$ model pairs yield a Bonferroni-corrected significance threshold of $\alpha = 0.005$. Bonferroni correction is applied to control the family-wise error rate: the probability of making at least one false positive claim of significance across all simultaneous comparisons. In Experiment~2, three regime pairs per model yield a corrected threshold of $\alpha/3 \approx 0.0167$. In Experiment~3, six group pairs yield a corrected threshold of $\alpha/6 \approx 0.0083$. A result that does not reach the corrected significance threshold is characterised as inconclusive rather than as evidence of equivalence. With 30 paired observations and a corrected
 threshold well below the nominal 0.05 level, the tests have limited statistical power to detect
@@ -1073,6 +1071,10 @@ Under the RealPlusSynth regime, four of the five models show a reduction in mean
 RealOnly, with improvements ranging from 0.09 years for Ridge to 0.36 years for
 HistGradientBoosting. Ridge degrades substantially under the SynthOnly regime to a mean MAE of
 3.23 years, the single largest deterioration observed across the entire experiment.
+The SynthOnly Ridge fold distribution is also strikingly non-normal (Shapiro--Wilk $W = 0.538$,
+$p < 0.001$), reflecting the instability of a linear model trained on pseudo-labels with
+artificially compressed variance; the fold scores are highly skewed rather than centred around a
+stable mean.
 
 \subsection{Statistical Significance}
 
