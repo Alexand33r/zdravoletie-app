@@ -10,7 +10,7 @@
 \contentsline {chapter}{\numberline {4}Theoretical Framework}{16}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Biological Age Prediction}{16}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Synthetic Data Generation in Small Medical Datasets}{17}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Feature Importance and Interpretability in Health Machine Learning}{18}{section.4.3}%
+\contentsline {section}{\numberline {4.3}Feature Importance and Interpretability in Health Machine Learning}{19}{section.4.3}%
 \contentsline {chapter}{\numberline {5}Research Method}{20}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Thesis Framing and Research Objective}{20}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Dataset}{20}{section.5.2}%
