@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  10 JUN 2026 10:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  10 JUN 2026 11:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1191,7 +1191,7 @@ Here is how much of TeX's memory you used:
  54862 multiletter control sequences out of 15000+600000
  656237 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,12n,104p,1224b,2108s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,12n,104p,1192b,2108s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
 pi600\ecti1095.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfo
 ur/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKT
@@ -1232,7 +1232,7 @@ nts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/AleksandarTanev/AppData/Local/
 Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/AleksandarTa
 nev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pf
 b>
-Output written on main.pdf (52 pages, 1625685 bytes).
+Output written on main.pdf (52 pages, 1625572 bytes).
 PDF statistics:
  2199 PDF objects out of 2487 (max. 8388607)
  200 named destinations out of 1000 (max. 500000)
