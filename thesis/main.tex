@@ -289,10 +289,10 @@ group already provides?
 \draw[arrow] (client) -- (features);
 \draw[arrow] (features) -- (anovator);
 \draw[arrow] (anovator) -- (bodyage);
-\draw[arrow] (features) -- node[right, font=\footnotesize]{reverse-\\engineering} (surrogate);
+\draw[arrow] (features) -- node[right, font=\footnotesize, align=center]{reverse-\\engineering} (surrogate);
 \draw[arrow] (surrogate) -- (agegap);
 \draw[arrow] (surrogate) -- (shap);
-\draw[dasharrow] (bodyage) -- node[right, font=\footnotesize]{target\\variable} (agegap);
+\draw[dasharrow] (bodyage) -- node[right, font=\footnotesize, align=center]{target\\variable} (agegap);
 \end{tikzpicture}
 \caption{Overview of the reverse-engineering chain. The Anovator platform transforms raw biometric features into a proprietary bodyAge score through an undisclosed formula (red boxes). This study trains a surrogate ML model on the same raw features to reproduce the age gap output and generate SHAP explanations (blue boxes). The dashed arrow indicates that the bodyAge score serves as the target variable for the surrogate model.}
 \label{fig:chain}
@@ -308,6 +308,20 @@ gap into per-feature contributions, giving the attending practitioner a ranked e
 biometric measurements drove the score for a specific client. Scan reports can be exported to a
 formatted PDF for inclusion in client records. The interface is bilingual, with all labels and
 explanatory text available in both Bulgarian and English to accommodate clinic staff and clients.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.92\textwidth]{figures/individual_report.png}
+\caption{Individual Report page of the Zdravoletie Streamlit dashboard. The three colour-coded metric cards show the baseline age gap, simulated age gap after intervention, and potential gain. The SHAP bar chart below displays the top feature contributions to the predicted age gap for the selected client, with human-readable feature labels. Negative values (blue) indicate features that reduce the predicted age gap; positive values (red) indicate features that increase it.}
+\label{fig:individual_report}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.92\textwidth]{figures/population_view.png}
+\caption{Population View page showing the distribution of predicted age gaps across all 158 records in the dataset. The red dashed vertical line marks the currently selected client's predicted age gap, and the legend shows the client's percentile rank within the population. This view allows practitioners to contextualise an individual client's result relative to the full Zdravoletie cohort.}
+\label{fig:population_view}
+\end{figure}
+
 The application is publicly accessible at
 \url{https://zdravoletie-app-r59gvphlkih7549cgipbgt.streamlit.app/}.
 
