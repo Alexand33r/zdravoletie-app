@@ -192,25 +192,21 @@
 
 ---
 
-## Week 17 — June 1–7 *(Planned)*
+## Week 17 — June 1–7 *(Actual)*
 
-**Technical work:** Continue competency portfolio. Draft remaining competency sections. Begin final review pass on the graduation report for consistency, formatting, and academic register.
+**Technical work:** Completed a full UI overhaul of the Streamlit application: expanded SHAP feature label mapping from 18 to 54 entries with human-readable names, implemented colour-coded metric cards across all pages (green for negative age gap, amber for positive), restructured the About page with styled info and warning boxes, and fixed the truncated client name display in Population View. All changes deployed to Streamlit Community Cloud.
 
-**Communication:** Planned progress check with Peter Alem, focusing on the competency portfolio content and whether the evidence base for each competency is sufficient.
+**Communication:** Received detailed written feedback from Peter P.A.L. van Alem on both the thesis and competency portfolio. Feedback covered missing mathematical depth, undefined terminology, statistical justification gaps, a missing AI usage declaration, and several structural additions. Submitted revised versions of both documents (thesis v2, 52 pages) addressing all comments, including: mathematical model formulas for all five algorithms, Shapiro-Wilk normality evidence, two TikZ diagrams, Streamlit screenshots in Section 3.2, AI usage appendix, and ethical considerations moved to the competency portfolio.
 
-**[ALEXANDER TO FILL]:** Actual activities and any deviations from plan.
+**Reflection:** This week made the gap between a working project and a defensible research report concrete. The feedback from Peter was precise and extensive — not surface-level corrections but substantive methodological challenges around statistical assumptions, mathematical depth, and traceability of concepts. Working through each point systematically rather than defensively was the right approach. The thesis is now significantly stronger than the version Peter first read.
 
----
+## Week 18 — June 8–14 *(Actual)*
 
-## Week 18 — June 8–14 *(Planned)*
+**Technical work:** Completed final editing pass on the graduation report: resolved all remaining inconsistencies, verified table and figure numbering, and confirmed cross-references across chapters. Thesis compiled cleanly at 52 pages. Competency portfolio finalised at 21 pages with ethical considerations appendix added. Both documents pushed to GitHub and sent to Peter P.A.L. van Alem for final review.
 
-**Technical work:** Complete the competency portfolio first draft. Begin the final editing pass on the graduation report: resolve any remaining inconsistencies across chapters, verify all table and figure numbering, and ensure all cross-references between chapters are correct.
+**Communication:** Submitted thesis v2 and competency portfolio to Peter alongside a request for an official defense confirmation letter for employer documentation. Awaiting feedback. Closing meeting with Galchin to be scheduled before June 22 to finalise the three provisional sections in the competency portfolio (Reflection Report 3, end-of-internship stakeholder moment, and end-of-internship scale reading).
 
-**Communication:** Planned submission of the competency portfolio draft to Peter Alem for review. Planned final update to Galchin.
-
-**[ALEXANDER TO FILL]:** Actual activities and any deviations from plan.
-
----
+**Reflection:** The internship is effectively in its closing phase. The main body of technical and written work is complete; what remains is the Galchin meeting, the final portfolio update, and preparation for the July defense. Looking back across the eighteen weeks, the most significant development was not technical but methodological: learning to treat expert feedback as a diagnostic signal rather than a criticism to manage, and building the habit of documenting decisions at the time they are made rather than reconstructing them after the fact.
 
 ## Week 19 — June 15–21 *(Planned)*
 
