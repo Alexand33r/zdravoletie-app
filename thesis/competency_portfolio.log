@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  11 JUN 2026 22:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  15 JUN 2026 10:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -401,7 +401,7 @@ Chapter 3.
 [14
 
 ] [15]
-Overfull \hbox (0.23613pt too wide) in paragraph at lines 649--656
+Overfull \hbox (0.23613pt too wide) in paragraph at lines 658--665
 \T1/cmtt/m/n/10.95 Evaluation _ Form _ Company _ Graduation _ Project _ A _ Tan
 ev _ Final . docx$\T1/cmr/m/n/10.95 ). The writ-ten feed-back
  []
@@ -441,7 +441,7 @@ eksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi
 10.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmr10.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-Output written on competency_portfolio.pdf (21 pages, 236032 bytes).
+Output written on competency_portfolio.pdf (21 pages, 236747 bytes).
 PDF statistics:
  636 PDF objects out of 1000 (max. 8388607)
  45 named destinations out of 1000 (max. 500000)

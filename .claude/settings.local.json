@@ -43,7 +43,8 @@
       "Bash(\".venv/Scripts/python.exe\" -c \"import pandas as pd; df=pd.read_csv\\('results/experiment_1_scores.csv'\\); print\\(df.head\\(10\\)\\); print\\('\\\\nShape:', df.shape\\); print\\('\\\\nColumns:', df.columns.tolist\\(\\)\\)\")",
       "Bash(.venv/Scripts/python.exe -c ' *)",
       "Bash(\".venv/Scripts/python.exe\" thesis/shapiro_test.py)",
-      "Bash(pdflatex -interaction=nonstopmode PoA_full.tex)"
+      "Bash(pdflatex -interaction=nonstopmode PoA_full.tex)",
+      "Bash(echo \"Exit code: $?\")"
     ]
   }
 }
