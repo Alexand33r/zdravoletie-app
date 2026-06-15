@@ -207,9 +207,9 @@ The project phases are structured following an adapted V-model. In the standard 
 
 \textbf{Input:} Anovator web interface; Fontys internship guidelines; preliminary notebook pipeline.
 
-\textbf{Output:} Corrected project framing (score reverse-engineering); documented list of eleven bugs; \texttt{CLAUDE.md} establishing the non-negotiable project constraints; \texttt{config.py} establishing the fixed random seed, file paths, cross-validation protocol, model registry, and feature group definitions; \texttt{requirements.txt}; \texttt{make\_all.py}; \texttt{results/} and \texttt{thesis/} directories; \texttt{future\_work.md}.
+\textbf{Output:} Corrected project framing (score reverse-engineering); documented list of eleven bugs; project constraints document establishing the non-negotiable project constraints; \texttt{config.py} establishing the fixed random seed, file paths, cross-validation protocol, model registry, and feature group definitions; \texttt{requirements.txt}; \texttt{make\_all.py}; \texttt{results/} and \texttt{thesis/} directories; \texttt{future\_work.md}.
 
-\textbf{Deliverable:} \texttt{CLAUDE.md} (project charter); Phase 1 stabilisation artefacts.
+\textbf{Deliverable:} project constraints document (project charter); Phase 1 stabilisation artefacts.
 
 \subsection{Phase 2: Data Collection and Engineering}
 
@@ -233,7 +233,7 @@ The project phases are structured following an adapted V-model. In the standard 
 
 \textbf{How:} All three experiments use 30 repeated GroupShuffleSplit cross-validation folds grouped by client identity with an 80/20 split of the 53 individuals, a fixed random seed of 42 for all stochastic operations, and Wilcoxon signed-rank testing with Bonferroni correction for all pairwise comparisons. Experiment~1 evaluates five regression algorithms on the full 88-feature set, reporting MAE, RMSE, and $R^2$ as mean with 95\% confidence intervals. All ten pairwise comparisons are inconclusive at the Bonferroni-corrected significance threshold; HistGradientBoosting achieves the lowest mean MAE at 2.43 years. Experiment~2 evaluates all five models under three training regimes: real data only (158 records), real data augmented with 1000 GMM synthetic records, and synthetic data only. The real-plus-synthetic regime produces statistically significant MAE reductions for four of five models; Ridge regression degrades substantially under the synthetic-only regime. Experiment~3 applies a cumulative feature group ablation to HistGradientBoosting, adding body composition, bioimpedance, postural risk, and joint angles in four successive increments. All six group-pair comparisons are inconclusive; the first group (63 features) achieves the lowest mean MAE at 2.39 years.
 
-\textbf{Input:} Cleaned dataset from Phase 2; GMM synthetic dataset; experimental design from \texttt{CLAUDE.md} and \texttt{config.py}.
+\textbf{Input:} Cleaned dataset from Phase 2; GMM synthetic dataset; experimental design from the project constraints document and \texttt{config.py}.
 
 \textbf{Output:} Twelve result CSV files; twelve figures (box plots, bar charts, heatmaps, reliability curve, GMM fidelity metric); full significance testing outputs.
 
@@ -300,7 +300,7 @@ Project control is specified for each phase across five dimensions following the
     \midrule
     Time         & 80 hours across Weeks 1--11. Milestones: kickoff (W1), initial data audit complete (W3), midterm presentation (W11), all eleven bugs documented (W11). \\
     Organisation & Student is solely responsible for all analysis and documentation. Educational supervisor Peter P.A.L. van Alem provides the primary checkpoint at the midterm review (W11). Company supervisor Kostadin Galchin confirms data access and clinical context at kickoff. \\
-    Information  & Progress communicated to Peter P.A.L. van Alem at the midterm presentation. Decisions logged in the weekly logbook. \texttt{CLAUDE.md} written at phase end to lock project constraints. \\
+    Information  & Progress communicated to Peter P.A.L. van Alem at the midterm presentation. Decisions logged in the weekly logbook. project constraints document written at phase end to lock project constraints. \\
     Quality      & All identified issues documented in writing before any fix is applied to prevent partial corrections. Reframing decision explicitly approved through the midterm feedback process. \\
     Money        & 80 hours $\times$ \texteuro{}25/hour = \texteuro{}2{,}000 (notional). \\
     \bottomrule
@@ -532,7 +532,7 @@ The following table presents eight risks identified across the project lifecycle
   \bottomrule
   \endlastfoot
   R1 & Single researcher: no independent verification of implementation decisions, statistical analysis, or thesis writing. & 3 & 5 & 3 & 45 &
-    Systematic pre-fix audit completed before any code changes applied. \texttt{CLAUDE.md} written to lock framing, scope, and engineering conventions as an external constraint. All decisions logged in the weekly logbook. \\[4pt]
+    Systematic pre-fix audit completed before any code changes applied. project constraints document written to lock framing, scope, and engineering conventions as an external constraint. All decisions logged in the weekly logbook. \\[4pt]
   R2 & Small dataset size (53 individuals): limits statistical power; most pairwise comparisons will be inconclusive at Bonferroni-corrected thresholds. & 4 & 5 & 2 & 40 &
     Sample size acknowledged as a structural constraint, not a correctable limitation. All inconclusive results reported as inconclusive rather than misrepresented as equivalence. Consistent use of 30 folds and 95\% CI reporting ensures honest characterisation. \\[4pt]
   R3 & Statistical underpowering materialised: Experiment~1 and Experiment~3 produced no significant pairwise comparisons under Bonferroni correction at 30 folds. & 4 & 5 & 2 & 40 &
@@ -545,14 +545,14 @@ The following table presents eight risks identified across the project lifecycle
     Educational supervisor Peter P.A.L. van Alem is the primary source of methodological guidance. Company supervisor role restricted to domain context and data access confirmation. \\[4pt]
   R7 & Deadline risk: June 22 hard freeze missed, resulting in incomplete or late submission. & 5 & 2 & 2 & 20 &
     All experimental work and thesis chapters completed by May 17, five weeks before the freeze. Remaining deliverable (competency portfolio) planned for Weeks 18--19. \\[4pt]
-  R8 & Scope creep: additional experiments or extended feature engineering added beyond the three experiments defined in \texttt{CLAUDE.md}. & 3 & 3 & 2 & 18 &
-    \texttt{CLAUDE.md} explicitly lists all out-of-scope items. Out-of-scope suggestions redirected to \texttt{future\_work.md} rather than acted upon. \\
+  R8 & Scope creep: additional experiments or extended feature engineering added beyond the three experiments defined in the project constraints document. & 3 & 3 & 2 & 18 &
+    The project constraints document explicitly lists all out-of-scope items. Out-of-scope suggestions redirected to \texttt{future\_work.md} rather than acted upon. \\
 \end{longtable}
 
 % =============================================================================
 \section{Closing}
 % =============================================================================
 
-The project addresses a clearly bounded and practically motivated problem: the interpretability gap in a proprietary health scoring system actively used by a rehabilitation clinic. The reverse-engineering framing adopted after the midterm review is scientifically honest, technically tractable with the available 158-record dataset, and directly relevant to the advising practice at Zdravoletie. The three experiments deliver structured empirical findings with full statistical accountability. The Streamlit dashboard translates those findings into a form that Zdravoletie practitioners can use without data science expertise. The framing and scope are non-negotiable and documented in \texttt{CLAUDE.md}; all deviations from the defined scope are redirected to future work rather than incorporated mid-project.
+The project addresses a clearly bounded and practically motivated problem: the interpretability gap in a proprietary health scoring system actively used by a rehabilitation clinic. The reverse-engineering framing adopted after the midterm review is scientifically honest, technically tractable with the available 158-record dataset, and directly relevant to the advising practice at Zdravoletie. The three experiments deliver structured empirical findings with full statistical accountability. The Streamlit dashboard translates those findings into a form that Zdravoletie practitioners can use without data science expertise. The framing and scope are non-negotiable and documented in the project constraints document; all deviations from the defined scope are redirected to future work rather than incorporated mid-project.
 
 \end{document}

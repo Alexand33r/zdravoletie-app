@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  15 JUN 2026 15:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  15 JUN 2026 17:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -361,8 +361,8 @@ Overfull \hbox (129.4203pt too wide) in paragraph at lines 101--103
  []
 
 [5] [6] [7] [8]
-Overfull \hbox (78.84578pt too wide) in paragraph at lines 174--176
-\T1/cmr/m/n/10.95 pre-dic-tion time. [] 
+Overfull \hbox (49.80894pt too wide) in paragraph at lines 174--176
+\T1/cmr/m/n/10.95 tion time. [] 
  []
 
 [9] [10]
@@ -376,7 +376,7 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-04-28>
  ***********
 Package rerunfilecheck Info: File `logbook.out' has not changed.
-(rerunfilecheck)             Checksum: 8437D9BAE77F5D95C81699AE92E822B9;3269.
+(rerunfilecheck)             Checksum: 824180F0FBB4345898EFCA4408582CE7;3212.
  ) 
 Here is how much of TeX's memory you used:
  10349 strings out of 467683
@@ -395,9 +395,9 @@ eksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.
 pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
 dpi600\ecbx1728.pk><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmr8.pfb>
-Output written on logbook.pdf (14 pages, 138813 bytes).
+Output written on logbook.pdf (14 pages, 138109 bytes).
 PDF statistics:
- 391 PDF objects out of 1000 (max. 8388607)
+ 389 PDF objects out of 1000 (max. 8388607)
  34 named destinations out of 1000 (max. 500000)
  5785 words of extra memory for PDF output out of 10000 (max. 10000000)
 
