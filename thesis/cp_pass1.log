@@ -1,0 +1,127 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(competency_portfolio.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-04-28>
+
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/base\report.c
+ls
+Document Class: report 2025/01/22 v1.4n Standard LaTeX document class
+
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.c
+lo))
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc
+.sty)
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.
+sty)
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mic
+rotype.sty
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyv
+al.sty)
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoo
+lbox.sty)
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mic
+rotype-pdftex.def)
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mic
+rotype.cfg))
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geom
+etry.sty
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvte
+x.sty
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex
+.sty))
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geom
+etry.cfg))
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fanc
+yhdr.sty)
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hype
+rref.sty
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvs
+etkeys.sty)
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekey
+s\kvdefinekeys.sty)
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\p
+dfescape.sty
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltx
+cmds.sty)
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\
+pdftexcmds.sty
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\i
+nfwarerr.sty)))
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycol
+or.sty)
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\name
+ref.sty
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refc
+ount.sty)
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestr
+ing\gettitlestring.sty
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvo
+ptions.sty)))
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\s
+tringenc.sty)
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1e
+nc.def)
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\int
+calc.sty)
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puen
+c.def)
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bits
+et.sty
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\
+bigintcalc.sty)))
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdf
+tex.def
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilechec
+k\rerunfilecheck.sty
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/generic/uniquecount
+er\uniquecounter.sty)))
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/setspace\sets
+pace.sty)
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/parskip\parsk
+ip.sty)
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3b
+ackend-pdftex.def) (competency_portfolio.aux)
+
+Package microtype Warning: Unable to apply patch `footnote' on input line 45.
+
+
+(C:\Users\AleksandarTanev\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-
+cmr.cfg)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(competency_portfolio.out) (competency_portfolio.out) [1{C:/Users/AleksandarTan
+ev/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (competency_portfolio.toc
+) [1]
+Chapter 1.
+[2] [3] [4] [5] [6] [7]
+Chapter 2.
+[8] [9] [10] [11] [12] [13]
+Chapter 3.
+[14] [15]
+Overfull \hbox (0.23613pt too wide) in paragraph at lines 659--666
+\T1/cmtt/m/n/10.95 Evaluation _ Form _ Company _ Graduation _ Project _ A _ Tan
+ev _ Final . docx$\T1/cmr/m/n/10.95 ). The writ-ten feed-back
+[16] [17] [18]
+Appendix A.
+[19] [20] (competency_portfolio.aux) )
+(see the transcript file for additional information) <C:\Users\AleksandarTanev\
+AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\
+AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti109
+5.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
+c/dpi600\ecbx1440.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/l
+jfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\AleksandarTanev\AppData\Local\M
+iKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\AleksandarTanev
+\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users
+\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm10
+95.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/
+ec/dpi600\ecrm1200.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/
+ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/AleksandarTanev/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/AleksandarTa
+nev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/
+Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmr8.pfb>
+Output written on competency_portfolio.pdf (21 pages, 236674 bytes).
+Transcript written on competency_portfolio.log.
