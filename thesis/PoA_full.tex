@@ -203,7 +203,7 @@ The project phases are structured following an adapted V-model. In the standard 
 
 \textbf{What is done:} This phase establishes what the project is actually asking and whether the available data can answer it. It covers the initial orientation to the Anovator system, the identification of the bodyAge target variable, the design of the data extraction procedure, the conduct of the midterm review, and the critical project reframing that followed. The most significant event in this phase was the midterm feedback from the educational supervisor, which identified two fundamental issues: the biological age framing was scientifically incorrect given the available data, and an $R^2$ of 0.98 obtained at that stage was implausible and indicated a methodological error. Both issues were resolved by the end of the phase: the framing was corrected to score reverse-engineering, and the source of the $R^2$ artefact was traced to circular benchmarking (a structural design error in which synthetic records pseudo-labelled by a model trained on all 158 real records were then used to evaluate that same model).
 
-\textbf{How:} The student attended the project kickoff at Zdravoletie, explored the Anovator web interface systematically, and began mapping available variables against the project objective. Preliminary modelling was conducted in \texttt{Health\_Pipeline.ipynb} and \texttt{Benchmarkinig.ipynb} using non-rigorous single-split evaluation. Following the midterm review, a systematic audit of all eight notebooks was conducted, documenting eleven distinct methodological and implementation issues before any fixes were applied, to prevent partial corrections from masking undiscovered problems.
+\textbf{How:} The student attended the project kickoff at Zdravoletie, explored the Anovator web interface systematically, and began mapping available variables against the project objective. Preliminary modelling was conducted in \texttt{Health\_Pipeline.ipynb} and \texttt{Benchmarking.ipynb} using non-rigorous single-split evaluation. Following the midterm review, a systematic audit of all eight notebooks was conducted, documenting eleven distinct methodological and implementation issues before any fixes were applied, to prevent partial corrections from masking undiscovered problems.
 
 \textbf{Input:} Anovator web interface; Fontys internship guidelines; preliminary notebook pipeline.
 
@@ -279,7 +279,7 @@ The project phases are structured following an adapted V-model. In the standard 
 
 \textbf{Output:} Submitted graduation report and portfolio; oral defence presentation.
 
-\textbf{Deliverable:} Submission confirmation; oral defence on July 4--5, 2026.
+\textbf{Deliverable:} Submission confirmation; oral defence on July 3 and July 7, 2026.
 
 % =============================================================================
 \section{Project Control}
@@ -299,7 +299,7 @@ Project control is specified for each phase across five dimensions following the
     \textbf{Dimension} & \textbf{Measure} \\
     \midrule
     Time         & 80 hours across Weeks 1--11. Milestones: kickoff (W1), initial data audit complete (W3), midterm presentation (W11), all eleven bugs documented (W11). \\
-    Organisation & Student is solely responsible for all analysis and documentation. Educational supervisor Peter P.A.L. van Alem provides the primary checkpoint at the midterm review (W9). Company supervisor Kostadin Galchin confirms data access and clinical context at kickoff. \\
+    Organisation & Student is solely responsible for all analysis and documentation. Educational supervisor Peter P.A.L. van Alem provides the primary checkpoint at the midterm review (W11). Company supervisor Kostadin Galchin confirms data access and clinical context at kickoff. \\
     Information  & Progress communicated to Peter P.A.L. van Alem at the midterm presentation. Decisions logged in the weekly logbook. \texttt{CLAUDE.md} written at phase end to lock project constraints. \\
     Quality      & All identified issues documented in writing before any fix is applied to prevent partial corrections. Reframing decision explicitly approved through the midterm feedback process. \\
     Money        & 80 hours $\times$ \texteuro{}25/hour = \texteuro{}2{,}000 (notional). \\
@@ -398,7 +398,7 @@ Project control is specified for each phase across five dimensions following the
     \toprule
     \textbf{Dimension} & \textbf{Measure} \\
     \midrule
-    Time         & 40 hours across Weeks 19--20 and the defence period. Milestones: all deliverables submitted (June 22), presentation rehearsal complete (July 3), oral defence delivered (July 4--5). \\
+    Time         & 40 hours across Weeks 19--20 and the defence period. Milestones: all deliverables submitted (June 22), presentation rehearsal complete (July 3), oral defence delivered (July 3 and July 7). \\
     Organisation & Student delivers the oral defence. Peter P.A.L. van Alem chairs the academic assessment. Fontys processes the final grade. \\
     Information  & Submission confirmation archived. Defence slide deck shared with Peter P.A.L. van Alem before the defence date for any final guidance. \\
     Quality      & Presentation addresses all three experiments, the midterm reframing, and the four documented limitations explicitly. Anticipated examiner questions on framing, inconclusive results, and the Ridge exception prepared in advance. \\
@@ -437,7 +437,7 @@ The notional hourly rate of \texteuro{}25 reflects a standard reference figure f
 
 \subsection{Gantt Chart}
 
-The project spans twenty weeks from February 9 to June 27, 2026. Table~\ref{tab:gantt} presents the Gantt schedule across eight work packages. The status key is: D = Done, I = In progress, P = Planned, and a blank cell indicates the work package is not scheduled in that week.
+The project spans twenty weeks from February 9 to June 22, 2026. Table~\ref{tab:gantt} presents the Gantt schedule across eight work packages. The status key is: D = Done, I = In progress, P = Planned, and a blank cell indicates the work package is not scheduled in that week.
 
 \begin{longtable}{p{4.2cm}*{20}{c}}
   \caption{Week-by-week project schedule.}
@@ -501,10 +501,10 @@ The project spans twenty weeks from February 9 to June 27, 2026. Table~\ref{tab:
     All three experiments complete, results saved & May 17, 2026 & Complete \\
     Streamlit application deployed            & May 17, 2026 & Complete \\
     All thesis chapters complete              & May 17, 2026 & Complete \\
-    Competency portfolio first draft          & Jun 14, 2026 & Planned \\
+    Competency portfolio first draft          & Jun 14, 2026 & Complete \\
     All deliverables submission-ready         & Jun 21, 2026 & Planned \\
     Hard freeze: final submission             & Jun 22, 2026 & Planned \\
-    Oral defence                              & Jul 4--5, 2026 & Planned \\
+    Oral defence                              & Jul 3 and Jul 7, 2026 & Planned \\
     \bottomrule
   \end{tabular}
 \end{table}
