@@ -5,7 +5,7 @@
 **Company:** Zdravoletie, Burgas, Bulgaria  
 **Company supervisor:** Kostadin Galchin  
 **Educational supervisor:** Peter P.A.L. van Alem  
-**Period:** February 9 – June 27, 2026  
+**Period:** February 9 – June 22, 2026  
 **Oral defence:** July 3 and July 7, 2026
 
 ---
@@ -212,6 +212,8 @@
 
 **Technical work:** Incorporated all feedback from Peter P.A.L. van Alem on the thesis v2: mathematical model formulas for all five algorithms, Shapiro-Wilk normality evidence, two TikZ diagrams, Streamlit screenshots in Section 3.2, AI usage appendix, and ethical considerations moved to the competency portfolio. Thesis compiled cleanly at 52 pages. Conducted full audit of all supporting documents (plan of approach, logbook, competency portfolio) for consistency errors — corrected defence dates, removed duplicate closing paragraph in PoA, fixed week count in portfolio, confirmed all supervisor name and location fixes throughout. Began preparation for July 3 product presentation and July 7 academic defence.
 
-**Communication:** Closing handover with Kostadin Galchin completed via message exchange. Galchin confirmed the tool is useful in practice and expressed interest in further development after graduation. His feedback was used to update the three provisional sections in the competency portfolio. Submitted revised thesis v2 and finalised competency portfolio to Peter P.A.L. van Alem for final review ahead of the June 22 deadline. Sent plan of approach and logbook to second assessor Roy.
-
+**Communication:** Closing handover with Kostadin Galchin completed via message exchange. Galchin confirmed the tool is useful in practice and expressed interest in further development after graduation. His feedback was used to update the three provisional sections in the competency portfolio. Submitted revised thesis v2 and finalised competency portfolio to Peter P.A.L. van Alem for final review ahead of the June 22 deadline.
 **Reflection:** The project is now fully in its closing phase. All experimental work, writing, and document revisions are complete. The Galchin handover confirmed that the communication objective for the internship was met — a non-technical stakeholder found the tool genuinely useful without requiring a technical explanation. The remaining focus is defence preparation: ensuring every methodological decision made over eighteen weeks can be explained clearly and defended under questioning.
+
+---
+*Oral defence: July 3, 2026 (product presentation with educational and company supervisor) and July 7, 2026 (academic defence with assessor).*
