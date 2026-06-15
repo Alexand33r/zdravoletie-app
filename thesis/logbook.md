@@ -6,7 +6,7 @@
 **Company supervisor:** Kostadin Galchin  
 **Educational supervisor:** Peter P.A.L. van Alem  
 **Period:** February 9 – June 27, 2026  
-**Oral defence:** July 4–5, 2026
+**Oral defence:** July 3 and July 7, 2026
 
 ---
 
@@ -192,7 +192,7 @@
 
 ---
 
-## Week 17 — June 1–7 *(Actual)*
+## Week 17 — June 1–7 
 
 **Technical work:** Completed a full UI overhaul of the Streamlit application: expanded SHAP feature label mapping from 18 to 54 entries with human-readable names, implemented colour-coded metric cards across all pages (green for negative age gap, amber for positive), restructured the About page with styled info and warning boxes, and fixed the truncated client name display in Population View. All changes deployed to Streamlit Community Cloud.
 
@@ -200,7 +200,7 @@
 
 **Reflection:** This week made the gap between a working project and a defensible research report concrete. The feedback from Peter was precise and extensive — not surface-level corrections but substantive methodological challenges around statistical assumptions, mathematical depth, and traceability of concepts. Working through each point systematically rather than defensively was the right approach. The thesis is now significantly stronger than the version Peter first read.
 
-## Week 18 — June 8–14 *(Actual)*
+## Week 18 — June 8–14 
 
 **Technical work:** Completed final editing pass on the graduation report: resolved all remaining inconsistencies, verified table and figure numbering, and confirmed cross-references across chapters. Thesis compiled cleanly at 52 pages. Competency portfolio finalised at 21 pages with ethical considerations appendix added. Both documents pushed to GitHub and sent to Peter P.A.L. van Alem for final review.
 
@@ -208,15 +208,12 @@
 
 **Reflection:** The internship is effectively in its closing phase. The main body of technical and written work is complete; what remains is the Galchin meeting, the final portfolio update, and preparation for the July defense. Looking back across the eighteen weeks, the most significant development was not technical but methodological: learning to treat expert feedback as a diagnostic signal rather than a criticism to manage, and building the habit of documenting decisions at the time they are made rather than reconstructing them after the fact.
 
-## Week 19 — June 15–21 *(Planned)*
+## Week 19 — June 15–21 *(Actual)*
 
-**Technical work:** Incorporate any feedback on the competency portfolio and graduation report. Complete all final revisions. Prepare all deliverable files for submission in the format required by Fontys.
+**Technical work:** Incorporated all feedback from Peter P.A.L. van Alem on the thesis v2: mathematical model formulas for all five algorithms, Shapiro-Wilk normality evidence, two TikZ diagrams, Streamlit screenshots in Section 3.2, AI usage appendix, and ethical considerations moved to the competency portfolio. Thesis compiled cleanly at 52 pages. Conducted full audit of all supporting documents (plan of approach, logbook, competency portfolio) for consistency errors — corrected defence dates, removed duplicate closing paragraph in PoA, fixed week count in portfolio, confirmed all supervisor name and location fixes throughout. Began preparation for July 3 product presentation and July 7 academic defence.
 
-**Communication:** Final feedback meeting with Peter P.A.L. van Alem before the June 22 hard freeze. Confirm that both deliverables are submission-ready.
-
-**[ALEXANDER TO FILL]:** Actual activities and any deviations from plan.
-
----
+**Communication:** Closing handover with Kostadin Galchin completed via message exchange. Galchin confirmed the tool is useful in practice and expressed interest in further development after graduation. His feedback was used to update the three provisional sections in the competency portfolio. Submitted revised thesis v2 and finalised competency portfolio to Peter P.A.L. van Alem for final review ahead of the June 22 deadline.
+**Reflection:** The project is now fully in its closing phase. All experimental work, writing, and document revisions are complete. The Galchin handover confirmed that the communication objective for the internship was met — a non-technical stakeholder found the tool genuinely useful without requiring a technical explanation. The remaining focus is defence preparation: ensuring every methodological decision made over eighteen weeks can be explained clearly and defended under questioning.
 
 ## Week 20 — June 22–27 *(Planned)*
 
@@ -228,4 +225,4 @@
 
 ---
 
-*Oral defence scheduled for July 4–5, 2026.*
+*Oral defence scheduled for July 3 and July 7, 2026.*
