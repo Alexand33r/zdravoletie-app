@@ -212,17 +212,6 @@
 
 **Technical work:** Incorporated all feedback from Peter P.A.L. van Alem on the thesis v2: mathematical model formulas for all five algorithms, Shapiro-Wilk normality evidence, two TikZ diagrams, Streamlit screenshots in Section 3.2, AI usage appendix, and ethical considerations moved to the competency portfolio. Thesis compiled cleanly at 52 pages. Conducted full audit of all supporting documents (plan of approach, logbook, competency portfolio) for consistency errors — corrected defence dates, removed duplicate closing paragraph in PoA, fixed week count in portfolio, confirmed all supervisor name and location fixes throughout. Began preparation for July 3 product presentation and July 7 academic defence.
 
-**Communication:** Closing handover with Kostadin Galchin completed via message exchange. Galchin confirmed the tool is useful in practice and expressed interest in further development after graduation. His feedback was used to update the three provisional sections in the competency portfolio. Submitted revised thesis v2 and finalised competency portfolio to Peter P.A.L. van Alem for final review ahead of the June 22 deadline.
+**Communication:** Closing handover with Kostadin Galchin completed via message exchange. Galchin confirmed the tool is useful in practice and expressed interest in further development after graduation. His feedback was used to update the three provisional sections in the competency portfolio. Submitted revised thesis v2 and finalised competency portfolio to Peter P.A.L. van Alem for final review ahead of the June 22 deadline. Sent plan of approach and logbook to second assessor Roy.
+
 **Reflection:** The project is now fully in its closing phase. All experimental work, writing, and document revisions are complete. The Galchin handover confirmed that the communication objective for the internship was met — a non-technical stakeholder found the tool genuinely useful without requiring a technical explanation. The remaining focus is defence preparation: ensuring every methodological decision made over eighteen weeks can be explained clearly and defended under questioning.
-
-## Week 20 — June 22–27 *(Planned)*
-
-**Technical work:** Submit all deliverables by June 22 hard freeze. Prepare the oral defence presentation: structure the narrative around the three experiments and their findings, address the known limitations proactively, and prepare answers to anticipated examiner questions on the framing, the inconclusive results, and the Ridge exception in Experiment 2.
-
-**Communication:** Final communication with both supervisors confirming submission. Begin rehearsal of the oral defence presentation.
-
-**[ALEXANDER TO FILL]:** Actual activities and any final preparation notes.
-
----
-
-*Oral defence scheduled for July 3 and July 7, 2026.*
