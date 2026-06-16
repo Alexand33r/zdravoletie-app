@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  15 JUN 2026 19:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  16 JUN 2026 10:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -376,28 +376,26 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-04-28>
  ***********
 Package rerunfilecheck Info: File `logbook.out' has not changed.
-(rerunfilecheck)             Checksum: 824180F0FBB4345898EFCA4408582CE7;3212.
+(rerunfilecheck)             Checksum: 5AEC1EC56C04B24F80C04F51C6438607;3158.
  ) 
 Here is how much of TeX's memory you used:
- 10349 strings out of 467683
- 167909 string characters out of 5409881
+ 10342 strings out of 467683
+ 167788 string characters out of 5409881
  625117 words of memory out of 5000000
- 39314 multiletter control sequences out of 15000+600000
- 636490 words of font info for 57 fonts, out of 8000000 for 9000
+ 39309 multiletter control sequences out of 15000+600000
+ 635100 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,5n,79p,1312b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
-pi600\ecti1095.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfo
-ur/jknappen/ec/dpi600\ecbi1440.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\AleksandarTanev\Ap
-pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\Al
-eksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.
-pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
-dpi600\ecbx1728.pk><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmr8.pfb>
-Output written on logbook.pdf (14 pages, 138114 bytes).
+pi600\ecbx1440.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfo
+ur/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\AleksandarTanev\Ap
+pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/Ale
+ksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.
+pfb>
+Output written on logbook.pdf (14 pages, 122407 bytes).
 PDF statistics:
- 389 PDF objects out of 1000 (max. 8388607)
+ 342 PDF objects out of 1000 (max. 8388607)
  34 named destinations out of 1000 (max. 500000)
- 5785 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 4761 words of extra memory for PDF output out of 10000 (max. 10000000)
 
