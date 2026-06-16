@@ -269,7 +269,7 @@ The project phases are structured following an adapted V-model. In the standard 
 
 \subsection{Phase 6: Delivery and Defence}
 
-\textbf{Period:} June 22 -- July 5, 2026 (Weeks 20 and beyond).
+\textbf{Period:} June 22 -- July 7, 2026 (Week 19 onwards).
 
 \textbf{What is done:} Final submission of all deliverables by the hard freeze date, followed by preparation and delivery of the oral defence presentation.
 
@@ -300,7 +300,7 @@ Project control is specified for each phase across five dimensions following the
     \midrule
     Time         & 80 hours across Weeks 1--11. Milestones: kickoff (W1), initial data audit complete (W3), midterm presentation (W11), all eleven bugs documented (W11). \\
     Organisation & Student is solely responsible for all analysis and documentation. Educational supervisor Peter P.A.L. van Alem provides the primary checkpoint at the midterm review (W11). Company supervisor Kostadin Galchin confirms data access and clinical context at kickoff. \\
-    Information  & Progress communicated to Peter P.A.L. van Alem at the midterm presentation. Decisions logged in the weekly logbook. project constraints document written at phase end to lock project constraints. \\
+    Information  & Progress communicated to Peter P.A.L. van Alem at the midterm presentation. Decisions logged in the weekly logbook. project constraints document written at phase end to lock scope, framing, and engineering conventions. \\
     Quality      & All identified issues documented in writing before any fix is applied to prevent partial corrections. Reframing decision explicitly approved through the midterm feedback process. \\
     Money        & 80 hours $\times$ \texteuro{}25/hour = \texteuro{}2{,}000 (notional). \\
     \bottomrule
@@ -398,7 +398,7 @@ Project control is specified for each phase across five dimensions following the
     \toprule
     \textbf{Dimension} & \textbf{Measure} \\
     \midrule
-    Time         & 40 hours across Weeks 19--20 and the defence period. Milestones: all deliverables submitted (June 22), presentation rehearsal complete (July 3), oral defence delivered (July 3 and July 7). \\
+    Time         & 40 hours across Week 19 and the defence period. Milestones: all deliverables submitted (June 22), presentation rehearsal complete (July 3), oral defence delivered (July 3 and July 7). \\
     Organisation & Student delivers the oral defence. Peter P.A.L. van Alem chairs the academic assessment. Fontys processes the final grade. \\
     Information  & Submission confirmation archived. Defence slide deck shared with Peter P.A.L. van Alem before the defence date for any final guidance. \\
     Quality      & Presentation addresses all three experiments, the midterm reframing, and the four documented limitations explicitly. Anticipated examiner questions on framing, inconclusive results, and the Ridge exception prepared in advance. \\
@@ -426,62 +426,31 @@ Project control is specified for each phase across five dimensions following the
     Phase 3: Modelling and Experimentation & W13--W14 & 80  & \texteuro{}2{,}000 \\
     Phase 4: Product Development           & W13--W18 & 100 & \texteuro{}2{,}500 \\
     Phase 5: Validation and Writing        & W8--W19  & 140 & \texteuro{}3{,}500 \\
-    Phase 6: Delivery and Defence          & W19--W20+ & 40 & \texteuro{}1{,}000 \\
+    Phase 6: Delivery and Defence          & W19       & 40 & \texteuro{}1{,}000 \\
     \midrule
-    \textbf{Total}                         & \textbf{W1--W20} & \textbf{600} & \textbf{\texteuro{}15{,}000} \\
+    \textbf{Total}                         & \textbf{W1--W19} & \textbf{600} & \textbf{\texteuro{}15{,}000} \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-The notional hourly rate of \texteuro{}25 reflects a standard reference figure for student labour in the Netherlands and does not imply a commercial billing arrangement. Zdravoletie does not pay a fee for the internship; the cost estimate is provided for project management transparency and portfolio assessment purposes only. There are no hardware, software licensing, or infrastructure costs: all computations run on the student's own machine using open-source Python libraries, and the Streamlit Community Cloud deployment is free.
 
 \subsection{Gantt Chart}
 
-The project spans twenty weeks from February 9 to June 22, 2026. Table~\ref{tab:gantt} presents the Gantt schedule across eight work packages. The status key is: D = Done, I = In progress, P = Planned, and a blank cell indicates the work package is not scheduled in that week.
+The project spans nineteen weeks from February 9 to June 22, 2026.
 
-\begin{longtable}{p{4.2cm}*{20}{c}}
-  \caption{Week-by-week project schedule.}
-  \label{tab:gantt} \\
-  \toprule
-  \textbf{Work Package} &
-  \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} &
-  \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} &
-  \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} &
-  \textbf{16} & \textbf{17} & \textbf{18} & \textbf{19} & \textbf{20} \\
-  \midrule
-  \endfirsthead
-  \toprule
-  \textbf{Work Package} &
-  \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} &
-  \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} &
-  \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} &
-  \textbf{16} & \textbf{17} & \textbf{18} & \textbf{19} & \textbf{20} \\
-  \midrule
-  \endhead
-  \midrule
-  \multicolumn{21}{r}{\small\textit{Continued on next page}} \\
-  \endfoot
-  \bottomrule
-  \endlastfoot
-  Data extraction and audit
-    & D & D & D & D & D & D & D & D & & & & & & & & & & & & \\
-  Data preparation and modelling
-    & & & & D & D & D & D & D & D & D & D & D & & & & & & & & \\
-  Experiment 1: model comparison
-    & & & & & & & & & & & & & D & D & & & & & & \\
-  Experiment 2: synthetic ablation
-    & & & & & & & & & & & & & D & D & & & & & & \\
-  Experiment 3: feature ablation
-    & & & & & & & & & & & & & D & D & & & & & & \\
-  Streamlit app development
-    & & & & & & & & & & & & & D & D & D & D & D & D & & \\
-  Thesis writing
-    & & & & & & & & D & D & D & D & D & D & D & D & D & D & D & D & \\
-  Competency portfolio
-    & & & & & & & & & & & & & & & & & & P & P & \\
-  Buffer and presentation prep
-    & & & & & & & & & & & & & & & & & & & & P \\
-\end{longtable}
+\begin{itemize}
+  \item Data extraction and audit: Weeks 1--8
+  \item Data preparation and modelling: Weeks 4--12
+  \item Experiment 1 (model comparison): Weeks 13--14
+  \item Experiment 2 (synthetic data ablation): Weeks 13--14
+  \item Experiment 3 (feature group ablation): Weeks 13--14
+  \item Streamlit application development: Weeks 13--18
+  \item Thesis writing: Weeks 8--19
+  \item Competency portfolio: Weeks 15--19
+  \item Defence preparation: Week 19
+\end{itemize}
+
+The oral defence takes place on July 3, 2026 (product presentation) and July 7, 2026 (academic defence).
 
 \subsection{Milestones}
 
@@ -489,22 +458,22 @@ The project spans twenty weeks from February 9 to June 22, 2026. Table~\ref{tab:
   \centering
   \caption{Project milestones.}
   \label{tab:milestones}
-  \begin{tabular}{p{8cm} p{3cm} p{2cm}}
+  \begin{tabular}{p{8cm} p{3.5cm} p{2cm}}
     \toprule
     \textbf{Milestone} & \textbf{Target date} & \textbf{Status} \\
     \midrule
     Project kickoff and data extraction begun & Feb 9, 2026 & Complete \\
-    Initial data audit complete               & Mar 1, 2026 & Complete \\
+    Initial data audit complete & Mar 1, 2026 & Complete \\
     Production model and GMM synthetic dataset complete & Mar 22, 2026 & Complete \\
-    Midterm presentation delivered            & Apr 22, 2026 & Complete \\
+    Midterm presentation delivered & Apr 22, 2026 & Complete \\
     Project reframing and all eleven bugs fixed & May 3, 2026 & Complete \\
     All three experiments complete, results saved & May 17, 2026 & Complete \\
-    Streamlit application deployed            & May 17, 2026 & Complete \\
-    All thesis chapters complete              & May 17, 2026 & Complete \\
-    Competency portfolio first draft          & Jun 14, 2026 & Complete \\
-    All deliverables submission-ready         & Jun 21, 2026 & Planned \\
-    Hard freeze: final submission             & Jun 22, 2026 & Planned \\
-    Oral defence                              & Jul 3 and Jul 7, 2026 & Planned \\
+    Streamlit application deployed & May 17, 2026 & Complete \\
+    All thesis chapters complete & May 17, 2026 & Complete \\
+    Competency portfolio first draft & Jun 14, 2026 & Complete \\
+    All deliverables submission-ready & Jun 21, 2026 & Complete \\
+    Hard freeze: final submission & Jun 22, 2026 & Complete \\
+    Oral defence & Jul 3 and Jul 7, 2026 & Planned \\
     \bottomrule
   \end{tabular}
 \end{table}
