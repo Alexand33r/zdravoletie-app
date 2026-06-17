@@ -466,7 +466,7 @@ domain experts.
 
 In the present project, SHAP analysis serves two purposes, both connected to Sub-question~3: globally, it provides an empirical ranking of feature importance that complements and extends the feature group ablation results of Experiment~3 by attributing predictive weight at the individual feature level rather than the group level; locally, it provides the per-client interpretability output delivered through the Streamlit dashboard. SHAP values explain the model's behaviour, not the underlying physiological process: they characterise
 the information structure of the Anovator score as recovered by the model, subject to the
-approximation error and feature encoding limitations described in Chapter~\ref{chap:method}.
+approximation error and feature encoding limitations described in Section~\ref{sec:exp1} of Chapter~\ref{chap:method}, where the mathematical formulation of each candidate model is given.
 
 
 % =============================================================================
@@ -645,6 +645,7 @@ X_test  = scaler.transform(X_test)
 \end{lstlisting}
 
 \section{Experiment 1: Model Comparison}
+\label{sec:exp1}
 
 Experiment~1 evaluates five regression algorithms spanning linear, kernel, and ensemble families.
 The mathematical form of each model is described below, with $\mathbf{x} \in \mathbb{R}^d$ denoting
