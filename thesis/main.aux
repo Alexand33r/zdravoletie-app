@@ -37,113 +37,115 @@
 \@writefile{toc}{\contentsline {section}{\numberline {4.1}Biological Age Prediction}{16}{section.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4.2}Synthetic Data Generation in Small Medical Datasets}{17}{section.4.2}\protected@file@percent }
 \citation{Chawla2002}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Example feature vector for one anonymised client record.}}{18}{table.4.1}\protected@file@percent }
+\newlabel{tab:sample_record}{{4.1}{18}{Example feature vector for one anonymised client record}{table.4.1}{}}
 \citation{Xu2019}
 \citation{Patki2016}
 \citation{Lundberg2017}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Feature Importance and Interpretability in Health Machine Learning}{19}{section.4.3}\protected@file@percent }
 \citation{Lundberg2020}
 \citation{Lundberg2018}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Feature Importance and Interpretability in Health Machine Learning}{19}{section.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Research Method}{20}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Research Method}{21}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:method}{{5}{20}{Research Method}{chapter.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Thesis Framing and Research Objective}{20}{section.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Dataset}{20}{section.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Source and Collection}{20}{subsection.5.2.1}\protected@file@percent }
+\newlabel{chap:method}{{5}{21}{Research Method}{chapter.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Thesis Framing and Research Objective}{21}{section.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Dataset}{21}{section.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Source and Collection}{21}{subsection.5.2.1}\protected@file@percent }
 \citation{sullivan2001}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Target Variable}{21}{subsection.5.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Feature Set}{21}{subsection.5.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Feature Engineering}{22}{section.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Cross-Validation Protocol}{22}{section.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Group-Based Splitting}{22}{subsection.5.4.1}\protected@file@percent }
-\newlabel{lst:gss}{{5.1}{22}{GroupShuffleSplit configuration used across all three experiments}{lstlisting.5.1}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.1}GroupShuffleSplit configuration used across all three experiments.}{22}{lstlisting.5.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Model pipeline schematic for a single cross-validation fold. Raw features $\mathbf  {X}$ and target variable $\mathbf  {y}$ (\texttt  {age\_gap}) are split by client identity using GroupShuffleSplit. The training fold undergoes median imputation and scaling before model fitting; the same imputation parameters are applied to the test fold. Evaluation metrics are computed on the test fold predictions. This procedure is repeated 30 times with different random splits.}}{23}{figure.5.1}\protected@file@percent }
-\newlabel{fig:pipeline}{{5.1}{23}{Model pipeline schematic for a single cross-validation fold. Raw features $\mathbf {X}$ and target variable $\mathbf {y}$ (\texttt {age\_gap}) are split by client identity using GroupShuffleSplit. The training fold undergoes median imputation and scaling before model fitting; the same imputation parameters are applied to the test fold. Evaluation metrics are computed on the test fold predictions. This procedure is repeated 30 times with different random splits}{figure.5.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Imputation and Scaling}{23}{subsection.5.4.2}\protected@file@percent }
-\newlabel{lst:impute}{{5.2}{23}{Per-fold median imputation preventing data leakage}{lstlisting.5.2}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.2}Per-fold median imputation preventing data leakage.}{23}{lstlisting.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Experiment 1: Model Comparison}{24}{section.5.5}\protected@file@percent }
-\newlabel{sec:exp1}{{5.5}{24}{Experiment 1: Model Comparison}{section.5.5}{}}
-\newlabel{eq:gb}{{5.5}{25}{Experiment 1: Model Comparison}{equation.5.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.6}Experiment 2: Synthetic Data Ablation}{25}{section.5.6}\protected@file@percent }
-\newlabel{lst:gmm}{{5.3}{26}{GMM initialisation and synthetic population generation}{lstlisting.5.3}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.3}GMM initialisation and synthetic population generation.}{26}{lstlisting.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.7}Experiment 3: Feature Group Ablation}{26}{section.5.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.8}Statistical Testing}{27}{section.5.8}\protected@file@percent }
-\newlabel{lst:wilcoxon}{{5.4}{27}{Paired Wilcoxon signed-rank test with Bonferroni correction}{lstlisting.5.4}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.4}Paired Wilcoxon signed-rank test with Bonferroni correction.}{27}{lstlisting.5.4}\protected@file@percent }
-\newlabel{lst:shap}{{5.5}{27}{SHAP TreeExplainer for per-prediction feature attribution}{lstlisting.5.5}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.5}SHAP TreeExplainer for per-prediction feature attribution.}{27}{lstlisting.5.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.9}Known Limitations of the Dataset and Feature Set}{28}{section.5.9}\protected@file@percent }
-\newlabel{sec:limitations}{{5.9}{28}{Known Limitations of the Dataset and Feature Set}{section.5.9}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.1}Sentinel Values Encoded as Numeric Features}{28}{subsection.5.9.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.2}Near-Constant Features After Median Imputation}{28}{subsection.5.9.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.3}Redundant Derived Feature Within the Postural Risk Group}{28}{subsection.5.9.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.4}Statistical Power of the Wilcoxon Test Under Bonferroni Correction}{29}{subsection.5.9.4}\protected@file@percent }
-\newlabel{sec:power}{{5.9.4}{29}{Statistical Power of the Wilcoxon Test Under Bonferroni Correction}{subsection.5.9.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.5}Unknown Client Records}{29}{subsection.5.9.5}\protected@file@percent }
-\newlabel{sec:unknown}{{5.9.5}{29}{Unknown Client Records}{subsection.5.9.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.10}Answering the Research Questions}{29}{section.5.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Results and Conclusions}{31}{chapter.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Target Variable}{22}{subsection.5.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Feature Set}{22}{subsection.5.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Feature Engineering}{23}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Cross-Validation Protocol}{23}{section.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Group-Based Splitting}{23}{subsection.5.4.1}\protected@file@percent }
+\newlabel{lst:gss}{{5.1}{23}{GroupShuffleSplit configuration used across all three experiments}{lstlisting.5.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.1}GroupShuffleSplit configuration used across all three experiments.}{23}{lstlisting.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Model pipeline schematic for a single cross-validation fold. Raw features $\mathbf  {X}$ and target variable $\mathbf  {y}$ (\texttt  {age\_gap}) are split by client identity using GroupShuffleSplit. The training fold undergoes median imputation and scaling before model fitting; the same imputation parameters are applied to the test fold. Evaluation metrics are computed on the test fold predictions. This procedure is repeated 30 times with different random splits.}}{24}{figure.5.1}\protected@file@percent }
+\newlabel{fig:pipeline}{{5.1}{24}{Model pipeline schematic for a single cross-validation fold. Raw features $\mathbf {X}$ and target variable $\mathbf {y}$ (\texttt {age\_gap}) are split by client identity using GroupShuffleSplit. The training fold undergoes median imputation and scaling before model fitting; the same imputation parameters are applied to the test fold. Evaluation metrics are computed on the test fold predictions. This procedure is repeated 30 times with different random splits}{figure.5.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Imputation and Scaling}{24}{subsection.5.4.2}\protected@file@percent }
+\newlabel{lst:impute}{{5.2}{24}{Per-fold median imputation preventing data leakage}{lstlisting.5.2}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.2}Per-fold median imputation preventing data leakage.}{24}{lstlisting.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Experiment 1: Model Comparison}{25}{section.5.5}\protected@file@percent }
+\newlabel{sec:exp1}{{5.5}{25}{Experiment 1: Model Comparison}{section.5.5}{}}
+\newlabel{eq:gb}{{5.5}{26}{Experiment 1: Model Comparison}{equation.5.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Experiment 2: Synthetic Data Ablation}{26}{section.5.6}\protected@file@percent }
+\newlabel{lst:gmm}{{5.3}{27}{GMM initialisation and synthetic population generation}{lstlisting.5.3}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.3}GMM initialisation and synthetic population generation.}{27}{lstlisting.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.7}Experiment 3: Feature Group Ablation}{27}{section.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.8}Statistical Testing}{28}{section.5.8}\protected@file@percent }
+\newlabel{lst:wilcoxon}{{5.4}{28}{Paired Wilcoxon signed-rank test with Bonferroni correction}{lstlisting.5.4}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.4}Paired Wilcoxon signed-rank test with Bonferroni correction.}{28}{lstlisting.5.4}\protected@file@percent }
+\newlabel{lst:shap}{{5.5}{28}{SHAP TreeExplainer for per-prediction feature attribution}{lstlisting.5.5}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.5}SHAP TreeExplainer for per-prediction feature attribution.}{28}{lstlisting.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.9}Known Limitations of the Dataset and Feature Set}{29}{section.5.9}\protected@file@percent }
+\newlabel{sec:limitations}{{5.9}{29}{Known Limitations of the Dataset and Feature Set}{section.5.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.1}Sentinel Values Encoded as Numeric Features}{29}{subsection.5.9.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.2}Near-Constant Features After Median Imputation}{29}{subsection.5.9.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.3}Redundant Derived Feature Within the Postural Risk Group}{29}{subsection.5.9.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.4}Statistical Power of the Wilcoxon Test Under Bonferroni Correction}{30}{subsection.5.9.4}\protected@file@percent }
+\newlabel{sec:power}{{5.9.4}{30}{Statistical Power of the Wilcoxon Test Under Bonferroni Correction}{subsection.5.9.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.5}Unknown Client Records}{30}{subsection.5.9.5}\protected@file@percent }
+\newlabel{sec:unknown}{{5.9.5}{30}{Unknown Client Records}{subsection.5.9.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.10}Answering the Research Questions}{30}{section.5.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Results and Conclusions}{32}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Preliminary Note on $R^2$}{31}{section.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Experiment 1: Model Comparison}{31}{section.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}Performance Across Metrics}{31}{subsection.6.2.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Experiment 1: Mean performance metrics (95\% CI) across 30 folds. Models ordered by ascending mean MAE.}}{31}{table.6.1}\protected@file@percent }
-\newlabel{tab:exp1_results}{{6.1}{31}{Experiment 1: Mean performance metrics (95\% CI) across 30 folds. Models ordered by ascending mean MAE}{table.6.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Box plot of MAE distributions across 30 cross-validation folds for all five models (Experiment~1). Models are ordered by ascending median MAE. The horizontal line within each box represents the median; the box spans the interquartile range; whiskers extend to 1.5 times the IQR.}}{32}{figure.6.1}\protected@file@percent }
-\newlabel{fig:exp1_boxplot}{{6.1}{32}{Box plot of MAE distributions across 30 cross-validation folds for all five models (Experiment~1). Models are ordered by ascending median MAE. The horizontal line within each box represents the median; the box spans the interquartile range; whiskers extend to 1.5 times the IQR}{figure.6.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Statistical Significance}{32}{subsection.6.2.2}\protected@file@percent }
-\newlabel{sec:exp1_sig}{{6.2.2}{32}{Statistical Significance}{subsection.6.2.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Experiment 1: Wilcoxon signed-rank test results for MAE (Bonferroni $\alpha = 0.005$).}}{32}{table.6.2}\protected@file@percent }
-\newlabel{tab:exp1_sig}{{6.2}{32}{Experiment 1: Wilcoxon signed-rank test results for MAE (Bonferroni $\alpha = 0.005$)}{table.6.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Pairwise significance matrix for Experiment~1 model comparisons. All ten comparisons are inconclusive at the Bonferroni-corrected threshold of $\alpha = 0.005$.}}{33}{figure.6.2}\protected@file@percent }
-\newlabel{fig:exp1_sigmatrix}{{6.2}{33}{Pairwise significance matrix for Experiment~1 model comparisons. All ten comparisons are inconclusive at the Bonferroni-corrected threshold of $\alpha = 0.005$}{figure.6.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}Per-Prediction Error Distribution and Clinical Reliability}{33}{subsection.6.2.3}\protected@file@percent }
-\newlabel{sec:pred_err}{{6.2.3}{33}{Per-Prediction Error Distribution and Clinical Reliability}{subsection.6.2.3}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6.3}{\ignorespaces Per-prediction absolute error distribution (HistGradientBoosting, 655 test predictions across 30 folds).}}{33}{table.6.3}\protected@file@percent }
-\newlabel{tab:exp1_reliability}{{6.3}{33}{Per-prediction absolute error distribution (HistGradientBoosting, 655 test predictions across 30 folds)}{table.6.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.4}Conclusion: Sub-question~1}{34}{subsection.6.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Experiment 2: Synthetic Data Ablation}{34}{section.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Synthetic Data Fidelity}{34}{subsection.6.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}Performance by Regime and Model}{34}{subsection.6.3.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6.4}{\ignorespaces Experiment 2: Mean MAE (95\% CI) by model and training regime. All test evaluations use the same real held-out folds with true age\_gap labels.}}{34}{table.6.4}\protected@file@percent }
-\newlabel{tab:exp2_results}{{6.4}{34}{Experiment 2: Mean MAE (95\% CI) by model and training regime. All test evaluations use the same real held-out folds with true age\_gap labels}{table.6.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Box plot of MAE distributions by training regime and model (Experiment~2). The Ridge SynthOnly distribution has a substantially wider spread and higher median than all other conditions.}}{35}{figure.6.3}\protected@file@percent }
-\newlabel{fig:exp2_boxplot}{{6.3}{35}{Box plot of MAE distributions by training regime and model (Experiment~2). The Ridge SynthOnly distribution has a substantially wider spread and higher median than all other conditions}{figure.6.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces Mean MAE delta relative to the RealOnly baseline for each model under RealPlusSynth and SynthOnly training regimes (Experiment~2). Negative values indicate improvement over the RealOnly baseline.}}{35}{figure.6.4}\protected@file@percent }
-\newlabel{fig:exp2_delta}{{6.4}{35}{Mean MAE delta relative to the RealOnly baseline for each model under RealPlusSynth and SynthOnly training regimes (Experiment~2). Negative values indicate improvement over the RealOnly baseline}{figure.6.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.3}Statistical Significance}{35}{subsection.6.3.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6.5}{\ignorespaces Experiment 2: Significant Wilcoxon results for MAE (Bonferroni $\alpha = 0.0167$). Only comparisons reaching significance are shown; all remaining pairs are inconclusive.}}{36}{table.6.5}\protected@file@percent }
-\newlabel{tab:exp2_sig}{{6.5}{36}{Experiment 2: Significant Wilcoxon results for MAE (Bonferroni $\alpha = 0.0167$). Only comparisons reaching significance are shown; all remaining pairs are inconclusive}{table.6.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.4}Conclusion: Sub-question~2}{36}{subsection.6.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}Experiment 3: Feature Group Ablation}{36}{section.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}Performance by Feature Group}{36}{subsection.6.4.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6.6}{\ignorespaces Experiment 3: Mean performance metrics (95\% CI) by feature group (HistGradientBoosting).}}{36}{table.6.6}\protected@file@percent }
-\newlabel{tab:exp3_results}{{6.6}{36}{Experiment 3: Mean performance metrics (95\% CI) by feature group (HistGradientBoosting)}{table.6.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.5}{\ignorespaces Box plot of MAE distributions by cumulative feature group (Experiment~3, HistGradientBoosting).}}{36}{figure.6.5}\protected@file@percent }
-\newlabel{fig:exp3_boxplot}{{6.5}{36}{Box plot of MAE distributions by cumulative feature group (Experiment~3, HistGradientBoosting)}{figure.6.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.6}{\ignorespaces Mean MAE by cumulative feature group (Experiment~3). Error bars represent 95\% confidence intervals across 30 cross-validation folds. The monotonic increase from G1 to G4 is not statistically significant.}}{37}{figure.6.6}\protected@file@percent }
-\newlabel{fig:exp3_mae}{{6.6}{37}{Mean MAE by cumulative feature group (Experiment~3). Error bars represent 95\% confidence intervals across 30 cross-validation folds. The monotonic increase from G1 to G4 is not statistically significant}{figure.6.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.2}Statistical Significance}{37}{subsection.6.4.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6.7}{\ignorespaces Experiment 3: Wilcoxon signed-rank test results for MAE (Bonferroni $\alpha = 0.0083$).}}{37}{table.6.7}\protected@file@percent }
-\newlabel{tab:exp3_sig}{{6.7}{37}{Experiment 3: Wilcoxon signed-rank test results for MAE (Bonferroni $\alpha = 0.0083$)}{table.6.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.3}Conclusion: Sub-question~3}{37}{subsection.6.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.5}Answers to the Research Sub-Questions}{38}{section.6.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.6}Limitations}{38}{section.6.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Discussion and Recommendations}{39}{chapter.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Preliminary Note on $R^2$}{32}{section.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Experiment 1: Model Comparison}{32}{section.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}Performance Across Metrics}{32}{subsection.6.2.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Experiment 1: Mean performance metrics (95\% CI) across 30 folds. Models ordered by ascending mean MAE.}}{32}{table.6.1}\protected@file@percent }
+\newlabel{tab:exp1_results}{{6.1}{32}{Experiment 1: Mean performance metrics (95\% CI) across 30 folds. Models ordered by ascending mean MAE}{table.6.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Box plot of MAE distributions across 30 cross-validation folds for all five models (Experiment~1). Models are ordered by ascending median MAE. The horizontal line within each box represents the median; the box spans the interquartile range; whiskers extend to 1.5 times the IQR.}}{33}{figure.6.1}\protected@file@percent }
+\newlabel{fig:exp1_boxplot}{{6.1}{33}{Box plot of MAE distributions across 30 cross-validation folds for all five models (Experiment~1). Models are ordered by ascending median MAE. The horizontal line within each box represents the median; the box spans the interquartile range; whiskers extend to 1.5 times the IQR}{figure.6.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Statistical Significance}{33}{subsection.6.2.2}\protected@file@percent }
+\newlabel{sec:exp1_sig}{{6.2.2}{33}{Statistical Significance}{subsection.6.2.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Experiment 1: Wilcoxon signed-rank test results for MAE (Bonferroni $\alpha = 0.005$).}}{33}{table.6.2}\protected@file@percent }
+\newlabel{tab:exp1_sig}{{6.2}{33}{Experiment 1: Wilcoxon signed-rank test results for MAE (Bonferroni $\alpha = 0.005$)}{table.6.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Pairwise significance matrix for Experiment~1 model comparisons. All ten comparisons are inconclusive at the Bonferroni-corrected threshold of $\alpha = 0.005$.}}{34}{figure.6.2}\protected@file@percent }
+\newlabel{fig:exp1_sigmatrix}{{6.2}{34}{Pairwise significance matrix for Experiment~1 model comparisons. All ten comparisons are inconclusive at the Bonferroni-corrected threshold of $\alpha = 0.005$}{figure.6.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}Per-Prediction Error Distribution and Clinical Reliability}{34}{subsection.6.2.3}\protected@file@percent }
+\newlabel{sec:pred_err}{{6.2.3}{34}{Per-Prediction Error Distribution and Clinical Reliability}{subsection.6.2.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6.3}{\ignorespaces Per-prediction absolute error distribution (HistGradientBoosting, 655 test predictions across 30 folds).}}{34}{table.6.3}\protected@file@percent }
+\newlabel{tab:exp1_reliability}{{6.3}{34}{Per-prediction absolute error distribution (HistGradientBoosting, 655 test predictions across 30 folds)}{table.6.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.4}Conclusion: Sub-question~1}{35}{subsection.6.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Experiment 2: Synthetic Data Ablation}{35}{section.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Synthetic Data Fidelity}{35}{subsection.6.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}Performance by Regime and Model}{35}{subsection.6.3.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.4}{\ignorespaces Experiment 2: Mean MAE (95\% CI) by model and training regime. All test evaluations use the same real held-out folds with true age\_gap labels.}}{35}{table.6.4}\protected@file@percent }
+\newlabel{tab:exp2_results}{{6.4}{35}{Experiment 2: Mean MAE (95\% CI) by model and training regime. All test evaluations use the same real held-out folds with true age\_gap labels}{table.6.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Box plot of MAE distributions by training regime and model (Experiment~2). The Ridge SynthOnly distribution has a substantially wider spread and higher median than all other conditions.}}{36}{figure.6.3}\protected@file@percent }
+\newlabel{fig:exp2_boxplot}{{6.3}{36}{Box plot of MAE distributions by training regime and model (Experiment~2). The Ridge SynthOnly distribution has a substantially wider spread and higher median than all other conditions}{figure.6.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces Mean MAE delta relative to the RealOnly baseline for each model under RealPlusSynth and SynthOnly training regimes (Experiment~2). Negative values indicate improvement over the RealOnly baseline.}}{36}{figure.6.4}\protected@file@percent }
+\newlabel{fig:exp2_delta}{{6.4}{36}{Mean MAE delta relative to the RealOnly baseline for each model under RealPlusSynth and SynthOnly training regimes (Experiment~2). Negative values indicate improvement over the RealOnly baseline}{figure.6.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.3}Statistical Significance}{36}{subsection.6.3.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.5}{\ignorespaces Experiment 2: Significant Wilcoxon results for MAE (Bonferroni $\alpha = 0.0167$). Only comparisons reaching significance are shown; all remaining pairs are inconclusive.}}{37}{table.6.5}\protected@file@percent }
+\newlabel{tab:exp2_sig}{{6.5}{37}{Experiment 2: Significant Wilcoxon results for MAE (Bonferroni $\alpha = 0.0167$). Only comparisons reaching significance are shown; all remaining pairs are inconclusive}{table.6.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.4}Conclusion: Sub-question~2}{37}{subsection.6.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}Experiment 3: Feature Group Ablation}{37}{section.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}Performance by Feature Group}{37}{subsection.6.4.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.6}{\ignorespaces Experiment 3: Mean performance metrics (95\% CI) by feature group (HistGradientBoosting).}}{37}{table.6.6}\protected@file@percent }
+\newlabel{tab:exp3_results}{{6.6}{37}{Experiment 3: Mean performance metrics (95\% CI) by feature group (HistGradientBoosting)}{table.6.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.5}{\ignorespaces Box plot of MAE distributions by cumulative feature group (Experiment~3, HistGradientBoosting).}}{37}{figure.6.5}\protected@file@percent }
+\newlabel{fig:exp3_boxplot}{{6.5}{37}{Box plot of MAE distributions by cumulative feature group (Experiment~3, HistGradientBoosting)}{figure.6.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.6}{\ignorespaces Mean MAE by cumulative feature group (Experiment~3). Error bars represent 95\% confidence intervals across 30 cross-validation folds. The monotonic increase from G1 to G4 is not statistically significant.}}{38}{figure.6.6}\protected@file@percent }
+\newlabel{fig:exp3_mae}{{6.6}{38}{Mean MAE by cumulative feature group (Experiment~3). Error bars represent 95\% confidence intervals across 30 cross-validation folds. The monotonic increase from G1 to G4 is not statistically significant}{figure.6.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.2}Statistical Significance}{38}{subsection.6.4.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.7}{\ignorespaces Experiment 3: Wilcoxon signed-rank test results for MAE (Bonferroni $\alpha = 0.0083$).}}{38}{table.6.7}\protected@file@percent }
+\newlabel{tab:exp3_sig}{{6.7}{38}{Experiment 3: Wilcoxon signed-rank test results for MAE (Bonferroni $\alpha = 0.0083$)}{table.6.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.3}Conclusion: Sub-question~3}{38}{subsection.6.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.5}Answers to the Research Sub-Questions}{39}{section.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.6}Limitations}{39}{section.6.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Discussion and Recommendations}{40}{chapter.7}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {7.1}The Null Result in Experiment 1 Is a Finding, Not a Failure}{39}{section.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.2}Synthetic Augmentation Helps Ensemble Methods and Damages Ridge}{40}{section.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.3}Feature Group Saturation and What It Implies About Anovator's Formula}{40}{section.7.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.4}SHAP Feature Importance: Physiological Interpretation}{41}{section.7.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.5}The Underpowered Wilcoxon Caveat and Its Scope}{42}{section.7.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.6}Known Limitations and Their Bearing on Interpretation}{42}{section.7.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.7}Synthesis}{42}{section.7.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.8}Recommendations for Zdravoletie}{43}{section.7.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7.1}The Null Result in Experiment 1 Is a Finding, Not a Failure}{40}{section.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7.2}Synthetic Augmentation Helps Ensemble Methods and Damages Ridge}{41}{section.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7.3}Feature Group Saturation and What It Implies About Anovator's Formula}{41}{section.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7.4}SHAP Feature Importance: Physiological Interpretation}{42}{section.7.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7.5}The Underpowered Wilcoxon Caveat and Its Scope}{43}{section.7.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7.6}Known Limitations and Their Bearing on Interpretation}{43}{section.7.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7.7}Synthesis}{43}{section.7.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7.8}Recommendations for Zdravoletie}{44}{section.7.8}\protected@file@percent }
 \bibdata{references}
 \bibcite{Chawla2002}{{1}{2002}{{Chawla et~al.}}{{}}}
 \bibcite{Horvath2013}{{2}{2013}{{Horvath}}{{}}}
@@ -156,22 +158,22 @@
 \bibcite{Patki2016}{{9}{2016}{{Patki et~al.}}{{}}}
 \bibcite{sullivan2001}{{10}{2001}{{Sullivan et~al.}}{{}}}
 \bibcite{Xu2019}{{11}{2019}{{Xu et~al.}}{{}}}
-\@writefile{toc}{\contentsline {chapter}{Appendices}{47}{section*.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Ethical Considerations}{48}{chapter.1.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Appendices}{48}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Ethical Considerations}{49}{chapter.1.A}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {A.1}Data Classification Under GDPR}{48}{section.1.A.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {A.2}Consent Assumptions}{48}{section.1.A.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {A.3}Data Handling in This Study}{48}{section.1.A.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {A.4}Requirements for Production Deployment}{49}{section.1.A.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Use of Generative Artificial Intelligence}{50}{chapter.1.B}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}Data Classification Under GDPR}{49}{section.1.A.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A.2}Consent Assumptions}{49}{section.1.A.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A.3}Data Handling in This Study}{49}{section.1.A.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A.4}Requirements for Production Deployment}{50}{section.1.A.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Use of Generative Artificial Intelligence}{51}{chapter.1.B}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {B.1}Declaration}{50}{section.1.B.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {B.2}Streamlit Application Development}{50}{section.1.B.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {B.3}\LaTeX  {} Document Preparation}{50}{section.1.B.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {B.4}Methodology Ideation and Documentation Research}{50}{section.1.B.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {B.5}Editorial Review}{51}{section.1.B.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {B.6}Version Control and Workflow Assistance}{51}{section.1.B.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {B.7}Example Prompts}{51}{section.1.B.7}\protected@file@percent }
-\gdef \@abspage@last{52}
+\@writefile{toc}{\contentsline {section}{\numberline {B.1}Declaration}{51}{section.1.B.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B.2}Streamlit Application Development}{51}{section.1.B.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B.3}\LaTeX  {} Document Preparation}{51}{section.1.B.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B.4}Methodology Ideation and Documentation Research}{51}{section.1.B.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B.5}Editorial Review}{52}{section.1.B.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B.6}Version Control and Workflow Assistance}{52}{section.1.B.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B.7}Example Prompts}{52}{section.1.B.7}\protected@file@percent }
+\gdef \@abspage@last{53}

@@ -396,7 +396,42 @@ The scarcity of labelled data is a recurring constraint in medical machine learn
 collection is costly, privacy regulations limit sharing, and cohort sizes at individual institutions
 are often in the hundreds rather than the thousands. The dataset used in this study comprises 158
 scan records with 88 features per record; a full description of columns, data types, and measurement
-levels is provided in Section~5.2. The features span continuous biometric measurements (body
+levels is provided in Section~5.2. To make this concrete, Table~\ref{tab:sample_record} shows a
+real anonymised record from the dataset (client identifier 880224, a six-digit clinic pseudonym
+rather than a name), illustrating the structure of a single feature vector $\mathbf{x}_i$ before
+the full 88-dimensional feature set is described in Section~5.2.3.
+
+\begin{table}[h]
+\centering
+\caption{Example feature vector for one anonymised client record.}
+\label{tab:sample_record}
+\begin{tabular}{lll}
+\toprule
+\textbf{Feature} & \textbf{Value} & \textbf{Description} \\
+\midrule
+age    & 37          & Chronological age (years) \\
+sex    & M           & Male \\
+weight & 82.0 kg     & Total body mass \\
+height & 171.2 cm    & Standing height \\
+bmi    & 27.98       & Body mass index (kg/m\textsuperscript{2}) \\
+waist  & 91.09 cm    & Waist circumference \\
+fat    & 15.86\%     & Total body fat percentage \\
+muscle & 48.57 kg    & Total skeletal muscle mass \\
+inFat  & 4.0         & Visceral fat index \\
+water  & 61.80\%     & Total body water percentage \\
+$\vdots$ & $\vdots$ & 78 further features (bioimpedance, postural, joint angle) \\
+\midrule
+bodyAge        & 32   & Anovator-computed score (years) \\
+age\_gap ($y$) & $-5$ & Target: bodyAge $-$ age $= 32 - 37$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This client's Anovator score places them five years younger than their chronological age, a negative
+age gap reflecting comparatively favourable body composition and metabolic indicators relative to
+the population.
+
+The features span continuous biometric measurements (body
 composition, impedance, joint angles), ordinal health goal scores, and binary demographic
 indicators. The target variable $y$ (\texttt{age\_gap}) is a continuous integer-valued outcome with $\bar{y} = 0.45$ years and standard deviation $s_y = 3.30$ years across the 158 records. At this scale, statistical
 power is limited and model generalisation is constrained by the narrow demographic range of 53
