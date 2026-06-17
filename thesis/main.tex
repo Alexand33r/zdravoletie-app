@@ -213,21 +213,18 @@ GroupShuffleSplit cross-validation iterations grouped by client identity to prev
 leakage, and report predictive performance as mean absolute error (MAE) with 95\% confidence intervals. Statistical significance between experimental conditions (the models compared in Experiment~1, the training regimes in Experiment~2, and the feature groups in Experiment~3) is assessed using the Wilcoxon signed-rank test with Bonferroni correction for multiple comparisons.
 
 The scope of the project is deliberately constrained. It covers exactly the three experiments
-described above. What lies outside the scope is equally important to state clearly. This project
-does not attempt to validate the Anovator bodyAge score as a clinical measure of biological ageing;
-the absence of an independently validated ground truth makes such validation impossible within this
-dataset, and the research question does not require it. The study does not investigate alternative
-synthetic data generation methods beyond the Gaussian Mixture Model. CTGAN, vine copula, and
+described above. What lies outside the scope is equally important to state clearly. Validating the Anovator bodyAge score as a clinical measure of biological ageing is outside the
+scope of this project; the absence of an independently validated ground truth makes such validation
+impossible within this dataset, and the research question does not require it. Alternative synthetic data generation methods beyond the Gaussian Mixture Model were not evaluated. CTGAN, vine copula, and
 variational autoencoder approaches are noted in Chapter~4 but excluded from empirical
 comparison on the grounds that the 158-record training corpus falls below the regime in which these
-methods train reliably without extensive hyperparameter search. The study does not explore
-time-based train-test splits, as the dataset contains insufficient repeated measurements per individual across time to make generalisation to future scans from the same individual the primary evaluation criterion. These exclusions are
+methods train reliably without extensive hyperparameter search. Time-based train-test splits were also not explored, as the dataset contains insufficient repeated measurements per individual across time to make generalisation to future scans from the same individual the primary evaluation criterion. These exclusions are
 not omissions; they are boundaries that keep the empirical claims within what the data can support --- for example, which algorithm best approximates the score, or whether synthetic augmentation improves prediction quality.
 
 \section{Practical Significance}
 
 Understanding the informational structure of a proprietary health score has concrete value even in
-the absence of access to the formula itself. If reverse-engineering experiments reveal that the
+the absence of access to the Anovator formula itself. If reverse-engineering experiments reveal that the
 anthropometric and metabolic feature group alone accounts for essentially all predictable variation
 in the Anovator bodyAge score, as Experiment~3 suggests, then practitioners can infer that the
 specialised measurement modalities contribute negligible marginal information to the score and focus
@@ -392,8 +389,7 @@ are often in the hundreds rather than the thousands. The dataset used in this st
 scan records with 88 features per record; a full description of columns, data types, and measurement
 levels is provided in Section~5.2. The features span continuous biometric measurements (body
 composition, impedance, joint angles), ordinal health goal scores, and binary demographic
-indicators. The target variable \texttt{age\_gap} is a continuous integer-valued outcome with mean
-0.45 years and standard deviation 3.30 years across the 158 records. At this scale, statistical
+indicators. The target variable $y$ (\texttt{age\_gap}) is a continuous integer-valued outcome with $\bar{y} = 0.45$ years and standard deviation $s_y = 3.30$ years across the 158 records. At this scale, statistical
 power is limited and model generalisation is constrained by the narrow demographic range of 53
 unique individuals at a single centre.
 
@@ -461,8 +457,8 @@ the model. The game-theoretic foundation gives SHAP values three properties that
 not simultaneously satisfy: local accuracy, consistency, and missingness.
 
 \citet{Lundberg2020} developed TreeSHAP, an algorithm that exploits the structure of tree-based
-ensemble models to compute exact SHAP values in polynomial time, making SHAP analysis
-computationally feasible for random forests and gradient boosting models. In a landmark clinical
+ensemble methods to compute exact SHAP values in polynomial time, making SHAP analysis
+computationally feasible for random forests and gradient boosting methods. In a landmark clinical
 application, \citet{Lundberg2018} used SHAP explanations to identify the features driving a gradient
 boosting model's predictions of sepsis onset in intensive care patients, demonstrating that SHAP
 could surface clinically meaningful feature importance patterns that were subsequently validated by
@@ -694,7 +690,7 @@ bins. The prediction form is identical to Gradient Boosting (Equation~\ref{eq:gb
 maximum iterations and native support for missing values.
 
 For each of the 30 splits, fresh model instances are trained on the scaled training fold and
-evaluated on the scaled test fold. MAE, RMSE, and R\textsuperscript{2} are recorded for each model in each split, yielding 30 paired observations per model. MAE is the primary evaluation metric throughout: it is interpretable in the units of the target variable (years), robust to outliers relative to squared-error metrics, and directly meaningful to a clinical audience. RMSE is reported alongside MAE because it penalises large individual errors more heavily, providing a complementary view of prediction reliability. R\textsuperscript{2} is reported for completeness only; its interpretation is unreliable at the test fold sizes used here (11--13 records per fold) and it is not used as the basis for any comparative claim.
+evaluated on the scaled test fold. MAE, RMSE, and $R^2$ are recorded for each model in each split, yielding 30 paired observations per model. MAE is the primary evaluation metric throughout: it is interpretable in the units of the target variable (years), robust to outliers relative to squared-error metrics, and directly meaningful to a clinical audience. RMSE is reported alongside MAE because it penalises large individual errors more heavily, providing a complementary view of prediction reliability. $R^2$ is reported for completeness only; its interpretation is unreliable at the test fold sizes used here (11--13 records per fold) and it is not used as the basis for any comparative claim.
 
 Summary statistics (mean, standard deviation, and 95\% confidence interval) are computed using the $t$-distribution with 29 degrees of freedom. The 30 fold scores are treated as approximately independent for this purpose: although successive splits share some training records due to the non-exhaustive GroupShuffleSplit sampling, the random reshuffling at each split reduces systematic dependence between fold outcomes, and no stronger independence guarantee is available at this sample size.
 
@@ -902,7 +898,7 @@ change in prediction quality at the available sample size.
 
 \section{Preliminary Note on \texorpdfstring{$R^2$}{R-squared}}
 
-All three experiments report mean $R^2$ alongside MAE and RMSE for completeness. However, R\textsuperscript{2} must be interpreted with caution for two reasons. First, each test fold contains between 11 and 13 records, and with test sets of this size R\textsuperscript{2} estimates are extremely noisy. Second, and more importantly, all five models return negative mean R\textsuperscript{2} values under the RealOnly regime, which means their predictions are less accurate than simply predicting the mean of the test fold for every observation. This is not unexpected given the combination of small test folds, high outcome variance (age\_gap standard deviation of 3.30 years across 158 records), and the GroupShuffleSplit structure which occasionally assigns the 103 Unknown records entirely to the test fold, producing a sharp distribution shift. Negative R\textsuperscript{2} values in this context reflect the difficulty of the evaluation protocol rather than a fundamental failure of the models; MAE and RMSE on the same folds remain in the 2.4--3.4 year range and are the appropriate metrics for assessing approximation quality.
+All three experiments report mean $R^2$ alongside MAE and RMSE for completeness. However, $R^2$ must be interpreted with caution for two reasons. First, each test fold contains between 11 and 13 records, and with test sets of this size $R^2$ estimates are extremely noisy. Second, and more importantly, all five models return negative mean $R^2$ values under the RealOnly regime, which means their predictions are less accurate than simply predicting the mean of the test fold for every observation. This is not unexpected given the combination of small test folds, high outcome variance (age\_gap standard deviation of 3.30 years across 158 records), and the GroupShuffleSplit structure which occasionally assigns the 103 Unknown records entirely to the test fold, producing a sharp distribution shift. Negative $R^2$ values in this context reflect the difficulty of the evaluation protocol rather than a fundamental failure of the models; MAE and RMSE on the same folds remain in the 2.4--3.4 year range and are the appropriate metrics for assessing approximation quality.
 
 \section{Experiment 1: Model Comparison}
 
@@ -934,8 +930,8 @@ for all five models, derived from 30 GroupShuffleSplit folds.
 
   \smallskip
 
-  {\footnotesize Note: R\textsuperscript{2} values are reported for completeness only. Test folds
-  contain 11--13 records; at this scale R\textsuperscript{2} estimates are highly variable and
+  {\footnotesize Note: $R^2$ values are reported for completeness only. Test folds
+  contain 11--13 records; at this scale $R^2$ estimates are highly variable and
   negative values are expected. MAE and RMSE are the primary metrics throughout.}
 \end{table}
 

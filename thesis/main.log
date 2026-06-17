@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  15 JUN 2026 15:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  17 JUN 2026 09:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1005,7 +1005,7 @@ Chapter 3.
 <figures/individual_report.png, id=523, 614.295pt x 794.97pt>
 File: figures/individual_report.png Graphic file (type png)
 <use figures/individual_report.png>
-Package pdftex.def Info: figures/individual_report.png  used on input line 315.
+Package pdftex.def Info: figures/individual_report.png  used on input line 312.
 
 (pdftex.def)             Requested size: 418.82375pt x 542.01595pt.
 
@@ -1015,7 +1015,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <figures/population_view.png, id=524, 794.97pt x 614.295pt>
 File: figures/population_view.png Graphic file (type png)
 <use figures/population_view.png>
-Package pdftex.def Info: figures/population_view.png  used on input line 322.
+Package pdftex.def Info: figures/population_view.png  used on input line 319.
 (pdftex.def)             Requested size: 418.82375pt x 323.64388pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1030,7 +1030,7 @@ Chapter 5.
 [20
 
 ]
-Overfull \hbox (91.13853pt too wide) in paragraph at lines 555--559
+Overfull \hbox (91.13853pt too wide) in paragraph at lines 551--555
 \T1/cmtt/m/n/10.95 headRisk\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 humpbackRisk\
 T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 kneeRisk\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/
 10.95 pelvisRisk\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 postureRisk\T1/cmr/m/n/1
@@ -1040,7 +1040,7 @@ ineRisk\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 side_hunchback_risk\T1/cmr/m/n/10
  []
 
 [21]
-Overfull \hbox (89.81227pt too wide) in paragraph at lines 560--563
+Overfull \hbox (89.81227pt too wide) in paragraph at lines 556--559
 []\T1/cmr/bx/n/10.95 Group 4, Joint an-gles (5 fea-tures): \T1/cmtt/m/n/10.95 f
 ront_shoulder_angle\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 front_left_leg_angle\
 T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 front_right_leg_angle\T1/cmr/m/n/10.95 ,
@@ -1055,18 +1055,18 @@ ang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 618.
+nput line 614.
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 619.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 615.
  [22] [23] [24] [25] [26] [27]
-Overfull \hbox (0.45064pt too wide) in paragraph at lines 805--816
+Overfull \hbox (0.45064pt too wide) in paragraph at lines 801--812
 \T1/cmr/m/n/10.95 Five fea-tures have miss-ing-ness rates ex-ceed-ing 88% of re
 cords: \T1/cmtt/m/n/10.95 leftVision \T1/cmr/m/n/10.95 (94.3%), \T1/cmtt/m/n/10
 .95 rightVision
  []
 
 
-Overfull \hbox (7.87704pt too wide) in paragraph at lines 805--816
+Overfull \hbox (7.87704pt too wide) in paragraph at lines 801--812
 \T1/cmr/m/n/10.95 (92.4%), \T1/cmtt/m/n/10.95 bloodMaxPressure \T1/cmr/m/n/10.9
 5 (91.8%), \T1/cmtt/m/n/10.95 bloodMinPressure \T1/cmr/m/n/10.95 (91.8%), and \
 T1/cmtt/m/n/10.95 restingHeartRate \T1/cmr/m/n/10.95 (88.6%).
@@ -1078,7 +1078,7 @@ Chapter 6.
 File: ../results/experiment_1_boxplot.png Graphic file (type png)
 <use ../results/experiment_1_boxplot.png>
 Package pdftex.def Info: ../results/experiment_1_boxplot.png  used on input lin
-e 944.
+e 940.
 (pdftex.def)             Requested size: 418.82375pt x 144.69713pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1086,11 +1086,11 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [31
 
 ]
-<../results/experiment_1_sig_matrix.png, id=1274, 639.3486pt x 491.9178pt>
+<../results/experiment_1_sig_matrix.png, id=1275, 639.3486pt x 491.9178pt>
 File: ../results/experiment_1_sig_matrix.png Graphic file (type png)
 <use ../results/experiment_1_sig_matrix.png>
 Package pdftex.def Info: ../results/experiment_1_sig_matrix.png  used on input 
-line 987.
+line 983.
 (pdftex.def)             Requested size: 418.82375pt x 322.2423pt.
 
 
@@ -1098,21 +1098,21 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [32 <../results/experiment_1_boxplot.png>] [33 <../results/experiment_1_sig_mat
 rix.png>]
-<../results/experiment_2_boxplot.png, id=1289, 1441.0638pt x 516.4896pt>
+<../results/experiment_2_boxplot.png, id=1290, 1441.0638pt x 516.4896pt>
 File: ../results/experiment_2_boxplot.png Graphic file (type png)
 <use ../results/experiment_2_boxplot.png>
 Package pdftex.def Info: ../results/experiment_2_boxplot.png  used on input lin
-e 1075.
+e 1071.
 (pdftex.def)             Requested size: 418.82375pt x 150.10915pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../results/experiment_2_delta_plot.png, id=1290, 710.655pt x 348.3414pt>
+<../results/experiment_2_delta_plot.png, id=1291, 710.655pt x 348.3414pt>
 File: ../results/experiment_2_delta_plot.png Graphic file (type png)
 <use ../results/experiment_2_delta_plot.png>
 Package pdftex.def Info: ../results/experiment_2_delta_plot.png  used on input 
-line 1084.
+line 1080.
 (pdftex.def)             Requested size: 418.82375pt x 205.30171pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1122,7 +1122,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (2.66391pt too wide) in paragraph at lines 1131--1137
+Overfull \hbox (2.66391pt too wide) in paragraph at lines 1127--1133
 \T1/cmr/m/n/10.95 mod-els un-der the Re-alPlusSynth regime, with ad-justed $\OM
 L/cmm/m/it/10.95 p$\T1/cmr/m/n/10.95 -values rang-ing from 0.000004 to 0.002855
 
@@ -1130,17 +1130,17 @@ L/cmm/m/it/10.95 p$\T1/cmr/m/n/10.95 -values rang-ing from 0.000004 to 0.002855
 
 [35 <../results/experiment_2_boxplot.png> <../results/experiment_2_delta_plot.p
 ng>]
-<../results/experiment_3_boxplot.png, id=1303, 1288.815pt x 441.3288pt>
+<../results/experiment_3_boxplot.png, id=1304, 1288.815pt x 441.3288pt>
 File: ../results/experiment_3_boxplot.png Graphic file (type png)
 <use ../results/experiment_3_boxplot.png>
 Package pdftex.def Info: ../results/experiment_3_boxplot.png  used on input lin
-e 1168.
+e 1164.
 (pdftex.def)             Requested size: 418.82375pt x 143.41669pt.
-<../results/experiment_3_learning_curve.png, id=1304, 565.6332pt x 347.8596pt>
+<../results/experiment_3_learning_curve.png, id=1305, 565.6332pt x 347.8596pt>
 File: ../results/experiment_3_learning_curve.png Graphic file (type png)
 <use ../results/experiment_3_learning_curve.png>
 Package pdftex.def Info: ../results/experiment_3_learning_curve.png  used on in
-put line 1176.
+put line 1172.
 (pdftex.def)             Requested size: 418.82375pt x 257.5713pt.
 
 
@@ -1152,13 +1152,13 @@ Chapter 7.
 [39
 
 ]
-Overfull \hbox (2.79527pt too wide) in paragraph at lines 1319--1328
+Overfull \hbox (2.79527pt too wide) in paragraph at lines 1315--1324
 \T1/cmr/m/n/10.95 The most coun-ter-in-tu-itive find-ing in the study is that t
 he 63-feature an-thro-po-met-ric and metabolic
  []
 
 [40] [41] [42]
-Overfull \hbox (14.06635pt too wide) in paragraph at lines 1451--1456
+Overfull \hbox (14.06635pt too wide) in paragraph at lines 1447--1452
 []\T1/cmr/bx/n/10.95 Evaluate al-ter-na-tive syn-thetic gen-er-a-tion meth-ods 
 once the dataset ex-ceeds 500 records.
  []
@@ -1191,50 +1191,51 @@ Here is how much of TeX's memory you used:
  54862 multiletter control sequences out of 15000+600000
  656237 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,12n,104p,1192b,2108s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,12n,104p,1132b,2108s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
 pi600\ecti1095.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfo
-ur/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\AleksandarTanev\Ap
-pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\Al
-eksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.
+ur/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\AleksandarTanev\Ap
+pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Al
+eksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.
 pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
-dpi600\ecbx1200.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljf
-our/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\AleksandarTanev\AppData\Local\MiK
-TeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\AleksandarTanev\A
-ppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\A
-leksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074
+dpi600\ecrm0900.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljf
+our/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\AleksandarTanev\AppData\Local\MiK
+TeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\AleksandarTanev\A
+ppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\A
+leksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095
 .pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ectt1095.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/lj
-four/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\AleksandarTanev\AppData\Local\Mi
-KTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\AleksandarTanev\
-AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\
-AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm109
-5.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
-c/dpi600\ecrm1200.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/l
-jfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/AleksandarTanev/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/AleksandarTan
-ev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/U
-sers/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmex10.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmmi10.pfb><C:/Users/AleksandarTanev/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/AleksandarTanev/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users
-/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mmi8.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmmib10.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/AleksandarTanev/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Aleks
-andarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pf
-b><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmsy10.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/AleksandarTanev/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/AleksandarTa
-nev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pf
-b>
-Output written on main.pdf (52 pages, 1625572 bytes).
+/dpi600\ecrm0800.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/lj
+four/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\AleksandarTanev\AppData\Local\Mi
+KTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\AleksandarTanev\
+AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\
+AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm120
+0.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
+c/dpi600\ecbx1728.pk><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/AleksandarTanev/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/AleksandarT
+anev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C
+:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmmi10.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/AleksandarTanev/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/AleksandarTanev
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Use
+rs/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmmi9.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmmib10.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/AleksandarTanev/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Ale
+ksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.
+pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmr8.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/AleksandarTanev/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/AleksandarT
+anev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:
+/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/symbols/msbm10.pfb>
+Output written on main.pdf (52 pages, 1642097 bytes).
 PDF statistics:
- 2199 PDF objects out of 2487 (max. 8388607)
+ 2203 PDF objects out of 2487 (max. 8388607)
  200 named destinations out of 1000 (max. 500000)
  19597 words of extra memory for PDF output out of 20736 (max. 10000000)
 
