@@ -542,6 +542,12 @@ fitting global coefficients. The collinearity structure of Group~1 should be bor
 interpreting both the Experiment~1 model comparisons and the SHAP feature importance rankings in
 Section~7.4.
 
+This study does not apply LASSO regularisation or variance inflation factor (VIF) analysis to
+address multicollinearity directly; Ridge regression's $\ell_2$ penalty provides partial mitigation
+by shrinking correlated coefficients, but does not perform feature selection in the way an $\ell_1$
+penalty (LASSO) would. Applying LASSO or VIF-based feature pruning prior to model fitting is
+identified as a methodological improvement for future work in Section~7.8.
+
 \textbf{Group 2, Bioimpedance (10 features):} Raw impedance measurements at 20\,kHz and 100\,kHz
 for each of the four limbs and the trunk
 (\texttt{r20LeftArm}, \texttt{r20RightArm}, \texttt{r20LeftLeg}, \texttt{r20RightLeg},
@@ -654,6 +660,14 @@ age gap.
 The regularisation coefficient $\lambda = 1.0$ shrinks coefficients toward zero, partially
 mitigating the instability caused by multicollinear features in Group~1. Ridge serves as the linear
 baseline in this comparison.
+
+This study does not perform a formal check of linear regression premises (linearity,
+homoscedasticity, independence of residuals, absence of severe multicollinearity) prior to fitting
+Ridge. The regularisation coefficient $\lambda = 1.0$ is the scikit-learn default value and was
+not tuned via cross-validation or grid search. Given the documented multicollinearity in Group~1
+features (Section~5.2.3) and the absence of residual diagnostics, Ridge's reported performance
+should be interpreted as a baseline linear comparison point rather than as evidence that linear
+regression premises are fully satisfied for this dataset.
 
 \textbf{Support Vector Regression (SVR).} SVR with a radial basis function (RBF) kernel fits a
 non-linear model by mapping inputs into a high-dimensional feature space via the kernel function
@@ -1454,6 +1468,17 @@ would be well-powered and informative.
 imputation for all features with missing values. Evaluating KNN or MICE imputation as alternatives
 would confirm whether the key results across all three experiments are robust to this modelling
 choice, particularly for the five features with missingness above 88\%.
+
+\textbf{Apply regression diagnostics and regularisation-based feature selection.} Before any
+future deployment of Ridge or other linear models, the regression premises (linearity,
+homoscedasticity, independence of residuals) should be formally checked using residual plots and
+Q-Q plots, and multicollinearity should be quantified using variance inflation factors. LASSO
+regularisation should be evaluated as an alternative to Ridge, since its $\ell_1$ penalty performs
+feature selection directly and would clarify whether the eleven near-redundant features identified
+in Group~1 (Section~5.2.3) carry independent predictive value once explicitly penalised. This
+connects directly to the SHAP-based feature importance findings in Section~7.4: a feature with
+near-zero SHAP importance is a candidate for exclusion via LASSO regularisation rather than
+retention with a post-hoc interpretability caveat.
 
 \textbf{Commission a formal power analysis before dataset expansion.} Before investing in
 multi-centre data collection, a power analysis would quantify the sample size required to achieve
