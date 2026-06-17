@@ -338,11 +338,17 @@ for several decades. Early attempts used simple composite indices of physical pe
 chemistry, but the foundational theoretical treatment of the problem was provided by
 \citet{Klemera2006}, who formalised biological age estimation as a regression problem in which the
 true biological age is treated as a latent variable estimated from a set of biomarkers. Their method
-fits a collection of simple linear regressions, one per biomarker (such as blood pressure, grip
-strength, lung capacity, or serum albumin level), modelling each biomarker as a function of
-chronological age, and then combines these fits into a composite biological age estimate
-that is optimal in the sense of minimising the mean squared distance between the estimated biological
-age and the biomarker values. \citet{Klemera2006} demonstrated that their method produces lower
+proceeds in two stages. First, for each of $m$ biomarkers, a simple linear regression is fit with
+chronological age as the predictor and the biomarker value as the outcome (for example, fitting grip
+strength as a function of age across a reference population), yielding a slope, intercept, and
+residual standard deviation for each biomarker independently. Second, given a new individual's $m$
+biomarker measurements, their biological age estimate $\text{BA}$ is computed as a weighted average
+of the ages implied by inverting each of the $m$ regression lines, where each biomarker's weight is
+inversely proportional to its residual standard deviation from the first stage --- biomarkers that
+vary more tightly with age in the reference population are trusted more heavily in the combination.
+This weighting scheme is what makes the estimate optimal in the minimum mean squared distance sense:
+biomarkers with high residual noise contribute proportionally less to the final composite estimate
+than biomarkers with low residual noise. \citet{Klemera2006} demonstrated that their method produces lower
 estimation error than earlier composite approaches and explicitly accounts for the fact that
 biomarkers have different slopes and residual variances with respect to chronological age.
 
