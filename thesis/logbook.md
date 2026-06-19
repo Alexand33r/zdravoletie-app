@@ -206,7 +206,7 @@
 
 **Communication:** Submitted thesis v2 and competency portfolio to Peter alongside a request for an official defense confirmation letter for employer documentation. Awaiting feedback. Closing meeting with Galchin to be scheduled before June 22 to finalise the three provisional sections in the competency portfolio (Reflection Report 3, end-of-internship stakeholder moment, and end-of-internship scale reading).
 
-**Reflection:** The internship is effectively in its closing phase. The main body of technical and written work is complete; what remains is the Galchin meeting, the final portfolio update, and preparation for the July defense. Looking back across the eighteen weeks, the most significant development was not technical but methodological: learning to treat expert feedback as a diagnostic signal rather than a criticism to manage, and building the habit of documenting decisions at the time they are made rather than reconstructing them after the fact.
+**Reflection:** The internship is effectively in its closing phase. The main body of technical and written work is complete; what remains is the Galchin meeting, the final portfolio update, and preparation for the July defense. Looking back across the nineteen weeks, the most significant development was not technical but methodological: learning to treat expert feedback as a diagnostic signal rather than a criticism to manage, and building the habit of documenting decisions at the time they are made rather than reconstructing them after the fact.
 
 ## Week 19  -  June 15–21
 
@@ -214,4 +214,4 @@
 
 **Communication:** Received second round of feedback from Peter P.A.L. van Alem on the thesis and incorporated revisions. Closing handover with Kostadin Galchin completed via message exchange. Galchin confirmed the tool is useful in practice and expressed interest in further development after graduation. His feedback was used to update the three provisional sections in the competency portfolio.
 
-**Reflection:** The project is now fully in its closing phase. All experimental work, writing, and document revisions are complete. The Galchin handover confirmed that the communication objective for the internship was met  -  a non-technical stakeholder found the tool genuinely useful without requiring a technical explanation. The remaining focus is defence preparation: ensuring every methodological decision made over eighteen weeks can be explained clearly and defended under questioning.
+**Reflection:** The project is now fully in its closing phase. All experimental work, writing, and document revisions are complete. The Galchin handover confirmed that the communication objective for the internship was met  -  a non-technical stakeholder found the tool genuinely useful without requiring a technical explanation. The remaining focus is defence preparation: ensuring every methodological decision made over nineteen weeks can be explained clearly and defended under questioning.
