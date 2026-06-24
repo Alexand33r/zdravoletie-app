@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  18 JUN 2026 16:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  24 JUN 2026 14:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -566,10 +566,45 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.90 \newpage
+l.87 \newpage
               [1] [2] [3] [4]
-Overfull \hbox (3.13051pt too wide) in paragraph at lines 161--161
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 158--158
 []|\T1/cmr/m/n/10 R01| 
+ []
+
+
+Underfull \hbox (badness 1748) in paragraph at lines 158--159
+[]|\T1/cmr/m/n/10 Educational su-per-
+ []
+
+
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 159--159
+[]|\T1/cmr/m/n/10 R02| 
+ []
+
+
+Underfull \hbox (badness 2310) in paragraph at lines 159--159
+\T1/cmr/m/n/10 mean with 95% CI de-rived from 30 cross-
+ []
+
+
+Underfull \hbox (badness 1748) in paragraph at lines 159--160
+[]|\T1/cmr/m/n/10 Educational su-per-
+ []
+
+
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 160--160
+[]|\T1/cmr/m/n/10 R03| 
+ []
+
+
+Underfull \hbox (badness 1748) in paragraph at lines 160--161
+[]|\T1/cmr/m/n/10 Educational su-per-
+ []
+
+
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 161--161
+[]|\T1/cmr/m/n/10 R04| 
  []
 
 
@@ -579,12 +614,7 @@ Underfull \hbox (badness 1748) in paragraph at lines 161--162
 
 
 Overfull \hbox (3.13051pt too wide) in paragraph at lines 162--162
-[]|\T1/cmr/m/n/10 R02| 
- []
-
-
-Underfull \hbox (badness 2310) in paragraph at lines 162--162
-\T1/cmr/m/n/10 mean with 95% CI de-rived from 30 cross-
+[]|\T1/cmr/m/n/10 R05| 
  []
 
 
@@ -594,7 +624,7 @@ Underfull \hbox (badness 1748) in paragraph at lines 162--163
 
 
 Overfull \hbox (3.13051pt too wide) in paragraph at lines 163--163
-[]|\T1/cmr/m/n/10 R03| 
+[]|\T1/cmr/m/n/10 R06| 
  []
 
 
@@ -604,27 +634,27 @@ Underfull \hbox (badness 1748) in paragraph at lines 163--164
 
 
 Overfull \hbox (3.13051pt too wide) in paragraph at lines 164--164
-[]|\T1/cmr/m/n/10 R04| 
+[]|\T1/cmr/m/n/10 R07| 
  []
 
 
-Underfull \hbox (badness 1748) in paragraph at lines 164--165
-[]|\T1/cmr/m/n/10 Educational su-per-
+Underfull \hbox (badness 7291) in paragraph at lines 164--165
+[]|\T1/cmr/m/n/10 Company su-per-vi-
  []
 
 
 Overfull \hbox (3.13051pt too wide) in paragraph at lines 165--165
-[]|\T1/cmr/m/n/10 R05| 
+[]|\T1/cmr/m/n/10 R08| 
  []
 
 
-Underfull \hbox (badness 1748) in paragraph at lines 165--166
-[]|\T1/cmr/m/n/10 Educational su-per-
+Underfull \hbox (badness 7291) in paragraph at lines 165--166
+[]|\T1/cmr/m/n/10 Company su-per-vi-
  []
 
 
 Overfull \hbox (3.13051pt too wide) in paragraph at lines 166--166
-[]|\T1/cmr/m/n/10 R06| 
+[]|\T1/cmr/m/n/10 R09| 
  []
 
 
@@ -634,7 +664,7 @@ Underfull \hbox (badness 1748) in paragraph at lines 166--167
 
 
 Overfull \hbox (3.13051pt too wide) in paragraph at lines 167--167
-[]|\T1/cmr/m/n/10 R07| 
+[]|\T1/cmr/m/n/10 R10| 
  []
 
 
@@ -644,7 +674,7 @@ Underfull \hbox (badness 7291) in paragraph at lines 167--168
 
 
 Overfull \hbox (3.13051pt too wide) in paragraph at lines 168--168
-[]|\T1/cmr/m/n/10 R08| 
+[]|\T1/cmr/m/n/10 R11| 
  []
 
 
@@ -654,46 +684,16 @@ Underfull \hbox (badness 7291) in paragraph at lines 168--169
 
 
 Overfull \hbox (3.13051pt too wide) in paragraph at lines 169--169
-[]|\T1/cmr/m/n/10 R09| 
- []
-
-
-Underfull \hbox (badness 1748) in paragraph at lines 169--170
-[]|\T1/cmr/m/n/10 Educational su-per-
- []
-
-
-Overfull \hbox (3.13051pt too wide) in paragraph at lines 170--170
-[]|\T1/cmr/m/n/10 R10| 
- []
-
-
-Underfull \hbox (badness 7291) in paragraph at lines 170--171
-[]|\T1/cmr/m/n/10 Company su-per-vi-
- []
-
-
-Overfull \hbox (3.13051pt too wide) in paragraph at lines 171--171
-[]|\T1/cmr/m/n/10 R11| 
- []
-
-
-Underfull \hbox (badness 7291) in paragraph at lines 171--172
-[]|\T1/cmr/m/n/10 Company su-per-vi-
- []
-
-
-Overfull \hbox (3.13051pt too wide) in paragraph at lines 172--172
 []|\T1/cmr/m/n/10 R12| 
  []
 
 
-Overfull \hbox (3.13051pt too wide) in paragraph at lines 173--173
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 170--170
 []|\T1/cmr/m/n/10 R13| 
  []
 
 
-Overfull \hbox (3.13051pt too wide) in paragraph at lines 174--174
+Overfull \hbox (3.13051pt too wide) in paragraph at lines 171--171
 []|\T1/cmr/m/n/10 R14| 
  []
 
@@ -703,136 +703,136 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
  [7] [8]
-Overfull \hbox (51.16489pt too wide) in paragraph at lines 225--226
+Overfull \hbox (51.16489pt too wide) in paragraph at lines 222--223
 \T1/cmr/m/n/10.95 with pseudo-labels; doc-u-mented data qual-ity is-sues; fea-t
 ure en-gi-neer-ing pipeline in \T1/cmtt/m/n/10.95 Health_Pipeline.ipynb\T1/cmr/
 m/n/10.95 . 
  []
 
 
-Overfull \hbox (24.24664pt too wide) in paragraph at lines 227--228
+Overfull \hbox (24.24664pt too wide) in paragraph at lines 224--225
 []\T1/cmr/bx/n/10.95 Deliverable: \T1/cmtt/m/n/10.95 data/ \T1/cmr/m/n/10.95 di
 -rec-tory con-tents; \T1/cmtt/m/n/10.95 Health_Pipeline.ipynb \T1/cmr/m/n/10.95
  pro-duc-tion model; \T1/cmtt/m/n/10.95 Data_Gen.ipynb
  []
 
 [9] [10] [11] [12] [13] [14]
-Overfull \hbox (1.88782pt too wide) in paragraph at lines 486--486
+Overfull \hbox (1.88782pt too wide) in paragraph at lines 483--483
 []|\T1/cmr/bx/n/10.95 #| 
  []
 
 
-Overfull \hbox (1.88782pt too wide) in paragraph at lines 490--490
+Overfull \hbox (1.88782pt too wide) in paragraph at lines 487--487
 []|\T1/cmr/bx/n/10.95 #| 
  []
 
 
-Overfull \hbox (4.91943pt too wide) in paragraph at lines 498--498
+Overfull \hbox (4.91943pt too wide) in paragraph at lines 495--495
 []|\T1/cmr/m/n/10.95 R1| 
  []
 
 
-Underfull \hbox (badness 3209) in paragraph at lines 499--499
+Underfull \hbox (badness 3209) in paragraph at lines 496--496
 []|\T1/cmr/m/n/10.95 Systematic pre-fix au-dit com-
  []
 
 
-Overfull \hbox (4.91943pt too wide) in paragraph at lines 500--500
+Overfull \hbox (4.91943pt too wide) in paragraph at lines 497--497
 []|\T1/cmr/m/n/10.95 R2| 
  []
 
 
-Underfull \hbox (badness 1048) in paragraph at lines 500--500
+Underfull \hbox (badness 1048) in paragraph at lines 497--497
 \T1/cmr/m/n/10.95 u-als): lim-its sta-tis-ti-cal power;
  []
 
 
-Underfull \hbox (badness 2368) in paragraph at lines 500--500
+Underfull \hbox (badness 2368) in paragraph at lines 497--497
 \T1/cmr/m/n/10.95 be in-con-clu-sive at Bonferroni-
  []
 
 
-Overfull \hbox (4.91943pt too wide) in paragraph at lines 502--502
+Overfull \hbox (4.91943pt too wide) in paragraph at lines 499--499
 []|\T1/cmr/m/n/10.95 R3| 
  []
 
 
-Overfull \hbox (4.91943pt too wide) in paragraph at lines 504--504
+Overfull \hbox (4.91943pt too wide) in paragraph at lines 501--501
 []|\T1/cmr/m/n/10.95 R4| 
  []
 
 
-Overfull \hbox (4.91943pt too wide) in paragraph at lines 506--506
+Overfull \hbox (4.91943pt too wide) in paragraph at lines 503--503
 []|\T1/cmr/m/n/10.95 R5| 
  []
 
 
-Overfull \hbox (4.91943pt too wide) in paragraph at lines 508--508
+Overfull \hbox (4.91943pt too wide) in paragraph at lines 505--505
 []|\T1/cmr/m/n/10.95 R6| 
  []
 
 
-Underfull \hbox (badness 3428) in paragraph at lines 508--508
+Underfull \hbox (badness 3428) in paragraph at lines 505--505
 \T1/cmr/m/n/10.95 sor: Galchin can-not pro-vide
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 509--509
+Underfull \hbox (badness 10000) in paragraph at lines 506--506
 []|\T1/cmr/m/n/10.95 Educational su-per-vi-sor Pe-ter
  []
 
 
-Underfull \hbox (badness 1383) in paragraph at lines 509--509
+Underfull \hbox (badness 1383) in paragraph at lines 506--506
 \T1/cmr/m/n/10.95 source of method-olog-i-cal guid-
  []
 
 
-Overfull \hbox (4.91943pt too wide) in paragraph at lines 510--510
+Overfull \hbox (4.91943pt too wide) in paragraph at lines 507--507
 []|\T1/cmr/m/n/10.95 R7| 
  []
 
 
-Underfull \hbox (badness 1769) in paragraph at lines 510--510
+Underfull \hbox (badness 1769) in paragraph at lines 507--507
 []|\T1/cmr/m/n/10.95 Deadline risk: June 22 hard
  []
 
 
-Overfull \hbox (4.91943pt too wide) in paragraph at lines 512--512
+Overfull \hbox (4.91943pt too wide) in paragraph at lines 509--509
 []|\T1/cmr/m/n/10.95 R8| 
  []
 
 
-Underfull \hbox (badness 6284) in paragraph at lines 512--512
+Underfull \hbox (badness 6284) in paragraph at lines 509--509
 []|\T1/cmr/m/n/10.95 Scope creep: ad-di-tional ex-
  []
 
 
-Underfull \hbox (badness 1584) in paragraph at lines 512--512
+Underfull \hbox (badness 1584) in paragraph at lines 509--509
 \T1/cmr/m/n/10.95 per-i-ments or ex-tended fea-ture
  []
 
 
-Underfull \hbox (badness 1715) in paragraph at lines 512--512
+Underfull \hbox (badness 1715) in paragraph at lines 509--509
 \T1/cmr/m/n/10.95 en-gi-neer-ing added be-yond the
  []
 
 
-Underfull \hbox (badness 7522) in paragraph at lines 513--514
+Underfull \hbox (badness 7522) in paragraph at lines 510--511
 []|\T1/cmr/m/n/10.95 The project con-straints doc-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 513--514
+Underfull \hbox (badness 10000) in paragraph at lines 510--511
 \T1/cmr/m/n/10.95 u-ment ex-plic-itly lists all
  []
 
 
-Underfull \hbox (badness 6396) in paragraph at lines 513--514
+Underfull \hbox (badness 6396) in paragraph at lines 510--511
 \T1/cmr/m/n/10.95 out-of-scope items. Out-of-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 513--514
+Underfull \hbox (badness 10000) in paragraph at lines 510--511
 \T1/cmtt/m/n/10.95 future_work.md \T1/cmr/m/n/10.95 rather than
  []
 
@@ -873,7 +873,7 @@ v/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Us
 ers/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmr8.pfb><C:/Users/AleksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmsy10.pfb>
-Output written on PoA_full.pdf (18 pages, 248977 bytes).
+Output written on PoA_full.pdf (18 pages, 248941 bytes).
 PDF statistics:
  741 PDF objects out of 1000 (max. 8388607)
  60 named destinations out of 1000 (max. 500000)

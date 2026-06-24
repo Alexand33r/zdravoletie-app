@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  19 JUN 2026 10:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.27)  24 JUN 2026 13:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -345,32 +345,33 @@ Package hyperref Info: Link coloring OFF on input line 11.
 
 {C:/Users/AleksandarTanev/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2
 ]
-Overfull \hbox (194.57764pt too wide) in paragraph at lines 64--66
+Overfull \hbox (194.57764pt too wide) in paragraph at lines 70--72
 \T1/cmr/m/n/10.95 reverse-engineering fram-ing of the the-sis. [] 
  []
 
+[3]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 82.
+(Font)              <10.95> on input line 92.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 82.
+(Font)              <8> on input line 92.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 82.
-[3] [4]
-Overfull \hbox (129.4203pt too wide) in paragraph at lines 101--103
+(Font)              <6> on input line 92.
+ [4]
+Overfull \hbox (129.4203pt too wide) in paragraph at lines 113--115
 \T1/cmr/m/n/10.95 be-fore the flaw was caught. [] 
  []
 
-[5] [6] [7] [8]
-Overfull \hbox (49.80894pt too wide) in paragraph at lines 174--176
+[5] [6] [7] [8] [9]
+Overfull \hbox (49.80894pt too wide) in paragraph at lines 198--200
 \T1/cmr/m/n/10.95 tion time. [] 
  []
 
-[9] [10]
-Overfull \hbox (171.29057pt too wide) in paragraph at lines 198--200
+[10] [11]
+Overfull \hbox (171.29057pt too wide) in paragraph at lines 226--228
 \T1/cmr/m/n/10.95 sig-nif-i-cance of in-con-clu-sive find-ings. [] 
  []
 
-[11] [12] [13] [14] (logbook_temp.aux)
+[12] [13] [14] (logbook_temp.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-04-28>
@@ -381,11 +382,11 @@ Package rerunfilecheck Info: File `logbook_temp.out' has not changed.
 Here is how much of TeX's memory you used:
  10342 strings out of 467683
  167873 string characters out of 5409881
- 625132 words of memory out of 5000000
+ 624132 words of memory out of 5000000
  39309 multiletter control sequences out of 15000+600000
  635100 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,5n,79p,1312b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 69i,6n,79p,1312b,449s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
 pi600\ecbx1440.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKTeX\fonts/pk/ljfo
 ur/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\AleksandarTanev\AppData\Local\MiKT
@@ -393,7 +394,7 @@ eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\AleksandarTanev\Ap
 pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/Ale
 ksandarTanev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.
 pfb>
-Output written on logbook_temp.pdf (14 pages, 122400 bytes).
+Output written on logbook_temp.pdf (14 pages, 123924 bytes).
 PDF statistics:
  342 PDF objects out of 1000 (max. 8388607)
  34 named destinations out of 1000 (max. 500000)
