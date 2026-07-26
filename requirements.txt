@@ -1,10 +1,16 @@
 # Zdravoletie thesis project
-# Python 3.14.x
+# Python 3.11.x
 # Install: pip install -r requirements.txt
 
 # Core data and ML
-numpy==2.4.2
-pandas==3.0.0
+# numpy/pandas/pyarrow pinned below this specific range: pandas>=2.3 defaults to
+# Arrow-backed string columns, and pyarrow>=17 combined with numpy>=2.1 segfaults
+# on Apple Silicon inside pandas/core/arrays/string_arrow.py's ArrowStringArray
+# construction when pd.read_csv runs on a Streamlit ScriptRunner background thread
+# (reproduced via streamlit.testing.v1.AppTest with real multipage navigation).
+numpy==2.0.2
+pandas==2.2.3
+pyarrow==16.1.0
 scikit-learn==1.8.0
 scipy==1.17.1
 joblib==1.5.3
