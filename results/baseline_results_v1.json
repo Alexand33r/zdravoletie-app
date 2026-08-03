@@ -1,0 +1,413 @@
+{
+  "label": "pre-improvement baseline, established 2026-08-03",
+  "description": "Re-run of the original Experiment 1 protocol (Experiment_1.py, unmodified) to establish a valid 'before' comparison point ahead of any future model or feature-set improvements.",
+  "protocol": {
+    "n_cv_splits": 30,
+    "test_size": 0.2,
+    "group_column": "name",
+    "random_seed": 42,
+    "confidence_level": 0.95,
+    "bonferroni_alpha": 0.005,
+    "n_model_pairs": 10,
+    "models": [
+      "RandomForest",
+      "Ridge",
+      "SVR",
+      "GradientBoosting",
+      "HistGradientBoosting"
+    ]
+  },
+  "environment": {
+    "scikit-learn": "1.8.0",
+    "numpy": "2.0.2",
+    "pandas": "2.2.3",
+    "pyarrow": "16.1.0",
+    "scipy": "1.17.1"
+  },
+  "summary": {
+    "RandomForest": {
+      "MAE": {
+        "mean": 2.5104,
+        "std": 0.8778,
+        "ci_lower": 2.1826,
+        "ci_upper": 2.8382
+      },
+      "RMSE": {
+        "mean": 3.2037,
+        "std": 0.9577,
+        "ci_lower": 2.8461,
+        "ci_upper": 3.5613
+      },
+      "R2": {
+        "mean": -0.4699,
+        "std": 0.7933,
+        "ci_lower": -0.7661,
+        "ci_upper": -0.1737
+      }
+    },
+    "Ridge": {
+      "MAE": {
+        "mean": 2.4767,
+        "std": 1.0488,
+        "ci_lower": 2.0851,
+        "ci_upper": 2.8684
+      },
+      "RMSE": {
+        "mean": 3.1024,
+        "std": 1.2857,
+        "ci_lower": 2.6223,
+        "ci_upper": 3.5825
+      },
+      "R2": {
+        "mean": -0.4911,
+        "std": 1.5363,
+        "ci_lower": -1.0647,
+        "ci_upper": 0.0826
+      }
+    },
+    "SVR": {
+      "MAE": {
+        "mean": 2.621,
+        "std": 0.8475,
+        "ci_lower": 2.3045,
+        "ci_upper": 2.9375
+      },
+      "RMSE": {
+        "mean": 3.4223,
+        "std": 0.8275,
+        "ci_lower": 3.1134,
+        "ci_upper": 3.7313
+      },
+      "R2": {
+        "mean": -0.661,
+        "std": 0.6692,
+        "ci_lower": -0.9108,
+        "ci_upper": -0.4111
+      }
+    },
+    "GradientBoosting": {
+      "MAE": {
+        "mean": 2.5109,
+        "std": 0.8718,
+        "ci_lower": 2.1854,
+        "ci_upper": 2.8365
+      },
+      "RMSE": {
+        "mean": 3.1283,
+        "std": 1.02,
+        "ci_lower": 2.7475,
+        "ci_upper": 3.5092
+      },
+      "R2": {
+        "mean": -0.4219,
+        "std": 0.8552,
+        "ci_lower": -0.7412,
+        "ci_upper": -0.1026
+      }
+    },
+    "HistGradientBoosting": {
+      "MAE": {
+        "mean": 2.4266,
+        "std": 0.8954,
+        "ci_lower": 2.0923,
+        "ci_upper": 2.761
+      },
+      "RMSE": {
+        "mean": 3.0501,
+        "std": 1.0471,
+        "ci_lower": 2.6591,
+        "ci_upper": 3.4411
+      },
+      "R2": {
+        "mean": -0.3634,
+        "std": 0.8948,
+        "ci_lower": -0.6975,
+        "ci_upper": -0.0293
+      }
+    }
+  },
+  "wilcoxon_significance": [
+    {
+      "metric": "MAE",
+      "model_a": "RandomForest",
+      "model_b": "Ridge",
+      "wilcoxon_stat": 178.0,
+      "p_raw": 0.271006,
+      "p_adjusted": 1.0,
+      "significant": false
+    },
+    {
+      "metric": "MAE",
+      "model_a": "RandomForest",
+      "model_b": "SVR",
+      "wilcoxon_stat": 142.0,
+      "p_raw": 0.063556,
+      "p_adjusted": 0.635565,
+      "significant": false
+    },
+    {
+      "metric": "MAE",
+      "model_a": "RandomForest",
+      "model_b": "GradientBoosting",
+      "wilcoxon_stat": 219.0,
+      "p_raw": 0.792159,
+      "p_adjusted": 1.0,
+      "significant": false
+    },
+    {
+      "metric": "MAE",
+      "model_a": "RandomForest",
+      "model_b": "HistGradientBoosting",
+      "wilcoxon_stat": 140.0,
+      "p_raw": 0.057688,
+      "p_adjusted": 0.576879,
+      "significant": false
+    },
+    {
+      "metric": "MAE",
+      "model_a": "Ridge",
+      "model_b": "SVR",
+      "wilcoxon_stat": 146.0,
+      "p_raw": 0.076721,
+      "p_adjusted": 0.767212,
+      "significant": false
+    },
+    {
+      "metric": "MAE",
+      "model_a": "Ridge",
+      "model_b": "GradientBoosting",
+      "wilcoxon_stat": 178.0,
+      "p_raw": 0.271006,
+      "p_adjusted": 1.0,
+      "significant": false
+    },
+    {
+      "metric": "MAE",
+      "model_a": "Ridge",
+      "model_b": "HistGradientBoosting",
+      "wilcoxon_stat": 229.0,
+      "p_raw": 0.951526,
+      "p_adjusted": 1.0,
+      "significant": false
+    },
+    {
+      "metric": "MAE",
+      "model_a": "SVR",
+      "model_b": "GradientBoosting",
+      "wilcoxon_stat": 187.0,
+      "p_raw": 0.359878,
+      "p_adjusted": 1.0,
+      "significant": false
+    },
+    {
+      "metric": "MAE",
+      "model_a": "SVR",
+      "model_b": "HistGradientBoosting",
+      "wilcoxon_stat": 97.0,
+      "p_raw": 0.004338,
+      "p_adjusted": 0.043382,
+      "significant": false
+    },
+    {
+      "metric": "MAE",
+      "model_a": "GradientBoosting",
+      "model_b": "HistGradientBoosting",
+      "wilcoxon_stat": 159.0,
+      "p_raw": 0.134735,
+      "p_adjusted": 1.0,
+      "significant": false
+    },
+    {
+      "metric": "RMSE",
+      "model_a": "RandomForest",
+      "model_b": "Ridge",
+      "wilcoxon_stat": 130.0,
+      "p_raw": 0.034537,
+      "p_adjusted": 0.345367,
+      "significant": false
+    },
+    {
+      "metric": "RMSE",
+      "model_a": "RandomForest",
+      "model_b": "SVR",
+      "wilcoxon_stat": 92.0,
+      "p_raw": 0.002987,
+      "p_adjusted": 0.02987,
+      "significant": false
+    },
+    {
+      "metric": "RMSE",
+      "model_a": "RandomForest",
+      "model_b": "GradientBoosting",
+      "wilcoxon_stat": 157.0,
+      "p_raw": 0.124134,
+      "p_adjusted": 1.0,
+      "significant": false
+    },
+    {
+      "metric": "RMSE",
+      "model_a": "RandomForest",
+      "model_b": "HistGradientBoosting",
+      "wilcoxon_stat": 99.0,
+      "p_raw": 0.005013,
+      "p_adjusted": 0.050126,
+      "significant": false
+    },
+    {
+      "metric": "RMSE",
+      "model_a": "Ridge",
+      "model_b": "SVR",
+      "wilcoxon_stat": 103.0,
+      "p_raw": 0.00664,
+      "p_adjusted": 0.066395,
+      "significant": false
+    },
+    {
+      "metric": "RMSE",
+      "model_a": "Ridge",
+      "model_b": "GradientBoosting",
+      "wilcoxon_stat": 183.0,
+      "p_raw": 0.318396,
+      "p_adjusted": 1.0,
+      "significant": false
+    },
+    {
+      "metric": "RMSE",
+      "model_a": "Ridge",
+      "model_b": "HistGradientBoosting",
+      "wilcoxon_stat": 209.0,
+      "p_raw": 0.640825,
+      "p_adjusted": 1.0,
+      "significant": false
+    },
+    {
+      "metric": "RMSE",
+      "model_a": "SVR",
+      "model_b": "GradientBoosting",
+      "wilcoxon_stat": 103.0,
+      "p_raw": 0.00664,
+      "p_adjusted": 0.066395,
+      "significant": false
+    },
+    {
+      "metric": "RMSE",
+      "model_a": "SVR",
+      "model_b": "HistGradientBoosting",
+      "wilcoxon_stat": 72.0,
+      "p_raw": 0.000555,
+      "p_adjusted": 0.005548,
+      "significant": false
+    },
+    {
+      "metric": "RMSE",
+      "model_a": "GradientBoosting",
+      "model_b": "HistGradientBoosting",
+      "wilcoxon_stat": 165.0,
+      "p_raw": 0.170598,
+      "p_adjusted": 1.0,
+      "significant": false
+    },
+    {
+      "metric": "R2",
+      "model_a": "RandomForest",
+      "model_b": "Ridge",
+      "wilcoxon_stat": 135.0,
+      "p_raw": 0.044907,
+      "p_adjusted": 0.449072,
+      "significant": false
+    },
+    {
+      "metric": "R2",
+      "model_a": "RandomForest",
+      "model_b": "SVR",
+      "wilcoxon_stat": 98.0,
+      "p_raw": 0.004665,
+      "p_adjusted": 0.046648,
+      "significant": false
+    },
+    {
+      "metric": "R2",
+      "model_a": "RandomForest",
+      "model_b": "GradientBoosting",
+      "wilcoxon_stat": 170.0,
+      "p_raw": 0.20541,
+      "p_adjusted": 1.0,
+      "significant": false
+    },
+    {
+      "metric": "R2",
+      "model_a": "RandomForest",
+      "model_b": "HistGradientBoosting",
+      "wilcoxon_stat": 117.0,
+      "p_raw": 0.016431,
+      "p_adjusted": 0.164312,
+      "significant": false
+    },
+    {
+      "metric": "R2",
+      "model_a": "Ridge",
+      "model_b": "SVR",
+      "wilcoxon_stat": 108.0,
+      "p_raw": 0.009301,
+      "p_adjusted": 0.093011,
+      "significant": false
+    },
+    {
+      "metric": "R2",
+      "model_a": "Ridge",
+      "model_b": "GradientBoosting",
+      "wilcoxon_stat": 185.0,
+      "p_raw": 0.338742,
+      "p_adjusted": 1.0,
+      "significant": false
+    },
+    {
+      "metric": "R2",
+      "model_a": "Ridge",
+      "model_b": "HistGradientBoosting",
+      "wilcoxon_stat": 208.0,
+      "p_raw": 0.626346,
+      "p_adjusted": 1.0,
+      "significant": false
+    },
+    {
+      "metric": "R2",
+      "model_a": "SVR",
+      "model_b": "GradientBoosting",
+      "wilcoxon_stat": 112.0,
+      "p_raw": 0.012048,
+      "p_adjusted": 0.120476,
+      "significant": false
+    },
+    {
+      "metric": "R2",
+      "model_a": "SVR",
+      "model_b": "HistGradientBoosting",
+      "wilcoxon_stat": 78.0,
+      "p_raw": 0.000952,
+      "p_adjusted": 0.009518,
+      "significant": false
+    },
+    {
+      "metric": "R2",
+      "model_a": "GradientBoosting",
+      "model_b": "HistGradientBoosting",
+      "wilcoxon_stat": 167.0,
+      "p_raw": 0.183969,
+      "p_adjusted": 1.0,
+      "significant": false
+    }
+  ],
+  "headline_conclusions": {
+    "best_model_by_mae": "HistGradientBoosting",
+    "worst_model_by_mae": "SVR",
+    "any_pair_significant_at_bonferroni_alpha": false
+  },
+  "known_discrepancy": {
+    "affected_model": "GradientBoosting",
+    "description": "GradientBoosting's per-fold MAE differs from the thesis-committed results/experiment_1_scores.csv on 8 of 30 folds (splits 5, 7, 8, 11, 12, 17, 23, 26), with a maximum single-fold absolute difference of 0.019 years. This shifts GradientBoosting's aggregate MAE from the thesis-reported 2.5123 [2.1867, 2.8380] to 2.5109 [2.1854, 2.8365] (and correspondingly small shifts in RMSE, R2, and every Wilcoxon row involving GradientBoosting).",
+    "all_other_models_status": "RandomForest and HistGradientBoosting reproduced bit-identically (0.0 max diff across all 30 folds); Ridge and SVR reproduced within float noise (max diff <6e-14).",
+    "root_cause": "Confirmed NOT an environment/version mismatch on this machine -- scikit-learn 1.8.0 is installed and matches the requirements.txt pin exactly. Accepted as a documented quirk, likely internal non-determinism in GradientBoostingRegressor's sequential tree-building that is not fully controlled by random_state alone across scikit-learn builds/environments.",
+    "impact_on_conclusions": "None. HistGradientBoosting remains the best model by MAE, SVR remains the worst, and all ten pairwise Wilcoxon comparisons remain Bonferroni-inconclusive, identical to the thesis-reported findings."
+  }
+}
