@@ -57,6 +57,17 @@ df = pd.read_csv(config.PATH_MASTER_CSV)
 with open(config.PATH_MODEL_FEATURES) as f:
     model_features = json.load(f)
 
+# ── Sentinel value fix ────────────────────────────────────────────────────────
+# sportSafeRisk and sportLevel use -1 to mean "not computed", not a real low
+# score. Treating -1 as numeric biased the feature toward "safe"/"low activity".
+# Replace with NaN (so it is median-imputed per fold like any other missing
+# value) and add a missingness indicator so the model can still learn from the
+# fact that the value was absent.
+sentinel_columns = ["sportSafeRisk", "sportLevel"]
+for col in sentinel_columns:
+    df[f"{col}_missing"] = (df[col] == -1).astype(int)
+    df[col] = df[col].replace(-1, np.nan)
+
 # ── Feature engineering ───────────────────────────────────────────────────────
 # Must match Health_Pipeline.ipynb exactly.
 # +0.1 guards prevent division by zero; lowerBody has 47 NaN rows that become
@@ -71,12 +82,15 @@ postural_cols = ["humpbackRisk", "spineRisk", "pelvisRisk",
 df["aggregated_postural_index"] = df[postural_cols].mean(axis=1)
 df.replace([np.inf, -np.inf], np.nan, inplace=True)
 
-X_full = df[model_features].copy()
+missingness_indicator_columns = [f"{col}_missing" for col in sentinel_columns]
+X_full = df[model_features + missingness_indicator_columns].copy()
 y_full = df["age_gap"].copy()
 groups = df[config.GROUP_COLUMN]
 
 print(f"  Dataset: {len(df)} records, {df[config.GROUP_COLUMN].nunique()} individuals")
-print(f"  Features: {len(model_features)}")
+print(f"  Features: {len(X_full.columns)} "
+      f"({len(model_features)} model features + {len(missingness_indicator_columns)} "
+      f"sentinel-missingness indicators)")
 print(f"  Target: age_gap  mean={y_full.mean():.2f}  std={y_full.std():.2f}")
 
 

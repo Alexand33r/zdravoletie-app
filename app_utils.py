@@ -20,6 +20,19 @@ import streamlit as st
 from translations import TRANSLATIONS
 
 
+# ── Sentinel value fix feature flag ───────────────────────────────────────────
+# The sentinel-encoding fix for sportSafeRisk/sportLevel (see _fix_sentinel_
+# missingness below) is implemented and tested, but the currently deployed
+# model (models/anovator_age_gap_model.joblib) was trained on the ORIGINAL,
+# unfixed encoding, where -1 passes straight through as a literal numeric
+# value. Activating the fix here without retraining would feed that live
+# model inputs it never saw during training (median-imputed values instead
+# of raw -1), silently changing its effective predictions without a retrain.
+# Set to True only after the v2 model (trained with corrected sentinel encoding) is deployed.
+# Until then, keep False so live inference stays consistent with the currently deployed model artifact.
+USE_SENTINEL_FIX = False
+
+
 # ── Asset loading (cached for the session lifetime) ───────────────────────────
 
 @st.cache_resource
@@ -39,7 +52,17 @@ def load_assets():
 
 @st.cache_data
 def load_population() -> pd.DataFrame:
-    return pd.read_csv("data/Anovator_Biological_Master.csv")
+    df = pd.read_csv("data/Anovator_Biological_Master.csv")
+    mixed_type_cols = [
+        "bodyDetect", "bodyImage", "bodyImgOriginal", "email",
+        "legRisk", "sideBodyDetect", "sideImage", "sideImgOriginal", "opinion"
+    ]
+    for col in mixed_type_cols:
+        if col in df.columns:
+            df[col] = df[col].fillna("").astype(str)
+    if USE_SENTINEL_FIX:
+        df = _fix_sentinel_missingness(df)
+    return df
 
 
 @st.cache_resource
@@ -69,17 +92,37 @@ DERIVED_FEATURES = {
     "sex_encoded", "muscle_fat_ratio",
     "upper_lower_muscle_ratio", "trunk_limb_fat_ratio",
     "aggregated_postural_index",
+    "sportSafeRisk_missing", "sportLevel_missing",
 }
 
 LIMB_FAT_COLS   = ["fatLeftArm", "fatRightArm", "fatLeftLeg", "fatRightLeg"]
 POSTURAL_COLS   = ["humpbackRisk", "spineRisk", "pelvisRisk",
                    "postureRisk", "kneeRisk", "frontHeadRisk"]
+SENTINEL_MISSING_COLS = ["sportSafeRisk", "sportLevel"]
 
 # Minimum raw columns needed to derive the 5 engineered features
 UPLOAD_REQUIRED_COLS = [
     "sex", "fat", "muscle", "upperBody", "lowerBody",
     "fatTrunk", *LIMB_FAT_COLS, *POSTURAL_COLS,
 ]
+
+
+def _fix_sentinel_missingness(df: pd.DataFrame) -> pd.DataFrame:
+    """sportSafeRisk and sportLevel use -1 to mean "not computed", not a real
+    low score. Replace with NaN and add a missingness indicator per column so
+    downstream median imputation and the model can treat it correctly. Safe to
+    call more than once on the same dataframe (idempotent): once a column's
+    values are NaN, re-running finds no remaining -1 and leaves it unchanged.
+    """
+    df = df.copy()
+    for col in SENTINEL_MISSING_COLS:
+        if col not in df.columns:
+            continue
+        indicator_col = f"{col}_missing"
+        if indicator_col not in df.columns:
+            df[indicator_col] = (df[col] == -1).astype(int)
+        df[col] = df[col].replace(-1, np.nan)
+    return df
 
 
 def _add_derived_features(df: pd.DataFrame) -> pd.DataFrame:
@@ -91,6 +134,8 @@ def _add_derived_features(df: pd.DataFrame) -> pd.DataFrame:
     df["trunk_limb_fat_ratio"]    = df["fatTrunk"] / (df[LIMB_FAT_COLS].sum(axis=1) + 0.1)
     df["aggregated_postural_index"]= df[POSTURAL_COLS].mean(axis=1)
     df.replace([np.inf, -np.inf], np.nan, inplace=True)
+    if USE_SENTINEL_FIX:
+        df = _fix_sentinel_missingness(df)
     return df
 
 
@@ -179,6 +224,8 @@ FEATURE_LABELS = {
     "aerobicGoal":              "Aerobic fitness goal",
     "sportSafeRisk":            "Sport safety risk",
     "sportLevel":               "Sport activity level",
+    "sportSafeRisk_missing":    "Sport safety risk not computed (indicator)",
+    "sportLevel_missing":       "Sport activity level not computed (indicator)",
     "leftVision":               "Left eye vision",
     "rightVision":              "Right eye vision",
     "bloodMaxPressure":         "Systolic blood pressure",
